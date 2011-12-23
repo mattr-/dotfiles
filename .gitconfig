@@ -12,3 +12,11 @@
 [url "git@github.com:"]
   pushInsteadOf = github:
 
+[diff]
+[color]
+  ui = auto
+
+[alias]
+  st = status
+  co = checkout
+
