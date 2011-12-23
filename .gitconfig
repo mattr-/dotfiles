@@ -19,4 +19,5 @@
 [alias]
   st = status
   co = checkout
-
+  last = !git l -1
+  l = log --abbrev-commit --date=relative
