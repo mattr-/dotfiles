@@ -1,0 +1,21 @@
+# automatically remove duplicates from these arrays
+typeset -gU path cdpath fpath manpath fignore
+
+# link ld library path variables
+typeset -TU LD_LIBRARY_PATH ld_library_path
+
+#setup custom path
+local app_path=$HOME/Applications
+for dir in $app_path/*
+do
+  #Special case the android sdk because they don't follow the rules
+  if [ "${dir:t}" = "Android" ] ; then 
+    path=($dir/platform-tools $dir/tools $path) 
+    continue
+  fi
+
+  [[ -d $dir/bin ]] && path=($dir/bin $path) || path=($dir $path)
+done
+
+path=($HOME/bin $path)
+

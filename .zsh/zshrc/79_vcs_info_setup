@@ -1,0 +1,29 @@
+# Information in "man zshcontrib"
+zstyle ':vcs_info:git:*' check-for-changes true
+
+# Custom staged and unstaged changes strings
+zstyle ':vcs_info:*' unstagedstr '!'
+zstyle ':vcs_info:*' stagedstr '+'
+ 
+# Format when some action is going on in 
+# your repository (rebranch,merge conflict, ...)
+#
+zstyle ':vcs_info:*' actionformats \
+    "%s|%b|%a"
+zstyle ':vcs_info:*' actionformats \
+    "%c%u %s|%b|%a"
+
+# Default format: on master in dir(git)
+  zstyle ':vcs_info:*' formats       \
+    "on %b in %r(%s)%c%u"
+  zstyle ':vcs_info:git:*' formats       \
+    "on %b in %r(%s)%c%u"
+ 
+# Different branch formats
+# svn|www-1173739
+# zstyle ':vcs_info:*' branchformat '%b-%r'
+ 
+# Used VCS use 
+# %  vcs_info_printsys 
+# for supported systems 
+  zstyle ':vcs_info:*' enable git cvs svn hg

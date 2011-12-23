@@ -1,0 +1,9 @@
+# autoload executables in $fpath
+autoload -U $^fpath/*(.xN:t)
+
+# make colors available
+autoload -U colors ;  colors
+
+# vim:ft=zsh
+
+

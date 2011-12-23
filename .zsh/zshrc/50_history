@@ -1,0 +1,11 @@
+setopt append_history \
+       bang_hist \
+       extended_history \
+       hist_ignore_space
+
+HISTSIZE=2000
+SAVEHIST=6000
+HISTFILE=~/.zsh/history.$HOST
+
+
+# vim:ft=zsh

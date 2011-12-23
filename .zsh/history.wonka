@@ -1,0 +1,3427 @@
+: 1320205558:0;cd 
+: 1320205563:0;git status
+: 1320205584:0;echo GIT_WORKTREE
+: 1320205590:0;echo $GIT_WORK_TREE
+: 1320205595:0;echo $GIT_DIR
+: 1320205601:18;vim ~/.dotfiles/zsh.git
+: 1320205620:0;exit
+: 1320205626:0;git status
+: 1320205636:0;cd ..
+: 1320205636:0;ls
+: 1320205644:0;git status -uno
+: 1320205650:5;git status | less
+: 1320205656:0;exit
+: 1320205660:0;cd ../..
+: 1320205660:0;ls
+: 1320205663:0;git status
+: 1320205666:0;exit
+: 1320205687:0;git status
+: 1320205693:0;cd .vim
+: 1320205693:0;ls
+: 1320205708:0;cat bootstrap.sh
+: 1320205758:0;git rm after/ autoload/ CHANGELOG colors/ doc plugin/
+: 1320205762:0;git rm -r after/ autoload/ CHANGELOG colors/ doc plugin/
+: 1320205764:0;git status
+: 1320205769:0;ls
+: 1320205778:0;git rm README.markdown vimrc gvimrc Rakefile
+: 1320205779:0;ls
+: 1320205804:0;git mv bootstrap.sh ../.janus_bootstrap.sh
+: 1320205805:0;git status
+: 1320205815:0;cd ..
+: 1320205817:0;git rm .vim
+: 1320205822:0;ls .vim -la
+: 1320205826:0;cat .vim/.gitignore
+: 1320205835:0;git rm -r .vim
+: 1320205840:0;git status
+: 1320205853:0;git commit
+: 1320205861:0;git config --global user.email "mattr@kde.org"
+: 1320205868:0;git config --global user.name "Matt Rogers"
+: 1320205872:52;git commit
+: 1320205927:10;vim .janus
+: 1320205945:0;./.janus_bootstrap.sh
+: 1320205953:0;rmdir .vim
+: 1320205957:0;ls -la .vim
+: 1320205959:0;rm -rf .vim
+: 1320205968:0;which gem
+: 1320205979:0;which command gem
+: 1320205985:0;gem install rake
+: 1320205996:0;yaourt -Ss rubygem
+: 1320206001:3;yaourt -S ruby
+: 1320206040:7;yaourt -S gvim
+: 1320206050:0;exit
+: 1320206184:0;git status
+: 1320206189:0;git commit
+: 1320206192:14;git commit .janus_bootstrap.sh
+: 1320206209:0;git diff .janus_bootstrap.sh
+: 1320206227:0;git checkout .janus_bootstrap.sh
+: 1320206229:25;vim .janus
+: 1320206259:0;./.janus_bootstrap.sh
+: 1320206273:23;git commit .janus_bootstrap.sh
+: 1320206297:0;exit
+: 1320206305:3;git push
+: 1320206310:0;exit
+: 1320206364:980;ssh 192.168.1.30
+: 1320207347:355;ssh -Y 192.168.1.30
+: 1320205522:0;ls
+: 1320205526:0;ls -la zsh
+: 1320205528:0;la zsh
+: 1320205529:0;cd ..
+: 1320205529:0;ls
+: 1320205529:0;cd ..
+: 1320205530:0;ls
+: 1320205531:0;cd matt
+: 1320205531:0;ls
+: 1320205534:0;rmdir tmp/zsh
+: 1320205546:0;ls
+: 1320205548:0;cd .zsh
+: 1320205548:0;ls
+: 1320205549:0;cd functions
+: 1320205549:0;ls
+: 1320205551:0;vcsh zsh
+: 1320205555:0;autoload vcsh
+: 1320205556:64;vcsh zsh
+: 1320205621:0;vcsh git
+: 1320205624:32;vcsh zsh
+: 1320205657:9;vcsh vim
+: 1320205669:0;cd
+: 1320205674:8;vim ~/.dotfiles/vim.git/config
+: 1320205686:364;vcsh vim
+: 1320206063:58;sudo etckeeper pre-install ; sudo pacman -S gvim ; sudo etckeeper post-install
+: 1320206176:0;which rake
+: 1320206182:115;vcsh vim
+: 1320206301:9;vcsh vim
+: 1320206314:94;./.janus_bootstrap.sh
+: 1320206656:0;cd .vim
+: 1320206657:34;rake
+: 1320208111:0;cd tmp
+: 1320208111:0;ls
+: 1320208135:0;sudo rc.d start avahi-daemon 
+: 1320208139:0;sudo rc.d start avahi-daemon 
+: 1320208141:0;dmesg
+: 1320208146:0;ls
+: 1320208146:0;ls
+: 1320208158:3;git clone 192.168.1.30:/srv/gitprivate/dotfiles/ssh.git
+: 1320208163:0;cd ssh
+: 1320208165:12;vim .git/config
+: 1320208187:0;mv .git ~/.dotfiles/ssh.git
+: 1320208187:0;ls
+: 1320208188:0;ls -la
+: 1320208190:0;mv .ssh ~
+: 1320208196:0;rm -rf ~/.ssh
+: 1320208197:0;mv .ssh ~
+: 1320208201:1;ssh centurion.local
+: 1320208204:5;ssh 192.168.1.30
+: 1320208210:0;cd .ssh
+: 1320208212:0;cd ~
+: 1320208213:0;ls
+: 1320208218:0;ls -l .ssh
+: 1320208237:0;chmod -R o-r .ssh
+: 1320208242:2;ssh 192.168.1.30
+: 1320208249:0;chmod -R g-r .ssh
+: 1320208250:2;ssh 192.168.1.30
+: 1320208255:0;ls -la .ssh
+: 1320208259:0;ls -lad .ssh
+: 1320208269:0;cat .ssh/config
+: 1320285541:23;sudo pacman -Suy
+: 1320286228:0;ls
+: 1320286268:0;cd Code
+: 1320286269:0;ls
+: 1320286275:0;cd Tracks
+: 1320286277:0;ls
+: 1320286279:0;cd web
+: 1320286280:0;ls
+: 1320286284:0;cd rr
+: 1320286287:0;cd tra
+: 1320286299:0;cd tracks
+: 1320286300:0;ls
+: 1320286306:0;git remote
+: 1320286313:0;git remote show
+: 1320286318:0;git remote list
+: 1320286377:0;git remote add tracksapp git@github.com/TracksApp/tracks.git
+: 1320286396:0;git fetch tracksapp
+: 1320286415:0;git remote rm tracksapp
+: 1320286501:0;git remote add tracksapp git@github.com:TracksApp/tracks.git
+: 1320286511:3;git fetch tracksapp
+: 1320286534:5;git pull tracksapp master
+: 1320286564:17;git log | less
+: 1320286585:4;git push
+: 1320286597:0;exit
+: 1320208443:0;lsmod | grep vgaswitcheroo
+: 1320208446:0;lsmod | grep radeon
+: 1320208448:0;ls /sys/kernel/debug
+: 1320208460:0;sudo mount -t debugfs none /sys/kernel/debug
+: 1320208469:0;echo "OFF" > /sys/kernel/debug/vgaswitcheroo/switch
+: 1320208479:3;su -c "echo "OFF" > /sys/kernel/debug/vgaswitcheroo/switch"
+: 1320208487:0;cat /sys/kernel/debug/vgaswitcheroo/switch
+: 1320208488:0;dmesg
+: 1320248237:0;ip addr
+: 1320248269:0;route -n
+: 1320248272:0;ip route
+: 1320248290:8;sudo pacman -Suy
+: 1320248645:0;cd Downloads
+: 1320248645:0;ls
+: 1320248647:0;cd ..
+: 1320248647:0;ls
+: 1320248651:0;mkdir Applications
+: 1320248653:0;cd Apl
+: 1320248654:0;cd Applications
+: 1320248655:0;ls
+: 1320248663:1;tar xf ../Downloads/eclipse-java-indigo-SR1-linux-gtk-x86_64.tar.gz
+: 1320248666:0;ls
+: 1320248669:0;mv eclipse Eclipse
+: 1320248670:0;ls
+: 1320248675:1;tar xf ../Downloads/android-sdk_r15-linux.tgz
+: 1320248676:0;ls
+: 1320248683:0;mv android-sdk-linux Android
+: 1320248684:0;ls
+: 1320250700:0;cd ../tmp
+: 1320250722:11;wget free.nchc.org.tw/drbl-core/src/unstable/clonezilla-2.4.12.tar.bz2
+: 1320250734:0;ls
+: 1320250736:0;tar xf clonezilla-2.4.12.tar.bz2
+: 1320250737:0;ls
+: 1320250738:0;cd clonezilla-2.4.12
+: 1320250738:0;ls
+: 1320250740:0;ls -la
+: 1320250744:10;vim Makefile
+: 1320250765:2;sudo pacman -S ctags
+: 1320250769:0;ls
+: 1320250775:0;ls files
+: 1320250777:0;ls conf
+: 1320250779:0;ls scripts
+: 1320250783:0;cd scripts
+: 1320250784:0;ls
+: 1320250788:53;vim create-debian-live
+: 1320250841:0;ls
+: 1320250853:0;cd ../..
+: 1320250853:0;ls
+: 1320250855:0;rm -rf clonezilla-2.4.12*
+: 1320252440:0;which rvm
+: 1320252444:0;rvm get head
+: 1320252503:0;git status
+: 1320252511:0;rvm list
+: 1320252512:0;rvm
+: 1320252527:0;rvm install 1.9.2
+: 1320252857:0;rvm install 1.8.7
+: 1320252999:9;vim /home/matt/.rvm/log/ruby-1.8.7-p352/make.log
+: 1320253020:0;cd ~/.rvm/src/ruby-1.8.7-p352
+: 1320253020:0;ls
+: 1320253023:0;cd ext
+: 1320253024:0;ls
+: 1320253025:0;cd dl
+: 1320253026:0;ls
+: 1320253034:0;rm callback.func call.func cbtable.func
+: 1320253036:0;make -n
+: 1320253248:21;../../miniruby -I'../..' -I'../.././lib' -I'../../.ext/x86_64-linux' -I'../../.ext/common' -I./- -I'../.././ext' -rpurelib.rb ../.././ext/dl/mkcall.rb | kwrite --stdin
+: 1320253271:0;../../miniruby -I'../..' -I'../.././lib' -I'../../.ext/x86_64-linux' -I'../../.ext/common' -I./- -I'../.././ext' -rpurelib.rb ../.././ext/dl/mkcall.rb 
+: 1320253279:0;../../miniruby -I'../..' -I'../.././lib' -I'../../.ext/x86_64-linux' -I'../../.ext/common' -I./- -I'../.././ext' -rpurelib.rb ../.././ext/dl/mkcall.rb 2>/dev/null
+: 1320253297:0;make
+: 1320253307:0;rm callback.func cbtable.func
+: 1320253309:0;make -n
+: 1320253325:33;../../miniruby -I'../..' -I'../.././lib' -I'../../.ext/x86_64-linux' -I'../../.ext/common' -I./- -I'../.././ext' -rpurelib.rb ../.././ext/dl/mkcallback.rb | kwrite --stdin
+: 1320253370:12;../../miniruby -I'../..' -I'../.././lib' -I'../../.ext/x86_64-linux' -I'../../.ext/common' -I./- -I'../.././ext' -rpurelib.rb ../.././ext/dl/mkcbtable.rb | kwrite --stdin
+: 1320253384:2;make
+: 1320253389:0;popd
+: 1320253392:0;cd ../../../..
+: 1320253393:0;cd ..
+: 1320253401:0;rvm install 1.8.7
+: 1320253684:0;cd Code
+: 1320253685:0;ls
+: 1320254725:0;mkdir Tracks
+: 1320254727:0;cd Tracks
+: 1320254727:0;ls
+: 1320254746:33;scp -r matt@home.mattr.info:./save/matt/Code/Tracks/web .
+: 1320254792:134;rsync -rvPh matt@home.mattr.info:./save/matt/Code/Tracks/web .
+: 1320255686:0;cd web/tracks
+: 1320255695:0;rvm current
+: 1320255699:14;bundle
+: 1320255714:0;gem list
+: 1320255723:107;bundle
+: 1320261064:0;cat config/database.yml
+: 1320261072:0;rake test:units
+: 1320261078:0;bundle install
+: 1320261084:59;bundle exec rake test
+: 1320265622:0;ls
+: 1320266708:0;cd ../..
+: 1320266708:0;ls
+: 1320266709:0;cd ..
+: 1320266709:0;ls
+: 1320266723:11;rsync -rvPh matt@home.mattr.info:./save/matt/Code/existential .
+: 1320266736:0;rvm current
+: 1320266743:0;rvm use 1.8.7@existential
+: 1320266746:0;cd existential
+: 1320266746:0;ls
+: 1320266752:27;vim README
+: 1320266779:0;ls
+: 1320266786:4;vim config.ru
+: 1320266790:0;ls
+: 1320266795:9;vim Gemfile
+: 1320266811:0;rvm use 1.9.2@existential
+: 1320266818:0;rvm --rvmrc use 1.9.2@existential
+: 1320266821:4;vim .rvmrc
+: 1320266826:0;ls
+: 1320266829:3;bundle install
+: 1320266833:0;rvm curent
+: 1320266836:0;rmv current
+: 1320266838:0;rvm current
+: 1320266841:1;gem list
+: 1320266850:1;bundle show bundler
+: 1320266855:7;vim Gemfile
+: 1320266864:59;bundle install
+: 1320266995:0;rspec
+: 1320266996:13;rake spec
+: 1320267022:0;rails server
+: 1320253646:7954;ssh matt@home.mattr.info
+: 1320266109:0;ls
+: 1320267419:12;vim .vim/Rakefile
+: 1320267432:0;cd Code
+: 1320267432:0;ls
+: 1320267455:5;git clone git@github.com:mattr-/janus
+: 1320267461:0;cd janus
+: 1320267462:0;ls
+: 1320267648:697;vim Rakefile
+: 1320268351:0;cd .vim
+: 1320268352:0;ls
+: 1320268355:0;cd ~/.vim
+: 1320268356:0;ls
+: 1320268366:0;cp ~/Code/janus/Rakefile .
+: 1320268367:10;rake
+: 1320268394:0;rm Rakefile
+: 1320268397:0;ln --help
+: 1320268415:0;ln ~/Code/janus/Rakefile .
+: 1320268416:0;ls
+: 1320268417:0;ls -la
+: 1320268419:21;vim Rakefile
+: 1320268444:0;rm tmp/snipmate -rf
+: 1320268449:5;rake
+: 1320268463:13;vim Rakefile
+: 1320268477:10;rake
+: 1320268500:0;cd tmp
+: 1320268500:0;ls
+: 1320268501:0;cd tlib
+: 1320268502:0;ls
+: 1320268504:0;ls test
+: 1320268507:0;ls autoload
+: 1320268510:19;vim
+: 1320268537:25;vim ~/.vim/ftplugin/snippets.vim
+: 1320268563:0;ls
+: 1320268565:0;cd ..
+: 1320268566:0;ls
+: 1320268570:0;cd ..
+: 1320268572:0;ls
+: 1320268581:0;cd ~/Code/janus
+: 1320268581:0;ls
+: 1320268583:1073;git diff
+: 1320269663:0;git add Rakefile
+: 1320269664:29;git commit
+: 1320269696:1;git push
+: 1320269024:324;sudo pacman -Suy
+: 1320269455:1;yaourt -S libva-driver-intel
+: 1320285444:0;/sbin/ifconfig
+: 1320285446:0;ip addr
+: 1320294432:0;ps x
+: 1320294435:0;ps x
+: 1320294436:0;ps x
+: 1320294445:0;ps x
+: 1320294449:0;ps x | grep chr
+: 1320294452:0;ps -ef | grep chr
+: 1320294454:0;ps -ef
+: 1320294455:0;dmesg
+: 1320294468:38;chromium
+: 1320320218:0;plasma-desktop
+: 1320320220:0;ps -ef
+: 1320320225:0;kill 22474
+: 1320320230:1;plasma-desktop
+: 1320320239:0;qdbus
+: 1320320244:0;qdbus org.kde.ksmserver
+: 1320320248:0;qdbus org.kde.ksmserver /KSMServer
+: 1320320251:0;qdbus org.kde.ksmserver /KSMServer logout 0 0 0
+: 1320342075:0;exit
+: 1320369231:1;yaourt -Ss bluedevil
+: 1320369243:0;cd ~/Code/AUR
+: 1320369243:0;ls
+: 1320369252:0;yaourt -G bluedevil-git
+: 1320369256:0;yaourt -G libbluedevil-git
+: 1320369258:0;cd libbluedevil-git
+: 1320369259:0;ls
+: 1320369262:0;makepkg -cif
+: 1320369266:0;yaourt -S camek
+: 1320369269:48;yaourt -S cmake
+: 1320372148:38;makepkg -cif
+: 1320372188:0;cd ..
+: 1320372188:0;ls
+: 1320372190:0;cd bluedevil-git
+: 1320372192:0;makepkg -cif
+: 1320372197:3;yaourt -S automoc4
+: 1320372201:0;makepkg -cif
+: 1320372211:7;yaourt -S obex-data-server obexd-client
+: 1320372220:1013;makepkg -cif
+: 1320373390:2;yaourt -S libnotify
+: 1320378525:0;cat /sys/kernel/debug/vgaswitcheroo/switch
+: 1320378529:0;cd
+: 1320680656:0;cd ~/bin
+: 1320680657:0;ls
+: 1320680660:1;curl http://git-wt-commit.rubyforge.org/git-wtf
+: 1320680664:1;curl http://git-wt-commit.rubyforge.org/git-wtf > git-wtf
+: 1320680673:0;chmod 755 git-wtf
+: 1320342979:0;grep 'incomplete actions' 8
+: 1320342982:0;grep 'incomplete actions' * -r
+: 1320343007:0;grep no_actions_in_project *\
+
+: 1320343009:0;grep no_actions_in_project *\
+ -rn
+: 1320343014:0;grep no_actions_in_project * -rn
+: 1320343510:3;yaourt -S ack
+: 1320343524:0;which ack
+: 1320343533:2;yaourt -Ss ack
+: 1320343539:18;yaourt -Ss ack | less
+: 1320343558:0;ls
+: 1320343563:0;which ack
+: 1320343565:0;pacman -Ql ack
+: 1320343570:0;echo $path
+: 1320343587:1;ln -s /usr/bin/vendor_perl/ack /home/matt/bin
+: 1320343589:0;which ack
+: 1320343597:0;ls -l /usr/bin/vendor_perl/ack
+: 1320343601:0;ls /home/matt/ -l
+: 1320343608:0;mv ~/bin ~/ack
+: 1320343612:0;mkdir ~/bin
+: 1320343615:0;mv ~/ack ~/bin
+: 1320343616:0;which ack
+: 1320369851:0;grep -rn remote_toggle_checkbox *
+: 1320371732:84;bundle exec rake test
+: 1320371824:38;bundle exec rake test:functionals
+: 1320372054:38;bundle exec rake test:functionals
+: 1320372096:0;git status
+: 1320372099:10;git diff
+: 1320372110:0;git wtf
+: 1320372167:5;git diff
+: 1320372175:0;ls
+: 1320372237:0;git status
+: 1320372241:0;git stash --list
+: 1320372244:0;git stash list
+: 1320372246:0;git stash
+: 1320372250:67;bundle exec rake test
+: 1320372326:2;git stash --help
+: 1320372332:1;git stash list
+: 1320372335:3;git stash list
+: 1320372341:0;git stash drop
+: 1320372357:0;cat config/database.yml
+: 1320372370:5;bundle exec rake cucumber
+: 1320373235:111;bundle exec rake cucumber
+: 1320373367:22;bundle exec rake cucumber:selenium
+: 1320699155:0;exit
+: 1320853683:6773;sudo pacman -Suy
+: 1320865653:0;ls
+: 1320865655:0;cd Code
+: 1320865655:0;ls
+: 1320865657:0;cd has_many_polymorphs
+: 1320865657:0;ls
+: 1320866579:0;ls
+: 1320866581:0;ls test
+: 1320866584:0;cat test/test_t
+: 1320866587:0;cat test/test_helper.rb
+: 1320866608:0;ls
+: 1320866611:0;ls test/integration
+: 1320866638:13;vim Rakefile
+: 1320866652:0;l
+: 1320866653:0;ls
+: 1320866653:0;ls lib
+: 1320866656:0;ls lib/has_many_polymorphs
+: 1320866666:39;vim lib/has_many_polymorphs
+: 1320867555:0;l
+: 1320867557:0;ls
+: 1320867561:609;vim has_many_polymorphs.gemspec
+: 1320705376:0;cd Code/Tracks/web/tracks
+: 1320705377:0;ls
+: 1320705379:0;rvm
+: 1320705383:0;rvm curent
+: 1320705389:0;rvm use 1.9.2@tracks-rails3
+: 1320705400:1;script/plugin install git://github.com/rails/rails_upgrade.git
+: 1320705405:21;bundle
+: 1320705439:6;vim Gemfile
+: 1320705454:57;vim Gemfile
+: 1320705512:12;bundle
+: 1320706117:5;vim Gemfile
+: 1320706125:12;bundle
+: 1320706971:0;grep polymorphs app/* -rn
+: 1320722234:0;cd ../../..
+: 1320722234:0;ls
+: 1320722248:4;git clone git@github.com:mattr-/has_many_polymorphs.git
+: 1320722253:0;cd has_many_polymorphs
+: 1320722254:0;ls
+: 1320722259:0;ls test
+: 1320722263:0;rake test
+: 1320722269:0;rvm current
+: 1320722275:0;rvm use 1.9.2
+: 1320722279:0;rvm gemset create hmp
+: 1320722284:0;rvm gemset use hmp
+: 1320722285:0;bundle
+: 1320722286:0;ls
+: 1320722293:11;vim Rakefile
+: 1320722308:13;gem install bundler
+: 1320722322:0;rake test
+: 1320722323:0;ls
+: 1320722326:14;vim Rakefile
+: 1320722353:0;git add Rakefile
+: 1320722355:21;git commit
+: 1320722379:0;rake test_tall
+: 1320722383:1;rake test_all
+: 1320722393:0;bundle install rake
+: 1320722399:12;vim Gemfile
+: 1320722413:0;bundle
+: 1320722417:33;vim Gemfile
+: 1320722451:14;bundle
+: 1320722469:0;rake test_all
+: 1320722474:0;ls
+: 1320722476:0;cd test
+: 1320722476:0;ls
+: 1320722479:4;vim setup.rb
+: 1320722483:0;ls
+: 1320722485:0;ls fixtures
+: 1320722487:0;ls
+: 1320722489:0;ls generator
+: 1320722493:0;ls models
+: 1320722497:0;cd ..
+: 1320722497:0;ls
+: 1320722499:5;vim generators
+: 1320722505:0;ls
+: 1320722508:2;vim init.rb
+: 1320722512:6;vim Rakefile
+: 1320722521:2;vi Rakefile
+: 1320722525:8;vim Rakefile
+: 1320722534:0;ls lib
+: 1320722541:5;vim Manifest
+: 1320722547:1;vim TODO
+: 1320722549:0;ls
+: 1320722551:8;vim has_many_polymorphs.gemspec
+: 1320722564:6;vim Rakefile
+: 1320722570:0;ls
+: 1320722571:0;git status
+: 1320722573:0;git diff RAke
+: 1320722576:0;git diff Rakefile
+: 1320722580:3;git commit --amend
+: 1320722586:0;git diff
+: 1320722592:0;git add Rakefile
+: 1320722595:2;git commit --amend
+: 1320722599:0;git diff
+: 1320722605:0;git add has_many_polymorphs.gemspec
+: 1320722608:3;git commit --amend
+: 1320722617:0;ls
+: 1320722620:35;vim README
+: 1320722657:0;git status
+: 1320722658:0;ls
+: 1320722659:12;vim lib
+: 1320722671:0;ls
+: 1320722683:0;git commit
+: 1320722685:5;git diff
+: 1320722694:3;git push
+: 1320722698:0;ls
+: 1320722730:0;git status
+: 1320722736:0;git checkout -b add-bundler
+: 1320722744:0;git add Gemfile Gemfile.lock
+: 1320722746:10;git commit
+: 1320722758:11;git push
+: 1320722774:0;git status
+: 1320722780:2;git push origin add-bundler
+: 1320722884:0;ls
+: 1320722889:7;vim LICENSE
+: 1320722896:0;ls
+: 1320722900:3;vim TODO
+: 1320722904:0;ls
+: 1320722906:20;vim examples
+: 1320722926:0;ls
+: 1320723111:0;ls
+: 1320723112:0;cd test
+: 1320723113:0;ls
+: 1320723115:10;vim setup.rb
+: 1320723126:0;ls
+: 1320723128:0;ls unit
+: 1320846159:0;ip addr
+: 1320894315:0;ls
+: 1320894321:0;ls fixtures
+: 1320894324:0;ls generator
+: 1320894328:0;ls integration
+: 1320894331:0;ls mod
+: 1320894333:0;ls modules
+: 1320894337:2;vim modules/extension_module.rb
+: 1320894339:0;ls
+: 1320894342:0;ls models
+: 1320894345:0;ls integration
+: 1320894347:0;ls integration/app
+: 1320894351:0;ls integration/app/app
+: 1320894353:0;ls
+: 1320894356:0;cd ..
+: 1320894356:0;ls
+: 1320894359:0;ls generators/r
+: 1320894360:0;ls generators
+: 1320894362:0;ls generators/tagging
+: 1320894363:0;ls
+: 1320702820:53;sudo pacman -Suy
+: 1320702875:198;yaourt -Suy
+: 1320703825:0;ls
+: 1320703831:0;git checkout -b rails3.0
+: 1320703833:0;ls
+: 1320703842:1;script/plugin --help
+: 1320703851:60;script/plugin install rails_upgrade
+: 1320703912:0;clear
+: 1320703919:5;gem install rails
+: 1320703929:7;gem install rails ~>3.0.0
+: 1320703938:0;rvm current
+: 1320703941:0;rvm use 1.9.2
+: 1320703950:0;rvm use 1.9.2@tracks-rails3
+: 1320703959:0;rvm gemset create tracks-rails3
+: 1320703967:0;rvm use 1.9.2@tracks-rails3
+: 1320703972:201;bundle
+: 1320704191:19;vim Gemfile
+: 1320704216:7;bundle
+: 1320704226:1224;vim Gemfile
+: 1320895929:0;cd ~/Code/has_many_polymorphs
+: 1320895929:0;ls
+: 1320895932:0;rvm current
+: 1320895937:0;rvm gemset list
+: 1320895941:0;rvm use 1.9.2
+: 1320895944:0;rvm gemset list
+: 1320895950:0;rvm use 1.9.2@hmp
+: 1320895951:0;ls
+: 1320895952:0;ls lib
+: 1320895954:0;ls lib/has_many_polymorphs
+: 1320896751:0;cd ~/tmp
+: 1320896751:0;ls
+: 1320896756:0;tail plugin --help
+: 1320896769:0;rails plugin --help
+: 1320896777:0;rvm 1.9.2@hmp
+: 1320896784:0;rails plugin --help
+: 1320896791:297;gem install rails
+: 1320897488:42;rails new myapp
+: 1320897530:0;cd myapp
+: 1320897530:1;rails generate
+: 1320980588:2;vim Gemfe
+: 1320980592:31;vim Gemfile
+: 1320980627:26;bundle
+: 1320981119:4;rails generate
+: 1320981551:32644;vim config/environment.rb
+: 1321014197:0;cd ..
+: 1321014198:0;ls
+: 1321014199:0;rm -rf myapp
+: 1321014202:0;ls -la ssh
+: 1321014205:0;rmdir ssh
+: 1321023008:0;ls
+: 1321023016:34;yaourt -Suy
+: 1321023052:0;uname -a
+: 1321023054:86;fg
+: 1321069065:16;yaourt -S gtk-kde4
+: 1321069087:14;gtk-kde4
+: 1321069101:0;ls
+: 1321069108:0;pacman -Ql gtk-kde4
+: 1321069124:32;kcmshell4 gk4
+: 1321069220:47;gtk-kde4
+: 1321069268:0;bg
+: 1321069340:1;yaourt -Ss oxygen
+: 1321069372:1;yaourt -Ss oxygen-gtk
+: 1321069379:8;yaourt -S oxygen-gtk
+: 1321071168:0;cd Applications/Android
+: 1321071168:0;ls
+: 1321071171:0;ls platform-tools
+: 1321071549:0;kill 26248
+: 1321071551:115;gtk-kde4
+: 1321071671:241;yaourt -S oxygen-gtk3-git
+: 1321072067:0;ls
+: 1321072087:1;yaourt -S gtk-theme-switch
+: 1321072090:3;yaourt -S gtk-theme-switch2
+: 1321072098:0;bg
+: 1321072101:0;cd ..
+: 1321072102:14;eclipse
+: 1321072117:0;ls
+: 1321072120:0;kill 30108
+: 1321072123:0;kill 30108
+: 1321072130:18;kcmshell4 gk4
+: 1321072153:0;which adb
+: 1321072154:0;ls
+: 1321072156:0;rehash
+: 1321072157:0;which adb
+: 1321072158:0;ls -la
+: 1321072161:0;ls Android
+: 1321072168:0;chmod o+rx Android
+: 1321072169:0;ls -la Android
+: 1321072178:18;eclipse
+: 1321072196:0;bg
+: 1321072199:0;adb start-server
+: 1321072203:0;which adb
+: 1321072204:0;rehash
+: 1321072205:0;which adb
+: 1321072207:0;echo $PATH
+: 1321072218:17;vim ~/.zsh/zshenv
+: 1321072236:0;exit
+: 1320699165:118172;ssh 192.168.1.30
+: 1320982725:13;vim Gemfile
+: 1320982740:32;bundle
+: 1320983077:1206;vim Gemfile
+: 1320984286:169;bundle
+: 1320984458:4;vim Gemfile
+: 1320984464:53;bundle
+: 1320984518:0;git status
+: 1320984522:0;ls
+: 1320984525:0;rm 3.0.0
+: 1320984525:0;ls
+: 1320984527:0;git status
+: 1320984538:26;bundle update
+: 1320984917:2472;vim Gemfile
+: 1320987392:0;rvm current
+: 1320987401:0;rvm use 1.9.2@tracks
+: 1320987409:0;rvm gemset show
+: 1320987412:0;rvm gemset list
+: 1320987419:0;rvm use 1.9.2@tracks-rails3
+: 1320987420:42;bundle
+: 1320988185:0;ls
+: 1320988187:28;vim Gemfile
+: 1320988218:1251;bundle
+: 1321072249:0;which adb
+: 1321072256:17;eclipse
+: 1321072274:0;bg
+: 1321072274:0;adb
+: 1321072279:0;echo $PATH
+: 1321072284:0;ls /home/matt/Applications/Android
+: 1321072288:0;ls /home/matt/Applications/Android/platform-tools
+: 1321072295:0;/home/matt/Applications/Android/platform-tools/adb
+: 1321072298:0;ls -la
+: 1321072301:0;cd Applications/Android
+: 1321072301:0;ls
+: 1321072306:0;ls -la platform-tools
+: 1321072307:0;cd platform
+: 1321072310:0;cd platform-tools
+: 1321072310:0;ls
+: 1321072311:0;ls -la
+: 1321072319:0;./adb
+: 1321072322:0;./aidl
+: 1321072325:0;./aapt
+: 1321072326:0;cd ..
+: 1321072327:0;ls
+: 1321072330:0;rm -rf platform-tools
+: 1321072330:0;ls
+: 1321072334:56;android
+: 1321072393:0;ls platform
+: 1321072394:0;ls
+: 1321072395:0;ls -la
+: 1321072398:0;ls platform-tools
+: 1321072403:0;./platform-tools/adb
+: 1321072409:2;sudo /sbin/reboot
+: 1320896025:0;cd Code/has_many_polymorphs
+: 1320896029:0;git checkout master
+: 1320896032:8;git diff
+: 1320896041:0;ls
+: 1320896267:0;ls
+: 1320896268:0;ls
+: 1320896268:0;ls
+: 1320896269:0;ls
+: 1320896272:1;vim init.rb
+: 1320896274:0;ls lib
+: 1320896277:3;vim lib/has_many_polymorphs
+: 1320896282:1;gvim
+: 1320896322:0;gvim
+: 1320896325:0;ls
+: 1320896326:0;ls test
+: 1320896331:0;ls test/unit
+: 1320896334:411;vim test/unit/has_many_polymorphs_test.rb
+: 1320981156:0;ls
+: 1320981158:0;ls generators
+: 1320981161:0;ls generators/tagging
+: 1320981162:0;ls
+: 1320981165:0;cd generators/tagging
+: 1320981165:0;ls
+: 1320981167:0;ls tagging_generator.rb
+: 1320981169:1;vim tagging_generator.rb
+: 1321014211:0;cd ../../..
+: 1321014212:0;ls
+: 1321014213:0;rm -rf has_many_polymorphs
+: 1321067313:0;cd ..
+: 1321067313:0;ls
+: 1321067315:0;ls Applications
+: 1321067318:0;ls Applications/Eclipse
+: 1321067322:154;Applications/Eclipse/eclipse
+: 1321067476:0;bg
+: 1321067478:0;android
+: 1321067483:0;echo $PATH
+: 1321067490:3994;Applications/Android/tools/android
+: 1321071521:0;ls /home/matt/Applications/Android/platform-tools/adb
+: 1320320284:0;plasma-desktop
+: 1320320285:0;ps -ef
+: 1320320296:0;ps -ef | grep plasma-desktop
+: 1320342020:0;kill 25025
+: 1320342024:0;kill 25205
+: 1320342026:1;plasma-desktop
+: 1320342069:0;kill 25847
+: 1320342070:0;ls
+: 1320342080:0;cd
+: 1320342081:0;ls
+: 1320342090:0;rm .kde4/share/config/plasma*
+: 1320342112:1;plasma-desktop
+: 1320342278:0;synclient -l
+: 1320342282:0;synclient TapButton2=3
+: 1320342286:0;synclient TapButton3=2
+: 1320342339:0;ls
+: 1320342344:0;cd Code/Tracks/web/tracks
+: 1320342414:0;ls
+: 1320342419:0;ls db
+: 1320342426:3;rake db:migrate
+: 1320342433:4;bundle exec rake db:migrate
+: 1320342443:4;bundle exec script/server
+: 1320342452:0;ps -ef
+: 1320342484:0;ps -ef | grep rub
+: 1320342490:0;kill 15718
+: 1320342502:0;rvm current
+: 1320342504:95;bundle exec script/server
+: 1320342600:0;bg
+: 1320342606:644834;fg
+: 1320987443:0;top
+: 1320371860:1;yaourt -Ss firefox3
+: 1320371874:3;yaourt -S firefox3
+: 1320371883:0;export MAKEFLAGS="-j3"
+: 1320371885:2580;yaourt -S firefox3
+: 1320374468:0;echo $PATH
+: 1320374474:0;ls /opt/usr/lib/firefox-3.6
+: 1320374503:0;export PATH=/opt/usr/lib/firefox-3.6:$PATH
+: 1320374507:60;rake cucumber:selenium
+: 1320374623:29;rake cucumber:selenium
+: 1320374655:0;ls
+: 1320374661:0;cat config/database.yml
+: 1320374669:3;RAILS_ENV=test rake db:migrate
+: 1320374683:21;vim config/database.yml
+: 1320374714:11;RAILS_ENV=cucumber bundle exec rake db:migrate
+: 1320374730:1396;rake cucumber:selenium
+: 1320378420:0;git status
+: 1320378552:110;rake cucumber
+: 1320378925:1410;rake cucumber:selenium
+: 1320418904:16;cucumber -p selenium features/project_edit.feature
+: 1320418925:107;vim lib/tasks
+: 1320419039:112;RAILS_ENV=selenium cucumber -p selenium features/project_edit.feature
+: 1320419191:117;RAILS_ENV=selenium cucumber -p selenium features/project_edit.feature
+: 1320419560:58;rake test
+: 1320419641:106;rake cucumber
+: 1320420306:0;git status
+: 1320420308:19;git diff
+: 1320420330:106;RAILS_ENV=selenium cucumber -p selenium features/project_edit.feature
+: 1320420531:0;git status
+: 1320420547:0;git add app/controllers/todos_controller.rb
+: 1320420549:2564;git commit
+: 1320423121:0;git remote
+: 1320423125:13;git pull tracksapp master
+: 1320424079:2;git pull tracksapp master
+: 1320424099:4;git push tracksapp
+: 1320424110:3;git pull tracksapp master && git push
+: 1320678597:171;rake test && rake cucumber
+: 1320680563:6;git branch --help
+: 1320680571:0;git show-branch
+: 1320680579:0;git wtf
+: 1320680677:0;git wtf
+: 1320680716:0;ls
+: 1320680725:0;git branch
+: 1320680732:0;git checkout update-docs
+: 1320680733:0;git wtf
+: 1320680740:1;git rebase master
+: 1320680744:1;cd ..
+: 1320680746:0;cd tracks
+: 1320680750:0;git checkout master
+: 1320680764:0;git remote
+: 1320680773:0;git wtf tracksapp/master
+: 1320680783:5;git branch --help
+: 1320680802:0;git branch -t upstream tracksapps/master
+: 1320680812:0;git branch -t upstream tracksapp/master
+: 1320680818:0;git checkout upstream
+: 1320680822:2;git pull
+: 1320680830:0;git checkout master
+: 1320680831:3;git pull
+: 1320680845:0;git merge update-docs
+: 1320680847:0;git wtf
+: 1320680852:8;git push
+: 1320680860:0;git checkout upstream
+: 1320680860:0;git wtf
+: 1320680872:0;git checkout master
+: 1320680874:0;git wtf upstream
+: 1320680901:3;git push tracksapp master
+: 1320691202:0;ls
+: 1320691203:0;cd ..
+: 1320691203:0;ls
+: 1320691204:0;cd ..
+: 1320691204:0;ls
+: 1320691214:7;git clone git@github.com:TracksApp/tracks.wiki.git wiki
+: 1320691224:0;cd wiki
+: 1320691224:0;ls
+: 1320691231:381181;vim Home.textile
+: 1321072623:0;sudo rc.d start networkmanager
+: 1321072628:0;ls
+: 1321072631:77;dmesg | less
+: 1321072713:0;which eclipse
+: 1321072715:0;which adb
+: 1321072716:0;adb
+: 1321072721:1;java adb
+: 1321072731:0;cd Applications/Android/platform-tools
+: 1321072731:0;ls
+: 1321072733:2;as
+: 1321072736:0;adb
+: 1321072741:0;./aidl
+: 1321072744:0;./aapt
+: 1321072750:0;cd ../platforms
+: 1321072750:0;l
+: 1321072753:0;ls
+: 1321072755:0;cd ..
+: 1321072755:0;ls
+: 1321072760:0;ls system-images
+: 1321072766:0;ls system-images/android-14
+: 1321072769:0;ls system-images/android-14/armeabi-v7a
+: 1321108197:4;yaourt -S lib32
+: 1321108233:1;yaourt -Ss android
+: 1321108327:20;yaourt -S android-sdk-platform-tools
+: 1321108353:18;yaourt -S android-sdk
+: 1321110981:0;adb
+: 1321110987:0;which adb
+: 1321111002:0;echo $PATH
+: 1321111016:0;cd .zsh
+: 1321111018:0;ls
+: 1321111025:0;mkdir zlogin
+: 1321111027:0;exit
+: 1321116348:4;yaourt -S lib32-ncurses
+: 1321116356:0;adb
+: 1321116380:0;echo $PATH
+: 1321116403:0;source .zshenv
+: 1321116410:0;adb
+: 1321116442:1;yaourt -S lib32-stdcxx-5 lib32-alsa-lib
+: 1321116459:2;yaourt -S lib32-libstdcxx-5 lib32-alsa-lib
+: 1321116476:218;yaourt -S wine
+: 1321116777:11;yaourt -S android-sdk
+: 1321116851:10;yaourt -S lib32-openal lib32-libstdc++5 lib32-libxv lib32-sdl
+: 1321116865:0;adb
+: 1321116872:3;adb start-server
+: 1321116885:0;exit
+: 1321111042:0;which adb
+: 1321111050:0;. .zshenv
+: 1321111055:0;ls .zshenv
+: 1321111063:0;source .zshenv
+: 1321111074:0;which adb
+: 1321111077:0;adb
+: 1321111097:3;yaourt -S lib32
+: 1321102656:0;cd ..
+: 1321102657:0;ls
+: 1321102659:8;rm -rf Android
+: 1321110108:1;yaourt -S wine
+: 1321110116:1;yaourt -S android
+: 1321110124:19;yaourt -S android-sdk
+: 1321110168:2;yaourt -S lib32-alsa-lib lib32-libstdc++5 lib32-libxv lib32-ncurses lib32-sdl ib32-zlib lib32-openal
+: 1321110176:1;yaourt -S lib32-alsa-lib lib32-libstdc++5 lib32-libxv lib32-sdl ib32-zlib lib32-openal
+: 1321110182:1;yaourt -S lib32-alsa-lib lib32-libstdc++5  lib32-sdl ib32-zlib lib32-openal
+: 1321110192:12;vim /etc/pacman.conf
+: 1321110207:7;sudo vim /etc/pacman.conf
+: 1321110220:1;yaourt -S lib32
+: 1321110224:0;yaourt -Su lib32
+: 1321110227:12;yaourt -Sy lib32
+: 1321110242:15;yaourt -Sy lib32-glibc
+: 1321151936:0;cd 
+: 1321151936:0;ls
+: 1321151937:0;ls bin
+: 1321151955:1;scp matt@192.168.1.30:./save/matt/bin/switch_graphics bin
+: 1321151960:3;bin/switch_graphics DDIS
+: 1321102664:0;ls
+: 1321102670:0;ls
+: 1321102672:0;cd ..
+: 1321102673:0;s
+: 1321102673:0;ls
+: 1321102678:0;ls Downloads
+: 1321102685:0;rm -rf Downloads/android-sdk_r15-linux.tgz
+: 1321102935:0;cd Applications
+: 1321102940:0;tar xf ../Downloads/android-sdk_r15-linux.tgz
+: 1321102941:0;ls
+: 1321102947:0;mv android-sdk-linux Android
+: 1321102948:0;ls
+: 1321102949:0;cd Android
+: 1321102949:0;ls
+: 1321102957:48976;android
+: 1321152077:3;switch_graphics DIGD
+: 1321151979:0;sudo mount /sys/kernel/debug
+: 1321151985:0;sudo mount -t debugfs /sys/kernel/debug
+: 1321151990:0;sudo mount -t debugfs none /sys/kernel/debug
+: 1321151994:1;bin/switch_graphics DDIS
+: 1321151997:2;dmesg
+: 1321152021:0;\
+
+: 1321152025:4;sudo rc.d restart kdm
+: 1321152083:2;dmesg
+: 1321152091:0;sudo rc.d start kdm
+: 1321152191:0;switch_graphics DDIS
+: 1321152220:0;dmesg
+: 1321152236:2;sudo /sbin/reboot
+: 1321152320:4;switch_graphics DDIS
+: 1321152500:0;sudo rc.d networkmanager start
+: 1321152504:0;sudo rc.d start networkmanager
+: 1321152877:0;cat /sys/kernel/debug/vgaswitcheroo/switch
+: 1321152886:3;switch_graphics DIGD
+: 1321152915:25;sudo etckeeper commit
+: 1321152947:0;sudo git commit /etc/pacman.conf
+: 1321152949:0;cd /etc
+: 1321152955:19;sudo git commit pacman.conf
+: 1321152978:0;cat modprobe.d/modprobe.conf
+: 1321152981:0;ls modprobe.d
+: 1321152994:2;vim modprobe.d/broadcom-wl.conf
+: 1321153021:5;sudo etckeeper commit
+: 1321153028:0;cvsu
+: 1321153038:20;sudo vim /etc/rc.conf
+: 1321153726:0;cd Code
+: 1321153727:0;ls
+: 1321153728:0;cd
+: 1321153730:0;cd Code/Tracks
+: 1321153730:0;ls
+: 1321153756:0;mv AndroidManifest.xml assets bin gen proguard.cfg project.properties res src android
+: 1321153759:0;ls android
+: 1321153763:0;ls
+: 1321153771:0;rm -rf android
+: 1321153771:0;ls
+: 1321153775:0;rm -rf bin res src
+: 1321153777:0;mkdir android
+: 1321153778:0;ls
+: 1321153780:0;cd android
+: 1321153780:0;ls
+: 1321153786:0;mkdir tracks
+: 1321153788:0;mkdir test
+: 1321153908:1;synclient 
+: 1321153914:0;synclient TapButton2=3
+: 1321153919:0;synclient TapButton3=2
+: 1321154527:0;ls
+: 1321154529:0;cd ..
+: 1321154530:0;ls
+: 1321154532:0;ls android
+: 1321154535:0;ls android/tracks
+: 1321154536:0;ls
+: 1321154539:0;ls android/tracks/t
+: 1321154542:0;ls android/test
+: 1321154544:0;ls
+: 1321154559:0;ls
+: 1321154561:0;ls .project
+: 1321154563:0;cat .project
+: 1321154565:0;ls -la
+: 1321154572:0;mv .project android/tracks
+: 1321154576:0;mv .settings android/tracks
+: 1321154579:0;mv .classpath android/tracks
+: 1321154579:0;ls
+: 1321154580:0;ls -la
+: 1321154584:0;mv AndroidManifest.xml android/tracks
+: 1321154588:0;mv assets android/tracks
+: 1321154591:0;mv bin android/tracks
+: 1321154594:0;mv gen android/tracks
+: 1321154603:0;mv proguard.cfg project.properties android/tracks
+: 1321154604:0;ls
+: 1321154610:0;mv res src android/tracks
+: 1321154610:0;ls
+: 1321155232:181;yaourt -S inkscape gimp
+: 1321155418:3;yaourt -Su
+: 1321155422:33;yaourt -Sy
+: 1321155795:8;yaourt -Su
+: 1321155805:1;yaourt -S inkscape gimp
+: 1321155814:1;yaourt -Sy
+: 1321155817:428;yaourt -Su
+: 1321247319:0;ls
+: 1321247321:0;cd android
+: 1321247321:0;ls
+: 1321247322:0;cd tracks
+: 1321247323:0;ls
+: 1321247324:4;vim .project
+: 1321247328:0;ls -la
+: 1321247330:4;vim .settings
+: 1321247337:7;vim .classpath
+: 1321247344:0;ls
+: 1321247345:0;ls -la
+: 1321247349:0;ls .settings
+: 1321247352:0;ls bin
+: 1321247361:1;vim bin/resources.ap_
+: 1321247363:0;ls
+: 1321247365:0;ls src
+: 1321247367:0;ls -la src
+: 1321247371:0;ls -la src/org
+: 1321247372:0;ls -la src/org/tracks
+: 1321247374:0;ls
+: 1321247376:0;ls -la
+: 1321247383:1;find -name \.\*
+: 1321247388:11;vim .project
+: 1321247400:5;vim .classpath
+: 1321247405:0;ls
+: 1321247409:0;grep 2.2 *
+: 1321247414:0;grep 8 * -rn
+: 1321247418:9;vim project.properties
+: 1321247463:77;top
+: 1321247541:0;ls -la
+: 1321247542:3;top
+: 1321247546:0;ps -ef
+: 1321247551:0;ls
+: 1321247555:38897;top
+: 1321286481:155;top
+: 1321323483:0;bin/switch_graphics DDIS
+: 1321323487:55;switch_graphics DDIS
+: 1321324468:3;switch_graphics DDIS
+: 1321324481:0;sudo mount -t debugfs none /sys/kernel/debug
+: 1321324484:3;switch_graphics DDIS
+: 1321324516:0;fixup_hdmi
+: 1321324519:0;ls ~/bin
+: 1321324539:0;scp matt@192.168.1.30:save/matt/bin/fixup\* ~/bin
+: 1321324544:5;fixup-hdmi
+: 1321326883:0;cd ~/Code/Tracks/android
+: 1321326883:0;ls
+: 1321326885:0;cd tracks
+: 1321326885:0;ls
+: 1321326888:0;android --help
+: 1321326905:0;android update project
+: 1321326932:0;android update project --path $PWS --target android-13
+: 1321326942:0;android update project --path $PWD --target android-13
+: 1321326945:6;vim local.properties
+: 1321326956:0;ls
+: 1321326958:23;vim build.xml
+: 1321326986:0;cd ../test
+: 1321326987:0;ls
+: 1321326990:0;android update project --path $PWD --target android-13
+: 1321331596:43;sqlite3
+: 1321331640:0;clear
+: 1321331640:0;ls
+: 1321333894:0;ls ~/bin
+: 1321333902:4;switch_graphics DIGD
+: 1321377767:0;ls
+: 1321377772:0;cat ~/.janus.rake
+: 1321410673:0;cat /sys/kernel/debug/vgaswitcheroo/switch
+: 1321410688:0;dmesg | egrep "i915|radeon"
+: 1321412352:0;cd ~/Code/Tracks/web
+: 1321412352:0;ls
+: 1321412354:0;cd tracks
+: 1321412354:0;ls
+: 1321412358:0;git remote
+: 1321412360:3;git pull tracksapp
+: 1321412365:0;git checkout master
+: 1321412370:0;git stash
+: 1321412373:3;git pull tracksapp master
+: 1321412378:6;git push
+: 1321412387:0;ls
+: 1321413216:0;cd ~/.vim
+: 1321413217:0;ls
+: 1321413218:0;git status
+: 1321413219:0;git remote
+: 1321413224:0;git remote show
+: 1321413228:0;git remote --verbose
+: 1321413233:14;vim .git/config
+: 1321413248:0;git pull
+: 1321413253:7;vim .git/config
+: 1321413261:3;git pull
+: 1321413267:0;git status
+: 1321413268:14;git diff
+: 1321413288:3;git pull
+: 1321413292:0;git rebase
+: 1321413295:1;git stash
+: 1321413298:1;git rebase
+: 1321413415:3;git pull
+: 1321413420:30;rake
+: 1321413776:7;vim Rakefile
+: 1321414038:3;git pull
+: 1321414042:15;rake
+: 1321414060:0;ls
+: 1321414068:0;rm -rf tmp/nerdtree
+: 1321414070:32;rake
+: 1321497616:0;ls
+: 1321497619:0;cd ..
+: 1321497619:0;ls
+: 1321497632:0;ls
+: 1321497633:0;cat hs_Er
+: 1321497635:0;cat hs_err_pid3
+: 1321497637:0;cat hs_err_pid3075.log
+: 1321412610:0;ls
+: 1321412615:0;cd ~/Code/janus/
+: 1321412616:0;ls
+: 1321412617:1;git status
+: 1321412892:0;ls
+: 1321412914:0;git checkout -b closepairs
+: 1321412932:0;git merge git@github.com/danpal/janus path-1
+: 1321412947:0;git merge github.com/danpal/janus patch-1
+: 1321412953:0;git merge git://github.com/danpal/janus patch-1
+: 1321412968:0;git remote add closepairs git://github.com/danpal/janus
+: 1321412978:1;git pull closepairs patch-1
+: 1321412985:0;git status
+: 1321412986:0;git diff
+: 1321412988:0;git diff --cached
+: 1321412992:46;git diff master
+: 1321413044:0;ls
+: 1321413046:18;vim Rakefile
+: 1321413078:0;git commit -a -m "fix alignment"
+: 1321413082:0;git checkout master
+: 1321413085:0;git merge closepairs
+: 1321413089:4;git push
+: 1321413125:0;git branch -d closepairs
+: 1321413133:0;git checkout -b fix-directory-spaces
+: 1321413152:0;git remote add ctide git://github.com/ctide/janus
+: 1321413169:0;git merge ctide 08df1b1a
+: 1321413176:0;git merge ctide 08df1b1a
+: 1321413178:0;git remote
+: 1321413182:0;git merge ctide master
+: 1321413192:0;git pull ctide 08df1b1a
+: 1321413196:1;git pull ctide master
+: 1321413201:0;git diff
+: 1321413203:0;git diff master
+: 1321413308:0;git status
+: 1321413311:0;git checkout master
+: 1321413314:0;git merge fix-directory-spaces
+: 1321413326:3;git push
+: 1321413332:0;git remote
+: 1321413339:0;git remote rm closepairs
+: 1321413342:0;git remote rm ctide
+: 1321413353:0;git remote add carlhuda git://github.com/carlhuda/janus
+: 1321413358:1;git pull carlhuda master
+: 1321413362:0;git status
+: 1321413371:0;git diff HEAD^3..HEAD
+: 1321413374:1;git diff HEAD~3..HEAD
+: 1321413378:0;git log HEAD~3..HEAD
+: 1321413402:0;git wtf
+: 1321413409:4;git push
+: 1321413794:0;git remote
+: 1321413818:0;git remote add nerdtree-official git://github.com/vguerci/janus
+: 1321413825:1;git pull nerdtree-official nerdtree-official
+: 1321413832:19;vim Rakefile
+: 1321413854:0;git status
+: 1321413857:0;git add Rakefile
+: 1321413858:0;git status
+: 1321413861:10;git diff --cached
+: 1321413877:0;git status
+: 1321413880:14;git commit
+: 1321413895:21;git merge --help
+: 1321413918:0;git merge --commit
+: 1321413937:0;git merge --abort
+: 1321413940:0;git commit
+: 1321413944:0;git status
+: 1321413946:3;git log
+: 1321413951:0;git reset --hard
+: 1321413961:0;git reset --hard HEAD~1
+: 1321413980:0;git merge nerdtree-official nerdtree-official
+: 1321413985:0;git pull nerdtree-official nerdtree-official
+: 1321413992:7;vim Rakefile
+: 1321414003:0;git merge --commit
+: 1321414012:0;git add Rakefile
+: 1321414015:0;git merge --commit
+: 1321414022:4;git commit
+: 1321414028:0;git status
+: 1321414030:4;git push
+: 1321497929:0;ls
+: 1321497930:0;cd
+: 1321497930:0;ls
+: 1321497932:0;rm hs_err_pid3*
+: 1321497932:1;ls
+: 1321497936:0;file test.png
+: 1321497940:0;test.png
+: 1321497945:0;which gwenview
+: 1321497949:10;gwenview test.png
+: 1321497965:12;gwenview
+: 1321498555:0;synclient | grep TapButon
+: 1321498557:0;synclient | grep TapButton
+: 1321498562:0;synclient TapButton2=3
+: 1321498566:0;synclient TapButton3=2
+: 1321500186:0;cd Code/Tracks/web
+: 1321500187:0;ls
+: 1321500189:0;cd tracks
+: 1321500190:0;ls
+: 1321500202:84858;vim public/stylesheets/standard.css
+: 1321584422:0;spacs -uy
+: 1321584425:22;sudo pacman -Suy
+: 1321584451:2;yaourt -S quassel-client
+: 1321584457:0;yaourt -Ss quassel
+: 1321584473:344;yaourt -S quasselclient
+: 1321584830:781;sudo pacman -Suy
+: 1321585132:2;sudo rc.d restart bluetooth
+: 1321584417:10;ssh centurion.local
+: 1321584430:0;ssh 192.168.1.40
+: 1321584432:8703;ssh 192.168.1.30
+: 1321415730:0;cd Code/SimpleNotes
+: 1321415730:0;ls
+: 1321415731:0;cd SimpleNote
+: 1321415732:0;cd SimpleNotes
+: 1321415733:0;ls
+: 1321415734:4;vim project.properties
+: 1321415931:0;git status
+: 1321415956:0;git diff default.properties
+: 1321415959:12;git diff
+: 1321415972:0;ls
+: 1321415980:0;git add project.properties default.properties
+: 1321415984:0;git status
+: 1321415997:0;git reset HEAD project.properties
+: 1321416004:0;git tatus
+: 1321416005:0;git statu
+: 1321416008:0;git stat
+: 1321416009:0;git status
+: 1321416028:0;cd ..
+: 1321416028:0;ls
+: 1321416029:0;git status
+: 1321416044:0;git add SimpleNoteAPI/test/com/github/simplenotelib/SimpleNoteAPIImplTest.java
+: 1321416047:0;git status
+: 1321416057:43;git commit
+: 1321416103:0;git status
+: 1321416113:0;git diff SimpleNoteAPI/.classpath
+: 1321416118:12;git diff SimpleNotes/.classpath
+: 1321416131:0;git status
+: 1321416150:0;git add SimpleNotes/project.properties SimpleNotes/default.properties
+: 1321416152:0;git status
+: 1321416159:0;git rm SimpleNotes/default.properties
+: 1321416160:0;git status
+: 1321416171:3;git commit SimpleNotes/AndroidManifest.xml
+: 1321416180:0;git add SimpleNotes/AndroidManifest.xml
+: 1321416186:3;git diff SimpleNotes
+: 1321416199:0;git status
+: 1321416227:0;git commit -m "Require Android 2.2 or later\
+
+: 1321416229:32;git commit
+: 1321416262:0;git status
+: 1321416271:0;git status
+: 1321416302:0;git add SimpleNoteAPI/.classpath SimpleNotes/.classpath
+: 1321416307:0;git commit -m "update the classpaths"
+: 1321416379:0;git status
+: 1321419060:0;git status
+: 1321419070:0;git add SimpleNoteAPI/test/com/github/simplenotelib/NoteTest.java
+: 1321419072:0;git status
+: 1321419077:0;git add SimpleNoteAPI
+: 1321419078:0;git status
+: 1321419079:68;git commit
+: 1321419149:0;git status
+: 1321419150:3;git push
+: 1321417009:88190;ssh 192.168.1.30
+: 1321324497:0;sudo rc.d start kdm
+: 1321333916:0;sudo rc.d start kdm
+: 1321765011:0;ls /sys/class/backlight
+: 1321765013:0;ls /sys/class/backlight/intel_backlight
+: 1321765021:0;cat /sys/class/backlight/intel_backlight/brightness
+: 1321765026:0;cat /sys/class/backlight/intel_backlight/max_brightness
+: 1321765030:0;cat /sys/class/backlight/intel_backlight/actual_brightness
+: 1321765039:0;cat /sys/class/backlight/acpi_video0
+: 1321765043:0;cat /sys/class/backlight/acpi_video0/actual_brightness
+: 1321765045:0;cat /sys/class/backlight/acpi_video0/brightness
+: 1321765048:0;cat /sys/class/backlight/acpi_video0/max_brightness
+: 1321765057:0;echo 10 > /sys/class/backlight/acpi_video0/brightness
+: 1321765063:135;sudo -i
+: 1321765199:0;exit
+: 1321846098:11;irb
+: 1321845379:0;cd Code/Tracks/web
+: 1321845380:0;ls
+: 1321845381:0;git status
+: 1321845382:0;cd tracks
+: 1321845382:0;ls
+: 1321845383:0;git status
+: 1321845391:0;git checkout -b more-consistent-done-view
+: 1321845486:0;git checkout master
+: 1321845488:0;git checkout -b add-guard
+: 1321845491:40;vim Gemfile
+: 1321845533:81;bundle
+: 1321846030:5;vim Gemfile
+: 1321846047:88;vim Gemfile
+: 1321846136:0;bundle
+: 1321846162:106;vim Gemfile
+: 1321846270:66;bundle
+: 1321846565:0;guard init test
+: 1321846573:11;vim Guardfile
+: 1321846592:1;gvim
+: 1321846598:14;guard
+: 1321846614:29;vim Guardfile
+: 1321846646:0;guard
+: 1321846654:29;vim Guardfile
+: 1321846685:0;rm Guardfile
+: 1321846688:0;guard init test
+: 1321846693:0;guard init cucumber
+: 1321846697:12;vim Guardfile
+: 1321846712:11;guard
+: 1321846726:20;vim Guardfile
+: 1321846748:124;guard
+: 1321846876:1;gvim
+: 1321846880:56;fg
+: 1321846936:0;bg
+: 1321846938:0;git status
+: 1321846946:40;git diff
+: 1321846996:0;git add Gemfile Gemfile.lock
+: 1321846999:7;git commit
+: 1321847009:0;git add Guardfile
+: 1321847012:41;git commit
+: 1321847058:0;git branch
+: 1321847081:0;git checkout more-consistent-done-view
+: 1321847084:0;git rebase add-guard
+: 1321847094:30840;fg
+: 1321847222:0;cd ../..
+: 1321847224:30720;script/server
+: 1321929995:3;switch_graphics DDIS
+: 1321847115:0;cd app/views
+: 1321847120:0;grep 'project_listing' * -rn
+: 1321847124:0;ack project_listing
+: 1321971121:0;quit
+: 1321971122:0;exit
+: 1321971557:0;exit
+: 1321971555:0;screen
+: 1321971697:363;vim .screenrc
+: 1321972096:32;vim .screenrc
+: 1321972144:205;vim .zsh/zshrc/60_functions
+: 1321972349:0;ls
+: 1321972353:0;ls .zsh/zshrc
+: 1321972370:65;vim .zsh/zshrc/98_hooks
+: 1321972436:0;restart
+: 1321972462:271;vim .screenrc
+: 1321972734:0;exit
+: 1321972771:5;vim .screenrc
+: 1321972777:0;exit
+: 1321972942:50;vim .screenrc
+: 1321972993:0;exit
+: 1321970992:0;screen -r
+: 1321971002:0;cd /etc
+: 1321971003:0;git status
+: 1321971005:0;sudo git status
+: 1321971014:9;sudo git add fstab && sudo git commit
+: 1321971033:0;sudo git diff rc.conf
+: 1321971044:7;sudo git add rc.conf && sudo git commit
+: 1321971067:0;etckeeper pre-install
+: 1321971073:0;sudo etckeeper pre-install
+: 1321971084:7;sudo yaourt -S screen && sudo etckeeper post-install
+: 1321971101:0;screen -r
+: 1321971102:0;cd
+: 1321971102:0;ls
+: 1321971107:0;ls -l
+: 1321971111:0;file test.png
+: 1321971116:6;screen
+: 1321971126:0;cat .screenr
+: 1321971128:0;cat .screenrc
+: 1321971189:362;vim .screenrc
+: 1321971553:10;screen
+: 1321971567:0;screen -ls
+: 1321971572:489;screen -r
+: 1321972063:671;screen
+: 1321972737:40;screen
+: 1321972779:0;screen -r
+: 1321972782:211;screen
+: 1321972996:29942;screen
+: 1321935108:0;cd public/javascripts
+: 1321935108:0;ls
+: 1321935112:80600;vim jquery.jeditable.mini.js
+: 1322065142:0;ls
+: 1322065149:0;pacman -Ql zsh | grep clint
+: 1322065165:2161;vim /usr/share/zsh/functions/Prompts/prompt_clint_setup
+: 1322067335:0;df -h
+: 1322067341:0;cd home
+: 1322067342:0;ls
+: 1322067343:0;cd Code
+: 1322067343:1;ls
+: 1322067348:0;ls ApiDemos
+: 1322067349:0;ls
+: 1322067351:0;ls NotePad
+: 1322067354:1;ls
+: 1322067357:0;ls
+: 1322067361:0;ls Tracks/android
+: 1322067361:0;ls
+: 1322067366:0;cd Tracks/android/tracks
+: 1322067366:0;ls
+: 1322067370:1;android
+: 1322067486:0;cd
+: 1322067488:0;cd .zsh/functions
+: 1322067488:0;ls
+: 1322067505:0;echo $RPS1
+: 1322067512:0;export RPS1=test
+: 1322067518:0;echo $PS1
+: 1322067529:0;prompt mattr
+: 1322067538:0;unset RPS1
+: 1322067547:0;prompt clint
+: 1322067554:0;prompt -c
+: 1322067564:0;echo $SSH_CLIENT
+: 1322067572:0;echo $PS1
+: 1322067586:11;vim prompt_mattr_setup
+: 1322067612:0;cp /usr/share/zsh/functions/Prompts/prompt_clint_setup prompt_mattr_setup
+: 1322067614:458;vim prompt_mattr_setup
+: 1322068075:0;prompt -h
+: 1322068078:0;prompt -p mattr
+: 1322068089:0;prompt -h mattr
+: 1322068094:0;prompt mattr
+: 1322068098:0;restart
+: 1322068108:0;prompt -c
+: 1322068111:0;prompt mattr
+: 1322068142:0;cd ~/Code
+: 1322068142:0;ls
+: 1322068156:3;vim .git/con
+: 1322068161:0;cd ..
+: 1322068162:8;vim .git/confi
+: 1322068190:1;ssh matt@192.168.1.30 cat save/matt/.gitconfig
+: 1322068218:0;scp matt@192.168.1.30:save/matt/.gitconfig .
+: 1322068224:58;vim .gitconfig
+: 1322068285:0;cd Code
+: 1322068294:4;git clone github:robbyrussell/oh-my-zsh.git
+: 1322068303:0;cd os
+: 1322068304:0;cd oh-my-zsh
+: 1322068305:0;ls
+: 1322068307:0;ls plugins
+: 1322068323:0;ls plugins/archlinux
+: 1322068327:58;vim plugins/archlinux/archlinux.plugin.zsh
+: 1322068385:0;ls
+: 1322068406:0;ls templates
+: 1322068409:39;vim templates/zshrc.zsh-template
+: 1322068475:0;ls custom
+: 1322068479:11;vim custom/example
+: 1322068509:7;vim custom/example
+: 1322068568:0;git st --porcelain
+: 1322068573:0;git status --porcelain
+: 1322068575:0;git status
+: 1322068646:0;l
+: 1322068648:0;ls
+: 1322068650:0;cd ..
+: 1322068650:0;ls
+: 1322068655:0;mkdir KDE
+: 1322068656:0;cd KDE
+: 1322068670:23;git clone kde:kdelibs.git
+: 1322068694:0;ls
+: 1322068735:21;git clone kde:kdesrc-build ~/kdesrc-build
+: 1322068760:0;cd ~/kdesrc-build
+: 1322068760:0;ls
+: 1322068768:0;cd ..
+: 1322068771:0;mv kdesrc-build ~/Applications
+: 1322068791:14;vim ~/.zsh/zshenv/00_varsetup
+: 1322068807:0;restart
+: 1322065085:10244;screen -r
+: 1321930013:2;sudo vim /etc/fstag
+: 1321930015:32;sudo vim /etc/fstab
+: 1321930053:0;sudo mount /sys/kernel/debug
+: 1321930063:1;bin/switch_graphics DDIS
+: 1321930076:0;sudo rc.d start kdm
+: 1322105288:0;sudo /sbin/reboot
+: 1321930260:0;fixup_hdmi
+: 1321930266:5;bin/fixup-hdmi
+: 1321930565:0;ls
+: 1321930566:0;ls Code
+: 1321930573:0;cd Code/Tracks/web/tracks
+: 1321930573:0;ls
+: 1321930574:0;git status
+: 1321930579:0;cd ..
+: 1321930588:0;git branch -D more-consisten-done-view
+: 1321930593:0;git branch -d more-consistent-done-view
+: 1321930594:0;cd tracks
+: 1321930594:0;git branch -d more-consistent-done-view
+: 1321930598:0;git checkout master
+: 1321930599:0;git branch -d more-consistent-done-view
+: 1321930604:0;git branch -D more-consistent-done-view
+: 1321930609:0;git status
+: 1321930617:0;git checkout app/views/projects/_project_listing.rhtml
+: 1321930623:0;git checkout app/views/stats/done.html.erb
+: 1321933646:1;gvim
+: 1321933853:0;rvm current
+: 1321933858:1;bundle exec r server
+: 1321933863:2;bundle exec rails server
+: 1321933869:0;ls
+: 1321933872:0;rm -rf server
+: 1321933877:33586;bundle exec script/server
+: 1322015690:1;gvim
+: 1322015787:15;bundle exec script/server
+: 1322015849:0;git branch
+: 1322015852:0;git checkout fix-project-edit
+: 1322015855:0;git stash pop
+: 1322015875:0;git diff
+: 1322015922:111;script/server
+: 1322016034:2275;script/server
+: 1322018310:0;script/server
+: 1321935536:0;ls public/javascripts
+: 1322014915:391;yaourt -S skype
+: 1322015666:86;yaourt -S lib32-v4l-utils lib32-libcanberra lib32-libpulse
+: 1322015834:10;yaourt -S lib32-libcanberra-pulse lib32-alsa-plugins
+: 1322017331:0;grep live public/javascripts/*
+: 1322017702:0;which jslint
+: 1322017705:1;yaourt -Ss jslint
+: 1322017724:394;yaourt -S jslint
+: 1322018213:0;jslint app/views/projects/edit.js.erb
+: 1322019016:0;jslint app/views/projects/edit.js.erb
+: 1322019024:0;jslint --help
+: 1322019062:1;wget 'http://localhost:3000/projects/1/edit?_source_view=project&_=1322018393874' > test.js
+: 1322019076:2;vim edit\?_source_view=project\&_=1322018393874
+: 1322019080:0;rm edit\?_source_view=project\&_=1322018393874
+: 1322019091:8;vim test.js
+: 1322019104:0;jslint test.js
+: 1322019122:0;jslint test.js
+: 1322019129:38;vim test.js
+: 1322019168:0;jslint test.js
+: 1322019178:0;jslint --he lptest.js
+: 1322019182:0;jslint --whitetest.js
+: 1322019185:0;jslint --white test.js
+: 1322019193:0;jslint --help test.js
+: 1322019209:0;jslint --indent test.js
+: 1322019213:0;ls
+: 1322019221:0;jslint test.js --indent
+: 1322019227:1;jslint test.js
+: 1322020191:11;vim test.js
+: 1322020203:1;jslint test.js
+: 1322021017:15;vim test.js
+: 1322021035:0;jslint test.js
+: 1322021079:916;vim test.js
+: 1322021997:0;cvsu
+: 1322021999:0;git status
+: 1322022001:0;git diff app
+: 1322022008:0;git add app/
+: 1322022011:0;git status
+: 1322022028:0;git commit -m "fixup some jslint errors"
+: 1322022033:0;git diff public/javascripts/
+: 1322022041:0;git add public/javascripts/application.js
+: 1322022046:86;git commit
+: 1322080432:23391;ssh 192.168.1.30
+: 1322103830:1;xrandr 
+: 1322103839:1;xrandr --output HDMI-0 --off
+: 1322103937:0;ls
+: 1322103939:0;cd ..
+: 1322103939:0;ls
+: 1322103941:0;cd
+: 1322103941:0;ls
+: 1322068834:0;cp ~/Applications/kdesrc-build/kdesrc-buildrc-sample ~/.kdesrc-buildrc
+: 1322068837:330;vim ~/.kdesrc-buildrc
+: 1322069172:0;kdesrc-build
+: 1322069179:1;yaourt -S libwww
+: 1322069184:1;yaourt -Ss libwww
+: 1322069190:14;yaourt -S perl-libwww
+: 1322069217:8;yaourt -S perl-lwp-protocol-https
+: 1322069255:0;kdesrc-build
+: 1322069275:1;yaourt -S kdesrc-build
+: 1322069284:2;yaourt -S perl-libxml2
+: 1322069287:7;yaourt -S perl-libxml
+: 1322069297:1;kdesrc-build
+: 1322069309:22;yaourt -Ss xml | less
+: 1322069339:3;yaourt -S perl-xml-parser
+: 1322069347:3921;kdesrc-build
+: 1322073274:0;yaourt -ss gdb
+: 1322073283:12;yaourt -S gdb
+: 1321973481:0;cd Code/Tracks/web/tracks
+: 1321973521:0;git status
+: 1321973536:0;git checkout -b fix-project-edit
+: 1321973543:0;git stash
+: 1321973548:0;git checkout master
+: 1321973552:0;git stash list
+: 1321973571:0;git remote
+: 1321973575:5;git pull tracksapp master
+: 1321973586:0;git push master
+: 1321973589:4;git push
+: 1321973598:0;git checkout fix-project-edit
+: 1321973602:0;git rebase master
+: 1321973609:0;git stash pop
+: 1321973665:0;which Xvfb
+: 1321973683:1;yaourt -Ss xvfb
+: 1321973695:4;yaourt -S xorg-server-xvfb
+: 1321973705:201;yaourt -Suy
+: 1321975326:1;sudo etckeeper post-install
+: 1321975345:6;yaourt -S xorg-server-xvfb && sudo etckeeper post-install
+: 1321975363:0;Xvfb :99 -ac -screen 0 1024x768x16 &
+: 1321975378:0;export DISPLAY=:99.0
+: 1321975391:81;bundle exec rake test
+: 1321975489:0;ls
+: 1321975499:173;bundle exec rake cucumber
+: 1321976445:230;bundle exec rake cucumber:selenium
+: 1321979091:0;export PATH=/opt/usr/lib/firefox-3.6:$PATH
+: 1321979093:983;bundle exec rake cucumber:selenium
+: 1321992982:0;export DISPLAY=:99.0
+: 1321993004:973;bundle exec rake cucumber:selenium
+: 1321996678:0;git checkout master
+: 1321996688:0;git checkout fix-project-edit
+: 1321996690:1;git stash
+: 1321996695:0;git checkout master
+: 1321996701:4;git pull tracksapp
+: 1321996714:3;git pull tracksapp master
+: 1322065102:0;prompt
+: 1322065106:0;prompt -c
+: 1322065124:0;prompt -l
+: 1322067384:0;git status
+: 1322067391:0;git checkout master
+: 1322067398:7;bundle exec rake db:migrate
+: 1322067428:0;echo $DISPLAY
+: 1322067432:0;export DISPLAY=:99
+: 1322067440:0;echo $PATH
+: 1322067445:0;ls /opt/usr/lib/firefox-3.6
+: 1322067478:1582;bundle exec rake cucumber:selenium
+: 1322108730:0;fixup-hdmi
+: 1322108737:0;xrandr
+: 1322109833:1;yaourt -Ss akonadi
+: 1322109880:944;yaourt -S akonadi-facebook-git
+: 1322109929:39;yaourt -S boost
+: 1322111237:0;ls
+: 1322111240:0;cd Code
+: 1322111241:0;ls
+: 1322111243:0;cd oh-my-zsh
+: 1322111244:1;git pull
+: 1322111462:7;wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+: 1322111488:0;restart
+: 1322111489:0;ls
+: 1322111490:0;exit
+: 1322111985:0;exit
+: 1322111492:0;ls
+: 1322111495:0;ls .zsh
+: 1322111497:0;ls .zshrc
+: 1322111499:16;vim .zshrc
+: 1322111517:0;ls .zshenv
+: 1322111520:0;cat .zshenv
+: 1322111963:0;ls
+: 1322111964:0;ls -la
+: 1322111981:0;rm .zprofile .zshenv
+: 1322111982:0;ls
+: 1322111983:2;zsh
+: 1322111986:0;exit
+: 1322112018:0;ls
+: 1322112019:0;exit
+: 1322279428:0;prompt -p mattr
+: 1322279470:0;echo $colors
+: 1322279539:0;prompt -p walters
+: 1322279602:9;cat
+: 1322279787:0;prompt --help
+: 1322279791:0;prompt -l
+: 1322279796:0;prompt -p
+: 1322279844:0;prompt -
+: 1322279858:92;vim /usr/share/zsh/functions/Prompts/prompt_bart_setup
+: 1322279953:0;prompt bart
+: 1322279956:0;ls
+: 1322279973:59;vim /usr/share/zsh/functions/Prompts/prompt_bart_setup
+: 1322280033:0;ls
+: 1322280036:0;prompt adam2
+: 1322280039:0;ls
+: 1322280047:0;prompt clint
+: 1322280047:0;ls
+: 1322280052:0;ls zshrc
+: 1322280057:211;vim zshrc/20_completion
+: 1322280269:0;restart
+: 1322280275:0;pwd
+: 1322280281:0;echo $SHLVL
+: 1322280294:0;ps -ef
+: 1322280303:0;ps x
+: 1322280310:0;clear
+: 1322280311:0;ls
+: 1322280353:0;prompt mattr
+: 1322281368:0;colors
+: 1322281369:0;colors
+: 1322281375:0;echo $fg
+: 1322281379:0;echo -a $fg
+: 1322281388:0;echo $fg[red]foo
+: 1322281392:0;echo $fg[brred]foo
+: 1322281395:0;echo $fg[darkred]foo
+: 1322281412:0;echo $fg[]foo
+: 1322281415:0;echo $fg[white]foo
+: 1322281419:0;echo $fg[black]foo
+: 1322281424:0;echo $fg[blue]foo
+: 1322281456:0;cd /usr/share/zsh
+: 1322281456:0;ls
+: 1322281460:0;ls scripts
+: 1322281462:0;ls functions
+: 1322281464:0;ls site-functions
+: 1322281469:0;ls functions/Misc
+: 1322281475:77;vim functions/Misc/colors
+: 1322281553:0;ls
+: 1322281717:0;cd Download
+: 1322281720:0;cd ~/Downloads
+: 1322281722:3;wget http://www.bash2zsh.com/zsh_refcard/refcard.pdf
+: 1322281930:176;man zshmisc
+: 1322282107:0;prompt mattr
+: 1322282109:0;restart
+: 1322282112:0;prompt mattr
+: 1322282888:92;man zshmisc
+: 1322283012:0;restart
+: 1322283014:0;prompt mattr
+: 1322283040:0;prompt mattr
+: 1322283043:0;restart
+: 1322283046:0;prompt mattr
+: 1322283094:0;exit
+: 1322283098:0;prompt mattr
+: 1322283131:0;prompt -p mattr
+: 1322283138:0;restart
+: 1322283140:0;prompt mattr
+: 1322283159:0;restart
+: 1322283162:0;prompt mattr
+: 1322283183:0;restart
+: 1322283185:0;prompt mattr
+: 1322368582:0;echo $commands
+: 1322368594:0;echo $commands[(I)hub]
+: 1322368597:0;echo $commands[(I)ruby]
+: 1322368947:0;which ub
+: 1322368949:0;which hub
+: 1322368962:0;git config github.user
+: 1322368987:0;ls
+: 1322368990:0;cd functions
+: 1322368990:0;ls
+: 1322369091:0;which vcsh
+: 1322369100:0;autoload vcsh
+: 1322369101:0;which vcsh
+: 1322369117:0;echo "$(functions)"
+: 1322369223:32;yaourt -S terminus-font
+: 1322369317:30;man zshmisc
+: 1322369359:9;echo "$(functions)" | less
+: 1322369374:0;prompt
+: 1322369378:0;prompt -p mattr
+: 1322369384:0;prompt mattr
+: 1322369394:0;promptinit
+: 1322369398:0;prompt mattr
+: 1322369401:0;exit
+: 1322369521:0;prompt mattr
+: 1322369536:0;prompt mattr
+: 1322369553:0;prompt mattr
+: 1322369637:0;exit
+: 1322369670:0;prompt mattr
+: 1322369679:0;prompt mattr
+: 1322369705:0;prompt mattr
+: 1322369731:0;exit
+: 1322369733:0;prompt mattr
+: 1322369753:0;cd ~/Code
+: 1322369754:0;ls
+: 1322369755:0;cd janus
+: 1322369756:0;ls
+: 1322369786:0;exit
+: 1322369789:0;prompt mattr
+: 1322369794:0;cd ~/Code/janus
+: 1322369851:0;exit
+: 1322369853:0;prompt mattr
+: 1322369871:332;man zshmisc
+: 1322370204:0;exit
+: 1322370207:0;prompt mattr
+: 1322370216:0;cd ~/Code/janus
+: 1322370285:0;prompt mattr
+: 1322370296:0;restart
+: 1322370300:0;prompt mattr
+: 1322370463:0;exit
+: 1322370466:0;prompt mattr
+: 1322370478:0;reload
+: 1322370479:0;restart
+: 1322370481:0;prompt mattr
+: 1322370535:0;reload
+: 1322370536:0;restart
+: 1322370538:0;prompt mattr
+: 1322370555:0;restart
+: 1322370556:0;prompt mattr
+: 1322370602:0;cd ~/Code/janus
+: 1322370659:0;which vcs_info
+: 1322370663:0;vcs_info
+: 1322370674:0;echo "x$vcs_info_msg_0"
+: 1322370679:0;echo "x$vcs_info_msg_0_"
+: 1322370686:0;echo "x$vcs_info_msg_1_"
+: 1322370735:0;vcs_info_printsys
+: 1322370762:0;which VCS_INFO_set
+: 1322370774:0;echo $maxexports
+: 1322370800:0;print $msgs[1]
+: 1322370803:0;print $msgs[0]
+: 1322370818:0;echo $vcs_info_msg_0_
+: 1322370869:0;ls
+: 1322370872:0;cd
+: 1322370872:0;ls
+: 1322419821:0;ls
+: 1322419821:0;ls
+: 1322419822:0;ls
+: 1322419822:0;ls
+: 1322419822:0;ls
+: 1322419823:0;cd Code
+: 1322419823:0;ls
+: 1322419833:2;git clone github:mattr-/oh-my-zsh
+: 1322419848:0;ls
+: 1322419850:0;cd oh-my-zsh
+: 1322419850:0;ls
+: 1322419855:1;vim .zshrc
+: 1322419859:4;vim templates/zshrc.zsh-template 
+: 1322419865:55;vim oh-my-zsh.sh
+: 1322419921:0;ls
+: 1322419922:0;ls plugins
+: 1322419929:0;cat plugins/kate/kate.plugin.zsh
+: 1322419941:0;cat plugins/lein
+: 1322419943:0;cat plugins/lein/lein.plugin.zsh
+: 1322420048:0;ls
+: 1322420049:0;cd plugins
+: 1322420050:0;ls
+: 1322420054:0;ls phong
+: 1322420056:0;ls phing
+: 1322420062:0;cat phing/phing.plugin.zsh
+: 1322420086:0;ls ant
+: 1322420093:0;ls cake
+: 1322420096:0;cat cake/cake.plugin.zsh
+: 1322420118:0;ls
+: 1322420121:0;ls gas
+: 1322420126:0;cat gas/_gas
+: 1322420144:0;ls
+: 1322420154:0;ls vagrant/_vagrant
+: 1322420157:0;cat vagrant/_vagrant
+: 1322420169:0;ls
+: 1322420173:0;ls -l | wc -l
+: 1322420180:0;cat compleat/compleat.plugin.zsh
+: 1322420193:0;ls gpg-agent
+: 1322420195:0;cat gpg-agent/gpg-agent.plugin.zsh
+: 1322420211:0;ls
+: 1322420212:0;cd ..
+: 1322420213:0;ls
+: 1322420214:0;cd ..
+: 1322420214:0;ls
+: 1322420219:0;cd ..
+: 1322450445:0;watch -tn1 `date +%T | xargs banner'
+: 1322450448:3;watch -tn1 'date +%T | xargs banner'
+: 1322450499:0;cal | grep -A7 -B7 --color=auto $(date +%d)
+: 1322450542:0;uuidgen
+: 1322450560:0;uuidgen | echo ${1//-/}
+: 1322450569:0;echo ${1//-/} < `uuidgen`
+: 1322450761:2;ssh piglet.local
+: 1322450767:105;ssh cynthia@piglet.local
+: 1322450875:553;ssh centurion.local
+: 1322451432:2;yaourt -Ss mtr
+: 1322451485:0;mount | column -t
+: 1322451490:0;mount
+: 1322451517:0;netstat -tnlp
+: 1322451523:0;netstat -tlnp
+: 1322451528:0;yaourt -Ss netstart
+: 1322451529:1;yaourt -Ss netstat
+: 1322451720:3;lsof -i
+: 1322455471:0;ls
+: 1322455475:0;cd Code/oh-my-zsh
+: 1322455476:0;ls
+: 1322455490:0;cp templates/zshrc.zsh-template ~/.zsh/.zshrc
+: 1322455492:0;exit
+: 1322276682:0;ls
+: 1322276683:0;git status
+: 1322276685:0;cd .zsh
+: 1322276686:0;ls
+: 1322276690:0;git status -uno
+: 1322276698:0;git diff zshenv/00_varsetup
+: 1322276710:0;git add zshenv/00_varsetup
+: 1322276712:8;git commit
+: 1322276721:0;git status
+: 1322276728:0;git diff zshrc/98
+: 1322276731:0;git diff zshrc/98_hooks
+: 1322276736:0;git add zshrc/98_hooks
+: 1322276737:0;git status
+: 1322276747:0;git diff zshrc/60_functions
+: 1322276757:0;git commit add zshrc/60_functions
+: 1322276762:0;git add zshrc/60_functions
+: 1322276764:0;git status
+: 1322276769:43;git commit
+: 1322276814:0;git status
+: 1322276823:0;git add ../.zprofile
+: 1322276825:0;git commit
+: 1322276831:0;git rm ../.zprofile
+: 1322276832:18;git commit
+: 1322276852:0;git status
+: 1322276860:0;git status -uno
+: 1322276874:0;la ..
+: 1322276884:0;cat ../.zshrc
+: 1322276890:0;rm ../.zshrc
+: 1322276891:0;git status
+: 1322276899:0;git rm ../.zsh{env,rc}
+: 1322276900:0;git statu
+: 1322276902:0;gst
+: 1322276903:0;git status
+: 1322276908:35;git commit
+: 1322276945:0;git status
+: 1322276946:0;ls
+: 1322277526:0;prompt mattr
+: 1322277544:21;vim functions/prompt_mattr_setup
+: 1322277573:0;prompt mattr yellow cyan green yellow white
+: 1322277580:0;prompt mattr yellow cyan green white white
+: 1322277586:0;prompt mattr yellow cyan green WHITE white
+: 1322279186:2305;vim functions/prompt_mattr_setup
+: 1322281493:0;colors
+: 1322281502:0;echo $fg[bold]$fg[red]foo
+: 1322281506:0;echo $fg[bold]$fg[blue]foo
+: 1322281536:0;echo $fg_bold[blue]foo
+: 1322281542:0;echo $fg_bold[red]foo
+: 1322281565:173929;vim functions/prompt_mattr_setup
+: 1322455498:0;restart
+: 1322457048:0;prompt mattr
+: 1322457074:0;restart
+: 1322457076:0;prompt mattr
+: 1322457091:5;vim .zsh/zshrc/80_prompt
+: 1322457174:0;restart
+: 1322457245:0;exit
+: 1322457202:0;echo $EUID
+: 1322457203:0;echo $UID
+: 1322457208:5;sudo -i
+: 1322457215:8;sudo -s
+: 1322457235:0;screen -r
+: 1322457236:9;screen
+: 1322457287:0;restart
+: 1322457298:0;restart
+: 1322457317:0;cd Code/existential
+: 1322457434:0;restart
+: 1322457523:0;zstyle
+: 1322457544:0;zstyle -a ':vcs_info:*'
+: 1322457585:0;zstyle -g foo ':vcs_info:*'
+: 1322457587:0;echo $foo
+: 1322457592:0;typeset -a foo
+: 1322457595:0;zstyle -g foo ':vcs_info:*'
+: 1322457598:0;echo $foo
+: 1322457611:0;zstyle ':vcs_info:*' enable git cvs svn
+: 1322457613:0;zstyle -g foo ':vcs_info:*'
+: 1322457615:0;echo $foo
+: 1322457622:0;zstyle
+: 1322457708:0;zstyle ':vcs_info:*' branchformat '%b-%r'
+: 1322457717:0;zstyle
+: 1322457825:0;zstyle ':vcs_info:*' formats "%s|%b"
+: 1322457843:0;zstyle ':vcs_info:git:*' check-for-changes true
+: 1322457845:0;ls
+: 1322457895:0;zstyle ':vcs_info:git:*' formats "%c %u %s|%b"
+: 1322457898:0;git status
+: 1322457906:0;cd ../janus
+: 1322457907:0;git status
+: 1322458130:0;zstyle
+: 1322458269:0;ls
+: 1322458270:0;cd
+: 1322458270:0;ls
+: 1322458291:0;restart
+: 1322458293:0;cd Code/janus
+: 1322458400:0;restart
+: 1322458447:0;restart
+: 1322458475:0;restart
+: 1322458515:0;restart
+: 1322458589:0;restart
+: 1322458634:0;restart
+: 1322538440:0;git statu
+: 1322538443:0;git status
+: 1322538452:0;cd .zsh
+: 1322538454:0;git status -uno
+: 1322538460:0;git diff zshrc/20_completion
+: 1322538472:0;git add zshrc/20_completion
+: 1322538474:8;git commit
+: 1322538484:0;git status
+: 1322538492:0;git add zshrc/79_vcs_info_setup
+: 1322538501:0;git diff --cached
+: 1322538512:9;git commit
+: 1322538527:0;git status
+: 1322538535:0;git add functions/prompt_mattr_setup zshrc/80_prompt
+: 1322538538:14;git commit
+: 1322538555:0;git remote -v
+: 1322538558:1;git push
+: 1322538561:0;git status
+: 1322538573:0;ls
+: 1322538574:0;cd ..
+: 1322538574:0;ls
+: 1322538575:0;exit
+: 1322538950:0;rvm current
+: 1322538952:0;ruby -b
+: 1322538953:0;ruby -v
+: 1322538998:0;rvm current
+: 1322539014:0;exit
+: 1322591479:0;exit
+: 1322276628:0;ls
+: 1322276635:0;file test.png
+: 1322276640:0;start test.png
+: 1322276642:7;gwenview test.png
+: 1322276653:0;rm test.png
+: 1322276653:0;ls
+: 1322276655:0;ls Code
+: 1322276657:0;ls -l
+: 1322276661:0;which vcsh
+: 1322276667:0;echo $fpath
+: 1322276670:0;ls .zsh/functions
+: 1322276672:0;vcsh
+: 1322276676:0;autoload vcsh
+: 1322276678:0;which vcsh
+: 1322276679:0;vcsh
+: 1322276681:179011;vcsh zsh
+: 1322455692:0;ls -la
+: 1322455697:0;ls -la .zsh
+: 1322455703:1271;vim ~/.zsh/.zshrc
+: 1322456975:0;ls
+: 1322456980:0;rm -rf .oh-my-zsh
+: 1322456984:0;rm -rf .zsh
+: 1322456989:0;mv .zsh.old .zsh
+: 1322456992:42;vcsh zsh
+: 1322457035:0;z bin
+: 1322457040:0;cd -
+: 1322457056:85214;vim ~/.zsh/functions/prompt_mattr_setup
+: 1322542279:49017;vim .zsh/zshrc/70_git
+: 1322591366:0;ls
+: 1322591372:0;echo $TERM
+: 1322538378:0;ls
+: 1322538380:0;cd ..
+: 1322538380:0;ls
+: 1322538382:0;rm -rf oh-my-zsh
+: 1322538383:0;ls
+: 1322538384:0;cd ..
+: 1322538386:0;ls
+: 1322538390:0;la | grep zsh
+: 1322538396:0;rm .zsh-update
+: 1322538398:0;rm .zsh_history
+: 1322538399:0;ls -l
+: 1322538400:0;ls -la
+: 1322538402:0;ls .zsh
+: 1322538404:0;la
+: 1322538420:0;ls
+: 1322538424:0;vcsh zsh
+: 1322538429:0;echo $fpath
+: 1322538435:0;autoload vcsh
+: 1322538437:138;vcsh zsh
+: 1322538576:0;ls
+: 1322538591:0;cd Code
+: 1322538591:0;ls
+: 1322538601:3;git clone github:robbyrussell/oh-my-zsh
+: 1322538625:0;cd oh-my-zsh
+: 1322538625:0;ls
+: 1322538627:0;cd plugins
+: 1322538627:0;ls
+: 1322538629:189;vim github
+: 1322538819:0;ls
+: 1322538820:0;ls git
+: 1322538822:0;ls github
+: 1322538826:0;cat github/github.plugin.zsh
+: 1322538918:0;rvm current
+: 1322538921:0;cd
+: 1322538922:0;rvm current
+: 1322538926:0;rvm system
+: 1322538927:0;rvm current
+: 1322538930:0;ruby -v
+: 1322538944:0;rvm default 1.9.2
+: 1322538947:0;rvm current
+: 1322538959:0;rvm --help
+: 1322538962:0;rvm help
+: 1322538991:0;rvm use 1.9.2 --defaulty
+: 1322538992:0;rvm use 1.9.2 --default
+: 1322539028:61;gem install json github
+: 1322539329:0;cd Code/oh-my-zsh
+: 1322539329:0;ls
+: 1322539332:0;gh
+: 1322539334:0;ls
+: 1322539339:393;vim plugins
+: 1322539733:51525;vim plugins
+: 1322591265:0;ls
+: 1322591268:0;git status
+: 1322591299:0;cd plugins
+: 1322591299:0;ls
+: 1322591301:0;cd ..
+: 1322591301:0;ls
+: 1322591302:0;cd plugins
+: 1322591304:0;cd ..
+: 1322591304:0;ls
+: 1322591306:177;vim plugins
+: 1322591484:0;ls
+: 1322591490:1;git checkout plugins/git/git.plugin.zsh
+: 1322591492:0;git status
+: 1322591781:0;cd ~/Code/Tracks/web
+: 1322591782:0;ls
+: 1322591784:0;cd tracks
+: 1322591784:0;ls
+: 1322591797:0;git checkout -b rails31-learning-experiment
+: 1322591799:0;git branch
+: 1322591803:0;ls
+: 1322591828:0;rm -rf app config db doc lib log log.tmpl public script spec tags test tmp vendor Gemfile Gemfile.lock Capfile
+: 1322591830:0;git status
+: 1322591833:0;git status
+: 1322591841:0;ls
+: 1322591860:0;git rm Rakefile README app config vendor public lib log log.tmpl 
+: 1322591869:0;git rm -r Rakefile README app config vendor public lib log log.tmpl
+: 1322591872:0;git rm -r Rakefile README app config vendor public lib
+: 1322591874:0;git status
+: 1322591883:0;git rm -r test spec script log.tmpl
+: 1322591886:0;git status
+: 1322591899:0;git rm -r doc db Capfile Gemfile Gemfile.lock
+: 1322591902:0;git status
+: 1322591907:19;git commit
+: 1322591928:0;ls features
+: 1322591934:0;ls features/step_definitions
+: 1322591943:0;git rm -r features/step_definitions/
+: 1322591945:0;ls features/support
+: 1322591954:1;git rm -r features/support
+: 1322591956:0;git status
+: 1322591959:0;ls
+: 1322591960:0;ls features
+: 1322591977:0;git status
+: 1322591980:91;git commit
+: 1322592075:0;git status
+: 1322592077:0;r new
+: 1322592079:0;r new .
+: 1322592081:0;which r
+: 1322592084:0;rails new .
+: 1322592086:0;git status
+: 1322592089:0;ls
+: 1322592091:0;rm -rf new
+: 1322592092:1;rails .
+: 1322592097:0;ls
+: 1322592101:2;vim README
+: 1322592107:0;rails --version
+: 1322592118:0;git clean -fdx
+: 1322592120:0;git status
+: 1322592121:1;git wtf
+: 1322592130:0;rvm current
+: 1322592136:0;rvm use 1.9.2
+: 1322592152:0;rvm gemset list
+: 1322592162:0;rvm gemset create tracks3
+: 1322592167:0;rvm gemset use tracks3
+: 1322592171:297;gem install rails
+: 1322622147:0;ls
+: 1322622152:0;which rails
+: 1322622153:0;rails --version
+: 1322622156:42;rails new .
+: 1322539350:0;which hub
+: 1322539379:0;which github
+: 1322539380:0;github
+: 1322542211:0;git symbolic-ref HEAD
+: 1322542214:0;cd Code/janus
+: 1322542215:0;git symbolic-ref HEAD
+: 1322542233:0;ref=$(git symbolic-ref HEAD)
+: 1322542242:0;echo ${ref#refs/heads}
+: 1322542246:0;echo ${ref#refs/heads/}
+: 1322591450:0;cd ..
+: 1322591450:0;ls
+: 1322591453:0;cd KDE
+: 1322591454:0;ls
+: 1322591455:0;cd Source
+: 1322591455:0;ls
+: 1322591480:0;ls
+: 1322623141:0;dmesg
+: 1322623146:0;dmesg
+: 1322623148:0;mount
+: 1322623156:0;mount
+: 1322623157:0;dmesg
+: 1322623162:1;dmesg
+: 1322623168:0;dmesg
+: 1322623171:0;dmesg
+: 1322623172:0;dmesg
+: 1322111005:0;sudo rc.d stop kdm
+: 1322111011:0;bin/switch_graphics DDIS
+: 1322111018:0;sudo rc.d start kdm
+: 1322623446:0;prompt mattr
+: 1322623451:0;ls -l
+: 1322623453:0;ls -la
+: 1322623465:0;ln -s ~/.zsh/.zshenv .
+: 1322670130:0;restart
+: 1322670143:0;restart
+: 1322670219:0;restart
+: 1322670228:0;restart
+: 1322670747:0;cd ..
+: 1322670748:0;git status
+: 1322670754:1;git add zshrc/70_git
+: 1322670758:0;git status -uno
+: 1322670772:0;git commit -m "aliases and shortcuts for git. from oh-my-zsh"
+: 1322670783:0;cd .zshrc
+: 1322670783:0;ls
+: 1322670786:0;cd zshrc
+: 1322670786:0;ls
+: 1322670790:2075;vim 79_vcs_info_setup
+: 1322672871:0;restart
+: 1322672878:0;exit
+: 1322670713:0;cd .zsh
+: 1322670713:0;ls
+: 1322670715:0;vcsh zsh
+: 1322670720:0;cd zshenv/
+: 1322670721:0;ls
+: 1322670725:2;vim 01_fpath
+: 1322670731:0;echo $fpath
+: 1322670736:0;autoload vcsh
+: 1322670741:2137;vcsh zsh
+: 1322672885:0;restart
+: 1322672939:0;restart
+: 1322670251:0;pwd
+: 1322670253:1;ls
+: 1322670260:0;cd Code/Tracks/web
+: 1322670260:0;ls
+: 1322670279:0;cd tracks
+: 1322670280:0;ls
+: 1322670286:0;git status
+: 1322670319:0;git add .gitignore Gemfile Gemfile.lock Rakefile app config.ru config db doc lib log public script test vendor
+: 1322670321:0;git status
+: 1322670325:2;vim README
+: 1322670667:0;git status
+: 1322677550:0;restart
+: 1322677632:0;restart
+: 1322677639:0;cd ~/Code/Tracks/web
+: 1322677640:0;ls
+: 1322677662:0;restart
+: 1322677665:0;cd tracks
+: 1322677682:0;gst
+: 1322677727:0;restart
+: 1322677749:0;restart
+: 1322670015:0;clear
+: 1322670024:0;screen -r
+: 1322670025:0;screen
+: 1322678075:0;git status
+: 1322678084:45;man git-checkout
+: 1322678131:0;git status
+: 1322678142:8;git commit
+: 1322678159:1;git checkout master
+: 1322678166:0;git checkout -f master
+: 1322678169:0;ls
+: 1322678172:2;vim README
+: 1322678183:0;git checkout rails31-learning-experiment
+: 1322678184:0;ls
+: 1322678192:0;git checkout master
+: 1322678201:0;cp README ..
+: 1322678204:0;git checkout rails31-learning-experiment
+: 1322678209:0;mv ../README .
+: 1322678211:0;git status
+: 1322678215:0;git add README 
+: 1322678235:0;git commit -m "readd README in this branch"
+: 1322678239:0;git status
+: 1322678248:0;ls
+: 1322678286:696;vim Gemfile
+: 1322678984:1;rvm current
+: 1322679000:0;rvm use 1.9.2@tracks3 --rvmrc
+: 1322679004:2;vim .rvmrc
+: 1322679009:83;bundle install
+: 1322682322:0;ls
+: 1322682323:0;git status
+: 1322682329:7;git diff
+: 1322682341:14;vim .gitignore
+: 1322682356:0;git status
+: 1322682361:0;git add .gitignore
+: 1322682373:0;git commit -m "make git ignore .rvmrc"
+: 1322682376:5;git diff
+: 1322682425:0;which rails
+: 1322682571:0;restart
+: 1322682636:0;restart
+: 1322682305:0;g
+: 1322682306:2906;screen -r
+: 1322714551:2;sudo rc.d restart bluetooth
+: 1322756035:0;ls
+: 1322756038:4648;screen -r
+: 1322760691:0;cd Code/Tracks/web/tracks
+: 1322760693:14;vim config/database.yml
+: 1322760709:0;screen -r
+: 1322670040:12396;vim .zsh/functions/prompt_mattr_setup
+: 1322682441:0;cd .zsh/zshrc/
+: 1322682442:0;ls
+: 1322682446:119;vim 90_rails
+: 1322682591:0;cd ..
+: 1322682594:74595;vim functions/prompt_mattr_setup
+: 1322757190:0;ls
+: 1322757194:91;yaourt -Suy
+: 1322757317:5;yaourt -Suy
+: 1322757403:0;which hosname
+: 1322757405:0;which hostname
+: 1322757412:0;pacman -Q inetutils
+: 1322769270:0;cd ~/Code/Tracks/web/tracks
+: 1322769274:0;gst
+: 1322769278:0;alias | grep g
+: 1322769285:0;ga public/stylesheets/standard.css
+: 1322769292:93;gc
+: 1322770680:0;git wtf
+: 1322770686:3;git push
+: 1322770692:0;git branch
+: 1322770698:0;git checkout upstream
+: 1322770707:4;git pull
+: 1322770715:0;git wtf
+: 1322770720:0;git wtf upstream master
+: 1322770727:0;git diff upstream..master
+: 1322770733:0;git merge master
+: 1322770736:3;git push
+: 1322770741:0;restart
+: 1322768925:5049;screen -r
+: 1322777233:0;screen -r
+: 1322856536:0;cd Code
+: 1322856536:0;ls
+: 1322856538:0;cd KDE
+: 1322856538:0;ls
+: 1322856540:0;cd Source
+: 1322856540:0;ls
+: 1322856542:0;ls build
+: 1322856544:0;ls kde
+: 1322856550:0;cd ../..
+: 1322856550:0;ls
+: 1322856553:9;rm -rf KDE
+: 1322856562:0;df -h
+: 1322856908:0;df -h
+: 1322856919:0;lvs
+: 1322856921:0;sudo pvs
+: 1322856923:0;ls
+: 1322856929:0;cd ..
+: 1322856930:0;ls
+: 1322856930:0;exit
+: 1322623491:0;ls
+: 1322623493:0;cd tmp
+: 1322623497:0;mkdir tmp/camera
+: 1322623501:0;mkdir camera
+: 1322623534:0;dmesg
+: 1322655582:3;top
+: 1322655588:0;kill 6611
+: 1322655592:5;top
+: 1322655618:0;synclient | grep Tap
+: 1322655625:0;synclient TapButton2=3
+: 1322655637:0;ls /media/1611-D1B1/vim -a
+: 1322707305:0;ls
+: 1322708260:0;mount
+: 1322708264:0;ls /sys/kernel/debug
+: 1322708266:0;ls /sys/kernel/debug/vgaswitcheroo
+: 1322708274:0;cat /sys/kernel/debug/vgaswitcheroo/switch
+: 1322708279:0;sudo
+: 1322708280:11;sudo -i
+: 1322708336:0;ls
+: 1322712640:0;cd Code/tr
+: 1322712642:0;cd Code/Tr
+: 1322712647:0;cd ~/Code/Tracks/web
+: 1322712647:0;ls
+: 1322712650:0;cd tracks
+: 1322712653:0;cd ..
+: 1322712666:0;git clone --local ./tracks ./tracks-old
+: 1322712668:0;cd tracks-old
+: 1322712669:0;ls
+: 1322712672:0;git checkout master
+: 1322712681:10;vim app/models/todo.rb
+: 1322712692:0;ls
+: 1322712696:0;cd db/migrate
+: 1322712697:0;ls
+: 1322712699:0;ls -l
+: 1322712700:0;ls
+: 1322712707:6;vim 001_create_tracks_db.rb
+: 1322713065:0;mv 001_create_tracks_db.rb
+: 1322713067:1282;vim 001_create_tracks_db.rb
+: 1322714350:0;ls
+: 1322714358:0;cd ..
+: 1322714365:2;vim database.yml
+: 1322714368:0;ls
+: 1322714375:0;cd ..
+: 1322714376:0;ls
+: 1322714380:0;cat config/database.yml.tmpl
+: 1322714394:0;cp ../database.yml config
+: 1322714398:0;cp ../site.yml config
+: 1322714404:0;time rdbm
+: 1322714414:0;rvm status
+: 1322714417:0;rvm current
+: 1322714450:0;bundle exec rake:db:migrate
+: 1322714458:1;bundle
+: 1322714467:2;bundle exec rake -T
+: 1322714479:14;bundle exec rake db:migrate
+: 1322714498:0;ls
+: 1322714506:0;cd db
+: 1322714506:0;ls
+: 1322714514:1421;sqlite3 ./tracks-git.db
+: 1322792851:0;cd ../..
+: 1322792852:0;ls
+: 1322792854:0;rm -rf tracks-old
+: 1322792855:0;ls
+: 1322792856:0;cd tracks
+: 1322792857:0;ls
+: 1322883944:0;restart
+: 1322883982:0;exit
+: 1322770746:0;git checkout master
+: 1322770748:0;git status
+: 1322771162:0;git branch
+: 1322771168:0;git branch -D rails31-learning-experiment
+: 1322771173:0;git branch -D rails3.0
+: 1322771181:0;git branch -D add-guard
+: 1322771184:0;git status
+: 1322771185:1;gs
+: 1322771191:0;gst
+: 1322771193:0;gb
+: 1322771201:0;gc fix-project-edit
+: 1322771207:0;alias gc
+: 1322771214:0;alias | grep g
+: 1322771222:0;gco fix-project-edit
+: 1322771225:0;gst
+: 1322771229:0;g wtf
+: 1322771245:0;g rebase master
+: 1322777241:0;ls
+: 1322777254:106714;vim
+: 1322883986:0;exit
+: 1322682665:6;rg rspec:install
+: 1322682788:5;rg cucumber:install --help
+: 1322682812:2100;vim Gemfile
+: 1322684913:71133;irb
+: 1322756054:0;g st
+: 1322756055:0;gst
+: 1322756059:0;g diff
+: 1322756065:2;time rake -T
+: 1322756085:5;time rake routes
+: 1322756092:0;g st
+: 1322756094:0;gst
+: 1322756103:0;g checkout config/application.rb
+: 1322756109:0;git checkout master
+: 1322756119:0;g st
+: 1322756120:0;gst
+: 1322756130:0;rm db/migrate/20111201041730_create_db.rb
+: 1322756134:0;gst
+: 1322756138:0;alias | grep g
+: 1322756157:1;g pull tracksapp msater
+: 1322756160:3;g pull tracksapp master
+: 1322756192:1;curl http://www.assembla.com/spaces/tracks-tickets/documents/download/aSiSu2g3er4BQCacwqjQWU
+: 1322756197:1;curl http://www.assembla.com/spaces/tracks-tickets/documents/download/aSiSu2g3er4BQCacwqjQWU | patch -p1
+: 1322756211:11;vim public/stylesheets/standard.css
+: 1322756226:0;g diff
+: 1322756247:1;script/server
+: 1322756252:0;rvm current
+: 1322756261:0;rm .rvmrc
+: 1322756271:0;rvm current
+: 1322756272:0;cd
+: 1322756276:1;cd Code/Tracks/web/tracks
+: 1322756279:0;rvm current
+: 1322756282:49;bundle install
+: 1322757010:0;gst
+: 1322757013:0;g diff
+: 1322757030:4;bundle exec rake test
+: 1322757044:0;cp ../site.yml .
+: 1322757064:0;cp ../database.yml config
+: 1322757067:1;rake db:migrate
+: 1322757077:0;gem remove rake -v 0.9.2.2
+: 1322757085:12;gem uninstall rake -v 0.9.2.2
+: 1322757106:0;rvm use 1.8.7
+: 1322757109:0;rvm gemset
+: 1322757115:0;rvm gemset delete tracks
+: 1322757123:0;rvm gemset create tracks
+: 1322757128:0;rvm use 1.8.7@tracks
+: 1322757132:176;bundle
+: 1322757481:0;rdbm
+: 1322757490:1;bundle exec rake db:migrate
+: 1322757500:0;cp ../site.yml config
+: 1322757503:0;cp ../database.yml config
+: 1322757505:0;ls config
+: 1322757506:0;ls
+: 1322757509:0;rm site.yml
+: 1322757513:13;bundle exec rake db:migrate
+: 1322757612:84;bundle exec rake test
+: 1322757728:10;time bundle exec rake cucumber
+: 1322758734:20;vim Gemfile
+: 1322758755:66;bundle
+: 1322758857:64;vim config/database.yml
+: 1322758924:0;cat config/database.yml
+: 1322758939:17;vim config/database.yml
+: 1322760651:2;vim config/database.yml
+: 1322760656:0;echo $LC_CTYPE
+: 1322760660:0;unset LC_CTYPE
+: 1322760661:0;locale
+: 1322760666:17;vim config/database.yml
+: 1322760717:0;bundle exec rake cucumber
+: 1322760724:4;vim Gemfile
+: 1322760731:39;bundle
+: 1322760779:4;vim Gemfile
+: 1322760786:1;bundle install
+: 1322760792:5;bundle exec rake cucumber
+: 1322760809:5;bundle exec rake cucumber --trace
+: 1322760831:9;vim Gemfile
+: 1322760844:1;bundle exec rake
+: 1322760847:148;bundle exec rake cucumber
+: 1322768928:0;clear
+: 1322768928:0;ls
+: 1322768930:0;gst
+: 1322768983:8264;bundle exec script/server
+: 1322777249:106739;bundle exec script/server
+: 1323015071:9;ssh centurion.local
+: 1323015083:0;cd tmp
+: 1323015084:0;cd ~/tmp
+: 1323015084:0;ls
+: 1323015099:0;scp centurion.local:/srv/bittorrent/Fedora\* . -r
+: 1323015107:1274;scp -r centurion.local:/srv/bittorrent/Fedora\* .
+: 1323016691:0;cd Fedora-16-i386-DVD
+: 1323016697:0;pacman -S syslinux
+: 1323016702:7;sudo pacman -S syslinux
+: 1323016716:0;rehash
+: 1323016719:0;isohybrid Fedora-16-i386-
+: 1323016723:0;isohybrid Fedora-16-i386-DVD.iso
+: 1323016742:1043;sudo dd if=Fedora-16-i386-DVD.iso of=/dev/sdc
+: 1323111833:0;cd Code/SimpleNotes
+: 1323111833:0;ls
+: 1323111835:0;git status
+: 1323111837:0;git branch
+: 1323111839:0;git branch -v
+: 1323111844:0;git remote
+: 1323111846:0;git wtf
+: 1323111852:0;ls $PATH
+: 1323111854:0;echo $PATH
+: 1323111864:0;source ~/.zshrc
+: 1323111868:0;echo $PATH
+: 1323111873:0;ls ~/bin
+: 1323111886:1;~/bin/git-wtf
+: 1323111894:3;git branch --help
+: 1323111901:137;ssh centurion.local
+: 1323112039:0;exit
+: 1323148121:584;yaourt -Suy
+: 1323148840:0;cd Downloads
+: 1323148843:393;java -jar eclim_1.7.2.jar
+: 1323148117:1;yaourt -Ss eclim
+: 1323148178:76;yaourt -S eclim
+: 1323148255:0;ls
+: 1323182044:0;screen -r
+: 1323182046:0;screen
+: 1323352680:0;cd tmp
+: 1323352680:0;ls
+: 1323352822:0;git clone git clone https://code.google.com/p/terminal-ide/
+: 1323352824:1;git clone https://code.google.com/p/terminal-ide/
+: 1323352857:0;wget http://code.google.com/p/terminal-ide/downloads/detail?name=terminalide-src-1.4.tar.gz&can=2&q=
+: 1323352862:1;wget 'http://code.google.com/p/terminal-ide/downloads/detail?name=terminalide-src-1.4.tar.gz&can=2&q='
+: 1323352872:0;rm -rf detail\?name=terminalide-src-1.4.tar.gz\&can=2\&q= terminal-ide
+: 1323352879:17;wget http://terminal-ide.googlecode.com/files/terminalide-src-1.4.tar.gz
+: 1323352960:0;ls
+: 1323352962:1;tar xf terminalide-src-1.4.tar.gz
+: 1323352965:0;cd TermIDE
+: 1323352966:0;ls
+: 1323352968:0;cd ..
+: 1323352968:0;ls
+: 1323352970:0;cd TermIDE
+: 1323352970:0;ls
+: 1323352972:0;ls src
+: 1323352973:0;ls src
+: 1323352974:0;ls lib
+: 1323352976:0;ls src/lib
+: 1323352979:0;pwd
+: 1323352979:0;ls
+: 1323352981:0;ls libs
+: 1323352985:0;ls libs/armeabi
+: 1323352990:0;ls res
+: 1323352992:0;ls src
+: 1323353012:0;cd ..
+: 1323353013:15;wget http://terminal-ide.googlecode.com/files/system-1.2.tar.gz
+: 1323353029:0;ls
+: 1323353032:1;tar xf system-1.2.tar.gz
+: 1323353033:0;ls
+: 1323353035:0;cd system
+: 1323353035:0;ls
+: 1323353037:39;vim vimrc
+: 1323353076:0;ls
+: 1323353078:0;ls etc
+: 1323353079:0;ls etc/vim
+: 1323353082:0;cd /etc/vim
+: 1323353082:0;ls
+: 1323353084:0;cd /etc/vim
+: 1323353086:0;cd etc/vim
+: 1323353086:0;ls
+: 1323353094:0;ls plugin
+: 1323353099:0;ls
+: 1323353103:0;ls autoload
+: 1323353122:6;vim autoload/README.txt
+: 1323353131:3;vim ../../vimrc
+: 1323353136:0;ls
+: 1323353141:0;find -name javacomplete.vim
+: 1323353144:0;cd ./..
+: 1323353145:0;find -name javacomplete.vim
+: 1323353148:0;ls
+: 1323353149:0;cd default_vim
+: 1323353150:0;ls
+: 1323353152:0;ls plugin
+: 1323353156:0;ls autoload
+: 1323353161:35;vim autoload/java_parser.vim
+: 1323353204:129;vim autoload/javacomplete.vim
+: 1323353334:0;ls
+: 1323353336:0;ls autoload/
+: 1323353343:0;ls plugin
+: 1323353346:0;ls ftplugin/p
+: 1323353348:0;ls ftplugin
+: 1323353352:0;ls syntax
+: 1323353355:0;ls after
+: 1323353357:0;ls after/plugin
+: 1323353377:0;ls
+: 1323353382:0;cd
+: 1323353382:0;ls
+: 1323353386:0;cd Code/janus
+: 1323353386:0;ls
+: 1323353393:0;ls
+: 1323353395:0;git remote
+: 1323353397:0;g remote
+: 1323353399:0;g branch
+: 1323353407:0;g diff fix-directory-spaces..master
+: 1323353433:17;git log fix-directory-spaces
+: 1323353452:0;ls
+: 1323353457:0;git merge fix-directory-spaces
+: 1323353467:7;git log master
+: 1323353482:0;g origin
+: 1323353486:0;g remote
+: 1323353491:0;g merge carlhuda master
+: 1323353497:0;g merge carlhuda/master
+: 1323353500:2;g pull carlhuda master
+: 1323353507:53;vim Rakefile
+: 1323353563:0;git status
+: 1323353567:0;git add Rakefile
+: 1323353572:0;gst
+: 1323353574:0;g diff
+: 1323353577:8;g log
+: 1323353587:6;git commit
+: 1323353596:493;g log
+: 1323354092:0;git status
+: 1323354095:4;git push
+: 1323354128:0;cd ~/Code/Tracks/web/tracks
+: 1323354129:0;screen -r
+: 1323354131:0;screen -dr
+: 1323361022:0;screen -r
+: 1323405790:0;mkdir "Nintendo 64"
+: 1323443646:26647;screen -r
+: 1323627793:0;ls
+: 1323627800:0;ls
+: 1323627810:0;screen -r
+: 1323627814:159;screen -dr
+: 1323627975:0;exit
+: 1322883952:4;bundle exec script/server
+: 1322883964:25;screen -r
+: 1322883994:998;bundle exec script/server
+: 1322884992:1014;bundle exec script/server
+: 1322886007:0;rvm current
+: 1322886031:29;bundle exec rake cucumber:selenium
+: 1322886205:0;echo $PATH
+: 1322886209:0;which firefox
+: 1322886217:0;ls /opt/usr/lib/firefox-3.6
+: 1322886236:0;export PATH=/opt/usr/lib/firefox-3.6:$PATH
+: 1322886241:43;bundle exec rake cucumber:selenium
+: 1322889523:3;git push
+: 1322889532:4;git push origin fix-project-edit
+: 1322923105:37;bundle exec rake cucumber:selenium
+: 1322972472:0;ls
+: 1322972480:816;vim lib/tasks/cucumber-tracks.rake
+: 1322973300:1549;rake cucumber:selenium
+: 1323059050:0;ls /etc/rc.d
+: 1323141347:35;rake cucumber:selenium_wip
+: 1323225627:128504;screen -dr
+: 1323433759:0;clear
+: 1323488553:0;git status
+: 1323488554:0;gst
+: 1323488570:1;gvim
+: 1323488705:42;rake cucumber:selenium_wip
+: 1323488813:46;rake cucumber:selenium_wip
+: 1323489235:76;yaourt -S jslint
+: 1323489313:0;clear
+: 1323491585:28;rake cucumber:selenium_wip
+: 1323492269:35;rake cucumber:selenium_wip
+: 1323492312:0;export DISPLAY=":99"
+: 1323492314:34;rake cucumber:selenium_wip
+: 1323492888:0;export DISPLAY=":0"
+: 1323492890:61;rake cucumber:selenium_wip
+: 1322707312:0;cd ~/Code/Tracks/web/tracks
+: 1322707318:0;ls
+: 1322707322:0;gst
+: 1322707325:0;gd
+: 1322707329:0;gdiff
+: 1322707331:0;alias
+: 1322707340:2;g diff
+: 1322708358:0;ls
+: 1322708364:15;vim Gemfile
+: 1322708382:1;bundle show
+: 1322708389:0;b
+: 1322708391:16;bundle
+: 1322708675:196;vim Gemfile
+: 1322708872:29;bundle
+: 1322709224:11;vim Gemfile
+: 1322709237:21;bundle
+: 1322709968:1;guard init
+: 1322709972:0;gst
+: 1322709994:0;guard list
+: 1322710002:0;guard init rspec
+: 1322710007:1;guard init cucumber
+: 1322710012:13;vim Guardfile
+: 1322710028:0;gst
+: 1322710099:0;gst
+: 1322710104:0;ls .rspec
+: 1322710106:4;vim .rspec
+: 1322710115:1;spork --bootstrap
+: 1322710124:15;vim spec/spec_helper.rb
+: 1322710219:121;vim spec/spec_helper.rb
+: 1322710343:941;vim .rspec
+: 1322711285:0;ls
+: 1322711288:9;vim Guardfile
+: 1322711300:0;ls
+: 1322711304:0;ls test
+: 1322711310:7;vim Rakefile
+: 1322711318:0;ls lib/tasks
+: 1322711355:0;ls
+: 1322711398:0;ls
+: 1322711400:8;vim config
+: 1322711409:0;ls
+: 1322711411:0;ls config
+: 1322711417:14;vi config/database.yml
+: 1322711445:8;rake spec
+: 1322711462:0;ls
+: 1322711466:8;rdbm
+: 1322711478:0;r spec
+: 1322711483:6;rake spec
+: 1322712261:7;vim Gemfile
+: 1322712350:22;bundle && guard init spork
+: 1322712414:82;vim Guardfile
+: 1322712634:0;ls
+: 1322712724:8;rails generate --help
+: 1322712748:2;vim config/environment.rb
+: 1322712753:0;cd config
+: 1322712754:0;ls
+: 1322712755:5;vim boot.rb
+: 1322712761:30;vim application.rb
+: 1322712807:0;rg migration
+: 1322712812:0;ls scrip
+: 1322712814:0;cd ..
+: 1322712816:7;rg migration
+: 1322712904:6;rg migration create_db
+: 1322712911:0;ls
+: 1322712915:0;rm db/migrate/20111201041510_create_db.rb
+: 1322712915:0;ls
+: 1322712917:0;git status
+: 1322712919:0;gtst
+: 1322712920:0;gst
+: 1322712933:0;git add Gemfile Gemfile.lock .rspec Guardfile spec
+: 1322712935:0;gst
+: 1322712944:9;g diff --cached
+: 1322712956:31;git commit
+: 1322713004:0;gst
+: 1322713007:0;g diff
+: 1322713013:3;rake
+: 1322713019:7;time rake
+: 1322713043:7;rg migration create_db
+: 1322713126:10;vim db/migrate/20111201041730_create_db.rb
+: 1322714481:0;ls
+: 1322885648:0;ls
+: 1322885650:0;git status
+: 1322885652:7;git diff
+: 1322885669:0;git status
+: 1322885670:0;gst
+: 1322885678:0;g diff app/views/projects/
+: 1322885690:0;g diff app/views/projects/
+: 1322885705:0;git add app/views/
+: 1322885708:0;gst
+: 1322885713:2;g diff public
+: 1322885719:0;which ga
+: 1322885724:0;ga public/javascripts/application.js
+: 1322885729:0;gst
+: 1322885734:0;which gc
+: 1322885736:142;gc
+: 1322885894:0;gst
+: 1322885897:5;g diff app/
+: 1322885904:0;gst
+: 1322885909:0;ga app/views/projects/edit.js.erb
+: 1322885912:34;gc
+: 1322885958:0;echo $PATH
+: 1322885982:0;export PATH=/opt/usr/lib/firefox-3.6:$PATH
+: 1322885988:1;bundle exec rake cucumber:selenium
+: 1322886000:0;rvm current
+: 1322972503:1;rake -T
+: 1322972516:0;rvm current
+: 1322972525:0;rvm use 1.8.7@tracks
+: 1322972530:1;rake -T 
+: 1322972552:1;rake -T 
+: 1322972608:40;rake cucumber:selenium
+: 1322972888:0;ls db
+: 1322972903:347;vim config/database.yml
+: 1322973258:11;RAILS_ENV=cucumber rake db:migrate
+: 1322973272:0;ls db
+: 1322973278:10;vim config/database.yml
+: 1323053728:5312;sqlite3 db/tracks-git.db
+: 1323059041:0;clear
+: 1323312691:0;ls /sys/kernel/debug
+: 1323312697:0;cat /sys/kernel/debug/vgaswitcheroo/switch
+: 1323407192:0;du -csh
+: 1323488599:139215;screen -r
+: 1323657412:40;switch_graphics DDIS
+: 1322712500:54;guard
+: 1322712557:0;ps -ef
+: 1322712561:26;vim Guardfile
+: 1323016735:0;dmesg
+: 1323141100:0;ls
+: 1323141106:0;cd features
+: 1323141106:0;ls
+: 1323141111:218;vim project_edit.feature
+: 1323141333:1;rake -T
+: 1323406284:0;cd
+: 1323406285:0;cd tmp
+: 1323406328:8;git clone github:garybernhardt/dotfiles
+: 1323407132:0;ls
+: 1323407133:0;cd dotfiles
+: 1323407136:0;ls
+: 1323407138:2;vim .rvmrc
+: 1323407140:0;l
+: 1323407141:0;ls
+: 1323407142:0;ls -la
+: 1323407144:13;vim .zsh
+: 1323407158:0;ls
+: 1323407163:0;ls -la
+: 1323407170:87;vim .zshrc
+: 1323407260:420;vim .vimrc
+: 1323407680:0;ls
+: 1323407683:0;ls .vim
+: 1323407687:0;ls .vim/bundle
+: 1323407691:0;ls
+: 1323407694:0;ls -la
+: 1323407696:3;vim .tmux.conf
+: 1323407701:4;vim .gitignore
+: 1323407711:23;vim .screenrc
+: 1323407741:0;ls-l
+: 1323407743:0;ll
+: 1323407743:0;l
+: 1323407744:0;llr
+: 1323407767:0;lls -l
+: 1323407768:0;la
+: 1323407771:0;ls .zsh
+: 1323407774:0;la .zsh/func
+: 1323407780:0;cat .zsh/func/prompt_grb_setup
+: 1323407855:0;ls
+: 1323407857:0;cd ..
+: 1323407862:0;rm -rf dotfiles
+: 1323407862:0;ls
+: 1323407868:0;ls
+: 1323407869:0;cd ..
+: 1323407870:0;ls
+: 1323407873:0;ls tmp
+: 1323658917:131;vim ~/.janus.rake
+: 1323659051:0;which javac
+: 1323659052:0;ls
+: 1323659055:0;cd .vim
+: 1323659058:0;cd ~/.vim
+: 1323659060:3;git pull
+: 1323659070:45;rake
+: 1323659123:1;rake
+: 1323659170:44;rake
+: 1323662105:0;cd
+: 1323662105:0;ls
+: 1323662108:0;cd Code/SimpleNotes
+: 1323662108:0;ls
+: 1323662117:2;git remote --help
+: 1323662120:0;git remote add
+: 1323662159:0;git remote add centurion ssh://matt@centurion.local/home/matt/save/matt/Code/SimpleNotes
+: 1323662165:1;git fetch centurion
+: 1323662179:0;git checkout -b honeycomb-ui centurion/honeycomb-ui
+: 1323662186:0;git checkout master
+: 1323662191:0;git branch -d honeycomb-ui
+: 1323662204:25;git branch --help
+: 1323662240:0;git checkout -b --no-track honeycomb-ui centurion/honeycomb-ui
+: 1323662256:0;git branch --no-track honeycomb-ui centurion/honeycomb-ui
+: 1323662259:0;git branch
+: 1323662262:0;git checkout honeycomb-ui
+: 1323662265:0;git wtf
+: 1323662276:0;git rebase master
+: 1323662289:37;vim SimpleNotes/AndroidManifest.xml
+: 1323662328:0;git diff
+: 1323662355:0;cat AndroidManifest.xml
+: 1323662375:0;git rebase --continue
+: 1323662382:0;git add SimpleNotes/AndroidManifest.xml
+: 1323662384:0;git rebase --continue
+: 1323662406:0;ls
+: 1323662407:0;git status
+: 1323662410:0;git wtf
+: 1323662418:4;git push origin honeycomb-ui
+: 1323662572:1;gvim
+: 1323662831:6;vim SimpleNotes/.classpath
+: 1323662842:0;grep android-8 .*
+: 1323662843:0;grep android-8 .* -rn
+: 1323662845:0;ls
+: 1323662853:0;find -name \.\*
+: 1323662858:0;find -name \.\* | grep android
+: 1323662861:0;ls
+: 1323662863:1;android --help
+: 1323662880:0;android update project
+: 1323662884:0;cd SimpleNotes
+: 1323662886:0;android update project
+: 1323662894:0;ls
+: 1323662896:4;vim project.properties
+: 1323662992:0;ls
+: 1323662995:21;vim AndroidManifest.xml
+: 1323663016:0;ls
+: 1323663018:0;ls -la
+: 1323663021:4;vim .project
+: 1323663026:0;ls
+: 1323663027:0;ls -la
+: 1323663029:3;vim .classpath
+: 1323663060:0;la
+: 1323663066:1;android --help
+: 1323663125:0;ls
+: 1323663128:1;android update project .
+: 1323663140:1;android update project -p .
+: 1323663145:2;vim local.properties
+: 1323663148:0;ls
+: 1323663149:0;ls -la
+: 1323663154:8;vim build.xml
+: 1323663162:0;ls
+: 1323663167:0;gst -fdx
+: 1323663175:0;git-clean
+: 1323663177:0;gc
+: 1323663182:0;gd
+: 1323663183:0;g diff
+: 1323663188:0;ls
+: 1323663202:0;ls
+: 1323663205:0;ant
+: 1323663207:0;which ant
+: 1323663216:0;which command ant
+: 1323663220:0;ant
+: 1323663228:0;command ant
+: 1323663233:0;command which ant
+: 1323663240:2;yaourt -Ss ant
+: 1323663244:1;yaourt -Ss apache-ant
+: 1323663252:9;yaourt -S apache-ant
+: 1323663263:0;which ant
+: 1323663266:0;ant
+: 1323663268:0;rehash
+: 1323663270:0;ant -emacs
+: 1323663273:0;command ant 
+: 1323663274:0;ls
+: 1323663275:0;ls -la
+: 1323663278:1;df h
+: 1323663281:0;df -h
+: 1323663284:10;dmesg | less
+: 1323663301:0;ls
+: 1323663305:0;git status
+: 1323663309:0;git clean
+: 1323663314:0;git clean -fdx
+: 1323663318:0;git status
+: 1323663320:0;cat project.properties
+: 1323662140:262;ssh centurion.local
+: 1323663384:0;cd SimpleNotes
+: 1323663389:0;ls gen
+: 1323663391:0;ls- la
+: 1323663392:0;ls -la
+: 1323663396:0;ant
+: 1323663399:0;which ant
+: 1323663400:0;command which ant
+: 1323663408:0;pacman -Ql apache-ant
+: 1323663417:0;/usr/share/java/bin/ant
+: 1323663423:0;/usr/share/java/apache-ant/bin/ant
+: 1323663428:0;restart
+: 1323699247:0;screen -r
+: 1323699251:0;clear
+: 1323699252:0;ls
+: 1323699261:0;ls
+: 1323706600:74;yaourt -Suy
+: 1323707779:0;exit
+: 1323707901:0;screen -r
+: 1323707904:0;which tumux
+: 1323707906:0;which tmux
+: 1323707909:6;yaourt -Ss tmux
+: 1323707930:4;yaourt -S tmux
+: 1323707936:891;man tmux
+: 1323708828:0;screen -r
+: 1323708830:0;screen 
+: 1323727614:0;screen -r
+: 1323783191:1;screen -r
+: 1323783194:0;screen -dr
+: 1323805665:0;ls
+: 1323805667:0;ls code
+: 1323805669:0;ls Code
+: 1323805669:0;ls
+: 1323805676:0;cd Code
+: 1323805676:0;ls
+: 1323874402:0;cd Code/Tracks/web
+: 1323874402:0;ls
+: 1323874405:0;cd ..
+: 1323874405:0;ls
+: 1323874407:0;ls android
+: 1323874409:0;ls wiki
+: 1323874411:0;cd wiki
+: 1323874414:3;g pull
+: 1323898580:4554;screen -r
+: 1323663430:0;which ant
+: 1323663433:0;command which ant
+: 1323663446:0;cat /etc/profile.d/apache-ant.sh
+: 1323663867:10;vim ~/simplenotestest.properties
+: 1323918130:0;git status
+: 1323918132:0;g diff
+: 1323918140:0;gco master
+: 1323918149:0;git stash
+: 1323918152:0;ls
+: 1323918154:0;git status
+: 1323918592:0;ls
+: 1323918595:0;cd ..
+: 1323918595:0;ls
+: 1323918608:0;ls
+: 1323918611:0;ls SimpleNote
+: 1323918617:0;gb rearrange
+: 1323918622:0;gco rearrange
+: 1323918622:0;ls
+: 1323918624:0;ls SimpleNote
+: 1323918628:0;ls SimpleNoteAPI
+: 1323918632:0;ls SimpleNoteAPI/libs
+: 1323918637:0;ls SimpleNotes
+: 1323918664:56;android
+: 1323918721:0;bg
+: 1323918724:1;android --help
+: 1323918745:0;android list
+: 1323919130:0;ld
+: 1323919132:0;pwd
+: 1323919133:0;ls
+: 1323919136:0;ls SimpleNote
+: 1323919142:0;ls SimpleNotes
+: 1323919152:0;cd SimpleNotes
+: 1323919153:0;ls
+: 1323919154:0;mkdir lib
+: 1323919155:1;android --help
+: 1323919160:0;android update project --help
+: 1323919171:1;android update project -t 8
+: 1323919177:0;ls
+: 1323919183:1;android update project -t 8 -p .
+: 1323919189:6;vim project.properties
+: 1323919213:1;android update project --target android-8 -p .
+: 1323919216:1;vim project.properties
+: 1323919219:3;vim local.properties
+: 1323919225:8;vim proguard.cfg
+: 1323919233:0;ls
+: 1323919235:0;ant
+: 1323919238:0;which ant
+: 1323919243:0;command which ant
+: 1323919257:2;vim ~/.zsh/zshrc/70_antt
+: 1323919260:10;vim ~/.zsh/zshrc/70_ant
+: 1323919272:0;restart
+: 1323919277:0;disown
+: 1323919280:0;restart
+: 1324044405:0;screen -r
+: 1323919284:0;command which ant
+: 1323919286:1;ant
+: 1323919302:0;pand debug
+: 1323919306:0;and debug
+: 1323919308:6;ant debug
+: 1323919322:1;ant
+: 1323919342:1;ant all clean
+: 1323919345:0;ls
+: 1323919347:0;ls lib
+: 1323919348:0;ls libs
+: 1323919361:0;rmdir lib
+: 1323919365:6;ant debug
+: 1323919372:0;l
+: 1323919373:0;ls
+: 1323919375:0;ls libs
+: 1323919377:0;ls src
+: 1323919381:0;dirtree src
+: 1323919383:0;tree src
+: 1323919386:0;ls -lR src
+: 1323919397:0;ls ../SimpleNoteAPI
+: 1323919399:0;ls ../SimpleNoteAPI/libs
+: 1323919410:0;ls ../SimpleNoteAPI/src/com/github/simplenotelib
+: 1323925024:0;ls
+: 1323925027:0;cat local.properties
+: 1323925036:0;gst
+: 1323925043:1;ga build.xml proguard.cfg
+: 1323925045:0;gst
+: 1323925058:0;gc -m "add the ability to build using ant"
+: 1323925071:0;cd ..
+: 1323925071:0;ls
+: 1323925079:7;vim .gitignore
+: 1323925088:0;cd SimpleNote
+: 1323925089:0;cd SimpleNotes
+: 1323925096:0;echo "local.properties" >> .gitignore
+: 1323925098:0;gst
+: 1323925102:0;ga .gitignore
+: 1323925116:0;gc -m "add a .gitignore in the SimpleNotes directory"
+: 1323925118:0;gst
+: 1323925121:0;ls
+: 1323925123:0;ls libs
+: 1323925131:0;ls src/com/github/simplenotes/
+: 1323925137:0;cd ..
+: 1323925157:0;diff -u SimpleNoteAPI/src/com/github/simplenotelib/Note.java SimpleNotes/src/com/github/simplenotes/Note.java
+: 1323925196:0;ls
+: 1324005228:0;ls
+: 1324005237:0;ant
+: 1324005240:0;cd SimpleNote
+: 1324005243:0;cd SimpleNotes
+: 1324005244:9;ant debug
+: 1324005258:3;vim bin/build.prop
+: 1324005261:0;ls
+: 1324005262:2;vim pro
+: 1324005266:7;vim project.properties
+: 1324005275:61;vim build.xml
+: 1324005520:1;ant clean
+: 1324005523:1;ant
+: 1324005526:10;ant debug
+: 1324005567:0;ls
+: 1324005568:0;ls bin
+: 1324005582:0;file bin/SimpleNotes-debug.apk
+: 1324005588:0;zip -l bin/SimpleNotes-debug
+: 1324005590:0;zip -l bin/SimpleNotes-debug.apk
+: 1324005593:0;zip --help
+: 1324005621:0;unzip -l bin/SimpleNotes-debug.apk
+: 1324005642:0;ls libs
+: 1324005761:0;ls
+: 1324005765:1;vim project.properties
+: 1324005769:0;android update project
+: 1324005771:1;android update project -p .
+: 1324005776:0;cat local.properties
+: 1324005779:0;ls -l
+: 1324005782:0;ls tests
+: 1324005791:0;cat tests/default.properties
+: 1324005800:1;android update project -p . --subprojects
+: 1324005812:0;android update project -p . --subprojects -target android-8
+: 1324005820:1;android update project --target 8 -p . --subprojects 
+: 1324005828:1;ant
+: 1324005831:2;ant debug
+: 1324005861:1;ant help
+: 1324005873:1;ant all clean
+: 1324005885:0;git status
+: 1324005887:0;gst
+: 1324005889:0;g diff
+: 1324005907:0;cat tests/project.properties
+: 1324005915:8;vim project.properties
+: 1324005926:6;vim tests/project.properties
+: 1324005933:0;ant build
+: 1324005935:10;ant debug
+: 1324005947:121;vim build.xml
+: 1324006070:0;ls bin/classes
+: 1324006074:0;ls bin/classes/com/github/simplenotes
+: 1324006078:0;ls bin/classes
+: 1324006080:0;ls bin
+: 1324006085:0;cat bin/build.prop
+: 1324006087:0;ls
+: 1324006090:1;ant help
+: 1324006098:0;emulator --help
+: 1324006101:0;emulator -help
+: 1324006124:0;adb --help
+: 1324006141:0;adb devices
+: 1324006151:46;android
+: 1324006197:0;bg
+: 1324006199:0;ps -ef
+: 1324006205:0;ps -ef | grep emulaor
+: 1324006207:0;ps -ef | grep emul
+: 1324006213:5;top
+: 1324006218:0;ls
+: 1324006262:0;ls
+: 1324006269:1;ant --help
+: 1324006273:1;ant help
+: 1324006285:7;ant installd
+: 1324006359:433;ddms
+: 1324006793:0;ls
+: 1324006794:0;bg
+: 1324006795:0;ls
+: 1324006799:1;gvim
+: 1324007771:0;gst
+: 1324007783:0;rm src/com/github/simplenotes/Note.java.1
+: 1324007818:0;git --help
+: 1324007830:7;git help mv
+: 1324007848:0;git mv tests/default.properties tests/project.properties -n
+: 1324007863:0;gst
+: 1324007873:0;git add tests/default.properties tests/project.properties
+: 1324007874:0;gst
+: 1324007889:0;alias grm
+: 1324007890:0;alias
+: 1324007906:0;g rm tests/default.properties
+: 1324007907:0;gst
+: 1324007922:0;g add tests/build.xml tests/proguard.cfg
+: 1324007926:3;g log 
+: 1324007930:0;gst
+: 1324007941:0;gci
+: 1324007944:0;alias g*
+: 1324007947:0;alias
+: 1324007954:65;gc
+: 1324008023:0;gst
+: 1324008033:0;g add libs
+: 1324008035:0;gst
+: 1324008042:0;gco
+: 1324008051:57;gc
+: 1324008114:0;gst
+: 1324008120:0;g diff --cached
+: 1324008123:15;g diff
+: 1324008139:0;ls
+: 1324008142:1;ant test
+: 1324008149:0;ant --help
+: 1324008166:0;which ant
+: 1324008171:1;command ant
+: 1324008176:1;ant
+: 1324008186:0;cd tests
+: 1324008192:3;ant debug installt test
+: 1324008202:0;ls
+: 1324008205:43;vim build.xml
+: 1324008248:0;ls
+: 1324008254:9;vim ant.properties
+: 1324008266:2;ant debug
+: 1324091932:0;ls
+: 1324091932:0;ls
+: 1324091935:4;vim ant.properties
+: 1324092055:7;vim ant.properties
+: 1324092065:1;ant
+: 1324092068:3;ant debug
+: 1324092075:0;ls ..
+: 1324092078:0;ls ../bin
+: 1324092082:0;ls ../bin/classes
+: 1324092085:7;vim ant.properties
+: 1324092095:2;ant debug
+: 1324092105:0;android update --help
+: 1324092145:0;ls ../bin/classes/com/github/simplenotes
+: 1324092150:7;vim ant.properties
+: 1324092159:1;ant
+: 1324092161:3;ant debug
+: 1324092183:9;vim ant.properties
+: 1324092193:2;ant debug
+: 1324092209:0;ls
+: 1324092214:0;ls res
+: 1324092272:0;cd ..
+: 1324092280:1;android update test-project -m . -p tests
+: 1324092535:0;android --help
+: 1324092542:1;android list
+: 1324092598:0;ls ~/Applications/Android
+: 1324092599:0;ls ~/Applications/Android/tools
+: 1324092609:0;ls ~/Applications/Android/platform-tools
+: 1324092616:0;adb --version
+: 1324092625:1;android --version
+: 1324092633:0;android sdk --help
+: 1324092637:2779;android sdk
+: 1324095417:0;bg
+: 1324096216:1;ant
+: 1323743963:39231;screen -r
+: 1323744834:0;grep 'click_link' * -rn
+: 1323744845:129;vim features/step_definitions/web_steps.rb +28
+: 1323744979:4;vim features/step_definitions/project_steps.rb
+: 1323747480:3;vim features/step_definitions/project_steps.rb
+: 1323657675:5;bin/fixup-hdmi
+: 1323657949:0;sudoc
+: 1323657957:3;sudo rc.d restart bluetooth
+: 1324095422:0;cd ~/Downloads
+: 1324095422:0;ls
+: 1324095432:0;tar xf revolutionary-0.4pre4.tgz
+: 1324095433:0;ls
+: 1324095440:160;./revolutionary
+: 1324095602:25;sudo ./revolutionary
+: 1324095635:2;sudo ./revolutionary
+: 1324095640:1;./revolutionary
+: 1324095644:127;sudo ./revolutionary
+: 1324096553:0;ls
+: 1324096567:1;adb
+: 1324096571:0;abd devices
+: 1324096578:0;adb list-devices
+: 1324096585:3;adb devices
+: 1324096591:0;sudo adb devices
+: 1324096599:0;adb root
+: 1324096602:0;sudo adb root
+: 1324096614:0;adb kill-server
+: 1324096618:3;sudo adb start-server
+: 1324096624:0;adb devices
+: 1324097148:0;adb devices
+: 1324097176:0;adb devices
+: 1324097223:0;mount
+: 1324097224:0;ls /mnt
+: 1324097227:0;ls /sbin
+: 1324097237:1;yaourt -Ss vfat
+: 1324097253:0;ls -l /sbin/mkfs.vfat
+: 1324097264:0;modprobe vfat
+: 1324097268:0;sudo modprobe vfat
+: 1324097272:0;ls /lib/modules
+: 1324097289:2;yaourt -R broadcom-wl
+: 1323657598:0;sudo rc.d stop kdm
+: 1323657614:2;bin/switch_graphics DDIS
+: 1323657636:0;sudo rc.d start kdm
+: 1324056452:0;ls
+: 1324056455:0;ls
+: 1324056458:0;mkdir tmp
+: 1324056458:0;ls
+: 1324056460:0;cd tmp
+: 1324056460:0;ls
+: 1324056465:0;df -h
+: 1324056475:0;yaourt -suy
+: 1324056477:996;yaourt -Suy
+: 1323728343:0;cd Code/Tracks/web/tracks
+: 1323728348:0;bundle exec script/server
+: 1323708834:0;cd Code/Tracks/web
+: 1323708835:0;cd tracks
+: 1323708835:0;ls
+: 1323708837:0;git status
+: 1323708839:0;gb
+: 1323708846:0;git status
+: 1323708847:0;gst
+: 1323708848:0;gd
+: 1323708849:0;g dif
+: 1323708851:6;g diff
+: 1323708864:0;git add features/project_edit.feature
+: 1323708868:37;git commit
+: 1323708907:0;gst
+: 1323714851:0;git status
+: 1323714853:0;g diff
+: 1323714860:0;gst
+: 1323714866:0;ga features/step_definitions/project_steps.rb
+: 1323714868:61;gc
+: 1323714931:0;gst
+: 1323714940:0;rm public/stylesheets/standard.css.orig
+: 1323714946:1;git checkout master
+: 1323714949:0;gst
+: 1323714953:11;vim .gitignore
+: 1323714966:0;gst
+: 1323714969:0;ga .gitignore
+: 1323714982:0;gc -m "add 'tags' to .gitignore"
+: 1323727622:0;cd ..
+: 1323727622:0;ls
+: 1323727626:0;mkdir tracks2
+: 1323727633:0;mv tracks2 tracks3
+: 1323727635:0;rmdir tracks3
+: 1323727636:0;cd tracks
+: 1323727637:0;ls
+: 1323727699:0;git checkout fix-project-edit
+: 1323727714:0;xvfb --help
+: 1323727729:0;Xvfb :99 -ac -screen 0 1280x1024x16 &
+: 1323727740:0;bg
+: 1323727764:0;ls
+: 1323727777:0;export DISPLAY=":99"
+: 1323727787:24;rake cucumber:selenium_wip
+: 1323727830:0;echo $PATH
+: 1323727849:0;export PATH=/opt/usr/lib/firefox-3.6:$PATH
+: 1323727853:49;rake cucumber:selenium_wip
+: 1323728941:48;rake cucumber:selenium_wip
+: 1323729233:47;rake cucumber:selenium_wip
+: 1323729302:27;rake cucumber:selenium_wip
+: 1323743965:0;clear
+: 1323743966:40;rake cucumber:selenium_wip
+: 1323744597:30;rake cucumber:selenium_wip
+: 1323744678:71;rake cucumber:selenium_wip
+: 1323744995:75;rake cucumber:selenium_wip
+: 1323745674:60;rake cucumber:selenium_wip
+: 1323746350:0;export DISPLAY=:0
+: 1323746351:40;rake cucumber:selenium_wip
+: 1323746652:31;rake cucumber:selenium_wip
+: 1323746700:29;rake cucumber:selenium_wip
+: 1323747035:36;rake cucumber:selenium_wip
+: 1323747093:66;rake cucumber:selenium_wip
+: 1323747491:123;firefox
+: 1323747614:0;bg
+: 1323747622:61;rake cucumber:selenium_wip
+: 1323747897:37;rake cucumber:selenium_wip
+: 1323748065:43;rake cucumber:selenium_wip
+: 1323748126:0;gst
+: 1323748127:0;g diff
+: 1323748161:0;git add features/step_definitions/
+: 1323748169:13;gc
+: 1323748184:0;gst
+: 1323748188:0;g add features/project_edit.feature
+: 1323748191:0;g diff --cache
+: 1323748192:0;g diff --cached
+: 1323748245:0;gci
+: 1323748245:66;gc
+: 1323748313:4;git push
+: 1323748406:0;git checkout master
+: 1323748407:0;git status
+: 1323748410:1;git wtf
+: 1323748417:0;git branch
+: 1323748420:0;git wtf upstream
+: 1323748428:0;git wtf upstream..master
+: 1323748430:0;git wtf upstream master
+: 1323748445:0;git pull upstream
+: 1323748451:0;git checkout upstream
+: 1323748453:18;git pull
+: 1323748481:0;git checkout master
+: 1323748485:3;git pull tracksapp master
+: 1323748499:4;git push tracksapp master
+: 1323748507:16;git log | less
+: 1323748526:0;gst
+: 1323748528:0;git wtf
+: 1323748543:3;git push
+: 1323748582:0;gco fix-project-edit
+: 1323748586:1;git rebase master
+: 1323748611:0;gco master
+: 1323748615:0;git merge fix-project-edit
+: 1323748637:3;git push && git push tracksapp
+: 1323748660:13;git push :fix-project-edit
+: 1323748680:3;git push origin :fix-project-edit
+: 1323748689:3;git push
+: 1323748705:4;git push tracksapp master
+: 1323749160:159;rake cucumber
+: 1323749343:1644;rake cucumber:selenium
+: 1323784531:0;ls
+: 1323784533:6;vim Capfile
+: 1323784539:1;ls
+: 1323784543:0;cat Capfile
+: 1323784547:0;ls vendor
+: 1323784553:1;find -name recipes
+: 1323784710:0;ls
+: 1323789511:0;ls
+: 1323789514:0;gb
+: 1323789517:0;gb
+: 1323789523:0;git checkout update-docs
+: 1323789526:0;git rebase master
+: 1323789532:1;git wtf
+: 1323789538:0;gco master
+: 1323789547:0;gb -d update-docs
+: 1323789553:0;gst
+: 1323789555:0;ls
+: 1323789557:0;gst
+: 1323789560:0;gb
+: 1323789577:0;gb -d fix-project-edit
+: 1323791374:6;vim config/site.yml
+: 1323791390:1;rake -D time
+: 1323791398:2;rake time:zones:local
+: 1323898606:0;gb softening-edges
+: 1323898612:0;gco softening-edges
+: 1323898836:0;ls
+: 1323898837:198745;vim
+: 1323728270:0;cd Code/Tracks/web/tracks
+: 1323728271:0;ls
+: 1323728286:0;vim features/step_definitions/project_edit.rb
+: 1324097638:0;sudo rc.d stop kdm
+: 1324097641:2;bin/switch_graphics DDIS
+: 1324097650:0;sudo rc.d start kdm && exit
+: 1324098066:4;sudo adb start-server
+: 1324098072:0;adb devices
+: 1324098147:0;adb devices
+: 1324098171:0;dmesg
+: 1324098173:0;dmesg
+: 1324098177:0;dmesg
+: 1324098233:0;cd ~/Downloads
+: 1324098233:0;ls
+: 1324098241:2;cp ICS\(mod7\)v2.5.zip /media/8A07-A343
+: 1324097875:5;~/bin/fixup-hdmi
+: 1324097999:0;dmesg
+: 1324098016:0;dmesg
+: 1324098017:0;dmesg
+: 1324098018:0;dmesg
+: 1324098026:0;dmesg
+: 1324098032:4;sudo fdisk /dev/sdc
+: 1324098200:0;ls
+: 1324098206:0;mkdir backup
+: 1324098208:0;cd backup
+: 1324098227:68;cp -r /media/8A07-A343/clockworkmod/backup/2011-12-17.04.32.18 .
+: 1324098515:0;ls
+: 1324099168:0;dmesg
+: 1324099362:0;dmesg
+: 1324100014:0;sudo adb devices
+: 1324317994:0;screen -r
+: 1324317997:16564;screen
+: 1324395811:0;foo
+: 1324395867:0;exit
+: 1324388875:0;screen -r

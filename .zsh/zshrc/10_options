@@ -1,0 +1,7 @@
+setopt auto_cd \
+       no_beep \
+       no_hup \
+       pushd_ignore_dups
+       
+
+# vim:ft=zsh

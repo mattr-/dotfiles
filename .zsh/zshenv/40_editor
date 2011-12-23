@@ -1,0 +1,7 @@
+#Set editor variables
+
+export EDITOR=vim
+export VISUAL=$EDITOR
+
+# vim:ft=zsh
+

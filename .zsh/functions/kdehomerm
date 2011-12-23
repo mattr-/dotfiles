@@ -1,0 +1,6 @@
+kdehomerm() {
+  for arg in $@
+  do
+    rm $KDEHOME/$arg
+  done
+}

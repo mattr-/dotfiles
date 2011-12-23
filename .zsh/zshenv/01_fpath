@@ -1,0 +1,3 @@
+fpath=($ZDOTDIR/functions $fpath)
+
+# vim:ft=zsh

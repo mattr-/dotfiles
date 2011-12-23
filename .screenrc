@@ -1,0 +1,27 @@
+setenv LC_CTYPE en_US.UTF-8
+defutf8 on
+
+autodetach on
+crlf off
+deflogin off
+hardcopy_append on
+
+startup_message off
+vbell off
+
+defscrollback 65535
+silencewait 15
+
+termcapinfo xterm*|Eterm|mlterm|rxvt 'hs:ts=\E]0;:fs=\007:ds=\E]0;screen\007'
+defhstatus "$USER@H | n | t"
+hardstatus off
+
+activity "%c activity -> %n%f %t"
+bell "%c bell -> %n%f %t^G"
+vbell_msg " *beep* "
+caption always " %M %d %c |  %w"
+
+bind ~ activity       "%c activity -> %n%f %t"
+bind * activity       "%c activity -> %n%f %t"
+
+shell zsh

@@ -1,0 +1,14 @@
+[user]
+	email = mattr@kde.org
+	name = Matt Rogers
+
+[url "git://anongit.kde.org/"]
+	insteadOf = kde:
+[url "git@git.kde.org:"]
+	pushInsteadOf = kde:
+
+[url "git://github.com/"]
+  insteadOf = github:
+[url "git@github.com:"]
+  pushInsteadOf = github:
+

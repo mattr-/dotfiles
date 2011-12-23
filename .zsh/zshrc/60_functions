@@ -1,0 +1,43 @@
+restart () {
+  if jobs | grep . >/dev/null; then
+    echo "Jobs running; won't restart." >&2
+    jobs -l >&2
+  else
+    exec $SHELL $SHELL_ARGS "$@"
+  fi
+}
+
+# Sweet trick from zshwiki.org :-)
+cd () {
+  if (( $# != 1 )); then
+    builtin cd "$@"
+    return
+  fi
+
+  if [[ -f "$1" ]]; then
+    builtin cd "$1:h"
+  else
+    builtin cd "$1"
+  fi
+}
+
+z () {
+  cd ~/"$1"
+}
+
+function title() {
+  # escape '%' chars in $1, make nonprintables visible
+  a=${(V)1//\%/\%\%}
+
+  a=$(print -Pn "%40>...>$a" | tr  -d "\n")
+
+  case $TERM in
+  screen)
+    print -Pn "\ek$a:$3\e\\" # screen title (in ^A")
+    ;;
+  xterm*|rxvt)
+    print -Pn "\e]2;$2 | $a:$3\a" # plain xterm title
+    ;;
+  esac
+}
+

@@ -1,0 +1,75 @@
+#Configure the completion system
+
+#list choices on an ambiguous completion
+setopt auto_list
+
+#use menu after the second attempt
+#setopt auto_menu
+
+#recognize exact matches even if ambiguous
+setopt rec_exact
+
+#cursor to the end
+setopt always_to_end
+
+#correct the command, if needed
+setopt correct
+
+#magical adding/removing final characters on tab completion
+setopt auto_param_keys auto_param_slash auto_remove_slash
+
+#load and initialize stuff
+zmodload zsh/complist
+
+autoload -U compinit
+compinit
+
+# cache results
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path $ZDOTDIR/cache-$HOST
+
+# Don't complete CVS files/directories
+zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
+zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
+
+# Don't complete SVN files/directories
+zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/).svn'
+zstyle ':completion:*:cd:*' ignored-patterns '(*/)#.svn'
+
+# remove the trailing slash on directories
+zstyle ':completion:*' squeeze-slashes true
+
+# allow cursor-key navigation through completion set
+zstyle ':completion:*:*:*:*' menu select
+
+# use colours in completion lists and menus
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# ignore working and backup copies, and compiled objects
+zstyle ':completion:*:(all-|)files' ignored-patterns \
+  '*.bk' '*.bak' '*.old' '*~' '.*.sw?' '*.o' '*.pyc'
+
+# fuzzy matching of completions when I mistype them
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+
+# functions which start with _ are internal and ignored
+zstyle ':completion:*:functions' ignored-patterns '_*'
+
+# do not offer files already specified on the line
+zstyle ':completion:*:rm:*' ignore-line yes
+
+# ignore current directory when completing in ../
+zstyle ':completion:*' ignore-parents parent pwd
+
+# complete process IDs with menu selection
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*' force-list always
+
+# commands that take commands as arguments
+compdef _precommand gdb
+compdef _precommand nohup
+compdef _precommand strace
+
+# vim:ft=zsh

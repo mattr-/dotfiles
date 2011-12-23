@@ -1,0 +1,4 @@
+
+synctr() {
+  scp ~/Documents/Personal/GTD/ThinkingRock.trx $1:./Documents/Personal/GTD
+}

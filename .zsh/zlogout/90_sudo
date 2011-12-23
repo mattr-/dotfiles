@@ -1,0 +1,14 @@
+# zlogout/90_sudo
+#
+# Invalidates any existing sudo sessions
+#
+# Copyright Â© 1994â€“2008 martin f. krafft <madduck@madduck.net>
+# Released under the terms of the Artistic Licence 2.0
+#
+# Source repository: git://git.madduck.net/etc/zsh.git
+#
+
+sudo -K 2>/dev/null || :
+
+# vim:ft=zsh
+
