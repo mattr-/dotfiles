@@ -21,6 +21,7 @@
     co = checkout
     last = !git l -1
     l = log --abbrev-commit --date=relative
+    sm = submodule
 
 [core]
     excludesfile = ~/.cvsignore
