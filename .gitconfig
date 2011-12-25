@@ -1,23 +1,26 @@
 [user]
-	email = mattr@kde.org
-	name = Matt Rogers
+    email = mattr@kde.org
+    name = Matt Rogers
 
 [url "git://anongit.kde.org/"]
-	insteadOf = kde:
+    insteadOf = kde:
 [url "git@git.kde.org:"]
-	pushInsteadOf = kde:
+    pushInsteadOf = kde:
 
 [url "git://github.com/"]
-  insteadOf = github:
+    insteadOf = github:
 [url "git@github.com:"]
-  pushInsteadOf = github:
+    pushInsteadOf = github:
 
 [diff]
 [color]
-  ui = auto
+    ui = auto
 
 [alias]
-  st = status
-  co = checkout
-  last = !git l -1
-  l = log --abbrev-commit --date=relative
+    st = status
+    co = checkout
+    last = !git l -1
+    l = log --abbrev-commit --date=relative
+
+[core]
+    excludesfile = ~/.cvsignore
