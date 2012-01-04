@@ -19,9 +19,14 @@
 [alias]
     st = status
     co = checkout
+    ci = commit
     last = !git l -1
     l = log --abbrev-commit --date=relative
     sm = submodule
+    bd = branch -d
+    b = branch
+    dc = diff --cached
+
 
 [core]
     excludesfile = ~/.cvsignore
