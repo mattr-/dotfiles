@@ -5,3 +5,4 @@ Pictures
 simplenotestest.properties
 tmp
 .zsh/history.*
+.zsh/.zcomdump
