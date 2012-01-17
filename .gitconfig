@@ -17,15 +17,24 @@
     ui = auto
 
 [alias]
+    aa = add --all
+    di = diff 
+    head = !git l -1
     st = status
     co = checkout
     ci = commit
+    ff = merge --ff-only
+    pff = pull --ff-only 
     last = !git l -1
-    l = log --abbrev-commit --date=relative
+    l = log --graph --abbrev-commit --date=relative
+    la = !git l --all
     sm = submodule
     bd = branch -d
     b = branch
     dc = diff --cached
+
+[format]
+    pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
 
 
 [core]
