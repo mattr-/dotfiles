@@ -38,7 +38,15 @@ endfunction
 
 "Settings {{{
 
+set background=dark
 color evening
+
+if has("gui_running")
+    set background=light
+    color solarized
+endif
+
+set hidden "background buffers without writing them. saves marks/undo as well
 
 set number
 set ruler
@@ -57,6 +65,8 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+
+set wildmenu "make tab completion behave like bash
 
 set encoding=utf-8
 set showcmd "show partial command in the status line
