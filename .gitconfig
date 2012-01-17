@@ -21,6 +21,7 @@
     di = diff 
     head = !git l -1
     st = status
+    stuno = status -uno
     co = checkout
     ci = commit
     ff = merge --ff-only
