@@ -1,1 +1,1 @@
-/home/matt/.zsh/.zshrc
+.zsh/.zshrc

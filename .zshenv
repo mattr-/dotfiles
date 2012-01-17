@@ -1,1 +1,1 @@
-/home/matt/.zsh/.zshenv
+.zsh/.zshenv
