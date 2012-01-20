@@ -9,19 +9,12 @@ zstyle ':vcs_info:*' stagedstr '+'
 # your repository (rebranch,merge conflict, ...)
 #
 zstyle ':vcs_info:*' actionformats \
-    "%s|%b|%a"
-zstyle ':vcs_info:*' actionformats \
-    "%c%u %s|%b|%a"
+    "%r (%s) | %b | %a"
 
-# Default format: on master in dir(git)
-  zstyle ':vcs_info:*' formats       \
-    "on %b in %r(%s)%c%u"
-  zstyle ':vcs_info:git:*' formats       \
-    "on %b in %r(%s)%c%u"
- 
-# Different branch formats
-# svn|www-1173739
-# zstyle ':vcs_info:*' branchformat '%b-%r'
+# Default format: repo(vcs)|branch
+# Full of prompt formatting :)
+zstyle ':vcs_info:*' formats       \
+    "%r(%s) | %b%B%c%u%%b"
  
 # Used VCS use 
 # %  vcs_info_printsys 
