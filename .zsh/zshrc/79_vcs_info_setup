@@ -14,7 +14,7 @@ zstyle ':vcs_info:*' actionformats \
 # Default format: repo(vcs)|branch
 # Full of prompt formatting :)
 zstyle ':vcs_info:*' formats       \
-    "%r(%s) | %b%B%c%u%%b"
+    "%r(%s) | %b%c%u"
  
 # Used VCS use 
 # %  vcs_info_printsys 

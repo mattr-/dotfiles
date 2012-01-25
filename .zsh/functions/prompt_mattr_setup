@@ -37,7 +37,7 @@ prompt_mattr_setup () {
 
   p_pwd="%F{$pcc[2]}%~%f"
   p_user="%m$p_win"
-  p_vcs="${vcs_info_msg_0_}"
+  p_vcs="%(2v.%2v.)"
 
   p_shlvlhist="%fzsh%(2L./$SHLVL.)"
   p_rc="%(?..[%?%1v])"
@@ -61,6 +61,7 @@ prompt_mattr_precmd () {
 	psvar[1]=""
 
   vcs_info
+  [[ -n $vcs_info_msg_0_ ]] && psvar[2]="$vcs_info_msg_0_"
 }
 
 prompt_mattr_setup "$@"
