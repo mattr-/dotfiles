@@ -33,6 +33,7 @@
     bd = branch -d
     b = branch
     dc = diff --cached
+    needs-push = !git l origin/master..master
 
 [format]
     pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
