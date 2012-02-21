@@ -1,5 +1,6 @@
 #ls aliases
-alias ls="ls --color=auto"
+alias ls="ls -G"
+[[ $OSTYPE == "linux-gnu" ]] && alias ls="ls --color=auto"
 alias lh="ls -lh"
 alias la="ls -lha"
 alias lla="ls -la"
