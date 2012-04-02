@@ -127,10 +127,8 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 " Clear the search buffer when hitting return
 nnoremap <CR> :nohlsearch<CR>
 
-" Comma-T for Command-T in normal mode
-map ,t :CommandT<CR>
-" Control-T for Command-T in insert mode
-imap <C-t> <Esc>:CommandT<CR>
+" Comma-f for Command-T in normal mode
+map ,f :CommandT<CR>
 
 " Ctrl-Shift-F for Ack
 map <C-F> :Ack<Space>
