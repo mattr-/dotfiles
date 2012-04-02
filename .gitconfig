@@ -12,6 +12,10 @@
 [url "git@github.com:"]
     pushInsteadOf = github:
 
+[url "git@github.com:mattr-/"]
+    insteadOf = mattr:
+    pushInsteadOf = mattr:
+
 [diff]
 [color]
     ui = auto
