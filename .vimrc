@@ -138,6 +138,9 @@ map <Leader>= <C-w>=
 
 " <Leader><Leader> to edit an alternate file
 nnoremap <Leader><Leader> <C-^>
+
+" Hashrocket with <C-l>
+imap <C-l> <space>=><space>
 "}}}
 
 "Command-T configuration
