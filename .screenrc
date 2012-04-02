@@ -3,7 +3,7 @@ defutf8 on
 
 autodetach on
 crlf off
-deflogin off
+#deflogin off
 hardcopy_append on
 
 startup_message off
