@@ -260,6 +260,15 @@ noremap <M-.>        :Bigger<CR>
 
 " }}}
 
+" Custom Functions {{{
+
+function! RunLineAsCommand()
+    let current_line = getline(line('.'))
+    exec ":!" . current_line
+endfunction
+
+map ,rc :call RunLineAsCommand
+" }}}
 
 
 " vim: set et sts=4 sw=4 ts=16 fdm=marker :
