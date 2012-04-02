@@ -141,6 +141,10 @@ nnoremap <Leader><Leader> <C-^>
 
 " Hashrocket with <C-l>
 imap <C-l> <space>=><space>
+
+" Make <leader>' switch between ' and "
+nnoremap <Leader>' ""yls<C-r>={'"': "'", "'": '"'}[@"]<CR><Esc>
+
 "}}}
 
 "Command-T configuration
