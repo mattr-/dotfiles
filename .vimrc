@@ -129,6 +129,8 @@ nnoremap <CR> :nohlsearch<CR>
 
 " Comma-f for Command-T in normal mode
 map ,f :CommandT<CR>
+" Control-f for Command-T in insert mode
+imap <C-f> <Esc>:CommandT<CR>
 
 " Ctrl-Shift-F for Ack
 map <C-F> :Ack<Space>
