@@ -136,6 +136,8 @@ map <C-F> :Ack<Space>
 " <Leader>= to make all windows the same size
 map <Leader>= <C-w>=
 
+" <Leader><Leader> to edit an alternate file
+nnoremap <Leader><Leader> <C-^>
 "}}}
 
 "Command-T configuration
