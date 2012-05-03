@@ -1,0 +1,5 @@
+Rxvt.background: black
+Rxvt.foreground: grey
+Rxvt.termName: xterm-256color
+Rxvt.font: xft:Terminus-10
+
