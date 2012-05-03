@@ -3,5 +3,5 @@ setopt auto_cd \
        no_hup \
        pushd_ignore_dups
        
-
+bindkey -e
 # vim:ft=zsh
