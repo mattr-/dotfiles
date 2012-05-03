@@ -31,7 +31,7 @@
     ff = merge --ff-only
     pff = pull --ff-only 
     last = !git l -1
-    l = log --graph --abbrev-commit --date=relative
+    l = "!source ~/.githelpers && pretty_git_log"
     la = !git l --all
     sm = submodule
     bd = branch -d
@@ -39,8 +39,6 @@
     dc = diff --cached
     needs-push = !git l origin/master..master
 
-[format]
-    pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
 
 
 [core]
