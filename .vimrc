@@ -147,6 +147,11 @@ imap <C-l> <space>=><space>
 " Make <leader>' switch between ' and "
 nnoremap <Leader>' ""yls<C-r>={'"': "'", "'": '"'}[@"]<CR><Esc>
 
+" Mappings for running make for all the work in C I still have to do
+map ,ma :wa!\|:!make -C %:h<CR>
+map ,mc :wa!\|:!make -C %:h clean<CR><CR>
+map ,mt :wa!\|:!make -C %:h test<CR>
+
 "}}}
 
 "Command-T configuration
