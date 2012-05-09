@@ -37,7 +37,6 @@
     bd = branch -d
     b = branch
     dc = diff --cached
-    needs-push = !git l origin/master..master
 
 
 
