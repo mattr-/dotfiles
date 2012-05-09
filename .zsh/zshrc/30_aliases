@@ -43,3 +43,5 @@ alias pp1i="patch -p1 -i "
 
 alias roo="roo.sh"
 alias ant="ant -emacs"
+
+alias t="todo.sh"
