@@ -51,5 +51,4 @@
 /.zlogin
 /.zsh/.zcompdump
 /.zsh/functions/prompt_grb_setup
-/.zsh/functions/zgitinit
 /.zsh_history
