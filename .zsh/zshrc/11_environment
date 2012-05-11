@@ -1,2 +1,1 @@
-export POSIXLY_CORRECT=1
 export LSCOLORS=ExfxcxdxCxegedabagacad
