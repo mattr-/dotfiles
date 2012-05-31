@@ -43,8 +43,8 @@
 /.pulse/
 /.rvm/
 /.ssh/
+/.vim/.backup/*
 /.vim/.netrwhist
-/.vim/backup/
 /.viminfo
 /.xsession-errors
 /.zcompdump
