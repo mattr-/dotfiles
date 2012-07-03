@@ -26,10 +26,20 @@ show_git_head() {
     git show -p --pretty="tformat:"
 }
 
+sed_options() {
+    local system=`uname`
+    if [ "$system" == "Darwin" ]; then
+        echo "-Ee"
+    else
+        echo "-re"
+    fi
+}
+
 pretty_git_log() {
+    local sed_options=$(sed_options)
     git log --graph --pretty="tformat:${FORMAT}" $* |
         # Replace (2 years aga) with (2 years)
-        sed -re 's/(^[^<]*) ago\)/\1)/' |
+        sed $sed_options 's/(^[^<]*) ago\)/\1)/' |
         # Line columns up based on } delimiter
         column -s '}' -t |
         # Page only if we need to
