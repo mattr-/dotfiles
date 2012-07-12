@@ -6,18 +6,16 @@ typeset -TU LD_LIBRARY_PATH ld_library_path
 
 #setup custom path
 local app_path=$HOME/Applications
-if [ -s $HOME/Applications ] ; then
-  for dir in $app_path/*
-  do
+for dir in `find $app_path -mindepth 1 -maxdepth 1 -type d`
+do
     #Special case the android sdk because they don't follow the rules
     if [ "${dir:t}" = "Android" ] ; then 
-      path=($dir/platform-tools $dir/tools $path) 
-      continue
+        path=($dir/platform-tools $dir/tools $path)
+        continue
     fi
 
     [[ -d $dir/bin ]] && path=($dir/bin $path) || path=($dir $path)
-  done
-fi
+done
 
 path=($HOME/bin /usr/local/bin $path)
 
