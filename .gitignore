@@ -39,6 +39,7 @@
 /.m2/
 /.oh-my-zsh/
 /.pki/
+/.psql_history
 /.pulse-cookie
 /.pulse/
 /.rvm/
