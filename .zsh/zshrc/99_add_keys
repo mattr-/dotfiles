@@ -1,8 +1,9 @@
 if [ -n "$SSH_AGENT_PID" ]
 then
-    for file in `ls $HOME/.ssh/*id_dsa`
+    for file in `ls $HOME/.ssh/\*id_{d,r}sa 2>/dev/null`
     do
         ssh-add $file >/dev/null 2>&1
     done
+
 fi
 
