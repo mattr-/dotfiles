@@ -37,6 +37,7 @@
     bd = branch -d
     b = branch
     dc = diff --cached
+    undo = "!source ~/.githelpers && undo_local_changes"
 
 
 

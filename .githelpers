@@ -46,3 +46,7 @@ pretty_git_log() {
         less -FXRS
 }
 
+
+undo_local_changes() {
+    git checkout -- `git status --porcelain | egrep '^ M' | cut -c4-`
+}
