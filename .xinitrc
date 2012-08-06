@@ -14,4 +14,4 @@ export GPG_AGENT_INFO
 export GNOME_KEYRING_CONTROL
 export GNOME_KEYRING_PID
 
-exec ck-launch-session startxfce4
+exec ck-launch-session dbus-launch i3
