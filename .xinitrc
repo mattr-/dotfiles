@@ -15,3 +15,4 @@ export GNOME_KEYRING_CONTROL
 export GNOME_KEYRING_PID
 
 exec ck-launch-session dbus-launch i3
+#exec ck-launch-session gnome-session
