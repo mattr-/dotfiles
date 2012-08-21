@@ -49,6 +49,9 @@ set wildmenu "make tab completion behave like bash
 set encoding=utf-8
 set showcmd "show partial command in the status line
 
+" prevent Vim from clobbering the scrollback buffer
+set t_ti= t_te=
+
 " swap files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
