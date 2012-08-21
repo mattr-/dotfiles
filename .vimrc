@@ -42,6 +42,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set winwidth=78
 
 set wildmenu "make tab completion behave like bash
 
