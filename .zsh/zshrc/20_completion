@@ -3,6 +3,9 @@
 #list choices on an ambiguous completion
 setopt auto_list
 
+#complete things for aliases too
+setopt completealiases
+
 #use menu after the second attempt
 #setopt auto_menu
 
