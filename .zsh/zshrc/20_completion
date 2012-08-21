@@ -31,13 +31,9 @@ compinit
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path $ZDOTDIR/cache-$HOST
 
-# Don't complete CVS files/directories
-zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
-zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
-
-# Don't complete SVN files/directories
-zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/).svn'
-zstyle ':completion:*:cd:*' ignored-patterns '(*/)#.svn'
+# Don't complete CVS or SVN files/directories
+zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS' '(|*/).svn'
+zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS' '(|*/).svn'
 
 # remove the trailing slash on directories
 zstyle ':completion:*' squeeze-slashes true
