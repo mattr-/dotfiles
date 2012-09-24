@@ -63,8 +63,8 @@ set modelines=10
 set lazyredraw
 set visualbell "dont beep
 
-if (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && version >= 700 && has("gui_running")
-  let &listchars = "tab:\u21e5\u00b7,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u26ad"
+if ((&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && version >= 700) || has("gui_running")
+  set listchars=trail:·,precedes:«,extends:»,tab:▸\ 
 else
   set listchars=tab:>\ ,trail:-,extends:>,precedes:<
 endif
