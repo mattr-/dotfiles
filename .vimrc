@@ -156,6 +156,9 @@ map ,ma :wa!\|:!make -C %:h<CR>
 map ,mc :wa!\|:!make -C %:h clean<CR><CR>
 map ,mt :wa!\|:!make -C %:h test<CR>
 
+" Fugitive mappings
+map ,gs :Gstatus
+
 "}}}
 
 "Command-T configuration
