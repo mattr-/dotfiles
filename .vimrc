@@ -16,7 +16,7 @@ runtime! macros/matchit.vim
 "Settings {{{
 
 set background=dark
-color evening
+color molokai
 
 if has("gui_running")
     set background=light
