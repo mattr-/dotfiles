@@ -50,3 +50,8 @@ pretty_git_log() {
 undo_local_changes() {
     git checkout -- `git status --porcelain | egrep '^ M' | cut -c4-`
 }
+
+dryrun_dcommit_with_patch() {
+    git `git svn dcommit -n | grep diff-tree` -p
+}
+
