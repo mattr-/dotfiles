@@ -37,6 +37,8 @@
 /.kde4/
 /.lesshst
 /.m2/
+/.mysql_history
+/.pry_history
 /.oh-my-zsh/
 /.pki/
 /.psql_history
@@ -54,3 +56,4 @@
 /.zsh/.zcompdump
 /.zsh/functions/prompt_grb_setup
 /.zsh_history
+
