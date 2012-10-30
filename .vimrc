@@ -15,13 +15,8 @@ runtime! macros/matchit.vim
 
 "Settings {{{
 
-set background=dark
-color molokai
-
-if has("gui_running")
-    set background=light
-    color solarized
-endif
+set background=light
+color solarized
 
 set hidden "background buffers without writing them. saves marks/undo as well
 
