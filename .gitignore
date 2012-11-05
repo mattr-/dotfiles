@@ -45,6 +45,7 @@
 /.pulse-cookie
 /.pulse/
 /.rvm/
+/.sqlite_history
 /.ssh/
 /.vim/.backup/*
 /.vim/backup/*

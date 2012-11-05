@@ -45,3 +45,5 @@
 
 [core]
     excludesfile = ~/.cvsignore
+[push]
+	default = matching
