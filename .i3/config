@@ -12,7 +12,7 @@
 set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
-font -misc-ubuntu mono-medium-r-normal-*-13-120-*-*-m-*-iso10646-1
+font xft:Droid Sans Mono 7
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
