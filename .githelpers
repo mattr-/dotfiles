@@ -48,7 +48,7 @@ pretty_git_log() {
 
 
 undo_local_changes() {
-    git checkout -- `git status --porcelain | egrep '^ M' | cut -c4-`
+    git checkout -- `git status --porcelain | egrep '^( D| M)' | cut -c4-`
 }
 
 dryrun_dcommit_with_patch() {
