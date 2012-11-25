@@ -40,6 +40,7 @@
     undo = "!source ~/.githelpers && undo_local_changes"
     sdcp = "!source ~/.githelpers && dryrun_dcommit_with_patch"
     sdc = svn dcommit
+    t = tag
 
 
 
