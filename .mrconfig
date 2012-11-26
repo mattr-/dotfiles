@@ -1,0 +1,19 @@
+[Code/tracks]
+checkout = git clone git@github.com:TracksApp/tracks
+
+[Code/tracks3]
+checkout = git clone git@github.com:mattr-/tracks3
+
+[Code/jekyll]
+checkout = git clone git@github.com:mattr-/jekyll && \
+           cd jekyll && \
+           git remote add mojombo https://github.com/mojombo/jekyll && \
+           git fetch mojombo && \
+           git checkout -b upstream mojombo/master
+update = git pull origin master && git pull mojombo upstream
+
+[Code/blog]
+checkout = git clone git@github.com:mattr-/mattr-.github.com blog
+
+[Code/octopress]
+checkout = git clone git@github.com:mattr-/octopress
