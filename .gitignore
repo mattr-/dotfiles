@@ -30,6 +30,7 @@
 /.cups/
 /.dbus/
 /.dmrc
+/.done.txt
 /.dotfiles/
 /.fontconfig/
 /.gem/
@@ -44,9 +45,11 @@
 /.psql_history
 /.pulse-cookie
 /.pulse/
+/.report.txt
 /.rvm/
 /.sqlite_history
 /.ssh/
+/.todo.txt*
 /.vim/.backup/*
 /.vim/backup/*
 /.vim/.netrwhist
