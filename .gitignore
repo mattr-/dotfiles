@@ -35,6 +35,7 @@
 /.fontconfig/
 /.gem/
 /.heroku/
+/.irb-history
 /.kde4/
 /.lesshst
 /.m2/
@@ -60,4 +61,8 @@
 /.zsh/.zcompdump
 /.zsh/functions/prompt_grb_setup
 /.zsh_history
-
+/.RSA/
+/.install4j
+/.msvn/
+/.smartbear/
+/.vagrant.d/
