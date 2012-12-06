@@ -108,10 +108,10 @@ noremap K <Nop>
 nnoremap Y y$
 
 "Make myself use hjkl instead of arrow keys
-map <Left> :echo "no! use \'h\' instead!"<cr>
-map <Right> :echo "no! use \'l\' instead!"<cr>
-map <Up> :echo "no! use \'k\' instead!"<cr>
-map <Down> :echo "no! use \'j\' instead!"<cr>
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
 
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
