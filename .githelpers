@@ -55,3 +55,7 @@ dryrun_dcommit_with_patch() {
     git `git svn dcommit -n | grep diff-tree` -p
 }
 
+change_author() {
+    git commit --amend --author "$1 <$2>" -C HEAD
+}
+

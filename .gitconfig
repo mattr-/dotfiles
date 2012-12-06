@@ -24,7 +24,7 @@
     aa = add --all
     di = diff 
     head = !git l -1
-    st = status
+    st = status -sb
     stuno = status -uno
     co = checkout
     ci = commit
@@ -42,6 +42,8 @@
     sdcp = "!source ~/.githelpers && dryrun_dcommit_with_patch"
     sdc = svn dcommit
     t = tag
+    count = shortlog -sn
+    credit = "!source ~/.githelpers && change_author"
 
 
 
