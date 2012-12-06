@@ -15,6 +15,8 @@ runtime! macros/matchit.vim
 
 "Settings {{{
 
+set shell=/bin/sh
+
 set background=light
 color solarized
 
