@@ -160,7 +160,7 @@ prompt_mattr_setup() {
     PROMPT+="$pc[reset])"
 	PROMPT+=" $pc[#]\$$pc[reset] "
 
-    RPROMPT="$pc[rc]%2v$pc[reset]"    
+    RPROMPT="$pc[rc]total%7v$pc[reset]  $pc[rc]%6v$pc[reset]  $pc[rc]%2v$pc[reset]"    
 
 	export PROMPT RPROMPT
 	precmd_functions+='prompt_wunjo_precmd'
@@ -181,6 +181,8 @@ prompt_wunjo_precmd() {
     psvar[3]=$(prompt_mattr_scm_branch)
     psvar[4]=$(prompt_mattr_scm_changed_staged)
     psvar[5]=$(prompt_mattr_scm_dirty)
+    psvar[6]=$(prompt_mattr_todo '+inbox')
+    psvar[7]=$(prompt_mattr_todo '')
 }
 
 
