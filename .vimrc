@@ -57,8 +57,19 @@ set showcmd "show partial command in the status line
 set t_ti= t_te=
 
 " swap files
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
+set backup
+set noswapfile
+set undodir=~/.vim/tmp/undo
+set backupdir=~/.vim/tmp/backup
+set directory=~/.vim/tmp/backup
+
+if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), "p")
+endif
+
+if !isdirectory(expand(&backupdir))
+    call mkdir(expand(&backupdir), "p")
+endif
 
 " Modelines
 set modeline
