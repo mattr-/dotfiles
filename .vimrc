@@ -92,6 +92,7 @@ set showmatch "show matching pairs
 set backspace=indent,eol,start "backspace over everything!
 
 set splitbelow "new windows on the bottom
+set splitright "and on the right
 set noequalalways
 
 set timeoutlen=1200 "more time for macros
