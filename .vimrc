@@ -177,6 +177,12 @@ map ,mt :wa!\|:!make -C %:h test<CR>
 " Fugitive mappings
 map ,gs :Gstatus<CR>
 
+noremap H ^
+noremap L $
+
+noremap j gj
+noremap k gk
+
 "}}}
 
 "Command-T configuration
