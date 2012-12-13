@@ -12,11 +12,6 @@ prompt_mattr_help () {
 EOF
 }
 
-revstring() {
-	git describe --always $1 2>/dev/null ||
-	git rev-parse --short $1 2>/dev/null
-}
-
 coloratom() {
 	local off=$1 atom=$2
 	if [[ $atom[1] == [[:upper:]] ]]; then
@@ -39,12 +34,6 @@ colorword() {
 	fi
 
 	echo "%{"$'\e['${(j:;:)s}m"%}"
-}
-
-function prompt_mattr_scm_info() {
-    if zgit_inworktree; then
-        echo "($(prompt_wunjo_scm_branch))"
-    fi
 }
 
 function prompt_mattr_todo() {
