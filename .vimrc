@@ -327,6 +327,7 @@ augroup vimrcEx
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
+  autocmd VimResized * exe "normal! \<C-w>="
 " }}}
 
 
