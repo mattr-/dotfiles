@@ -13,8 +13,13 @@ filetype plugin indent on
 runtime! plugin/matchit.vim
 runtime! macros/matchit.vim
 
-"Settings {{{
+"Plugin settings {{{
+let g:ragtag_global_maps = 1
 
+let g:CommandTMaxHeight=20
+" }}}
+
+"Settings {{{
 set shell=/bin/sh
 
 set background=light
@@ -135,11 +140,9 @@ map <Up> <Nop>
 map <Down> <Nop>
 
 " Opens an edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>e
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Opens a tab edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>te
 map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Inserts the path of the currently edited file into a command
@@ -150,9 +153,9 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <CR> :nohlsearch<CR>
 
 " Comma-f for Command-T in normal mode
-map ,f :CommandT<CR>
+map ,f :CommandTFlush<CR>\|:CommandT<CR>
 " Control-f for Command-T in insert mode
-imap <C-f> <Esc>:CommandT<CR>
+imap <C-f> <Esc>:CommandTFlush<CR>\|:CommandT<CR>
 
 " Ctrl-Shift-F for Ack
 map <C-F> :Ack<Space>
@@ -169,11 +172,6 @@ imap <C-l> <space>=><space>
 " Make <leader>' switch between ' and "
 nnoremap <Leader>' ""yls<C-r>={'"': "'", "'": '"'}[@"]<CR><Esc>
 
-" Mappings for running make for all the work in C I still have to do
-map ,ma :wa!\|:!make -C %:h<CR>
-map ,mc :wa!\|:!make -C %:h clean<CR><CR>
-map ,mt :wa!\|:!make -C %:h test<CR>
-
 " Fugitive mappings
 map ,gs :Gstatus<CR>
 
@@ -183,14 +181,13 @@ noremap L $
 noremap j gj
 noremap k gk
 
-"}}}
-
-"Command-T configuration
-let g:CommandTMaxHeight=20
-
 " CTags
 map <Leader>rt :!ctags --c++-kinds=+pl --fields=+iaS --extra=+f+q --languages=-javascript,-sql -R *<CR><CR>
 map <C-\> :tnext<CR>
+
+imap ,/ </<C-X><C-O>
+
+"}}}
 
 " File type setup for files unknown to Vim {{{
 if has("autocmd")
@@ -315,6 +312,112 @@ function! RunLineAsCommand()
 endfunction
 
 map ,rc :call RunLineAsCommand
+
+"Rename current file
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>n :call RenameFile()<cr>
+
+"Promote variable to rspec let
+function! PromoteToLet()
+  :normal! dd
+  " :exec '?^\s*it\>'
+  :normal! P
+  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+  :normal ==
+endfunction
+command! PromoteToLet :call PromoteToLet()
+map <leader>p :PromoteToLet<cr>
+
+"Switch between test and production code
+function! OpenTestAlternate()
+  let new_file = AlternateForCurrentFile()
+  exec ':e ' . new_file
+endfunction
+function! AlternateForCurrentFile()
+  let current_file = expand("%")
+  let new_file = current_file
+  let in_spec = match(current_file, '^spec/') != -1
+  let going_to_spec = !in_spec
+  let in_app = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1
+  if going_to_spec
+    if in_app
+      let new_file = substitute(new_file, '^app/', '', '')
+    end
+    let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
+    let new_file = 'spec/' . new_file
+  else
+    let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
+    let new_file = substitute(new_file, '^spec/', '', '')
+    if in_app
+      let new_file = 'app/' . new_file
+    end
+  endif
+  return new_file
+endfunction
+nnoremap <leader>. :call OpenTestAlternate()<cr>
+
+map ,t :call RunTestFile()<cr>
+map ,T :call RunNearestTest()<cr>
+map ,a :call RunTests('')<cr>
+map ,c :w\|:!script/features<cr>
+map ,w :w\|:!script/features --profile wip<cr>
+
+function! RunTestFile(...)
+    if a:0
+        let command_suffix = a:1
+    else
+        let command_suffix = ""
+    endif
+
+    " Run the tests for the previously-marked file.
+    let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
+    if in_test_file
+        call SetTestFile()
+    elseif !exists("t:grb_test_file")
+        return
+    end
+    call RunTests(t:grb_test_file . command_suffix)
+endfunction
+
+function! RunNearestTest()
+    let spec_line_number = line('.')
+    call RunTestFile(":" . spec_line_number . " -b")
+endfunction
+
+function! SetTestFile()
+    " Set the spec file that tests will be run for.
+    let t:grb_test_file=@%
+endfunction
+
+function! RunTests(filename)
+    " Write the file and run tests for the given filename
+    :w
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    if match(a:filename, '\.feature$') != -1
+        exec ":!script/features " . a:filename
+    else
+        if filereadable("script/test")
+            exec ":!script/test " . a:filename
+        elseif filereadable("Gemfile")
+            exec ":!bundle exec rspec --color " . a:filename
+        else
+            exec ":!rspec --color " . a:filename
+        end
+    end
+endfunction
 " }}}
 
 " Misc AutoCommands {{{
