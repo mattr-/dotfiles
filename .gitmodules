@@ -93,7 +93,8 @@
 	url = https://github.com/tpope/vim-git.git
 [submodule ".vim/bundle/command-t"]
 	path = .vim/bundle/command-t
-	url = https://git.wincent.com/command-t.git
+    url = https://github.com/wincent/Command-T.git
+    ignore = untracked
 [submodule ".vim/bundle/vim-ragtag"]
 	path = .vim/bundle/vim-ragtag
 	url = https://github.com/tpope/vim-ragtag
