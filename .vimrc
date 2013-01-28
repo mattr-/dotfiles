@@ -139,6 +139,8 @@ map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
 
+map <Leader>w :w <C-R>=expand("%:p:h") . "/" <CR>
+
 " Opens an edit command with the path of the currently edited file filled in
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
@@ -341,6 +343,7 @@ function! OpenTestAlternate()
   let new_file = AlternateForCurrentFile()
   exec ':e ' . new_file
 endfunction
+
 function! AlternateForCurrentFile()
   let current_file = expand("%")
   let new_file = current_file
