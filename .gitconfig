@@ -37,6 +37,7 @@
     sm = submodule
     bd = branch -d
     b = branch
+    ba = branch -a
     dc = diff --cached
     undo = "!source ~/.githelpers && undo_local_changes"
     sdcp = "!source ~/.githelpers && dryrun_dcommit_with_patch"
@@ -44,6 +45,7 @@
     t = tag
     count = shortlog -sn
     credit = "!source ~/.githelpers && change_author"
+    rv = remote -v
 
 
 
