@@ -17,6 +17,7 @@
 /.rvm
 /.subversion
 /.viminfo
+/.vim/tmp
 /.CFUserTextEncoding
 /.DS_Store
 /.Trash/
@@ -28,11 +29,13 @@
 /.bash_profile
 /.bashrc
 /.cache/
+/.config/
 /.cups/
 /.dbus/
 /.dmrc
 /.done.txt
 /.dotfiles/
+/.dropbox/
 /.fontconfig/
 /.gem/
 /.heroku/
