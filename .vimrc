@@ -23,7 +23,7 @@ let g:CommandTMaxHeight=20
 set shell=/bin/sh
 
 set background=light
-color solarized
+color ir_black
 
 set hidden "background buffers without writing them. saves marks/undo as well
 
