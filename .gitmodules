@@ -101,3 +101,6 @@
 [submodule ".vim/bundle/vim-markmultiple"]
 	path = .vim/bundle/vim-markmultiple
 	url = https://github.com/adinapoli/vim-markmultiple
+[submodule ".vim/bundle/xterm-color-table"]
+	path = .vim/bundle/xterm-color-table
+	url = https://github.com/guns/xterm-color-table.vim
