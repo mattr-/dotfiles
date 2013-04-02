@@ -44,6 +44,7 @@
 /.lesshst
 /.m2/
 /.mysql_history
+/.netrc
 /.pry_history
 /.oh-my-zsh/
 /.pki/
@@ -51,7 +52,9 @@
 /.pulse-cookie
 /.pulse/
 /.report.txt
+/.rnd
 /.rvm/
+/.sh_history
 /.sqlite_history
 /.ssh/
 /.todo.txt*
