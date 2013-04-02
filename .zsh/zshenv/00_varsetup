@@ -9,8 +9,8 @@ local app_path=$HOME/Applications
 for dir in `find $app_path -mindepth 1 -maxdepth 1 -type d`
 do
     #Special case the android sdk because they don't follow the rules
-    if [ "${dir:t}" = "Android" ] ; then 
-        path=($dir/platform-tools $dir/tools $path)
+    if [ "${dir:t}" = "ADT" ] ; then
+        path=($dir/sdk/platform-tools $dir/sdk/tools $dir/eclipse $path)
         continue
     fi
 
