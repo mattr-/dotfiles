@@ -16,6 +16,14 @@
     insteadOf = mattr:
     pushInsteadOf = mattr:
 
+[url "git@github.com:TracksApp/"]
+    insteadOf = tracks:
+    pushInsteadOf = tracks:
+
+[url "git@github.com:dallasrb/"]
+    insteadOf = dallasrb:
+    pushInsteadOf = dallasrb:
+
 [diff]
 [color]
     ui = auto
