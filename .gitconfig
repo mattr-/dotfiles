@@ -31,6 +31,7 @@
 [alias]
     aa = add --all
     di = diff 
+    dic = diff --cached
     head = !git l -1
     st = status -sb
     stuno = status -uno
