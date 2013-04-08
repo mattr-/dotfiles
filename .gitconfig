@@ -37,6 +37,7 @@
     stuno = status -uno
     co = checkout
     ci = commit
+    cane = commit --amend --no-edit
     ff = merge --ff-only
     pff = pull --ff-only 
     last = !git l -1
@@ -55,8 +56,6 @@
     count = shortlog -sn
     credit = "!source ~/.githelpers && change_author"
     rv = remote -v
-
-
 
 [core]
     excludesfile = ~/.cvsignore
