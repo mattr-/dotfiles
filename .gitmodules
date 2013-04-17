@@ -104,3 +104,6 @@
 [submodule ".vim/bundle/xterm-color-table"]
 	path = .vim/bundle/xterm-color-table
 	url = https://github.com/guns/xterm-color-table.vim
+[submodule ".vim/bundle/vim-abolish"]
+	path = .vim/bundle/vim-abolish
+	url = github:tpope/vim-abolish
