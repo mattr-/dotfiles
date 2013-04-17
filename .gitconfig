@@ -60,6 +60,6 @@
 [core]
     excludesfile = ~/.cvsignore
 [push]
-	default = matching
+	default = simple
 [hub]
 	protocol = https
