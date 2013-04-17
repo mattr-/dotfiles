@@ -189,6 +189,7 @@ map <C-\> :tnext<CR>
 
 imap ,/ </<C-X><C-O>
 
+map ,dm ?def<CR>\|d%<CR>
 "}}}
 
 " File type setup for files unknown to Vim {{{
@@ -421,6 +422,7 @@ function! RunTests(filename)
         end
     end
 endfunction
+
 " }}}
 
 " Misc AutoCommands {{{
