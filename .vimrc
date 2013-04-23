@@ -171,7 +171,7 @@ nnoremap <Leader><Leader> <C-^>
 imap <C-l> <space>=><space>
 
 " Make <leader>' switch between ' and "
-nnoremap <Leader>' ""yls<C-r>={'"': "'", "'": '"'}[@"]<CR><Esc>
+nnoremap ,' ""yls<C-r>={'"': "'", "'": '"'}[@"]<CR><Esc>
 
 " Fugitive mappings
 map ,gs :Gstatus<CR>
