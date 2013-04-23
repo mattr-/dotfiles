@@ -189,6 +189,7 @@ map <C-\> :tnext<CR>
 imap ,/ </<C-X><C-O>
 
 map ,dm ?def<CR>\|d%<CR>
+nnoremap <silent> ,sw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 "}}}
 
 " File type setup for files unknown to Vim {{{
