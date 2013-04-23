@@ -62,3 +62,5 @@
     excludesfile = ~/.cvsignore
 [hub]
 	protocol = https
+[push]
+	default = matching
