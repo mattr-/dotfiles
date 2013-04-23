@@ -53,6 +53,7 @@
     sdcp = "!source ~/.githelpers && dryrun_dcommit_with_patch"
     sdc = svn dcommit
     t = tag
+    td = tag -d
     count = shortlog -sn
     credit = "!source ~/.githelpers && change_author"
     rv = remote -v
