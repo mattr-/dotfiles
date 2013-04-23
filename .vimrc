@@ -91,6 +91,7 @@ else
   set showbreak='+++ '
 endif
 
+set list
 set nostartofline
 set scrolloff=3 "3 lines of context when scrolling
 set showmatch "show matching pairs
