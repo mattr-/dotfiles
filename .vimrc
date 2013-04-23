@@ -113,9 +113,7 @@ set guioptions-=l "or left hand scrollbar
 set guioptions-=L
 set guifont=Monospace\ 9
 
-if has("gui_running")
-    set cursorline
-endif
+set cursorline
 
 " }}}
 
