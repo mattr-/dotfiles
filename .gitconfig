@@ -60,7 +60,5 @@
 
 [core]
     excludesfile = ~/.cvsignore
-[push]
-	default = simple
 [hub]
 	protocol = https
