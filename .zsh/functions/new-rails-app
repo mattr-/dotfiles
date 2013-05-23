@@ -1,0 +1,19 @@
+new-rails-app() {
+  app_name=$1
+  if [ -z $app_name ] ; then
+    echo "Application name not specified"
+    return
+  fi
+
+  pushd ~/Code &> /dev/null
+  rvm use 2.0.0@$app_name --create
+  echo "Installing Rails..."
+  gem install rails >/dev/null
+  rails new $app_name
+  pushd $app_name &>/dev/null
+  git init .
+  git add --all
+  git commit -m "Create new Rails app"
+  popd &> /dev/null
+  popd &> /dev/null
+}
