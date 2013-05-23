@@ -126,6 +126,10 @@ noremap! <F1> <Esc>
 "Make Ctrl-C emulate Escape
 inoremap <C-c> <Esc>
 
+"Make myself use Ctrl-H and Ctrl-W
+inoremap <BS> <Nop>
+inoremap <C-K> <C-O>D
+
 "Nuke the help mapping
 noremap K <Nop>
 
