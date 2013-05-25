@@ -5,7 +5,9 @@ new-rails-app() {
     return
   fi
 
-  pushd ~/Code &> /dev/null
+  pwd | grep -q '/Code'
+  move_to_code = $?
+  [[ $move_to_code -ne 0 ]] && pushd ~/Code &> /dev/null
   rvm use 2.0.0@$app_name --create
   echo "Installing Rails..."
   gem install rails >/dev/null
@@ -15,5 +17,5 @@ new-rails-app() {
   git add --all
   git commit -m "Create new Rails app"
   popd &> /dev/null
-  popd &> /dev/null
+  [[ $move_to_code -ne 0 ]] && popd &> /dev/null
 }
