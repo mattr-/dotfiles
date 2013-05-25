@@ -1,11 +1,6 @@
 # autoload executables in $fpath
 for dirname in $fpath; do
-    case "$dirname" in
-        $ZDOTDIR/.zsh*) fns=( $dirname/*~*~(-N.x:t) ) ;;
-        *) fns=( $dirname/*~*~(-N.:t)  ) ;;
-    esac
-
-    (( $#fns )) && autoload "$fns[@]"
+    autoload -- $dirname/[^_]*(:t) &>/dev/null
 done
 
 # make colors available
