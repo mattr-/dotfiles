@@ -57,7 +57,7 @@
     count = shortlog -sn
     credit = "!source ~/.githelpers && change_author"
     rv = remote -v
-    pulr = pull --rebase
+    pullr = pull --rebase
 
 [core]
     excludesfile = ~/.cvsignore
