@@ -107,3 +107,6 @@
 [submodule ".vim/bundle/vim-abolish"]
 	path = .vim/bundle/vim-abolish
 	url = github:tpope/vim-abolish
+[submodule ".vim/bundle/vim-github-colorscheme"]
+	path = .vim/bundle/vim-github-colorscheme
+	url = https://github.com/endel/vim-github-colorscheme.git
