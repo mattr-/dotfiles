@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+[[ $# -eq 0 ]] && exit 1
+
+PULL=$1
+git add History.markdown
+git commit -m "Update history to reflect merge of #${PULL}"
+git pull --rebase
+git push origin master
