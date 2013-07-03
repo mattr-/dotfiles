@@ -190,10 +190,13 @@ noremap k gk
 map <Leader>rt :!ctags --c++-kinds=+pl --fields=+iaS --extra=+f+q --languages=-javascript,-sql -R *<CR><CR>
 map <C-\> :tnext<CR>
 
+"Close tag
 imap ,/ </<C-X><C-O>
 
-map ,dm ?def<CR>\|d%<CR>
+"Remove trailing whitespace
 nnoremap <silent> ,sw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+
 "}}}
 
 " File type setup for files unknown to Vim {{{
