@@ -196,6 +196,9 @@ imap ,/ </<C-X><C-O>
 "Remove trailing whitespace
 nnoremap <silent> ,sw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
+" Mappings for numbering
+map ,nr :set rnu!<CR>
+map ,na :set nu!<CR>
 
 "}}}
 
