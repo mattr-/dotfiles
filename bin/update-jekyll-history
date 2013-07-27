@@ -2,7 +2,7 @@
 
 set -e
 
-[[ $# -eq 0 ]] && exit 1
+[[ $# -eq 0 ]] && echo "Specify the PR number" && exit 1
 
 PULL=$1
 git add History.markdown
