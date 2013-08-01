@@ -61,6 +61,9 @@ set showcmd "show partial command in the status line
 " prevent Vim from clobbering the scrollback buffer
 set t_ti= t_te=
 
+" Use 256 colors all the time
+set t_Co=256
+
 " swap files
 set backup
 set noswapfile
