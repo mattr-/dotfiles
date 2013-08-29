@@ -87,7 +87,7 @@ set lazyredraw
 set visualbell "dont beep
 
 if ((&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && version >= 700) || has("gui_running")
-  set listchars=trail:·,precedes:«,extends:»,tab:▸\ 
+  set listchars=trail:·,precedes:«,extends:»,tab:▸\
   set showbreak=↪
 else
   set listchars=tab:>\ ,trail:-,extends:>,precedes:<
@@ -111,7 +111,7 @@ set ttimeoutlen=50 "Make esc work faster
 set guioptions-=T "no toolbar
 set guioptions-=m "or menu
 set guioptions-=r "or right hand scrollbar
-set guioptions-=R 
+set guioptions-=R
 set guioptions-=l "or left hand scrollbar
 set guioptions-=L
 set guifont=Monospace\ 9
@@ -213,9 +213,9 @@ if has("autocmd")
     au BufRead,BufNewFile *.god set ft=ruby
     au BufRead,BufNewFile *.json set ft=javascript
     au BufRead,BufNewFile *.jasmine_fixture set ft=html
-    
-    
-endif 
+
+
+endif
 "}}}
 
 " File type configuration for known filetypes {{{
@@ -250,7 +250,7 @@ if has("autocmd")
     augroup FTCheck " {{{2
         autocmd!
         autocmd BufNewFile,BufRead /etc/udev/rules.d/*.rules set ft=udev
-        autocmd BufNewFile,BufRead *.txt,README,INSTALL,NEWS,TODO if &ft == ""|set ft=text|endif 
+        autocmd BufNewFile,BufRead *.txt,README,INSTALL,NEWS,TODO if &ft == ""|set ft=text|endif
         autocmd BufRead * if ! did_filetype() && getline(1)." ".getline(2).
                   \ " ".getline(3) =~? '<\%(!DOCTYPE \)\=html\>' | setf html | endif
     augroup END " }}}2
@@ -275,7 +275,7 @@ if has("autocmd")
         autocmd FileType cucumber silent! compiler cucumber | setl makeprg=cucumber\ \"%:p\" | imap <buffer><expr> <Tab> pumvisible() ? "\<C-N>" : (CucumberComplete(1,'') >= 0 ? "\<C-X>\<C-O>" : (getline('.') =~ '\S' ? ' ' : "\<C-I>"))
         autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
         autocmd FileType make setl noexpandtab
-         
+
     augroup END " }}}2
     "Makefiles
 
