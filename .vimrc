@@ -165,8 +165,8 @@ map ,f :CommandTFlush<CR>\|:CommandT<CR>
 " Control-f for Command-T in insert mode
 imap <C-f> <Esc>:CommandTFlush<CR>\|:CommandT<CR>
 
-" Ctrl-Shift-F for Ack
-map <C-F> :Ack<Space>
+" Ctrl-Shift-F for Ag
+map <C-F> :Ag<Space>
 
 " <Leader>= to make all windows the same size
 map <Leader>= <C-w>=
