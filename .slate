@@ -17,6 +17,7 @@ alias bottomRight corner bottom-right resize:screenSizeX/2;screenSizeY/2
 alias mon-center-full ${full} ${mon-center}
 alias mon-left-full ${full} ${mon-left}
 alias laptop-rightHalf ${rightHalf} ${laptop}
+alias laptop-full ${full} ${laptop}
 
 
 layout 3monitors 'iTerm':SORT_TITLE ${mon-center-full}
@@ -24,10 +25,10 @@ layout 3monitors 'Google Chrome':IGNORE_FAIL,REPEAT_LAST ${mon-left-full}
 layout 3monitors 'Safari':IGNORE_FAIL,REPEAT_LAST ${mon-left-full}
 layout 3monitors 'Skype':REPEAT_LAST ${laptop-rightHalf}
 
-layout laptoplayout 'Google Chrome':IGNORE_FAIL,REPEAT_LAST ${full}
-layout laptoplayout 'Safari':IGNORE_FAIL,REPEAT_LAST ${full}
-layout laptoplayout 'Skype':REPEAT_LAST ${rightHalf}
-layout laptoplayout 'iTerm':SORT_TITLE ${full}
+layout laptoplayout 'Google Chrome':IGNORE_FAIL,REPEAT_LAST ${laptop-full}
+layout laptoplayout 'Safari':IGNORE_FAIL,REPEAT_LAST ${laptop-full}
+layout laptoplayout 'Skype':REPEAT_LAST ${laptop-rightHalf}
+layout laptoplayout 'iTerm':SORT_TITLE ${laptop-full}
 
 default 3monitors resolutions:${mon-left};${mon-center};${laptop}
 default laptoplayout count:1
