@@ -9,6 +9,8 @@ alias mon-right 1680x1050
 alias mon-center 1920x1080
 alias laptop 0
 
+alias hyper f19
+
 alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
 alias leftHalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 alias rightHalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
@@ -27,6 +29,7 @@ alias mon-right-full ${full} ${mon-right}
 alias laptop-rightHalf ${rightHalf} ${laptop}
 alias laptop-full ${full} ${laptop}
 alias laptop-leftSide push left center ${laptop}
+alias laptop-rightSide push right center ${laptop}
 alias laptop-leftHalf ${leftHalf} ${laptop}
 
 alias showNormalHint hint ASDFGHJKLQWERUIO
@@ -37,13 +40,15 @@ layout 3monitors 'Firefox':IGNORE_FAIL,REPEAT_LAST ${mon-right-full}
 layout 3monitors 'Skype':REPEAT_LAST ${laptop-rightHalf}
 layout 3monitors 'Preview':REPEAT_LAST ${laptop-full}
 layout 3monitors 'Twitter':REPEAT_LAST ${laptop-leftSide}
-layout 3monitors 'iTerm':SORT_TITLE ${mon-center-full}
+layout 3monitors 'iTerm':SORT_TITLE,REPEAT_LAST ${mon-center-full}
 layout 3monitors 'Pocket' ${laptop-leftHalf}
 
 layout laptoplayout 'Google Chrome':IGNORE_FAIL,REPEAT_LAST ${laptop-full}
 layout laptoplayout 'Safari':IGNORE_FAIL,REPEAT_LAST ${laptop-full}
 layout laptoplayout 'Skype':REPEAT_LAST ${laptop-rightHalf}
-layout laptoplayout 'iTerm':SORT_TITLE ${laptop-full}
+layout laptoplayout 'iTerm':SORT_TITLE,REPEAT_LAST ${laptop-full}
+layout laptoplayout 'Twitter':REPEAT_LAST ${laptop-leftSide}
+layout laptoplayout 'Notational Velocity':REPEAT_LAST ${laptop-rightSide}
 
 default 3monitors count:3
 default laptoplayout count:1
@@ -59,6 +64,6 @@ bind down:cmd;alt         focus behind
 
 bind z:ctrl;alt;cmd relaunch
 bind padEnter:ctrl sequence show 'all' | layout 3monitors
-bind return:cmd;alt;ctrl;shift layout laptoplayout
+bind return:cmd;alt;ctrl;shift sequence show 'all' | layout laptoplayout
 bind h:cmd;ctrl ${showNormalHint}
 
