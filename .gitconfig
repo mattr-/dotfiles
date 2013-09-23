@@ -24,6 +24,12 @@
     insteadOf = dallasrb:
     pushInsteadOf = dallasrb:
 
+[url "git@github.com:Hireology/"]
+    insteadOf = hireology:
+    pushInsteadOf = hireology:
+
+
+
 [diff]
 [color]
     ui = auto
@@ -58,6 +64,7 @@
     credit = "!source ~/.githelpers && change_author"
     rv = remote -v
     pullr = pull --rebase
+    ssp = stash show -p
 
 [core]
     excludesfile = ~/.cvsignore
