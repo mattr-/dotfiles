@@ -12,6 +12,7 @@ alias laptop 0
 alias hyper f19
 
 alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias term move screenOriginX;screenOriginY screenSizeX-screenSizeX/12;screenSizeY
 alias leftHalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 alias rightHalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
 alias topHalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
@@ -25,6 +26,7 @@ alias bottomRight corner bottom-right resize:screenSizeX/2;screenSizeY/2
 alias leftSide move screenOriginX;screenOriginY+screenSizeY/4
 
 alias mon-center-full ${full} ${mon-center}
+alias mon-center-term ${term} ${mon-center}
 alias mon-right-full ${full} ${mon-right}
 alias laptop-rightHalf ${rightHalf} ${laptop}
 alias laptop-full ${full} ${laptop}
@@ -40,7 +42,7 @@ layout 3monitors 'Firefox':IGNORE_FAIL,REPEAT_LAST ${mon-right-full}
 layout 3monitors 'Skype':REPEAT_LAST ${laptop-rightHalf}
 layout 3monitors 'Preview':REPEAT_LAST ${laptop-full}
 layout 3monitors 'Twitter':REPEAT_LAST ${laptop-leftSide}
-layout 3monitors 'iTerm':SORT_TITLE,REPEAT_LAST ${mon-center-full}
+layout 3monitors 'iTerm':SORT_TITLE,REPEAT_LAST ${mon-center-term}
 layout 3monitors 'Pocket' ${laptop-leftHalf}
 
 layout laptoplayout 'Google Chrome':IGNORE_FAIL,REPEAT_LAST ${laptop-full}
