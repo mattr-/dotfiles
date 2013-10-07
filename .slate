@@ -44,6 +44,7 @@ layout 3monitors 'Preview':REPEAT_LAST ${laptop-full}
 layout 3monitors 'Twitter':REPEAT_LAST ${laptop-leftSide}
 layout 3monitors 'iTerm':SORT_TITLE,REPEAT_LAST ${mon-center-term}
 layout 3monitors 'Pocket' ${laptop-leftHalf}
+layout 3monitors 'Messages':REPEAT_LAST ${laptop-leftSide}
 
 layout laptoplayout 'Google Chrome':IGNORE_FAIL,REPEAT_LAST ${laptop-full}
 layout laptoplayout 'Safari':IGNORE_FAIL,REPEAT_LAST ${laptop-full}
@@ -51,6 +52,7 @@ layout laptoplayout 'Skype':REPEAT_LAST ${laptop-rightHalf}
 layout laptoplayout 'iTerm':SORT_TITLE,REPEAT_LAST ${laptop-full}
 layout laptoplayout 'Twitter':REPEAT_LAST ${laptop-leftSide}
 layout laptoplayout 'Notational Velocity':REPEAT_LAST ${laptop-rightSide}
+layout laptoplayout 'Messages':REPEAT_LAST ${laptop-leftSide}
 
 default 3monitors count:3
 default laptoplayout count:1
