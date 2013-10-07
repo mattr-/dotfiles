@@ -7,7 +7,7 @@ config windowHintsSpread true
 
 alias mon-right 1680x1050
 alias mon-center 1920x1080
-alias laptop 0
+alias laptop 1440x900
 
 alias hyper f19
 
