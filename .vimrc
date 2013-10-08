@@ -205,6 +205,9 @@ nnoremap <silent> ,sw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 map ,nr :set rnu!<CR>
 map ,na :set nu!<CR>
 
+" Save a file and reload the active tab in Chrome
+map ,r :wa\|:!osascript ~/bin/chrome_reload_tab.scpt<CR><CR>
+
 "}}}
 
 " File type setup for files unknown to Vim {{{
@@ -323,13 +326,6 @@ noremap <M-.>        :Bigger<CR>
 " }}}
 
 " Custom Functions {{{
-
-function! RunLineAsCommand()
-    let current_line = getline(line('.'))
-    exec ":!" . current_line
-endfunction
-
-map ,rc :call RunLineAsCommand
 
 "Rename current file
 function! RenameFile()
