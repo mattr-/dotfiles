@@ -6,7 +6,7 @@ typeset -TU LD_LIBRARY_PATH ld_library_path
 
 #setup custom path
 local app_path=$HOME/Applications
-for dir in `find $app_path -mindepth 1 -maxdepth 1 -type d`
+for dir in `find $app_path -mindepth 1 -maxdepth 1`
 do
     #Special case the android sdk because they don't follow the rules
     if [ "${dir:t}" = "ADT" ] ; then
