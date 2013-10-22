@@ -36,13 +36,13 @@ alias laptop-leftHalf ${leftHalf} ${laptop}
 
 alias showNormalHint hint ASDFGHJKLQWERUIO
 
-layout 3monitors 'Google Chrome':IGNORE_FAIL,REPEAT_LAST ${mon-right-full}
-layout 3monitors 'Safari':IGNORE_FAIL,REPEAT_LAST ${mon-right-full}
-layout 3monitors 'Firefox':IGNORE_FAIL,REPEAT_LAST ${mon-right-full}
+layout 3monitors 'Google Chrome':IGNORE_FAIL,REPEAT_LAST ${mon-center-term}
+layout 3monitors 'Safari':IGNORE_FAIL,REPEAT_LAST ${mon-center-term}
+layout 3monitors 'Firefox':IGNORE_FAIL,REPEAT_LAST ${mon-center-term}
 layout 3monitors 'Skype':REPEAT_LAST ${laptop-rightHalf}
 layout 3monitors 'Preview':REPEAT_LAST ${laptop-full}
 layout 3monitors 'Twitter':REPEAT_LAST ${laptop-leftSide}
-layout 3monitors 'iTerm':SORT_TITLE,REPEAT_LAST ${mon-center-term}
+layout 3monitors 'iTerm':SORT_TITLE,REPEAT_LAST ${mon-right-full}
 layout 3monitors 'Pocket' ${laptop-leftHalf}
 layout 3monitors 'Messages':REPEAT_LAST ${laptop-leftSide}
 
