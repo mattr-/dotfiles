@@ -424,7 +424,11 @@ function! RunTests(filename)
     if match(a:filename, '\.feature$') != -1
         exec ":!script/features " . a:filename
     elseif match(a:filename, '_test\.rb$') != -1
-        exec ":!rake test TEST=" . a:filename
+        if filereadable("Gemfile")
+            exec ":!bundle exec rake test TEST=" . a:filename
+        else
+            exec ":!rake test TEST=" . a:filename
+        end
     else
         if filereadable("script/test")
             exec ":!script/test " . a:filename
