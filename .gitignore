@@ -73,3 +73,17 @@
 /.msvn/
 /.smartbear/
 /.vagrant.d/
+/.bundler/
+/.env/
+/.exercism
+/.gitk
+/.irb_history
+/.jenkins/
+/.lein/
+/.local/
+/.npm/
+/.pip/
+/.puppet/
+/.rbenv/
+/.rdebug_hist
+/.rediscli_history
