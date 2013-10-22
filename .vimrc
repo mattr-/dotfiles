@@ -23,7 +23,7 @@ let g:airline_powerline_fonts = 1
 " }}}
 
 "Settings {{{
-set shell=/bin/sh
+set shell=/usr/local/bin/zsh
 
 set background=light
 color mattr
