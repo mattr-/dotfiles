@@ -87,7 +87,6 @@ endif
 set modeline
 set modelines=10
 
-set lazyredraw
 set visualbell "dont beep
 
 if ((&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && version >= 700) || has("gui_running")
