@@ -90,7 +90,7 @@ set modelines=10
 set visualbell "dont beep
 
 if ((&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && version >= 700) || has("gui_running")
-  set listchars=trail:·,precedes:«,extends:»,tab:▸\
+  set listchars=trail:·,precedes:«,extends:»,tab:▸-
   set showbreak=↪
 else
   set listchars=tab:>\ ,trail:-,extends:>,precedes:<
