@@ -182,8 +182,13 @@ imap <C-l> <space>=><space>
 " Make <leader>' switch between ' and "
 nnoremap ,' ""yls<C-r>={'"': "'", "'": '"'}[@"]<CR><Esc>
 
-" Fugitive mappings
+" Fugitive/Git mappings
 map ,gs :Gstatus<CR>
+map ,gpl :Git pull<CR>
+map ,gpr :Git pull --rebase<CR>
+map ,gpu :Git push<CR>
+map ,gd :Git diff<CR>
+map ,gdic :Git diff --cached<CR>
 
 noremap H ^
 noremap L $
