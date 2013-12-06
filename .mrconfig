@@ -1,19 +1,8 @@
-[Code/tracks]
-checkout = git clone git@github.com:TracksApp/tracks
+[.rbenv]
+checkout = git clone github:sstephenson/rbenv
 
-[Code/tracks3]
-checkout = git clone git@github.com:mattr-/tracks3
+[.rbenv/plugins/ruby-build]
+checkout = git clone github:sstephenson/ruby-build
 
-[Code/jekyll]
-checkout = git clone git@github.com:mattr-/jekyll && \
-           cd jekyll && \
-           git remote add mojombo https://github.com/mojombo/jekyll && \
-           git fetch mojombo && \
-           git checkout -b upstream mojombo/master
-update = git pull origin master && git pull mojombo upstream
-
-[Code/blog]
-checkout = git clone git@github.com:mattr-/mattr-.github.com blog
-
-[Code/octopress]
-checkout = git clone git@github.com:mattr-/octopress
+[.rbenv/plugins/rbenv-gemset]
+checkout = git clone github:jamis/rbenv-gemset
