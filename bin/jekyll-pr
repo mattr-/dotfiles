@@ -1,0 +1,14 @@
+#!/bin/sh
+function die() {
+  echo "$@"
+  exit 1
+}
+[[ $1 == "" ]] && die "Not enough arguments"
+
+pushd ~/Code/jekyll
+vim History.markdown
+git merge-pull $1
+update-jekyll-history $1
+popd
+
+
