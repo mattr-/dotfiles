@@ -1,0 +1,3 @@
+h() {
+  cd ~/Projects/Hireology/$1
+}
