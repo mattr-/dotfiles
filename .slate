@@ -60,7 +60,7 @@ default laptoplayout count:1
 bind right:cmd;shift;ctrl ${rightHalf}
 bind left:cmd;shift;ctrl  ${leftHalf}
 bind up:cmd;shift;ctrl    ${topHalf}
-bind down:cmd;shift;ctrl  ${topHalf}
+bind down:cmd;shift;ctrl  ${bottomHalf}
 bind up:cmd;shift         focus up
 bind down:cmd;shift       focus down
 bind up:cmd;alt           focus behind
