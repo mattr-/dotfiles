@@ -1,0 +1,13 @@
+#!/bin/sh
+function die {
+ echo "$@"
+ exit 1
+}
+[ $# -ne 1 ] && die "Wrong number of arguments."
+branch_to_rebase=$1
+current_branch=`git branch | grep '^\*' | cut -c 3-`
+
+git co $branch_to_rebase
+git pull
+git co $current_branch
+git rebase $branch_to_rebase
