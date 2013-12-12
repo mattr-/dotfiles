@@ -58,6 +58,7 @@ set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 set wildignore+=*.sw?
 set wildignore+=*.DS_Store?
 set wildignore+=vendor/bundle
+set wildignore+=vendor/gems
 
 set encoding=utf-8
 set showcmd "show partial command in the status line
