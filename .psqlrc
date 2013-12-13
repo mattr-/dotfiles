@@ -1,0 +1,4 @@
+\pset null 'NULL'
+\set HISTSIZE 20000
+\set PROMPT1 '%/%# '
+\set PROMPT2 '%/ (cont) %# '
