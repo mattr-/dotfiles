@@ -1,5 +1,5 @@
 [user]
-	email = mattrogers@sbcglobal.net
+    email = mattrogers@sbcglobal.net
     name = Matt Rogers
 
 [url "git://anongit.kde.org/"]
@@ -69,6 +69,6 @@
 [core]
     excludesfile = ~/.cvsignore
 [hub]
-	protocol = https
+    protocol = https
 [push]
     default = current
