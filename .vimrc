@@ -218,6 +218,9 @@ map ,r :wa\|:!osascript ~/bin/chrome_reload_tab.scpt<CR><CR>
 map ,mar :Rabbrev! AR<CR>
 map ,ear :Rabbrev AR:: ActiveRecord<CR>
 
+" Restart a rails server
+map ,br :!bounce_rails<CR><CR>
+
 "}}}
 
 " File type setup for files unknown to Vim {{{
