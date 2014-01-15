@@ -231,8 +231,6 @@ if has("autocmd")
     au BufRead,BufNewFile *.god set ft=ruby
     au BufRead,BufNewFile *.json set ft=javascript
     au BufRead,BufNewFile *.jasmine_fixture set ft=html
-
-
 endif
 "}}}
 
