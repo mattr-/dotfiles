@@ -6,6 +6,7 @@ function die() {
 [[ $1 == "" ]] && die "Not enough arguments"
 
 pushd ~/Code/jekyll/jekyll
+git pull --rebase
 vim History.markdown
 git merge-pull $1
 update-jekyll-history $1
