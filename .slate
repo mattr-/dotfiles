@@ -30,6 +30,7 @@ alias mon-center-term ${term} ${mon-center}
 alias mon-right-full ${full} ${mon-right}
 alias laptop-rightHalf ${rightHalf} ${laptop}
 alias laptop-full ${full} ${laptop}
+alias laptop-term ${term} ${laptop}
 alias laptop-leftSide push left center ${laptop}
 alias laptop-rightSide push right center ${laptop}
 alias laptop-leftHalf ${leftHalf} ${laptop}
@@ -45,13 +46,15 @@ layout 3monitors 'Twitter':REPEAT_LAST ${laptop-leftSide}
 layout 3monitors 'iTerm':SORT_TITLE,REPEAT_LAST ${mon-right-full}
 layout 3monitors 'Pocket' ${laptop-leftHalf}
 layout 3monitors 'Messages':REPEAT_LAST ${laptop-leftSide}
+layout 3monitors 'Propane':REPEAT_LAST ${laptop-rightSide}
 
-layout laptoplayout 'Google Chrome':IGNORE_FAIL,REPEAT_LAST ${laptop-full}
-layout laptoplayout 'Safari':IGNORE_FAIL,REPEAT_LAST ${laptop-full}
+layout laptoplayout 'Google Chrome':IGNORE_FAIL,REPEAT_LAST ${laptop-term}
+layout laptoplayout 'Safari':IGNORE_FAIL,REPEAT_LAST ${laptop-term}
 layout laptoplayout 'Skype':REPEAT_LAST ${laptop-rightHalf}
-layout laptoplayout 'iTerm':SORT_TITLE,REPEAT_LAST ${laptop-full}
+layout laptoplayout 'iTerm':SORT_TITLE,REPEAT_LAST ${laptop-term}
 layout laptoplayout 'Twitter':REPEAT_LAST ${laptop-leftSide}
 layout laptoplayout 'Notational Velocity':REPEAT_LAST ${laptop-rightSide}
+layout laptoplayout 'Propane':REPEAT_LAST ${laptop-rightSide}
 layout laptoplayout 'Messages':REPEAT_LAST ${laptop-leftSide}
 
 default 3monitors count:3
@@ -66,7 +69,7 @@ bind down:cmd;shift       focus down
 bind up:cmd;alt           focus behind
 bind down:cmd;alt         focus behind
 
-bind z:ctrl;alt;cmd relaunch
+bind z:ctrl;alt;ctrl;shift relaunch
 bind padEnter:ctrl sequence show 'all' | layout 3monitors
 bind return:cmd;alt;ctrl;shift sequence show 'all' | layout laptoplayout
 bind h:cmd;ctrl ${showNormalHint}
