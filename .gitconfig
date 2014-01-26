@@ -65,6 +65,8 @@
     rv = remote -v
     pullr = pull --rebase
     ssp = stash show -p
+    sl = stash list
+    sa = stash apply
 
 [core]
     excludesfile = /opt/boxen/config/git/gitignore
