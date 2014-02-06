@@ -49,6 +49,7 @@
 /.m2/
 /.mail/
 /.msvn/
+/.mutt/temp
 /.mysql_history
 /.netrc
 /.npm/
