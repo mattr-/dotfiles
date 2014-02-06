@@ -15,44 +15,67 @@ alias leftHalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 alias rightHalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
 alias topHalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
 alias bottomHalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY
+alias layeredGutter move screenOriginX+screenSizeX/4;screenOriginY screenSizeX-screenSizeX/4-screenSizeX/12;screenSizeY
+alias leftSideFullHeight move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias rightHalfGutter move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2-screenSizeX/12;screenSizeY
 
 alias topLeft corner top-left resize:screenSizeX/2;screenSizeY/2
 alias topRight corner top-right resize:screenSizeX/2;screenSizeY/2
 alias bottomLeft corner bottom-left resize:screenSizeX/2;screenSizeY/2
 alias bottomRight corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
-alias leftSide move screenOriginX;screenOriginY+screenSizeY/4
-
+alias mon-center-rightHalf ${rightHalf} ${mon-center}
 alias mon-center-full ${full} ${mon-center}
 alias mon-center-desktopGutter ${desktopGutter} ${mon-center}
+alias mon-center-layeredGutter ${layeredGutter} ${mon-center}
+alias mon-center-leftSide push left center ${mon-center}
+alias mon-center-rightSide push right center ${mon-center}
+alias mon-center-leftHalf ${leftHalf} ${mon-center}
+alias mon-center-leftSideFullHeight ${leftSideFullHeight} ${mon-center}
+alias mon-center-rightHalfGutter ${rightHalfGutter} ${mon-center}
+
+alias mon-right-rightHalf ${rightHalf} ${mon-right}
 alias mon-right-full ${full} ${mon-right}
+alias mon-right-desktopGutter ${desktopGutter} ${mon-right}
+alias mon-right-layeredGutter ${layeredGutter} ${mon-right}
+alias mon-right-leftSide push left center ${mon-right}
+alias mon-right-rightSide push right center ${mon-right}
+alias mon-right-leftHalf ${leftHalf} ${mon-right}
+alias mon-right-leftSideFullHeight ${leftSideFullHeight} ${mon-right}
+alias mon-right-rightHalfGutter ${rightHalfGutter} ${mon-right}
+
 alias laptop-rightHalf ${rightHalf} ${laptop}
 alias laptop-full ${full} ${laptop}
 alias laptop-desktopGutter ${desktopGutter} ${laptop}
+alias laptop-layeredGutter ${layeredGutter} ${laptop}
 alias laptop-leftSide push left center ${laptop}
 alias laptop-rightSide push right center ${laptop}
 alias laptop-leftHalf ${leftHalf} ${laptop}
+alias laptop-leftSideFullHeight ${leftSideFullHeight} ${laptop}
+alias laptop-rightHalfGutter ${rightHalfGutter} ${laptop}
 
 alias showNormalHint hint ASDFGHJKLQWERUIO
 
-layout 3monitors 'Google Chrome':IGNORE_FAIL,REPEAT_LAST ${mon-center-desktopGutter}
-layout 3monitors 'Safari':IGNORE_FAIL,REPEAT_LAST ${mon-center-desktopGutter}
-layout 3monitors 'Firefox':IGNORE_FAIL,REPEAT_LAST ${mon-center-desktopGutter}
-layout 3monitors 'Skype':REPEAT_LAST ${laptop-rightHalf}
-layout 3monitors 'Preview':REPEAT_LAST ${laptop-full}
-layout 3monitors 'Twitter':REPEAT_LAST ${laptop-leftSide}
-layout 3monitors 'iTerm':SORT_TITLE,REPEAT_LAST ${mon-right-full}
-layout 3monitors 'Pocket' ${laptop-leftHalf}
-layout 3monitors 'Messages':REPEAT_LAST ${laptop-leftSide}
-layout 3monitors 'Propane':REPEAT_LAST ${laptop-rightSide}
+layout 3monitors 'Google Chrome':IGNORE_FAIL,REPEAT_LAST ${mon-center-full}
+layout 3monitors 'Safari':IGNORE_FAIL,REPEAT_LAST ${mon-center-full}
+layout 3monitors 'Firefox':IGNORE_FAIL,REPEAT_LAST ${mon-center-full}
+layout 3monitors 'Skype':REPEAT_LAST ${mon-right-rightHalfGutter}
+layout 3monitors 'Preview':REPEAT_LAST ${mon-right-full}
+layout 3monitors 'Twitter':REPEAT_LAST ${mon-right-leftSide}
+layout 3monitors 'iTerm':SORT_TITLE,REPEAT_LAST ${laptop-desktopGutter}
+layout 3monitors 'Pocket' ${mon-right-leftHalf}
+layout 3monitors 'Propane':REPEAT_LAST ${mon-right-layeredGutter}
+layout 3monitors 'Notational Velocity':REPEAT_LAST ${laptop-leftSide}
+layout 3monitors 'Messages':REPEAT_LAST ${mon-right-leftSide}
 
 layout laptoplayout 'Google Chrome':IGNORE_FAIL,REPEAT_LAST ${laptop-desktopGutter}
 layout laptoplayout 'Safari':IGNORE_FAIL,REPEAT_LAST ${laptop-desktopGutter}
-layout laptoplayout 'Skype':REPEAT_LAST ${laptop-rightHalf}
+layout laptoplayout 'Skype':REPEAT_LAST ${laptop-leftHalf}
 layout laptoplayout 'iTerm':SORT_TITLE,REPEAT_LAST ${laptop-desktopGutter}
 layout laptoplayout 'Twitter':REPEAT_LAST ${laptop-leftSide}
-layout laptoplayout 'Notational Velocity':REPEAT_LAST ${laptop-rightSide}
-layout laptoplayout 'Propane':REPEAT_LAST ${laptop-rightSide}
+layout laptoplayout 'Pocket' ${laptop-leftHalf}
+layout laptoplayout 'Notational Velocity':REPEAT_LAST ${laptop-leftSide}
+layout laptoplayout 'Propane':REPEAT_LAST ${laptop-layeredGutter}
 layout laptoplayout 'Messages':REPEAT_LAST ${laptop-leftSide}
 
 default 3monitors count:3
@@ -67,7 +90,7 @@ bind down:cmd;shift       focus down
 bind up:cmd;alt           focus behind
 bind down:cmd;alt         focus behind
 
-bind z:ctrl;alt;ctrl;shift relaunch
+bind z:cmd;alt;ctrl;shift relaunch
 bind padEnter:ctrl sequence show 'all' | layout 3monitors
 bind return:cmd;alt;ctrl;shift sequence show 'all' | layout laptoplayout
 bind h:cmd;ctrl ${showNormalHint}
