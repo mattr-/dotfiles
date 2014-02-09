@@ -59,7 +59,7 @@ alias showNormalHint hint ASDFGHJKLQWERUIO
 layout 3monitors 'Google Chrome':IGNORE_FAIL,REPEAT_LAST ${mon-center-full}
 layout 3monitors 'Safari':IGNORE_FAIL,REPEAT_LAST ${mon-center-full}
 layout 3monitors 'Firefox':IGNORE_FAIL,REPEAT_LAST ${mon-center-full}
-layout 3monitors 'Skype':REPEAT_LAST ${mon-right-rightHalfGutter}
+layout 3monitors 'Skype':REPEAT_LAST ${mon-right-rightHalf}
 layout 3monitors 'Preview':REPEAT_LAST ${mon-right-full}
 layout 3monitors 'Twitter':REPEAT_LAST ${mon-right-leftSide}
 layout 3monitors 'iTerm':SORT_TITLE,REPEAT_LAST ${laptop-desktopGutter}
@@ -70,6 +70,7 @@ layout 3monitors 'Messages':REPEAT_LAST ${mon-right-leftSide}
 
 layout laptoplayout 'Google Chrome':IGNORE_FAIL,REPEAT_LAST ${laptop-desktopGutter}
 layout laptoplayout 'Safari':IGNORE_FAIL,REPEAT_LAST ${laptop-desktopGutter}
+layout laptoplayout 'Firefox':IGNORE_FAIL,REPEAT_LAST ${laptop-desktopGutter}
 layout laptoplayout 'Skype':REPEAT_LAST ${laptop-leftHalf}
 layout laptoplayout 'iTerm':SORT_TITLE,REPEAT_LAST ${laptop-desktopGutter}
 layout laptoplayout 'Twitter':REPEAT_LAST ${laptop-leftSide}
