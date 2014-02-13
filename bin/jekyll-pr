@@ -1,4 +1,6 @@
 #!/bin/sh
+set -e
+
 function die() {
   echo "$@"
   exit 1
