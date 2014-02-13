@@ -109,7 +109,7 @@ set splitright "and on the right
 set noequalalways
 
 set timeoutlen=1200 "more time for macros
-set ttimeoutlen=50 "Make esc work faster
+set ttimeoutlen=10 "Make esc work faster
 
 
 set guioptions-=T "no toolbar
