@@ -8,7 +8,7 @@ function die() {
 [[ $1 == "" ]] && die "Not enough arguments"
 
 git remote -v | grep -q ':jekyll'
-[[ $? -ne 0] ] && die "Not in a Jekyll repo"
+[[ $? -ne 0 ]] && die "Not in a Jekyll repo"
 
 git pull --rebase
 vim History.markdown
