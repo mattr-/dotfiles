@@ -188,8 +188,8 @@ map ,gs :Gstatus<CR>
 map ,gpl :Git pull<CR>
 map ,gpr :Git pull --rebase<CR>
 map ,gpu :Git push<CR>
-map ,gd :Git diff<CR>
-map ,gdic :Git diff --cached<CR>
+map ,gdi :Git diff<CR>
+map ,gdc :Git diff --cached<CR>
 
 noremap H ^
 noremap L $
