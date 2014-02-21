@@ -6,6 +6,6 @@ set -e
 
 PULL=$1
 git add History.markdown
-git commit -m "Update history to reflect merge of #${PULL}"
+git commit -m "Update history to reflect merge of #${PULL} [ci skip]"
 git pull --rebase
 git push
