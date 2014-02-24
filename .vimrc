@@ -219,7 +219,7 @@ map ,mar :Rabbrev! AR<CR>
 map ,ear :Rabbrev AR:: ActiveRecord<CR>
 
 " Restart a rails server
-map ,br :!bounce_rails<CR><CR>
+map ,br :execute 'silent !tmux send-keys -t server C-c rs C-m'<Bar>redraw!<CR>
 
 "}}}
 
