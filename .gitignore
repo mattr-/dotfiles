@@ -25,6 +25,7 @@
 /.bashrc
 /.bundler/
 /.cache/
+/.coffee_history
 /.config/
 /.cups/
 /.dbus/
