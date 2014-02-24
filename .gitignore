@@ -80,7 +80,6 @@
 /.vim/backup/*
 /.vim/tmp
 /.viminfo
-/.viminfo
 /.xsession-errors
 /.zcompdump
 /.zlogin
