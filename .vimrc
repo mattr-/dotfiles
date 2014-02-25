@@ -345,11 +345,8 @@ map <leader>n :call RenameFile()<cr>
 
 "Promote variable to rspec let
 function! PromoteToLet()
-  :normal! dd
-  " :exec '?^\s*it\>'
-  :normal! P
-  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
-  :normal ==
+  :s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+  :silent normal ==
 endfunction
 command! PromoteToLet :call PromoteToLet()
 map <leader>p :PromoteToLet<cr>
