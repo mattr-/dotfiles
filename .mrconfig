@@ -1,8 +1,0 @@
-[.rbenv]
-checkout = git clone github:sstephenson/rbenv
-
-[.rbenv/plugins/ruby-build]
-checkout = git clone github:sstephenson/ruby-build
-
-[.rbenv/plugins/rbenv-gemset]
-checkout = git clone github:jamis/rbenv-gemset
