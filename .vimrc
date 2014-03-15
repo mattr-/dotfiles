@@ -221,6 +221,8 @@ map ,ear :Rabbrev AR:: ActiveRecord<CR>
 " Restart a rails server
 map ,br :execute 'silent !tmux send-keys -t server C-c rs C-m'<Bar>redraw!<CR>
 
+" Switch hash keys with values
+map ,ks :s/\([:_a-zA-z]\+\) => \([a-zA-Z:_]\+\)/\2 => \1/g<CR>
 "}}}
 
 " File type setup for files unknown to Vim {{{
