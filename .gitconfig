@@ -67,6 +67,7 @@
     ssp = stash show -p
     sl = stash list
     sa = stash apply
+    remove-merged = "!source ~/.githelpers && remove_merged_branches"
 
 [core]
     excludesfile = /opt/boxen/config/git/gitignore
