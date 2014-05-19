@@ -63,7 +63,7 @@
     count = shortlog -sn
     credit = "!source ~/.githelpers && change_author"
     rv = remote -v
-    pullr = pull --rebase
+    pullr = pull --rebase --stat
     ssp = stash show -p
     sl = stash list
     sa = stash apply
