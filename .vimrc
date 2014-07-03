@@ -126,10 +126,6 @@ set cursorline
 
 "Mappings {{{
 
-"Make F1 emulate Escape - taken from the Hashrocket dotfiles
-noremap <F1> <Esc>
-noremap! <F1> <Esc>
-
 "Make Ctrl-C emulate Escape
 inoremap <C-c> <Esc>
 
