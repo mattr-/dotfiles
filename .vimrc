@@ -126,8 +126,8 @@ set cursorline
 
 "Mappings {{{
 
-"Make Ctrl-C emulate Escape
-inoremap <C-c> <Esc>
+"Make kj emulate Escape
+imap kj <Esc>
 
 "Make myself use Ctrl-H and Ctrl-W
 inoremap <C-K> <C-O>D
