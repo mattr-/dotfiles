@@ -284,7 +284,6 @@ if has("autocmd")
         autocmd FileType cucumber               setlocal ai et sta sw=2 sts=2 ts=2
         autocmd FileType sh,zsh,csh,tcsh        inoremap <silent> <buffer> <C-X>! #!/bin/<C-R>=&ft<CR>
         autocmd FileType perl,python,ruby       inoremap <silent> <buffer> <C-X>! #!/usr/bin/<C-R>=&ft<CR>
-        autocmd FileType sh,zsh,csh,tcsh,perl,python,ruby imap <buffer> <C-X>& <C-X>!<Esc>o <C-U># $I<C-V>d$<Esc>o <C-U><C-X>^<Esc>o <C-U><C-G>
         autocmd FileType c,cpp,cs,java,perl,javascript,css let b:surround_101 = "\r\n}"
         autocmd FileType apache                 setlocal commentstring=#\ %s
         autocmd FileType css silent! setlocal omnifunc=csscomplete#CompleteCSS
