@@ -235,6 +235,8 @@ endif
 " File type configuration for known filetypes {{{
 if has("autocmd")
     augroup FTMisc " {{{2
+        autocmd!
+
         "Write all files when losing focus
         autocmd FocusLost * silent! wall
 
