@@ -18,7 +18,6 @@ let g:ragtag_global_maps = 1
 
 let g:CommandTMaxHeight=20
 
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 " }}}
 
