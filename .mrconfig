@@ -1,0 +1,20 @@
+[$HOME/Code/github/hubot]
+checkout = git clone https://github.com/github/hubot
+
+[$HOME/Code/github/hubot-scripts]
+checkout = git clone https://github.com/github/hubot-scripts
+
+[$HOME/Code/github/janky]
+checkout = git clone https://github.com/github/janky
+
+[$HOME/Code/github/developer.github.com]
+checkout = git clone https://github.com/github/developer.github.com
+
+[$HOME/Code/github/android]
+checkout = git clone https://github.com/github/android
+
+[$HOME/Code/exception_notification]
+checkout = git clone https://github.com/smartinez87/exception_notification
+
+[$HOME/Code/rack]
+checkout = git clone https://github.com/rack/rack
