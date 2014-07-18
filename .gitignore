@@ -1,4 +1,5 @@
 /Applications
+/Box Sync/
 /Code
 /Desktop/
 /Documents/
@@ -38,6 +39,7 @@
 /.fontconfig/
 /.gem/
 /.gitk
+/.guard_history
 /.heroku/
 /.install4j
 /.irb-history
@@ -55,6 +57,8 @@
 /.netrc
 /.npm/
 /.oh-my-zsh/
+/.pgpass
+/.pgadmin_histoqueries
 /.pip/
 /.pki/
 /.pry_history
@@ -67,6 +71,7 @@
 /.rediscli_history
 /.report.txt
 /.rnd
+/.ruby-version
 /.rvm
 /.rvm/
 /.sh_history
@@ -80,7 +85,9 @@
 /.vim/.netrwhist
 /.vim/backup/*
 /.vim/tmp
+/.vim*.tmp
 /.viminfo
+/.xbmc/
 /.xsession-errors
 /.zcompdump
 /.zlogin
