@@ -44,6 +44,7 @@
     stuno = status -uno
     co = checkout
     ci = commit
+    cp = cherry-pick
     cane = commit --amend --no-edit
     ff = merge --ff-only
     pff = pull --ff-only 
