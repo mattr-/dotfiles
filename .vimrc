@@ -208,7 +208,7 @@ map ,nr :set rnu!<CR>
 map ,na :set nu!<CR>
 
 " Save a file and reload the active tab in Chrome
-map ,r :wa\|:!osascript ~/bin/chrome_reload_tab.scpt<CR><CR>
+map ,r :!osascript ~/bin/chrome_reload_tab.scpt<CR><CR>
 
 " Turn off the ActiveRecord rails mapping
 map ,mar :Rabbrev! AR<CR>
