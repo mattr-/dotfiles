@@ -43,6 +43,7 @@
     st = status -sb
     stuno = status -uno
     co = checkout
+    cob = checkout -b
     ci = commit
     cp = cherry-pick
     cane = commit --amend --no-edit
