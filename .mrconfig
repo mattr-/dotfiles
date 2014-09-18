@@ -18,3 +18,11 @@ checkout = git clone https://github.com/smartinez87/exception_notification
 
 [$HOME/Code/rack]
 checkout = git clone https://github.com/rack/rack
+
+[$HOME/Code/exercism/exercism.io]
+update = git fetch --all
+
+[$HOME/Code/exercism/docs]
+checkout = git clone https://github.com/exercism/docs
+
+
