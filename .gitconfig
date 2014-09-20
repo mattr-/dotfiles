@@ -28,9 +28,6 @@
     insteadOf = hireology:
     pushInsteadOf = hireology:
 
-
-
-
 [diff]
 [color]
     ui = auto
