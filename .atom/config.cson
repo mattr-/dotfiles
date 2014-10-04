@@ -10,6 +10,7 @@
   'fontSize': 13
   'showInvisibles': true
   'fontFamily': '\'M+ 1mn\''
+  'invisibles': {}
 'core':
   'themes': [
     'atom-light-ui'
@@ -17,9 +18,20 @@
   ]
   'projectHome': '/Users/matt/Code'
   'useReactEditor': true
+  'disabledPackages': [
+    'data-atom'
+    'emmet'
+    'vim-mode'
+  ]
 'spell-check':
   'grammars': [
     'source.gfm'
     'text.git-commit'
     'text.plain'
   ]
+'autosave':
+  'enabled': true
+'emmet': {}
+'minimap': {}
+'vim-mode':
+  'startInInsertMode': true
