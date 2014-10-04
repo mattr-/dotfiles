@@ -25,4 +25,9 @@ update = git fetch --all
 [$HOME/Code/exercism/docs]
 checkout = git clone https://github.com/exercism/docs
 
+[$HOME/Code/exercism/xapi]
+checkout = git clone https://github.com/exercism/xapi
+
+[$HOME/Code/exercism/website]
+checkout = git clone https://github.com/exercism/website
 
