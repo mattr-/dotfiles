@@ -52,6 +52,7 @@
     la = !git l --all
     sm = submodule
     bd = branch -d
+    bD = branch -D
     b = branch
     ba = branch -a
     dc = diff --cached
