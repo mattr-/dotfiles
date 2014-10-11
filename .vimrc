@@ -16,7 +16,7 @@ runtime! macros/matchit.vim
 "Plugin settings {{{
 let g:ragtag_global_maps = 1
 
-let g:CommandTMaxHeight=20
+let g:CommandTMaxHeight=10
 
 let g:airline_powerline_fonts = 0
 
@@ -160,7 +160,8 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <CR> :nohlsearch<CR>
 
 " Comma-f for Command-T in normal mode
-map ,f :CommandTFlush<CR>\|:CommandT<CR>
+map ,f :CommandT<CR>
+map ,F :CommandTFlush<CR>\|:CommandT<CR>
 " Control-f for Command-T in insert mode
 imap <C-f> <Esc>:CommandTFlush<CR>\|:CommandT<CR>
 
