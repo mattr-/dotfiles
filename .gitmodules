@@ -127,12 +127,6 @@
 [submodule ".vim/bundle/vim-ruby-xmpfilter"]
 	path = .vim/bundle/vim-ruby-xmpfilter
 	url = https://github.com/t9md/vim-ruby-xmpfilter
-[submodule ".vim/bundle/ctrlp"]
-	path = .vim/bundle/ctrlp
-	url = https://github.com/kien/ctrlp.vim
-[submodule ".vim/bundle/ctrlp-py-matcher"]
-	path = .vim/bundle/ctrlp-py-matcher
-	url = https://github.com/FelikZ/ctrlp-py-matcher
 [submodule ".vim/bundle/command-t"]
 	path = .vim/bundle/command-t
 	url = https://github.com/wincent/command-t
