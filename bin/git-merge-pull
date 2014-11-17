@@ -20,7 +20,7 @@ require 'rugged'
 abort "Provide a PR number (no '#' tho)" if ARGV.empty?
 
 pr_num = ARGV.first
-remote = Rugged::Repository.new(Rugged::Repository.discover(Dir.pwd)).remotes.first.url
+remote = Rugged::Repository.new(Dir.pwd).remotes.first.url
 remote.sub!("git@github.com:", "https://github.com/")
 remote.sub!(/\.git$/, "")
 
