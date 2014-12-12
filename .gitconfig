@@ -34,7 +34,7 @@
 
 [alias]
     aa = add --all
-    di = diff 
+    di = diff
     dic = diff --cached
     head = !git l -1
     st = status -sb
@@ -45,7 +45,7 @@
     cp = cherry-pick
     cane = commit --amend --no-edit
     ff = merge --ff-only
-    pff = pull --ff-only 
+    pff = pull --ff-only
     last = !git l -1
     last10 = !git l -10
     l = "!source ~/.githelpers && pretty_git_log"
