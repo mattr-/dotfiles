@@ -31,9 +31,6 @@
 [submodule ".vim/bundle/vim-surround.git"]
 	path = .vim/bundle/vim-surround.git
 	url = https://github.com/tpope/vim-surround.git
-[submodule ".vim/bundle/taglist.vim.git"]
-	path = .vim/bundle/taglist.vim.git
-	url = https://github.com/vim-scripts/taglist.vim.git
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
@@ -76,12 +73,6 @@
 [submodule ".vim/bundle/gist-vim"]
 	path = .vim/bundle/gist-vim
 	url = https://github.com/mattn/gist-vim.git
-[submodule ".vim/bundle/omnicppcomplete"]
-	path = .vim/bundle/omnicppcomplete
-	url = https://github.com/vim-scripts/OmniCppComplete.git
-[submodule ".vim/bundle/javacomplete"]
-	path = .vim/bundle/javacomplete
-	url = https://github.com/vim-scripts/javacomplete.git
 [submodule ".vim/bundle/vim-git"]
 	path = .vim/bundle/vim-git
 	url = https://github.com/tpope/vim-git.git
@@ -91,9 +82,6 @@
 [submodule ".vim/bundle/vim-markmultiple"]
 	path = .vim/bundle/vim-markmultiple
 	url = https://github.com/adinapoli/vim-markmultiple
-[submodule ".vim/bundle/xterm-color-table"]
-	path = .vim/bundle/xterm-color-table
-	url = https://github.com/guns/xterm-color-table.vim
 [submodule ".vim/bundle/vim-abolish"]
 	path = .vim/bundle/vim-abolish
 	url = github:tpope/vim-abolish
@@ -124,9 +112,6 @@
 [submodule ".vim/bundle/vim-liquid"]
 	path = .vim/bundle/vim-liquid
 	url = https://github.com/tpope/vim-liquid.git
-[submodule ".vim/bundle/vim-ruby-xmpfilter"]
-	path = .vim/bundle/vim-ruby-xmpfilter
-	url = https://github.com/t9md/vim-ruby-xmpfilter
 [submodule ".vim/bundle/command-t"]
 	path = .vim/bundle/command-t
 	url = https://github.com/wincent/command-t
