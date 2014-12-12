@@ -34,6 +34,7 @@
 
 [alias]
     aa = add --all
+    aacip = "!git aa && git ci && git push"
     di = diff
     dic = diff --cached
     head = !git l -1
@@ -69,6 +70,8 @@
     sl = stash list
     sa = stash apply
     remove-merged = "!source ~/.githelpers && remove_merged_branches"
+    r = !GIT_NO_PAGER=1 git l -30
+    ra = !git r --all
 
 [core]
     excludesfile = /opt/boxen/config/git/gitignore
