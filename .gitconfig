@@ -71,13 +71,14 @@
     remove-merged = "!source ~/.githelpers && remove_merged_branches"
 
 [core]
-    excludesfile = ~/.cvsignore
+    excludesfile = /opt/boxen/config/git/gitignore
 [hub]
     protocol = https
 [push]
     default = current
 
 [credential]
+helper = /opt/boxen/bin/boxen-git-credential
 
 [github]
 	user = mattr-
