@@ -77,4 +77,5 @@ alias ggpnp='git pull origin $(current_branch) && git push origin $(current_bran
 compdef ggpnp=git
 
 
+alias git=hub
 #  vim: set et sts=2 sw=2 ts=2 ft=zsh : 
