@@ -1,0 +1,9 @@
+#!/bin/sh
+function die {
+ echo "$@"
+ exit 1
+}
+[ $# -ne 1 ] && die "Wrong number of arguments."
+nwo=$1
+
+git clone https://github.com/$nwo $nwo
