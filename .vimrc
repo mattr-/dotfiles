@@ -20,6 +20,8 @@ let g:CommandTMaxHeight=10
 
 let g:airline_powerline_fonts = 0
 
+let g:ctrlp_map = ',f'
+
 " }}}
 
 "Settings {{{
@@ -158,12 +160,6 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " Clear the search buffer when hitting return
 nnoremap <CR> :nohlsearch<CR>
-
-" Comma-f for Command-T in normal mode
-map ,f :CommandT<CR>
-map ,F :CommandTFlush<CR>\|:CommandT<CR>
-" Control-f for Command-T in insert mode
-imap <C-f> <Esc>:CommandTFlush<CR>\|:CommandT<CR>
 
 " Ctrl-Shift-F for Ag
 map <C-F> :Ag<Space>
