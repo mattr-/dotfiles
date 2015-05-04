@@ -112,9 +112,6 @@
 [submodule ".vim/bundle/vim-liquid"]
 	path = .vim/bundle/vim-liquid
 	url = https://github.com/tpope/vim-liquid.git
-[submodule ".vim/bundle/command-t"]
-	path = .vim/bundle/command-t
-	url = https://github.com/wincent/command-t
 [submodule ".vim/bundle/vim-multiple-cursors"]
 	path = .vim/bundle/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors
