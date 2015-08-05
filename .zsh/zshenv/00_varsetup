@@ -17,5 +17,5 @@ do
     [[ -d $dir/bin ]] && path=($dir/bin $path) || path=($dir $path)
 done
 
-path=($HOME/bin /usr/local/share/npm/bin /usr/local/bin $path)
+path=($HOME/bin /usr/local/share/npm/bin /usr/local/sbin /usr/local/bin $path)
 
