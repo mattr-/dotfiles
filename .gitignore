@@ -24,6 +24,7 @@
 /.bash_logout
 /.bash_profile
 /.bashrc
+/.boot2docker/
 /.bundler/
 /.cache/
 /.coffee_history
