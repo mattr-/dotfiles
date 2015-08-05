@@ -28,6 +28,10 @@
     insteadOf = hireology:
     pushInsteadOf = hireology:
 
+[url "git@code.livingsocial.net:"]
+    insteadOf = livingsocial:
+    pushInsteadOf = livingsocial:
+
 [diff]
 [color]
     ui = auto
@@ -78,6 +82,7 @@
     excludesfile = /opt/boxen/config/git/gitignore
 [hub]
     protocol = https
+	host = code.livingsocial.net
 [push]
     default = current
 
