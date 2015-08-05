@@ -34,6 +34,7 @@
 
 [alias]
     aa = add --all
+    aia = add --intent-to-add
     aacip = "!git aa && git ci && git push"
     di = diff
     dic = diff --cached
