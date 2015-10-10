@@ -24,10 +24,6 @@
     insteadOf = dallasrb:
     pushInsteadOf = dallasrb:
 
-[url "git@github.com:Hireology/"]
-    insteadOf = hireology:
-    pushInsteadOf = hireology:
-
 [diff]
 [color]
     ui = auto
