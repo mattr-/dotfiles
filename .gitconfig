@@ -30,7 +30,6 @@
 
 [alias]
     aa = add --all
-    aia = add --intent-to-add
     aacip = "!git aa && git ci && git push"
     aia = add --intent-to-add
     di = diff
