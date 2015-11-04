@@ -1,5 +1,5 @@
 [user]
-    email = codemattr@gmail.com
+    email = matthew.rogers@livingsocial.com
     name = Matt Rogers
 
 [url "git://anongit.kde.org/"]
@@ -79,9 +79,10 @@
     ra = !git r --all
 
 [core]
-    excludesfile = /opt/boxen/config/git/gitignore
+    excludesfile = ~/.cvsignore
 [hub]
-    protocol = https
+	protocol = http
+	host = code.livingsocial.net
 	host = code.livingsocial.net
 [push]
     default = current
