@@ -1,684 +1,180 @@
-[$HOME/Code/github/hubot]
-checkout = git clone https://github.com/github/hubot
+[$HOME/.rbenv]
+checkout = git clone https://github.com/sstephenson/rbenv
 
-[$HOME/Code/github/hubot-scripts]
-checkout = git clone https://github.com/github/hubot-scripts
+[$HOME/.rbenv/plugins/ruby-build]
+checkout = git clone https://github.com/sstephenson/ruby-build
 
-[$HOME/Code/github/janky]
-checkout = git clone https://github.com/github/janky
+[$HOME/Code/livingsocial/accounts]
+checkout = git clone livingsocial:platform/accounts
 
-[$HOME/Code/github/developer.github.com]
-checkout = git clone https://github.com/github/developer.github.com
+[$HOME/Code/livingsocial/browse]
+checkout = git clone livingsocial:unified-experience/browse
 
-[$HOME/Code/github/android]
-checkout = git clone https://github.com/github/android
+[$HOME/Code/livingsocial/card-linking]
+checkout = git clone livingsocial:dev/card-linking
 
-[$HOME/Code/exception_notification]
-checkout = git clone https://github.com/smartinez87/exception_notification
+[$HOME/Code/livingsocial/catalog-service]
+checkout = git clone livingsocial:platform/catalog-service
 
-[$HOME/Code/rack]
-checkout = git clone https://github.com/rack/rack
+[$HOME/Code/livingsocial/checkout]
+checkout = git clone livingsocial:national/checkout
 
-[$HOME/Code/exercism/exercism.io]
-update = git fetch --all
+[$HOME/Code/livingsocial/circular]
+checkout = git clone livingsocial:national/circular
 
-[$HOME/Code/exercism/analysseur]
-checkout = git clone https://github.com/exercism/analysseur
+[$HOME/Code/livingsocial/city-service]
+checkout = git clone livingsocial:useracq/city-service
 
-[$HOME/Code/exercism/arkov]
-checkout = git clone https://github.com/exercism/arkov
+[$HOME/Code/livingsocial/consumer_mobile_service]
+checkout = git clone livingsocial:mobile/consumer_mobile_service
 
-[$HOME/Code/exercism/cli]
-checkout = git clone https://github.com/exercism/cli
+[$HOME/Code/livingsocial/csr_tool]
+checkout = git clone livingsocial:dev/csr_tool
 
-[$HOME/Code/exercism/cli-www]
-checkout = git clone https://github.com/exercism/cli-www
+[$HOME/Code/livingsocial/escapes]
+checkout = git clone livingsocial:escapes/escapes
 
-[$HOME/Code/exercism/configlet]
-checkout = git clone https://github.com/exercism/configlet
+[$HOME/Code/livingsocial/events]
+checkout = git clone livingsocial:national/events
 
-[$HOME/Code/exercism/docs]
-checkout = git clone https://github.com/exercism/docs
+[$HOME/Code/livingsocial/geo]
+checkout = git clone livingsocial:useracq/geo
 
-[$HOME/Code/exercism/exercism.rb]
-checkout = git clone https://github.com/exercism/exercism.rb
+[$HOME/Code/livingsocial/helpsite]
+checkout = git clone livingsocial:dev/helpsite
 
-[$HOME/Code/exercism/go-exercism]
-checkout = git clone https://github.com/exercism/go-exercism
+[$HOME/Code/livingsocial/hungrybot]
+checkout = git clone livingsocial:dev/hungrybot
 
-[$HOME/Code/exercism/rikki]
-checkout = git clone https://github.com/exercism/rikki
+[$HOME/Code/livingsocial/ls-accounts-ios]
+checkout = git clone livingsocial:mobile/ls-accounts-ios
 
-[$HOME/Code/exercism/seeds]
-checkout = git clone https://github.com/exercism/seeds
+[$HOME/Code/livingsocial/ls-accounts]
+checkout = git clone livingsocial:platform/ls-accounts
 
-[$HOME/Code/exercism/streambler]
-checkout = git clone https://github.com/exercism/streambler
+[$HOME/Code/livingsocial/ls-android]
+checkout = git clone livingsocial:mobile/ls-android
 
-[$HOME/Code/exercism/styleguide]
-checkout = git clone https://github.com/exercism/styleguide
+[$HOME/Code/livingsocial/ls-catalog]
+checkout = git clone livingsocial:platform/ls-catalog
 
-[$HOME/Code/exercism/website]
-checkout = git clone https://github.com/exercism/website
+[$HOME/Code/livingsocial/ls-consumer-shared-session]
+checkout = git clone livingsocial:unified-experience/ls-consumer-shared-session
 
-[$HOME/Code/exercism/x-api]
-checkout = git clone https://github.com/exercism/x-api
+[$HOME/Code/livingsocial/ls-dbtools]
+checkout = git clone livingsocial:dev/ls-dbtools
 
-[$HOME/Code/exercism/x-common]
-checkout = git clone https://github.com/exercism/x-common
+[$HOME/Code/livingsocial/ls-deals]
+checkout = git clone livingsocial:platform/ls-deals
 
-[$HOME/Code/exercism/x-metadata]
-checkout = git clone https://github.com/exercism/x-metadata
+[$HOME/Code/livingsocial/ls-dev]
+checkout = git clone livingsocial:dev/ls-dev
 
-[$HOME/Code/exercism/xassembly]
-checkout = git clone https://github.com/exercism/xassembly
+[$HOME/Code/livingsocial/ls-digi_mark]
+checkout = git clone livingsocial:useracq/ls-digi_mark
 
-[$HOME/Code/exercism/xbash]
-checkout = git clone https://github.com/exercism/xbash
+[$HOME/Code/livingsocial/ls-ios]
+checkout = git clone livingsocial:mobile/ls-ios
 
-[$HOME/Code/exercism/xc]
-checkout = git clone https://github.com/exercism/xc
+[$HOME/Code/livingsocial/ls-oauth]
+checkout = git clone livingsocial:platform/ls-oauth
 
-[$HOME/Code/exercism/xclojure]
-checkout = git clone https://github.com/exercism/xclojure
+[$HOME/Code/livingsocial/ls-platform]
+checkout = git clone livingsocial:platform/ls-platform
 
-[$HOME/Code/exercism/xcoffeescript]
-checkout = git clone https://github.com/exercism/xcoffeescript
+[$HOME/Code/livingsocial/ls-visitors]
+checkout = git clone livingsocial:ab-testing/ls-visitors
 
-[$HOME/Code/exercism/xcpp]
-checkout = git clone https://github.com/exercism/xcpp
+[$HOME/Code/livingsocial/mc_chrome]
+checkout = git clone livingsocial:merchant/mc_chrome
 
-[$HOME/Code/exercism/xcsharp]
-checkout = git clone https://github.com/exercism/xcsharp
+[$HOME/Code/livingsocial/merchant_center]
+checkout = git clone livingsocial:merchant/merchant_center
 
-[$HOME/Code/exercism/xdlang]
-checkout = git clone https://github.com/exercism/xdlang
+[$HOME/Code/livingsocial/mobile]
+checkout = git clone livingsocial:mobile/mobile
 
-[$HOME/Code/exercism/xecmascript]
-checkout = git clone https://github.com/exercism/xecmascript
+[$HOME/Code/livingsocial/monocle]
+checkout = git clone livingsocial:useracq/monocle
 
-[$HOME/Code/exercism/xelixir]
-checkout = git clone https://github.com/exercism/xelixir
-
-[$HOME/Code/exercism/xerlang]
-checkout = git clone https://github.com/exercism/xerlang
-
-[$HOME/Code/exercism/xfsharp]
-checkout = git clone https://github.com/exercism/xfsharp
-
-[$HOME/Code/exercism/xgo]
-checkout = git clone https://github.com/exercism/xgo
-
-[$HOME/Code/exercism/xgroovy]
-checkout = git clone https://github.com/exercism/xgroovy
-
-[$HOME/Code/exercism/xhaskell]
-checkout = git clone https://github.com/exercism/xhaskell
-
-[$HOME/Code/exercism/xjava]
-checkout = git clone https://github.com/exercism/xjava
-
-[$HOME/Code/exercism/xjavascript]
-checkout = git clone https://github.com/exercism/xjavascript
-
-[$HOME/Code/exercism/xlisp]
-checkout = git clone https://github.com/exercism/xlisp
-
-[$HOME/Code/exercism/xlua]
-checkout = git clone https://github.com/exercism/xlua
-
-[$HOME/Code/exercism/xnimrod]
-checkout = git clone https://github.com/exercism/xnimrod
-
-[$HOME/Code/exercism/xobjective-c]
-checkout = git clone https://github.com/exercism/xobjective-c
-
-[$HOME/Code/exercism/xocaml]
-checkout = git clone https://github.com/exercism/xocaml
-
-[$HOME/Code/exercism/xperl5]
-checkout = git clone https://github.com/exercism/xperl5
-
-[$HOME/Code/exercism/xperl6]
-checkout = git clone https://github.com/exercism/xperl6
-
-[$HOME/Code/exercism/xphp]
-checkout = git clone https://github.com/exercism/xphp
-
-[$HOME/Code/exercism/xpowershell]
-checkout = git clone https://github.com/exercism/xpowershell
-
-[$HOME/Code/exercism/xproofs]
-checkout = git clone https://github.com/exercism/xproofs
-
-[$HOME/Code/exercism/xpython]
-checkout = git clone https://github.com/exercism/xpython
-
-[$HOME/Code/exercism/xr]
-checkout = git clone https://github.com/exercism/xr
-
-[$HOME/Code/exercism/xruby]
-checkout = git clone https://github.com/exercism/xruby
-
-[$HOME/Code/exercism/xrust]
-checkout = git clone https://github.com/exercism/xrust
-
-[$HOME/Code/exercism/xscala]
-checkout = git clone https://github.com/exercism/xscala
-
-[$HOME/Code/exercism/xsml]
-checkout = git clone https://github.com/exercism/xsml
-
-[$HOME/Code/exercism/xswift]
-checkout = git clone https://github.com/exercism/xswift
-
-[$HOME/Code/exercism/xvbnet]
-checkout = git clone https://github.com/exercism/xvbnet
-
-[$HOME/Code/atom/api]
-checkout = git clone https://github.com/atom/api.git
-
-[$HOME/Code/atom/apm]
-checkout = git clone https://github.com/atom/apm.git
-
-[$HOME/Code/atom/archive-view]
-checkout = git clone https://github.com/atom/archive-view.git
-
-[$HOME/Code/atom/asar]
-checkout = git clone https://github.com/atom/asar.git
-
-[$HOME/Code/atom/ascii-art]
-checkout = git clone https://github.com/atom/ascii-art.git
-
-[$HOME/Code/atom/atom]
-checkout = git clone https://github.com/atom/atom.git
-
-[$HOME/Code/atom/atom-dark-syntax]
-checkout = git clone https://github.com/atom/atom-dark-syntax.git
-
-[$HOME/Code/atom/atom-dark-ui]
-checkout = git clone https://github.com/atom/atom-dark-ui.git
-
-[$HOME/Code/atom/atom-keymap]
-checkout = git clone https://github.com/atom/atom-keymap.git
-
-[$HOME/Code/atom/atom-light-syntax]
-checkout = git clone https://github.com/atom/atom-light-syntax.git
-
-[$HOME/Code/atom/atom-light-ui]
-checkout = git clone https://github.com/atom/atom-light-ui.git
-
-[$HOME/Code/atom/atom-shell]
-checkout = git clone https://github.com/atom/atom-shell.git
-
-[$HOME/Code/atom/atom-shell-frameworks]
-checkout = git clone https://github.com/atom/atom-shell-frameworks.git
-
-[$HOME/Code/atom/atomdoc]
-checkout = git clone https://github.com/atom/atomdoc.git
-
-[$HOME/Code/atom/autocomplete]
-checkout = git clone https://github.com/atom/autocomplete.git
-
-[$HOME/Code/atom/autoflow]
-checkout = git clone https://github.com/atom/autoflow.git
-
-[$HOME/Code/atom/autosave]
-checkout = git clone https://github.com/atom/autosave.git
-
-[$HOME/Code/atom/background-tips]
-checkout = git clone https://github.com/atom/background-tips.git
-
-[$HOME/Code/atom/base16-tomorrow-dark-theme]
-checkout = git clone https://github.com/atom/base16-tomorrow-dark-theme.git
-
-[$HOME/Code/atom/base16-tomorrow-light-theme]
-checkout = git clone https://github.com/atom/base16-tomorrow-light-theme.git
-
-[$HOME/Code/atom/bookmarks]
-checkout = git clone https://github.com/atom/bookmarks.git
-
-[$HOME/Code/atom/bootstrap]
-checkout = git clone https://github.com/atom/bootstrap.git
-
-[$HOME/Code/atom/bracket-matcher]
-checkout = git clone https://github.com/atom/bracket-matcher.git
-
-[$HOME/Code/atom/chocolatey]
-checkout = git clone https://github.com/atom/chocolatey.git
-
-[$HOME/Code/atom/chromium-breakpad]
-checkout = git clone https://github.com/atom/chromium-breakpad.git
-
-[$HOME/Code/atom/ci]
-checkout = git clone https://github.com/atom/ci.git
-
-[$HOME/Code/atom/clear-cut]
-checkout = git clone https://github.com/atom/clear-cut.git
-
-[$HOME/Code/atom/command-palette]
-checkout = git clone https://github.com/atom/command-palette.git
-
-[$HOME/Code/atom/custom-object]
-checkout = git clone https://github.com/atom/custom-object.git
-
-[$HOME/Code/atom/decoration-example]
-checkout = git clone https://github.com/atom/decoration-example.git
-
-[$HOME/Code/atom/deferred-require]
-checkout = git clone https://github.com/atom/deferred-require.git
-
-[$HOME/Code/atom/delegato]
-checkout = git clone https://github.com/atom/delegato.git
-
-[$HOME/Code/atom/deprecation-cop]
-checkout = git clone https://github.com/atom/deprecation-cop.git
-
-[$HOME/Code/atom/dev-live-reload]
-checkout = git clone https://github.com/atom/dev-live-reload.git
-
-[$HOME/Code/atom/donna]
-checkout = git clone https://github.com/atom/donna.git
-
-[$HOME/Code/atom/editor-stats]
-checkout = git clone https://github.com/atom/editor-stats.git
-
-[$HOME/Code/atom/emissary]
-checkout = git clone https://github.com/atom/emissary.git
-
-[$HOME/Code/atom/event-kit]
-checkout = git clone https://github.com/atom/event-kit.git
-
-[$HOME/Code/atom/exception-reporting]
-checkout = git clone https://github.com/atom/exception-reporting.git
-
-[$HOME/Code/atom/feedback]
-checkout = git clone https://github.com/atom/feedback.git
-
-[$HOME/Code/atom/find-and-replace]
-checkout = git clone https://github.com/atom/find-and-replace.git
-
-[$HOME/Code/atom/first-mate]
-checkout = git clone https://github.com/atom/first-mate.git
-
-[$HOME/Code/atom/fs-plus]
-checkout = git clone https://github.com/atom/fs-plus.git
-
-[$HOME/Code/atom/fuzzaldrin]
-checkout = git clone https://github.com/atom/fuzzaldrin.git
-
-[$HOME/Code/atom/fuzzy-finder]
-checkout = git clone https://github.com/atom/fuzzy-finder.git
-
-[$HOME/Code/atom/generator-atom-npm]
-checkout = git clone https://github.com/atom/generator-atom-npm.git
-
-[$HOME/Code/atom/git-diff]
-checkout = git clone https://github.com/atom/git-diff.git
-
-[$HOME/Code/atom/git-utils]
-checkout = git clone https://github.com/atom/git-utils.git
-
-[$HOME/Code/atom/go-to-line]
-checkout = git clone https://github.com/atom/go-to-line.git
-
-[$HOME/Code/atom/grammar-selector]
-checkout = git clone https://github.com/atom/grammar-selector.git
-
-[$HOME/Code/atom/grim]
-checkout = git clone https://github.com/atom/grim.git
-
-[$HOME/Code/atom/grunt-atomdoc]
-checkout = git clone https://github.com/atom/grunt-atomdoc.git
-
-[$HOME/Code/atom/grunt-coffeelint]
-checkout = git clone https://github.com/atom/grunt-coffeelint.git
-
-[$HOME/Code/atom/grunt-download-atom-shell]
-checkout = git clone https://github.com/atom/grunt-download-atom-shell.git
-
-[$HOME/Code/atom/highlights]
-checkout = git clone https://github.com/atom/highlights.git
-
-[$HOME/Code/atom/image-view]
-checkout = git clone https://github.com/atom/image-view.git
-
-[$HOME/Code/atom/incompatible-packages]
-checkout = git clone https://github.com/atom/incompatible-packages.git
-
-[$HOME/Code/atom/interval-skip-list]
-checkout = git clone https://github.com/atom/interval-skip-list.git
-
-[$HOME/Code/atom/jasmine-focused]
-checkout = git clone https://github.com/atom/jasmine-focused.git
-
-[$HOME/Code/atom/jasmine-json]
-checkout = git clone https://github.com/atom/jasmine-json.git
-
-[$HOME/Code/atom/jasmine-tagged]
-checkout = git clone https://github.com/atom/jasmine-tagged.git
-
-[$HOME/Code/atom/jasmine-waits-for-callback]
-checkout = git clone https://github.com/atom/jasmine-waits-for-callback.git
-
-[$HOME/Code/atom/jsdiff]
-checkout = git clone https://github.com/atom/jsdiff.git
-
-[$HOME/Code/atom/keybinding-resolver]
-checkout = git clone https://github.com/atom/keybinding-resolver.git
-
-[$HOME/Code/atom/keyboard-layout]
-checkout = git clone https://github.com/atom/keyboard-layout.git
-
-[$HOME/Code/atom/language-c]
-checkout = git clone https://github.com/atom/language-c.git
-
-[$HOME/Code/atom/language-clojure]
-checkout = git clone https://github.com/atom/language-clojure.git
-
-[$HOME/Code/atom/language-coffee-script]
-checkout = git clone https://github.com/atom/language-coffee-script.git
-
-[$HOME/Code/atom/language-csharp]
-checkout = git clone https://github.com/atom/language-csharp.git
-
-[$HOME/Code/atom/language-css]
-checkout = git clone https://github.com/atom/language-css.git
-
-[$HOME/Code/atom/language-gfm]
-checkout = git clone https://github.com/atom/language-gfm.git
-
-[$HOME/Code/atom/language-git]
-checkout = git clone https://github.com/atom/language-git.git
-
-[$HOME/Code/atom/language-go]
-checkout = git clone https://github.com/atom/language-go.git
-
-[$HOME/Code/atom/language-html]
-checkout = git clone https://github.com/atom/language-html.git
-
-[$HOME/Code/atom/language-hyperlink]
-checkout = git clone https://github.com/atom/language-hyperlink.git
-
-[$HOME/Code/atom/language-java]
-checkout = git clone https://github.com/atom/language-java.git
-
-[$HOME/Code/atom/language-javascript]
-checkout = git clone https://github.com/atom/language-javascript.git
-
-[$HOME/Code/atom/language-json]
-checkout = git clone https://github.com/atom/language-json.git
-
-[$HOME/Code/atom/language-less]
-checkout = git clone https://github.com/atom/language-less.git
-
-[$HOME/Code/atom/language-make]
-checkout = git clone https://github.com/atom/language-make.git
-
-[$HOME/Code/atom/language-mustache]
-checkout = git clone https://github.com/atom/language-mustache.git
-
-[$HOME/Code/atom/language-objective-c]
-checkout = git clone https://github.com/atom/language-objective-c.git
-
-[$HOME/Code/atom/language-pegjs]
-checkout = git clone https://github.com/atom/language-pegjs.git
-
-[$HOME/Code/atom/language-perl]
-checkout = git clone https://github.com/atom/language-perl.git
-
-[$HOME/Code/atom/language-php]
-checkout = git clone https://github.com/atom/language-php.git
-
-[$HOME/Code/atom/language-property-list]
-checkout = git clone https://github.com/atom/language-property-list.git
-
-[$HOME/Code/atom/language-puppet]
-checkout = git clone https://github.com/atom/language-puppet.git
-
-[$HOME/Code/atom/language-python]
-checkout = git clone https://github.com/atom/language-python.git
-
-[$HOME/Code/atom/language-ruby]
-checkout = git clone https://github.com/atom/language-ruby.git
-
-[$HOME/Code/atom/language-ruby-on-rails]
-checkout = git clone https://github.com/atom/language-ruby-on-rails.git
-
-[$HOME/Code/atom/language-sass]
-checkout = git clone https://github.com/atom/language-sass.git
-
-[$HOME/Code/atom/language-shellscript]
-checkout = git clone https://github.com/atom/language-shellscript.git
-
-[$HOME/Code/atom/language-source]
-checkout = git clone https://github.com/atom/language-source.git
-
-[$HOME/Code/atom/language-sql]
-checkout = git clone https://github.com/atom/language-sql.git
-
-[$HOME/Code/atom/language-text]
-checkout = git clone https://github.com/atom/language-text.git
-
-[$HOME/Code/atom/language-todo]
-checkout = git clone https://github.com/atom/language-todo.git
-
-[$HOME/Code/atom/language-toml]
-checkout = git clone https://github.com/atom/language-toml.git
-
-[$HOME/Code/atom/language-xml]
-checkout = git clone https://github.com/atom/language-xml.git
-
-[$HOME/Code/atom/language-yaml]
-checkout = git clone https://github.com/atom/language-yaml.git
-
-[$HOME/Code/atom/legal-eagle]
-checkout = git clone https://github.com/atom/legal-eagle.git
-
-[$HOME/Code/atom/less-cache]
-checkout = git clone https://github.com/atom/less-cache.git
-
-[$HOME/Code/atom/link]
-checkout = git clone https://github.com/atom/link.git
-
-[$HOME/Code/atom/loophole]
-checkout = git clone https://github.com/atom/loophole.git
-
-[$HOME/Code/atom/markdown-preview]
-checkout = git clone https://github.com/atom/markdown-preview.git
-
-[$HOME/Code/atom/metrics]
-checkout = git clone https://github.com/atom/metrics.git
-
-[$HOME/Code/atom/mini-breakpad-server]
-checkout = git clone https://github.com/atom/mini-breakpad-server.git
-
-[$HOME/Code/atom/mixto]
-checkout = git clone https://github.com/atom/mixto.git
-
-[$HOME/Code/atom/Mustache.tmbundle]
-checkout = git clone https://github.com/atom/Mustache.tmbundle.git
-
-[$HOME/Code/atom/node]
-checkout = git clone https://github.com/atom/node.git
-
-[$HOME/Code/atom/node-chromium-pickle]
-checkout = git clone https://github.com/atom/node-chromium-pickle.git
-
-[$HOME/Code/atom/node-ctags]
-checkout = git clone https://github.com/atom/node-ctags.git
-
-[$HOME/Code/atom/node-github-releases]
-checkout = git clone https://github.com/atom/node-github-releases.git
-
-[$HOME/Code/atom/node-keytar]
-checkout = git clone https://github.com/atom/node-keytar.git
-
-[$HOME/Code/atom/node-ls-archive]
-checkout = git clone https://github.com/atom/node-ls-archive.git
-
-[$HOME/Code/atom/node-minidump]
-checkout = git clone https://github.com/atom/node-minidump.git
-
-[$HOME/Code/atom/node-nslog]
-checkout = git clone https://github.com/atom/node-nslog.git
-
-[$HOME/Code/atom/node-oniguruma]
-checkout = git clone https://github.com/atom/node-oniguruma.git
-
-[$HOME/Code/atom/node-pathwatcher]
-checkout = git clone https://github.com/atom/node-pathwatcher.git
-
-[$HOME/Code/atom/node-rcedit]
-checkout = git clone https://github.com/atom/node-rcedit.git
-
-[$HOME/Code/atom/node-runas]
-checkout = git clone https://github.com/atom/node-runas.git
-
-[$HOME/Code/atom/node-spellchecker]
-checkout = git clone https://github.com/atom/node-spellchecker.git
-
-[$HOME/Code/atom/node-vm-compatibility-layer]
-checkout = git clone https://github.com/atom/node-vm-compatibility-layer.git
-
-[$HOME/Code/atom/open-on-github]
-checkout = git clone https://github.com/atom/open-on-github.git
-
-[$HOME/Code/atom/package-generator]
-checkout = git clone https://github.com/atom/package-generator.git
-
-[$HOME/Code/atom/patrick]
-checkout = git clone https://github.com/atom/patrick.git
-
-[$HOME/Code/atom/property-accessors]
-checkout = git clone https://github.com/atom/property-accessors.git
-
-[$HOME/Code/atom/rcedit]
-checkout = git clone https://github.com/atom/rcedit.git
-
-[$HOME/Code/atom/react]
-checkout = git clone https://github.com/atom/react.git
-
-[$HOME/Code/atom/reactionary]
-checkout = git clone https://github.com/atom/reactionary.git
-
-[$HOME/Code/atom/release-notes]
-checkout = git clone https://github.com/atom/release-notes.git
-
-[$HOME/Code/atom/require-snapshot]
-checkout = git clone https://github.com/atom/require-snapshot.git
-
-[$HOME/Code/atom/revert-buffer]
-checkout = git clone https://github.com/atom/revert-buffer.git
-
-[$HOME/Code/atom/roaster]
-checkout = git clone https://github.com/atom/roaster.git
-
-[$HOME/Code/atom/scandal]
-checkout = git clone https://github.com/atom/scandal.git
-
-[$HOME/Code/atom/scoped-property-store]
-checkout = git clone https://github.com/atom/scoped-property-store.git
-
-[$HOME/Code/atom/scrollbar-style]
-checkout = git clone https://github.com/atom/scrollbar-style.git
-
-[$HOME/Code/atom/season]
-checkout = git clone https://github.com/atom/season.git
-
-[$HOME/Code/atom/serializable]
-checkout = git clone https://github.com/atom/serializable.git
-
-[$HOME/Code/atom/settings-view]
-checkout = git clone https://github.com/atom/settings-view.git
-
-[$HOME/Code/atom/slick]
-checkout = git clone https://github.com/atom/slick.git
-
-[$HOME/Code/atom/snippets]
-checkout = git clone https://github.com/atom/snippets.git
-
-[$HOME/Code/atom/solarized-dark-syntax]
-checkout = git clone https://github.com/atom/solarized-dark-syntax.git
-
-[$HOME/Code/atom/solarized-light-syntax]
-checkout = git clone https://github.com/atom/solarized-light-syntax.git
-
-[$HOME/Code/atom/sort-lines]
-checkout = git clone https://github.com/atom/sort-lines.git
-
-[$HOME/Code/atom/space-pen]
-checkout = git clone https://github.com/atom/space-pen.git
-
-[$HOME/Code/atom/space-pencil]
-checkout = git clone https://github.com/atom/space-pencil.git
-
-[$HOME/Code/atom/span-skip-list]
-checkout = git clone https://github.com/atom/span-skip-list.git
-
-[$HOME/Code/atom/spell-check]
-checkout = git clone https://github.com/atom/spell-check.git
-
-[$HOME/Code/atom/status-bar]
-checkout = git clone https://github.com/atom/status-bar.git
-
-[$HOME/Code/atom/styleguide]
-checkout = git clone https://github.com/atom/styleguide.git
-
-[$HOME/Code/atom/symbols-view]
-checkout = git clone https://github.com/atom/symbols-view.git
-
-[$HOME/Code/atom/tabs]
-checkout = git clone https://github.com/atom/tabs.git
-
-[$HOME/Code/atom/task-lists-js]
-checkout = git clone https://github.com/atom/task-lists-js.git
-
-[$HOME/Code/atom/tello]
-checkout = git clone https://github.com/atom/tello.git
-
-[$HOME/Code/atom/template-syntax]
-checkout = git clone https://github.com/atom/template-syntax.git
-
-[$HOME/Code/atom/terminal]
-checkout = git clone https://github.com/atom/terminal.git
-
-[$HOME/Code/atom/text-buffer]
-checkout = git clone https://github.com/atom/text-buffer.git
-
-[$HOME/Code/atom/theorist]
-checkout = git clone https://github.com/atom/theorist.git
-
-[$HOME/Code/atom/timecop]
-checkout = git clone https://github.com/atom/timecop.git
-
-[$HOME/Code/atom/toggle-quotes]
-checkout = git clone https://github.com/atom/toggle-quotes.git
-
-[$HOME/Code/atom/tomdoc]
-checkout = git clone https://github.com/atom/tomdoc.git
-
-[$HOME/Code/atom/tree-view]
-checkout = git clone https://github.com/atom/tree-view.git
-
-[$HOME/Code/atom/underscore-plus]
-checkout = git clone https://github.com/atom/underscore-plus.git
-
-[$HOME/Code/atom/update-package-dependencies]
-checkout = git clone https://github.com/atom/update-package-dependencies.git
-
-[$HOME/Code/atom/vim-mode]
-checkout = git clone https://github.com/atom/vim-mode.git
-
-[$HOME/Code/atom/walken]
-checkout = git clone https://github.com/atom/walken.git
-
-[$HOME/Code/atom/welcome]
-checkout = git clone https://github.com/atom/welcome.git
-
-[$HOME/Code/atom/whitespace]
-checkout = git clone https://github.com/atom/whitespace.git
-
-[$HOME/Code/atom/wrap-guide]
-checkout = git clone https://github.com/atom/wrap-guide.git
-
+[$HOME/Code/livingsocial/payments]
+checkout = git clone livingsocial:payments/payments
+
+[$HOME/Code/livingsocial/pipeline]
+checkout = git clone livingsocial:ia/pipeline
+
+[$HOME/Code/livingsocial/preferences]
+checkout = git clone livingsocial:unified-experience/preferences
+
+[$HOME/Code/livingsocial/products]
+checkout = git clone livingsocial:national/products
+
+[$HOME/Code/livingsocial/railsgoat]
+checkout = git clone livingsocial:security/railsgoat
+
+[$HOME/Code/livingsocial/refcode]
+checkout = git clone livingsocial:useracq/refcode
+
+[$HOME/Code/livingsocial/shopmobile]
+checkout = git clone livingsocial:national/shopmobile
+
+[$HOME/Code/livingsocial/sponsors]
+checkout = git clone livingsocial:national/sponsors
+
+[$HOME/Code/livingsocial/sso-frontend]
+checkout = git clone livingsocial:platform/sso-frontend
+
+[$HOME/Code/livingsocial/stepford]
+checkout = git clone livingsocial:dev/stepford
+
+[$HOME/Code/livingsocial/sudo-make-me-a-laptop]
+checkout = git clone livingsocial:dev/sudo-make-me-a-laptop
+
+[$HOME/Code/livingsocial/visitor-service]
+checkout = git clone livingsocial:ab-testing/visitor-service
+
+[$HOME/Code/livingsocial/TIL]
+checkout = git clone livingsocial:culture/TIL
+
+[$HOME/Code/livingsocial/ls-settings]
+checkout = git clone livingsocial:platform/ls-settings
+
+[$HOME/Code/livingsocial/settings-service]
+checkout = git clone livingsocial:ab-testing/settings-service
+
+[$HOME/Code/livingsocial/ls-dashing]
+checkout = git clone livingsocial:ops/ls-dashing
+
+[$HOME/Code/livingsocial/deployer]
+checkout = git clone livingsocial:ops/deployer
+
+[$HOME/Code/livingsocial/ls-capistrano]
+checkout = git clone livingsocial:ops/ls-capistrano
+[$HOME/Code/livingsocial/ls-errors]
+checkout = git clone livingsocial:platform/ls-errors
+[$HOME/Code/livingsocial/action_event]
+checkout = git clone livingsocial:platform/action_event
+[$HOME/Code/livingsocial/ls-gem_tasks]
+checkout = git clone livingsocial:platform/ls-gem_tasks
+[$HOME/Code/livingsocial/ls-rack_attack]
+checkout = git clone livingsocial:platform/ls-rack_attack
+[$HOME/Code/livingsocial/fatsd]
+checkout = git clone livingsocial:platform/fatsd
+[$HOME/Code/livingsocial/classification-service]
+checkout = git clone livingsocial:platform/classification-service
+[$HOME/Code/livingsocial/ls-employees]
+checkout = git clone livingsocial:platform/ls-employees
+[$HOME/Code/livingsocial/imaging]
+checkout = git clone livingsocial:ops/imaging
+[$HOME/Code/livingsocial/bohemia]
+checkout = git clone livingsocial:escapes/bohemia
+[$HOME/Code/livingsocial/travel-service]
+checkout = git clone livingsocial:escapes/travel-service
+[$HOME/Code/livingsocial/api_keys]
+checkout = git clone livingsocial:useracq/api_keys
+[$HOME/Code/livingsocial/admin]
+checkout = git clone livingsocial:dev/admin
+[$HOME/Code/livingsocial/ls-ab-settings]
+checkout = git clone livingsocial:ab-testing/ls-ab-settings
+[$HOME/Code/livingsocial/card-linking-service]
+checkout = git clone livingsocial:platform/card-linking-service
