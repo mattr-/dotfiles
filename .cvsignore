@@ -11,5 +11,5 @@ ehthumbs.db
 *.orig
 *~
 \#*\#
-/tags
+tags
 /.bundle/
