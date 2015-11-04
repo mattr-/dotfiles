@@ -21,6 +21,9 @@ let g:CommandTMaxHeight=10
 let g:airline_powerline_fonts = 0
 
 let g:ctrlp_map = ',f'
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_use_caching = 0
+let g:ctrlp_working_path_mode = ''
 
 " }}}
 
@@ -124,6 +127,8 @@ set guifont=Monospace\ 9
 
 set cursorline
 
+set tags=.bundle/tags,tags,./tags
+
 " }}}
 
 "Mappings {{{
@@ -217,6 +222,9 @@ map ,br :execute 'silent !tmux send-keys -t server C-c rs C-m'<Bar>redraw!<CR>
 
 " Switch hash keys with values
 map ,ks :s/\([:_a-zA-z]\+\) => \([a-zA-Z:_]\+\)/\2 => \1/g<CR>
+
+" Switch from rspec should to expect syntax
+map ,rse :s/\(\s\+.*\)\.should_\|\s?/\1expect(\2).to /<CR>
 
 " Migrate and rollback
 map ,dbm :!bin/rake db:migrate<CR>
@@ -417,8 +425,15 @@ function! RunTests(filename)
     :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
     :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
     if match(a:filename, '\.feature$') != -1
-        exec ":!script/features " . a:filename
-    elseif match(a:filename, '_test\.rb$') != -1
+        if filereadable("script/features")
+            exec ":!bundle exec script/features " . a:filename
+            return
+        else
+            exec ":!bundle exec script/cucumber ". a:filename
+            return
+        end
+    end
+    if match(a:filename, '_test\.rb$') != -1
         if filereadable("Gemfile")
             exec ":!bundle exec rake test TEST=" . a:filename
         else
