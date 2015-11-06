@@ -38,11 +38,15 @@
 /.dropbox/
 /.env/
 /.exercism
+/.exercism.go
+/.exercism.json
 /.fontconfig/
 /.gem/
 /.gitk
+/.gradle
 /.guard_history
 /.heroku/
+/.hk
 /.install4j
 /.irb-history
 /.irb_history
