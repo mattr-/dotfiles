@@ -4,18 +4,5 @@ typeset -gU path cdpath fpath manpath fignore
 # link ld library path variables
 typeset -TU LD_LIBRARY_PATH ld_library_path
 
-#setup custom path
-local app_path=$HOME/Applications
-for dir in `find $app_path -mindepth 1 -maxdepth 1`
-do
-    #Special case the android sdk because they don't follow the rules
-    if [ "${dir:t}" = "ADT" ] ; then
-        path=($dir/sdk/platform-tools $dir/sdk/tools $dir/eclipse $path)
-        continue
-    fi
-
-    [[ -d $dir/bin ]] && path=($dir/bin $path) || path=($dir $path)
-done
-
 path=($HOME/bin /usr/local/share/npm/bin /usr/local/sbin /usr/local/bin $path)
 
