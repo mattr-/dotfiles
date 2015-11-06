@@ -21,7 +21,12 @@ let g:CommandTMaxHeight=10
 let g:airline_powerline_fonts = 0
 
 let g:ctrlp_map = ',f'
-
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .DS_Store
+      \ --ignore .bundle
+      \ -g ""'
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 " }}}
 
 "Settings {{{
