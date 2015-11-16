@@ -1,0 +1,3 @@
+cf() {
+  cd `find ~/Code -maxdepth 2 -type d -name $1`
+}
