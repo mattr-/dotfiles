@@ -124,3 +124,15 @@
 [submodule ".vim/bundle/rainbow_parentheses"]
 	path = .vim/bundle/rainbow_parentheses
 	url = https://github.com/kien/rainbow_parentheses.vim
+[submodule ".vim/bundle/vim-fireplace"]
+	path = .vim/bundle/vim-fireplace
+	url = https://github.com/tpope/vim-fireplace
+[submodule ".vim/bundle/paredit.vim"]
+	path = .vim/bundle/paredit.vim
+	url = https://github.com/vim-scripts/paredit.vim
+[submodule ".vim/bundle/vim-json"]
+	path = .vim/bundle/vim-json
+	url = https://github.com/elzr/vim-json
+[submodule ".vim/bundle/vim-argumentative"]
+	path = .vim/bundle/vim-argumentative
+	url = https://github.com/PeterRincker/vim-argumentative

@@ -49,6 +49,7 @@
     cob = checkout -b
     ci = commit
     cp = cherry-pick
+    cps = cherry-pick -s
     cane = commit --amend --no-edit
     ff = merge --ff-only
     pff = pull --ff-only
