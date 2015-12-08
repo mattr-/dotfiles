@@ -108,7 +108,7 @@ prompt_mattr_setup() {
     pc[path]='Cyan'
     pc[shortpath]='White'
     pc[rc]='red'
-    pc[scm_branch]='green'
+    pc[scm_branch]='Yellow'
     pc[scm_commitid]='Yellow'
     pc[scm_status_dirty]='Red'
     pc[scm_status_staged]='Green'
