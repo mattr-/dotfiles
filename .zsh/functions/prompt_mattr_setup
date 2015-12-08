@@ -152,10 +152,10 @@ prompt_mattr_setup() {
     #RPROMPT="$pc[rc]total%7v$pc[reset]  $pc[rc]%6v$pc[reset]  $pc[rc]%2v$pc[reset]"    
 
     export PROMPT RPROMPT
-    precmd_functions+='prompt_wunjo_precmd'
+    precmd_functions+='prompt_mattr_precmd'
 }
 
-prompt_wunjo_precmd() {
+prompt_mattr_precmd() {
     local ex=$?
     psvar=()
 
