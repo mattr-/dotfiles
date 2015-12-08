@@ -174,9 +174,7 @@ zgit_isworktreeclean() {
 
 zgit_hasuntracked() {
     zgit_isgit || return 1
-    local -a flist
-    flist=($(git ls-files --others --exclude-standard))
-    if [ $#flist -gt 0 ]; then
+    if LC_ALL=C \git status --porcelain 2>/dev/null | grep -Eq '^\?\?' ; then
         return 0
     else
         return 1
