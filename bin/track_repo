@@ -1,0 +1,32 @@
+#!/bin/sh
+function check_repo {
+    local repo=$1
+    [[ -z "$repo" ]] && die "repo not specified"
+    [[ "$repo" =~ / ]] || die "\"$repo\" not in the proper nwo format"
+}
+
+function add_to_mr {
+  local repo=$1
+  name=`echo "$repo" | cut -d'/' -f2`
+  echo "Adding \"$name\" to mr"
+  echo "[\$HOME/Code/livingsocial/$name]" >> ~/.mrconfig
+  echo "checkout = git clone livingsocial:$repo" >> ~/.mrconfig
+}
+
+function die {
+    echo $@
+    exit 1
+}
+
+REPO=$1
+TMUX_SWITCH=$2
+check_repo "$REPO"
+add_to_mr "$REPO"
+repo_name=`echo "$REPO" | cut -d'/' -f2`
+
+pushd ~/Code/livingsocial
+mr checkout
+popd
+
+[[ -n $TMUX_SWITCH ]] && cp -v ~/Code/livingsocial/ls-tmux.conf ~/Code/livingsocial/$repo_name/.tmux
+
