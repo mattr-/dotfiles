@@ -1,0 +1,11 @@
+#!/bin/sh
+bundle_path=`bundle config path | grep ':' | cut -d':' -f2 | tr -d \" | tr -d ' '`
+pushd $bundle_path 2>/dev/null
+for dir in gems/*
+do
+    echo "Indexing $dir"
+    ctags -a -o ./tags --fields=+iaS --extra=+f+q --languages=-javascript,-sql -R $dir/*
+done
+popd 2>/dev/null
+echo "Wrote $bundle_path/tags"
+
