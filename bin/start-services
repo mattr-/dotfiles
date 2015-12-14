@@ -1,0 +1,17 @@
+#!/bin/sh
+set -e
+for dir in `find . -mindepth 1 -maxdepth 1 -type d | xargs basename`
+do
+  SESSION=$dir
+  if ! (tmux has-session -t $SESSION >/dev/null 2>&1); then
+    if [ -x "$SESSION"/.tmux ]; then
+      echo "Starting session for $SESSION"
+      pushd $SESSION &>/dev/null
+      ./.tmux "$SESSION"
+      popd &>/dev/null
+      sleep 1
+    fi
+  else
+    echo "Session already exists for $SESSION"
+  fi
+done
