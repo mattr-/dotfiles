@@ -1,0 +1,28 @@
+#!/bin/sh
+
+function die() {
+  echo "$@"
+  exit 1
+}
+
+[[ "$#" -ne 2 ]] && die "Need a gem and a version to upgrade to"
+
+GEM_TO_UPGRADE=$1
+NEW_GEM_VERSION=$2
+
+[[ ! -f Gemfile && ! -r Gemfile ]] && die "Cannot read Gemfile"
+[[ ! -f Gemfile.lock && ! -r Gemfile.lock ]] && die "Cannot read Gemfile.lock"
+
+if `grep "'${GEM_TO_UPGRADE}'" Gemfile | grep -q -E "[0-9].[0-9]+.[0-9]+"` ; then
+  echo "Found $GEM_TO_UPGRADE with version specified in Gemfile"
+  echo "Updating $GEM_TO_UPGRADE to version $2"
+  sed -i~ -E -e "s/(${GEM_TO_UPGRADE}.*)[0-9]+\.[0-9]+\.[0-9]+/\1${NEW_GEM_VERSION}/" Gemfile
+  bundle update $GEM_TO_UPGRADE
+elif `grep -q "${GEM_TO_UPGRADE}" Gemfile.lock` ; then
+  echo "Found ${GEM_TO_UPGRADE} in Gemfile.lock"
+  echo "Updating $GEM_TO_UPGRADE without version specification"
+  bundle update $GEM_TO_UPGRADE
+fi
+
+
+
