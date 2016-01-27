@@ -1,6 +1,0 @@
-#eval "$(boot2docker shellinit)"
-#Don't run boot2docker because it'll slow down shell initialization. The ENV
-#variables don't change, so just use them directly
-export DOCKER_CERT_PATH=/Users/matthewrogers/.boot2docker/certs/boot2docker-vm
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_TLS_VERIFY=1
