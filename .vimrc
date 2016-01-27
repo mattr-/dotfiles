@@ -229,6 +229,7 @@ map ,rse :s/\(\s\+.*\)\.should_\|\s?/\1expect(\2).to /<CR>
 " Migrate and rollback
 map ,dbm :!bin/rake db:migrate<CR>
 map ,dbr :!bin/rake db:rollback<CR>
+
 "}}}
 
 " File type setup for files unknown to Vim {{{
@@ -463,6 +464,14 @@ augroup vimrcEx
     \   exe "normal g`\"" |
     \ endif
   autocmd VimResized * exe "normal! \<C-w>="
+augroup END
+
+augroup RainbowParentheses
+    au VimEnter * RainbowParenthesesToggle
+    au Syntax * RainbowParenthesesLoadRound
+    au Syntax * RainbowParenthesesLoadSquare
+    au Syntax * RainbowParenthesesLoadBraces
+augroup END
 " }}}
 
 
