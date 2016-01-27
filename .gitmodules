@@ -130,9 +130,19 @@
 [submodule ".vim/bundle/paredit.vim"]
 	path = .vim/bundle/paredit.vim
 	url = https://github.com/vim-scripts/paredit.vim
+[submodule ".vim/bundle/ctrlp-py-matcher"]
+	path = .vim/bundle/ctrlp-py-matcher
+	url = https://github.com/FelikZ/ctrlp-py-matcher
 [submodule ".vim/bundle/vim-json"]
 	path = .vim/bundle/vim-json
 	url = https://github.com/elzr/vim-json
 [submodule ".vim/bundle/vim-argumentative"]
 	path = .vim/bundle/vim-argumentative
 	url = https://github.com/PeterRincker/vim-argumentative
+[submodule ".vim/bundle/webapi-vim"]
+	path = .vim/bundle/webapi-vim
+	url = https://github.com/mattn/webapi-vim
+	branch = master
+[submodule ".vim/bundle/vim-test"]
+	path = .vim/bundle/vim-test
+	url = https://github.com/janko-m/vim-test

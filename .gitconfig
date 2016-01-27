@@ -24,22 +24,14 @@
     insteadOf = dallasrb:
     pushInsteadOf = dallasrb:
 
-[url "git@github.com:Hireology/"]
-    insteadOf = hireology:
-    pushInsteadOf = hireology:
-
-[url "git@code.livingsocial.net:"]
-    insteadOf = livingsocial:
-    pushInsteadOf = livingsocial:
-
 [diff]
 [color]
     ui = auto
 
 [alias]
     aa = add --all
-    aia = add --intent-to-add
     aacip = "!git aa && git ci && git push"
+    aia = add --intent-to-add
     di = diff
     dic = diff --cached
     head = !git l -1
