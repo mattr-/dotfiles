@@ -18,7 +18,7 @@ let g:ragtag_global_maps = 1
 
 let g:CommandTMaxHeight=10
 
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 
 let g:ctrlp_map = ',f'
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
