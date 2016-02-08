@@ -1,2 +1,3 @@
 compctl -/ -W ~/Code c
+compctl -/ -W ~/Code/livingsocial lsc
 compctl -/ -W ~/Projects/Hireology h
