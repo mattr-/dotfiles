@@ -25,6 +25,7 @@ alias bottomRight corner bottom-right resize:screenSizeX/2;screenSizeY/2
 alias bottomLeftCorner move screenOriginX;screenOriginY+(screenSizeY-900) 1440;900
 alias bottomRightCorner move screenOriginX+1440;screenOriginY+(screenSizeY-700) 1120;700
 alias topRightCorner move screenOriginX+1440;screenOriginY 1120;740
+alias centered move screenOriginX+(screenSizeX/8);screenOriginY+(screenSizeY/8) screenSizeX-(screenSizeX/4);screenSizeY-(screenSizeY/4)
 
 alias laptop-rightHalf ${rightHalf} ${laptop}
 alias laptop-full ${full} ${laptop}
@@ -35,6 +36,7 @@ alias laptop-rightSide push right center ${laptop}
 alias laptop-leftHalf ${leftHalf} ${laptop}
 alias laptop-leftSideFullHeight ${leftSideFullHeight} ${laptop}
 alias laptop-rightHalfGutter ${rightHalfGutter} ${laptop}
+alias laptop-centered ${centered} ${laptop}
 
 alias showNormalHint hint ASDFGHJKLQWERUIO
 
@@ -58,7 +60,7 @@ layout laptoplayout 'HipChat':REPEAT_LAST ${laptop-layeredGutter}
 layout laptoplayout 'Slack':REPEAT_LAST ${laptop-layeredGutter}
 layout laptoplayout 'Messages':REPEAT_LAST ${laptop-layeredGutter}
 layout laptoplayout 'Evernote':REPEAT_LAST ${laptop-leftSide}
-layout laptoplayout 'Dash':IGNORE_FAIL,REPEAT_LAST ${laptop-leftSide}
+layout laptoplayout 'Dash':IGNORE_FAIL,REPEAT_LAST ${laptop-centered}
 layout laptoplayout 'Vienna':IGNORE_FAIL,REPEAT_LAST ${laptop-leftSide}
 
 default laptoplayout count:1
@@ -67,6 +69,7 @@ bind right:cmd;shift;ctrl ${rightHalf}
 bind left:cmd;shift;ctrl  ${leftHalf}
 bind up:cmd;shift;ctrl    ${topHalf}
 bind down:cmd;shift;ctrl  ${bottomHalf}
+bind c:cmd;alt;ctrl;shift ${laptop-centered}
 bind up:cmd;shift         focus up
 bind down:cmd;shift       focus down
 bind up:cmd;alt           focus behind
@@ -78,6 +81,5 @@ bind a:cmd;alt;ctrl;shift layout doublemonitors
 bind return:cmd;alt;ctrl;shift layout laptoplayout
 
 bind t:cmd;alt;ctrl;shift focus 'iTerm'
-bind c:cmd;alt;ctrl;shift focus 'HipChat'
 bind w:cmd;alt;ctrl;shift focus 'Google Chrome'
 
