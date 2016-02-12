@@ -1,0 +1,248 @@
+# mattremoji prompt them
+# copied from mattr prompt theme and modified
+
+autoload -U zgitinit
+zgitinit
+
+prompt_mattremoji_help () {
+  cat <<'EOF'
+
+  prompt mattremoji
+
+EOF
+}
+
+function battery_levels() {
+    local pmset="$(pmset -g batt | sed -n -e '/InternalBattery/p')"
+    local bat="$(cut -f2 <<<"$pmset")"
+    bat="${bat%%%*}% "
+    local charge_status=""
+    case "$pmset" in
+        *charged* | "")
+            charge_status=""
+            bat=""
+            ;;
+        *discharging*)
+            charge_status="⌁"
+            ;;
+    esac
+
+    echo "${charge_status}${bat}"
+}
+
+function git_branch() {
+    \git rev-parse --inside-work-tree >/dev/null 2>&1 || return
+
+    local branch
+    if branch="$(\git symbolic-ref -q HEAD)"; then
+        printf "%q" "${branch#refs/heads/}"
+    else
+        # In detached head state, use commit instead
+        # No escape needed
+        \git rev-parse --short -q HEAD
+    fi
+}
+
+function git_has_untracked() {
+    if LC_ALL=C \git status --porcelain 2>/dev/null | grep -Eq '^\?\?'; then
+        printf "%q" "+"
+    fi
+}
+
+function git_has_stashed() {
+    if [[ -n "$(git stash list -n 1 2>/dev/null)" ]]; then
+        echo -ne "*"
+    fi
+}
+
+
+function git_diffstat() {
+    local branch
+    branch="$(git_branch)"
+    if [[ -n "$branch" ]] ; then
+
+        local remote
+        remote="$(git config --get branch.${branch}.remote 2>/dev/null)"
+
+        local -i has_commit
+        has_commit=0
+        if [[ -n "$remote" ]]; then
+            local remote_branch
+            remote_branch="$(git config --get branch.${branch}.merge)"
+            if [[ -n "$remote_branch" ]]; then
+                has_commit="$(git rev-list --count ${remote_branch/refs\/heads/refs\/remotes\/$remote}..HEAD 2>/dev/null)"
+                [[ -z "$has_commit" ]] && has_commit=0
+            fi
+        fi
+
+        local ret
+        local shortstat # only to check for uncommitted changes
+        shortstat="$(LC_ALL=C git diff --shortstat HEAD 2>/dev/null)"
+
+        if [[ -n "$shortstat" ]] ; then
+            local u_stat # shorstat of *unstaged* changes
+            u_stat="$(LC_ALL=C git diff --shortstat 2>/dev/null)"
+            u_stat=${u_stat/*changed, /} # removing "n file(s) changed"
+
+            local i_lines # inserted lines
+            if [[ "$u_stat" = *insertion* ]] ; then
+                i_lines=${u_stat/ inser*}
+            else
+                i_lines=0
+            fi
+
+            local d_lines # deleted lines
+            if [[ "$u_stat" = *deletion* ]] ; then
+                d_lines=${u_stat/*\(+\), }
+                d_lines=${d_lines/ del*/}
+            else
+                d_lines=0
+            fi
+
+            local has_lines
+            has_lines="+$i_lines/-$d_lines"
+
+            if [[ "$has_commit" -gt "0" ]] ; then
+                # Changes to commit and commits to push
+                ret="($has_lines,$has_commit)"
+            else
+                ret="($has_lines)" # changes to commit
+            fi
+        else
+            if [[ "$has_commit" -gt "0" ]] ; then
+                # some commit(s) to push
+                ret="$(has_commit)"
+            fi
+        fi
+        echo -ne "$ret"
+    fi
+
+}
+
+function prompt_char() {
+    git branch >/dev/null 2>/dev/null && echo '±' && return
+    hg root >/dev/null 2>/dev/null && echo '☿' && return
+    echo '○'
+}
+
+coloratom() {
+    local off=$1 atom=$2
+    if [[ $atom[1] == [[:upper:]] ]]; then
+        off=$(( $off + 60 ))
+    fi
+    echo $(( $off + $colorcode[${(L)atom}] ))
+}
+
+colorword() {
+    local fg=$1 bg=$2 att=$3
+    local -a s
+
+    if [ -n "$fg" ]; then
+        s+=$(coloratom 30 $fg)
+    fi
+    if [ -n "$bg" ]; then
+        s+=$(coloratom 40 $bg)
+    fi
+    if [ -n "$att" ]; then
+        s+=$attcode[$att]
+    fi
+
+    echo "%{"$'\e['${(j:;:)s}m"%}"
+}
+
+function prompt_mattr_precmd() {
+    local ex=$?
+    psvar=()
+
+    if [[ $ex -ge 128 ]]; then
+        sig=$signals[$ex-127]
+        psvar[1]="sig${(L)sig}"
+    else
+        psvar[1]="$ex"
+    fi
+
+    psvar[2]=${PWD/#$HOME/~}
+    psvar[3]=$(battery_levels)
+    psvar[4]=$(prompt_char)
+    psvar[5]=$(git_branch)
+    psvar[6]=$(git_has_untracked)
+    psvar[7]=$(git_has_stashed)
+    psvar[8]=$(git_diffstat)
+}
+
+
+prompt_mattremoji_setup() {
+    # Color Setup {{{
+    typeset -A colorcode
+    colorcode[black]=0
+    colorcode[red]=1
+    colorcode[green]=2
+    colorcode[yellow]=3
+    colorcode[blue]=4
+    colorcode[magenta]=5
+    colorcode[cyan]=6
+    colorcode[white]=7
+    colorcode[default]=9
+    colorcode[k]=$colorcode[black]
+    colorcode[r]=$colorcode[red]
+    colorcode[g]=$colorcode[green]
+    colorcode[y]=$colorcode[yellow]
+    colorcode[b]=$colorcode[blue]
+    colorcode[m]=$colorcode[magenta]
+    colorcode[c]=$colorcode[cyan]
+    colorcode[w]=$colorcode[white]
+    colorcode[.]=$colorcode[default]
+
+    typeset -A attcode
+    attcode[none]=00
+    attcode[bold]=01
+    attcode[faint]=02
+    attcode[standout]=03
+    attcode[underline]=04
+    attcode[blink]=05
+    attcode[reverse]=07
+    attcode[conceal]=08
+    attcode[normal]=22
+    attcode[no-standout]=23
+    attcode[no-underline]=24
+    attcode[no-blink]=25
+    attcode[no-reverse]=27
+    attcode[no-conceal]=28
+    # }}}
+
+    local -A pc
+    pc[default]='default'
+    pc[date]='cyan'
+    pc[time]='Blue'
+    pc[host]='Green'
+    pc[user]='cyan'
+    pc[punc]='yellow'
+    pc[line]='magenta'
+    pc[hist]='green'
+    pc[path]='White'
+    pc[shortpath]='default'
+    pc[rc]='red'
+    pc[scm_branch]='green'
+    pc[scm_commitid]='Yellow'
+    pc[scm_status_dirty]='Red'
+    pc[scm_status_staged]='Green'
+    pc[scm_time_short]='green'
+    pc[scm_time_medium]='yellow'
+    pc[scm_time_long]='red'
+    pc[scm_time_uncommitted]='Magenta'
+    pc[todo_count]='red'
+    pc[#]='Yellow'
+
+    for cn in ${(k)pc}; do
+      pc[${cn}]=$(colorword $pc[$cn])
+    done
+    pc[reset]=$(colorword . . 00)
+
+    PROMPT=
+    PROMPT+="%3v$pc[user]%n$pc[reset]@$pc[host]%m$pc[reset]($pc[scm_branch]%5v$pc[reset]%6v%7v$pc[scm_time_uncommitted]%8v$pc[reset]:$pc[path]%2~$pc[reset]) %4v "
+    precmd_functions+='prompt_mattr_precmd'
+}
+
+prompt_mattremoji_setup "$@"
+
+# vim:set ft=zsh:
