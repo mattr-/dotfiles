@@ -37,6 +37,12 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_error_symbol = "⛔️ "
 let g:syntastic_warning_symbol = "⚠️ "
 
+if has("nvim")
+    set mouse-=a
+    let test#strategy = "neoterm"
+    "Escape for normal mode in terminal mode
+    tnoremap <Esc> <C-\><C-n>
+endif
 " }}}
 
 "Settings {{{
