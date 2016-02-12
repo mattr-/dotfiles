@@ -144,3 +144,7 @@
 	path = .vim/bundle/syntastic
 	url = github:scrooloose/syntastic
 	branch = master
+[submodule ".vim/bundle/vim-airline-themes"]
+	path = .vim/bundle/vim-airline-themes
+	url = github:vim-airline/vim-airline-themes
+	branch = master
