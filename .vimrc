@@ -19,6 +19,7 @@ let g:ragtag_global_maps = 1
 let g:CommandTMaxHeight=10
 
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#syntastic#enabled = 1
 
 let g:ctrlp_map = ',f'
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
@@ -28,6 +29,14 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ -g ""'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_use_caching = 0
+
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_enable_signs = 1
+let g:syntastic_error_symbol = "⛔️ "
+let g:syntastic_warning_symbol = "⚠️ "
+
 " }}}
 
 "Settings {{{
@@ -289,6 +298,12 @@ if has("autocmd")
         autocmd BufNewFile,BufRead *.txt,README,INSTALL,NEWS,TODO if &ft == ""|set ft=text|endif
         autocmd BufRead * if ! did_filetype() && getline(1)." ".getline(2).
                   \ " ".getline(3) =~? '<\%(!DOCTYPE \)\=html\>' | setf html | endif
+        autocmd BufNewFile,BufRead html.erb set ft=eruby.html
+        autocmd BufNewFile,BufRead js.erb set ft=eruby.javascript
+        autocmd BufNewFile,BufRead css.erb set ft=eruby.css
+        autocmd BufNewFile,BufRead scss.erb set ft=eruby.scss
+        autocmd BufNewFile,BufRead less.erb set ft=eruby.less
+
     augroup END " }}}2
 
     augroup FTOptions " {{{2
