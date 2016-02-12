@@ -152,3 +152,6 @@
 	path = .vim/bundle/base16-vim
 	url = github:chriskempson/base16-vim
 	branch = master
+[submodule ".vim/bundle/vim-gitgutter"]
+	path = .vim/bundle/vim-gitgutter
+	url = github:airblade/vim-gitgutter
