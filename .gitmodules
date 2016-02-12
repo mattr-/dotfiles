@@ -148,3 +148,7 @@
 	path = .vim/bundle/vim-airline-themes
 	url = github:vim-airline/vim-airline-themes
 	branch = master
+[submodule ".vim/bundle/base16-vim"]
+	path = .vim/bundle/base16-vim
+	url = github:chriskempson/base16-vim
+	branch = master
