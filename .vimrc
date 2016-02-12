@@ -82,8 +82,9 @@ set wildignore+=*.sw?
 set wildignore+=*.DS_Store?
 set wildignore+=vendor/bundle
 set wildignore+=vendor/gems
+set wildignore+=log/**
+set wildignore+=node_modules/**
 
-set encoding=utf-8
 set showcmd "show partial command in the status line
 
 " prevent Vim from clobbering the scrollback buffer
