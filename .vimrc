@@ -20,6 +20,25 @@ let g:CommandTMaxHeight=10
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
+let g:airline_theme = "dark"
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = '⎇ '
+let g:airline_symbols.paste = 'ρ'
+let g:airline_mode_map = {
+            \ '__' : '-',
+            \ 'n'  : 'N',
+            \ 'i'  : 'I',
+            \ 'R'  : 'R',
+            \ 'c'  : 'C',
+            \ 'v'  : 'V',
+            \ 'V'  : 'V',
+            \ '' : 'V',
+            \ 's'  : 'S',
+            \ 'S'  : 'S',
+            \ '' : 'S',
+            \ }
 
 let g:ctrlp_map = ',f'
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
