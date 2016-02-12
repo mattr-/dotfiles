@@ -57,7 +57,7 @@ set number
 set ruler
 set laststatus=2
 set report=0
-set shortmess+=a
+set shortmess=filmnrwxtToO
 
 set nowrap
 set tabstop=4
