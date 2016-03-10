@@ -8,9 +8,14 @@ function check_repo {
 function add_to_mr {
   local repo=$1
   name=`echo "$repo" | cut -d'/' -f2`
+  grep -q $repo ~/.mrconfig
+  if [ $? -eq 0 ]; then
+    echo "$name is already set up in mr. Not adding"
+  else
   echo "Adding \"$name\" to mr"
-  echo "[\$HOME/Code/livingsocial/$name]" >> ~/.mrconfig
+  echo -e "\n[\$HOME/Code/livingsocial/$name]" >> ~/.mrconfig
   echo "checkout = git clone livingsocial:$repo" >> ~/.mrconfig
+  fi
 }
 
 function die {
