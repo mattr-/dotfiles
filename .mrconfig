@@ -150,73 +150,127 @@ checkout = git clone livingsocial:ops/deployer
 
 [$HOME/Code/livingsocial/ls-capistrano]
 checkout = git clone livingsocial:ops/ls-capistrano
+
 [$HOME/Code/livingsocial/ls-errors]
 checkout = git clone livingsocial:platform/ls-errors
+
 [$HOME/Code/livingsocial/action_event]
 checkout = git clone livingsocial:platform/action_event
+
 [$HOME/Code/livingsocial/ls-gem_tasks]
 checkout = git clone livingsocial:platform/ls-gem_tasks
+
 [$HOME/Code/livingsocial/ls-rack_attack]
 checkout = git clone livingsocial:platform/ls-rack_attack
+
 [$HOME/Code/livingsocial/fatsd]
 checkout = git clone livingsocial:platform/fatsd
+
 [$HOME/Code/livingsocial/classification-service]
 checkout = git clone livingsocial:platform/classification-service
+
 [$HOME/Code/livingsocial/ls-employees]
 checkout = git clone livingsocial:platform/ls-employees
+
 [$HOME/Code/livingsocial/imaging]
 checkout = git clone livingsocial:ops/imaging
+
 [$HOME/Code/livingsocial/bohemia]
 checkout = git clone livingsocial:escapes/bohemia
+
 [$HOME/Code/livingsocial/travel-service]
 checkout = git clone livingsocial:escapes/travel-service
+
 [$HOME/Code/livingsocial/api_keys]
 checkout = git clone livingsocial:useracq/api_keys
+
 [$HOME/Code/livingsocial/admin]
 checkout = git clone livingsocial:dev/admin
+
 [$HOME/Code/livingsocial/ls-ab-settings]
 checkout = git clone livingsocial:ab-testing/ls-ab-settings
+
 [$HOME/Code/livingsocial/card-linking-service]
 checkout = git clone livingsocial:platform/card-linking-service
+
 [$HOME/Code/livingsocial/ls-stepford]
 checkout = git clone livingsocial:dev/ls-stepford
+
 [$HOME/Code/livingsocial/deployment]
 checkout = git clone livingsocial:dev/deployment
+
 [$HOME/Code/livingsocial/ops-web]
 checkout = git clone livingsocial:ops/ops-web
+
 [$HOME/Code/livingsocial/photo_manager]
 checkout = git clone livingsocial:ia/photo_manager
+
 [$HOME/Code/livingsocial/merchant_messaging]
 checkout = git clone livingsocial:merchant/merchant_messaging
+
 [$HOME/Code/livingsocial/ls-platform-requirements]
 checkout = git clone livingsocial:dev/ls-platform-requirements
+
 [$HOME/Code/livingsocial/ls-platform-requirements]
 checkout = git clone livingsocial:platform/ls-platform-requirements
+
 [$HOME/Code/livingsocial/syringe]
 checkout = git clone livingsocial:mail/syringe
+
 [$HOME/Code/livingsocial/jetset]
 checkout = git clone livingsocial:mail/jetset
+
 [$HOME/Code/livingsocial/ls_inventory]
 checkout = git clone livingsocial:unifed-search/ls_inventory
+
 [$HOME/Code/livingsocial/ls_inventory]
 checkout = git clone livingsocial:unified-search/ls_inventory
+
 [$HOME/Code/livingsocial/job_board]
 checkout = git clone livingsocial:dev/job_board
+
 [$HOME/Code/livingsocial/requisitions_portal]
 checkout = git clone livingsocial:dev/requisitions_portal
+
 [$HOME/Code/livingsocial/ls-api_client]
 checkout = git clone livingsocial:platform/ls-api_client
+
 [$HOME/Code/livingsocial/munch]
 checkout = git clone livingsocial:chrismo/munch
+
 [$HOME/Code/livingsocial/optimus]
 checkout = git clone livingsocial:ab-testing/optimus
+
 [$HOME/Code/livingsocial/ls-circuit_breaker]
 checkout = git clone livingsocial:platform/ls-circuit_breaker
+
 [$HOME/Code/livingsocial/stats]
 checkout = git clone livingsocial:useracq/stats
+
 [$HOME/Code/livingsocial/ls-api_validation]
 checkout = git clone livingsocial:platform/ls-api_validation
+
 [$HOME/Code/livingsocial/swagger_service]
 checkout = git clone livingsocial:platform/swagger_service
+
 [$HOME/Code/livingsocial/ls-rails_security]
 checkout = git clone livingsocial:platform/ls-rails_security
+
+[$HOME/Code/livingsocial/ls-swagger_yard]
+checkout = git clone livingsocial:platform/ls-swagger_yard
+
+[$HOME/Code/livingsocial/browse-service]
+checkout = git clone livingsocial:unified-experience/browse-service
+
+[$HOME/Code/livingsocial/restaurant-search-service]
+checkout = git clone livingsocial:platform/restaurant-search-service
+
+[$HOME/Code/livingsocial/starter-kit]
+checkout = git clone livingsocial:dev/starter-kit
+
+[$HOME/Code/livingsocial/myqa-provisioner]
+checkout = git clone livingsocial:myqa/myqa-provisioner
+
+[$HOME/Code/livingsocial/myqa-commandline]
+checkout = git clone livingsocial:myqa/myqa-commandline
+
