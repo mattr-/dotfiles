@@ -1,0 +1,36 @@
+#!/bin/bash
+set -e
+function die() {
+    echo "$@"
+    exit 1
+}
+
+grep -q 'refs/pull' .git/config || die "This repo doesn't track pull requests"
+
+[[ $# -ne 1 ]] && die "Need a PR number"
+PR=$1
+BRANCH_NAME=pr-$PR-merge
+
+[[ $(git status -s) ]] && git stash save -u "pre pci pr changes"
+git checkout master
+git fetch
+
+#Create a branch to cherry pick the PR into, mostly so we can put pretty output on the clipboard to paste into the PR
+git checkout -b $BRANCH_NAME
+git cherry-pick -s ..origin/pr/$PR
+bundle check || bundle
+bundle exec rake || die "tests failed"
+
+HEAD_SHORT_SHA=$(git rev-parse --short HEAD)
+COMMITS=$(git log --oneline master..HEAD | wc -l)
+if [[ ${COMMITS} -gt 1 ]] ; then
+    ANCESTOR_SHORT_SHA=$(git oldest-ancestor)
+    echo ":cherries: :ship: ${ANCESTOR_SHORT_SHA}...${HEAD_SHORT_SHA}" | pbcopy
+else
+    echo ":cherries: :ship: ${HEAD_SHORT_SHA}" | pbcopy
+fi
+
+git checkout master
+git merge --ff-only $BRANCH_NAME
+git push
+git branch -D $BRANCH_NAME #Not merged because cherry picked
