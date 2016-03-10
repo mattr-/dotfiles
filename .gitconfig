@@ -24,6 +24,10 @@
     insteadOf = dallasrb:
     pushInsteadOf = dallasrb:
 
+[url "git@code.livingsocial.net:"]
+    insteadOf = livingsocial:
+    pushInsteadOf = livingsocial:
+
 [diff]
 [color]
     ui = auto
