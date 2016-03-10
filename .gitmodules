@@ -146,3 +146,6 @@
 [submodule ".vim/bundle/vim-test"]
 	path = .vim/bundle/vim-test
 	url = https://github.com/janko-m/vim-test
+[submodule ".vim/bundle/neoterm"]
+	path = .vim/bundle/neoterm
+	url = https://github.com/kassio/neoterm
