@@ -59,7 +59,3 @@ change_author() {
     git commit --amend --author "$1 <$2>" -C HEAD
 }
 
-remove_merged_branches() {
-    git branch -d `git branch --merged | grep -v '^\*' | grep -v 'master'`
-}
-
