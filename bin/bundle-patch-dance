@@ -1,0 +1,5 @@
+#!/bin/sh
+gem install ls-platform --source https://gems.livingsocial.net
+ls-platform assert
+gem install bundler-patch --source https://gems.livingsocial.net
+bundle-patch scan -a ~/.ls-platform-requirements

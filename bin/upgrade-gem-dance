@@ -1,0 +1,29 @@
+#!/bin/sh
+
+function die() {
+    echo "$@"
+    exit 1
+}
+
+set -e
+
+[[ "$#" -ne 3 ]] && die "repo, gem, and version combo missing"
+
+REPO=$1
+GEM=$2
+VERSION=$3
+
+pushd ~/Code/LivingSocial/$REPO &>/dev/null
+
+git pullr
+bundle check || bundle
+[[ -f Rakefile ]] && bundle exec rake
+git checkout -b ${GEM}-${VERSION}
+upgrade-gem $GEM $VERSION
+[[ -f Rakefile ]] && bundle exec rake
+git add Gemfile Gemfile.lock
+git commit -m "Bump $GEM to $VERSION"
+git remote -v | grep -q "mrogers" || (hub fork ; sleep 2)
+git push mrogers
+hub pull-request
+popd &>/dev/null

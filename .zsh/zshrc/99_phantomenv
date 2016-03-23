@@ -1,0 +1,4 @@
+# This loads rbenv into a shell session.
+path=($HOME/.phantomenv/bin $path)
+eval "$(phantomenv init -)"
+

@@ -26,9 +26,16 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .DS_Store
       \ --ignore .bundle
       \ -g ""'
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_use_caching = 0
-let g:ctrlp_working_path_mode = ''
+" let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+" let g:ctrlp_working_path_mode = ''
+if has("nvim")
+    set mouse-=a
+    let test#strategy = "neoterm"
+    "Escape for normal mode in terminal mode
+    tnoremap <Esc> <C-\><C-n>
+endif
+
 " }}}
 
 "Settings {{{
@@ -39,6 +46,7 @@ color mattr
 
 set hidden "background buffers without writing them. saves marks/undo as well
 
+set relativenumber
 set number
 set ruler
 set laststatus=2
