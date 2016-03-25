@@ -16,6 +16,7 @@
 /tmp
 /.CFUserTextEncoding
 /.DS_Store
+/.Genymobile
 /.RSA/
 /.Trash/
 /.Xauthority
@@ -25,6 +26,7 @@
 /.bash_logout
 /.bash_profile
 /.bashrc
+/.bash_sessions/
 /.boot2docker/
 /.bundler/
 /.cache/
@@ -33,6 +35,7 @@
 /.cups/
 /.dbus/
 /.dmrc
+/.docker/
 /.done.txt
 /.dotfiles/
 /.dropbox/
@@ -46,6 +49,7 @@
 /.gradle
 /.guard_history
 /.heroku/
+/.hex/
 /.hk
 /.install4j
 /.irb-history
@@ -57,12 +61,14 @@
 /.local/
 /.m2/
 /.mail/
+/.mix/
 /.msvn/
 /.mutt/temp
 /.mysql_history
 /.netrc
 /.npm/
 /.oh-my-zsh/
+/.oracle_jre_usage/
 /.pgpass
 /.pgadmin_histoqueries
 /.pip/
@@ -88,6 +94,7 @@
 /.todo.txt*
 /.vagrant.d/
 /.vim/.backup/*
+/.vim/bundle/
 /.vim/.netrwhist
 /.vim/backup/*
 /.vim/tmp
