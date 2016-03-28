@@ -1,13 +1,60 @@
 set nocompatible
 
-"load pathogen from the bundle
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-
-"Set up pathogen and the bundle loading
-filetype off
-call pathogen#infect()
-syntax on
-filetype plugin indent on
+" {{{ Plugin List
+call plug#begin('~/.vim/bundle')
+Plug 'tpope/vim-pathogen'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-commentary'
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-haml'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'pangloss/vim-javascript'
+Plug 'ddollar/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'ervandew/supertab'
+Plug 'tpope/vim-cucumber'
+Plug 'timcharper/textile.vim'
+Plug 'tpope/vim-rails'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-unimpaired'
+Plug 'wgibbs/vim-irblack'
+Plug 'kchmck/vim-coffee-script'
+Plug 'ajf/puppet-vim'
+Plug 'mattn/gist-vim'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-ragtag'
+Plug 'adinapoli/vim-markmultiple'
+Plug 'tpope/vim-abolish'
+Plug 'endel/vim-github-colorscheme'
+Plug 'elixir-lang/vim-elixir'
+Plug 'mattn/emmet-vim'
+Plug 'rking/ag.vim'
+Plug 'godlygeek/tabular'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-jdaddy'
+Plug 'tpope/vim-liquid'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'fatih/vim-go'
+Plug 'kien/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'elzr/vim-json'
+Plug 'PeterRincker/vim-argumentative'
+Plug 'mattn/webapi-vim'
+Plug 'janko-m/vim-test'
+Plug 'kassio/neoterm'
+Plug 'scrooloose/syntastic'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'chriskempson/base16-vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'skammer/vim-css-color'
+call plug#end()
+" }}}
 
 "Extra plugins
 runtime! plugin/matchit.vim
