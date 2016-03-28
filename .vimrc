@@ -120,6 +120,7 @@ color mattr
 set hidden "background buffers without writing them. saves marks/undo as well
 
 set number
+set relativenumber
 set ruler
 set laststatus=2
 set report=0
