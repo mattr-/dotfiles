@@ -40,6 +40,7 @@
 /.dotfiles/
 /.dropbox/
 /.env/
+/.erlang.cookie
 /.exercism
 /.exercism.go
 /.exercism.json
