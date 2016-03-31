@@ -293,7 +293,7 @@ noremap k gk
 nnoremap <leader>. :A<CR>
 
 " CTags
-map <Leader>rt :!ctags --c++-kinds=+pl --fields=+iaS --extra=+f+q --languages=-javascript,-sql -R *<CR><CR>
+map <Leader>rt :!ctags -R *<CR><CR>
 map <C-\> :tnext<CR>
 
 "Close tag
