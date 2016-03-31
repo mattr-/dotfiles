@@ -1,13 +1,13 @@
-# mattremoji prompt them
+# mattr2 prompt them
 # copied from mattr prompt theme and modified
 
 autoload -U zgitinit
 zgitinit
 
-prompt_mattremoji_help () {
+prompt_mattr2_help () {
   cat <<'EOF'
 
-  prompt mattremoji
+  prompt mattr2
 
 EOF
 }
@@ -55,17 +55,14 @@ function git_has_stashed() {
     fi
 }
 
-
-function git_diffstat() {
+function git_commits_ahead() {
     local branch
+    local -i has_commit
+    has_commit=0
     branch="$(git_branch)"
     if [[ -n "$branch" ]] ; then
-
         local remote
         remote="$(git config --get branch.${branch}.remote 2>/dev/null)"
-
-        local -i has_commit
-        has_commit=0
         if [[ -n "$remote" ]]; then
             local remote_branch
             remote_branch="$(git config --get branch.${branch}.merge)"
@@ -74,6 +71,16 @@ function git_diffstat() {
                 [[ -z "$has_commit" ]] && has_commit=0
             fi
         fi
+    fi
+    echo "$has_commit"
+}
+
+function git_diffstat() {
+    local branch
+    branch="$(git_branch)"
+    if [[ -n "$branch" ]] ; then
+        local remote
+        remote="$(git config --get branch.${branch}.remote 2>/dev/null)"
 
         local ret
         local shortstat # only to check for uncommitted changes
@@ -102,21 +109,10 @@ function git_diffstat() {
             local has_lines
             has_lines="+$i_lines/-$d_lines"
 
-            if [[ "$has_commit" -gt "0" ]] ; then
-                # Changes to commit and commits to push
-                ret="($has_lines,$has_commit)"
-            else
-                ret="($has_lines)" # changes to commit
-            fi
-        else
-            if [[ "$has_commit" -gt "0" ]] ; then
-                # some commit(s) to push
-                ret="$(has_commit)"
-            fi
+            ret="($has_lines)" # changes to commit
         fi
         echo -ne "$ret"
     fi
-
 }
 
 function prompt_char() {
@@ -168,10 +164,11 @@ function prompt_mattr_precmd() {
     psvar[6]=$(git_has_untracked)
     psvar[7]=$(git_has_stashed)
     psvar[8]=$(git_diffstat)
+    psvar[9]=$(git_commits_ahead)
 }
 
 
-prompt_mattremoji_setup() {
+prompt_mattr2_setup() {
     # Color Setup {{{
     typeset -A colorcode
     colorcode[black]=0
@@ -208,7 +205,6 @@ prompt_mattremoji_setup() {
     attcode[no-blink]=25
     attcode[no-reverse]=27
     attcode[no-conceal]=28
-    # }}}
 
     local -A pc
     pc[default]='default'
@@ -232,6 +228,7 @@ prompt_mattremoji_setup() {
     pc[scm_time_uncommitted]='Magenta'
     pc[todo_count]='red'
     pc[#]='Yellow'
+    # }}}
 
     for cn in ${(k)pc}; do
       pc[${cn}]=$(colorword $pc[$cn])
@@ -239,10 +236,12 @@ prompt_mattremoji_setup() {
     pc[reset]=$(colorword . . 00)
 
     PROMPT=
-    PROMPT+="%3v$pc[user]%n$pc[reset]@$pc[host]%m$pc[reset]($pc[scm_branch]%5v$pc[reset]%6v%7v$pc[scm_time_uncommitted]%8v$pc[reset]:$pc[path]%2~$pc[reset]) %4v "
+    PROMPT+="%3v$pc[user]%n$pc[reset]@$pc[host]%m$pc[reset]($pc[scm_branch]%5v$pc[reset]%6v%7v$pc[reset]:$pc[path]%2~$pc[reset]) %4v "
+    RPROMPT=
+    RPROMPT+="$pc[scm_time_uncommitted]%8v$pc[reset] $pc[scm_time_uncommitted][+%9v]$pc[reset]"
     precmd_functions+='prompt_mattr_precmd'
 }
 
-prompt_mattremoji_setup "$@"
+prompt_mattr2_setup "$@"
 
 # vim:set ft=zsh:
