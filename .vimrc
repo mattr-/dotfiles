@@ -53,6 +53,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'skammer/vim-css-color'
+Plug 'junegunn/vim-easy-align'
 call plug#end()
 " }}}
 
