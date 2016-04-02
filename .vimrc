@@ -54,6 +54,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'skammer/vim-css-color'
 Plug 'junegunn/vim-easy-align'
+Plug 'alexbel/vim-rubygems'
+Plug 'lucidstack/hex.vim'
 call plug#end()
 " }}}
 
