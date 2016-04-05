@@ -1,5 +1,5 @@
 [$HOME/.rbenv]
-checkout = git clone https://github.com/sstephenson/rbenv
+checkout = git clone https://github.com/sstephenson/rbenv $HOME/.rbenv
 
 [$HOME/.rbenv/plugins/rbenv-default-gems]
 checkout = git clone https://github.com/rbenv/rbenv-default-gems
@@ -9,6 +9,12 @@ checkout = git clone https://github.com/rbenv/rbenv-gem-rehash
 
 [$HOME/.rbenv/plugins/ruby-build]
 checkout = git clone https://github.com/sstephenson/ruby-build
+
+[$HOME/.nodenv]
+checkout = git clone https://github.com/nodenv/nodenv $HOME/.nodenv
+
+[$HOME/.nodenv/plugins/node-build]
+checkout = git clone https://github.com/nodenv/node-build
 
 [$HOME/.vim/bundle/vim-pathogen]
 checkout = git clone https://github.com/tpope/vim-pathogen.git
