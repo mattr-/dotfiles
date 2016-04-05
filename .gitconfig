@@ -24,6 +24,10 @@
     insteadOf = dallasrb:
     pushInsteadOf = dallasrb:
 
+[url "https://github.us1.teladoc.com/Teladoc/"]
+    insteadOf = teladoc:
+    pushInsteadOf = teladoc:
+
 [diff]
 [color]
     ui = auto
