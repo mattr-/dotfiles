@@ -1,5 +1,5 @@
 [user]
-    email = codemattr@gmail.com
+    email = mrogers@teladoc.com
     name = Matt Rogers
 
 [url "git://anongit.kde.org/"]
@@ -24,7 +24,7 @@
     insteadOf = dallasrb:
     pushInsteadOf = dallasrb:
 
-[url "https://github.us1.teladoc.com/Teladoc/"]
+[url "git@github.us1.teladoc.com:"]
     insteadOf = teladoc:
     pushInsteadOf = teladoc:
 
@@ -77,6 +77,7 @@
     excludesfile = /opt/boxen/config/git/gitignore
 [hub]
     protocol = https
+	host = github.us1.teladoc.com
 [push]
     default = current
 
