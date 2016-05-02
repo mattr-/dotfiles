@@ -24,7 +24,7 @@
     insteadOf = dallasrb:
     pushInsteadOf = dallasrb:
 
-[url "git@github.us1.teladoc.com:"]
+[url "git@github.prod.env.teladoc.com:"]
     insteadOf = teladoc:
     pushInsteadOf = teladoc:
 
