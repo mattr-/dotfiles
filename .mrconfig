@@ -180,3 +180,63 @@ checkout = git clone https://github.com/github/developer.github.com
 
 [$HOME/Code/github/android]
 checkout = git clone https://github.com/github/android
+
+[$HOME/Code/teladoc/callcenter]
+checkout = git clone teladoc:Teladoc/callcenter
+
+[$HOME/Code/teladoc/acceptance_tests]
+checkout = git clone teladoc:Teladoc/acceptance_tests
+
+[$HOME/Code/teladoc/admin]
+checkout = git clone teladoc:Teladoc/admin
+
+[$HOME/Code/teladoc/client]
+checkout = git clone teladoc:Teladoc/client
+
+[$HOME/Code/teladoc/dash]
+checkout = git clone teladoc:Teladoc/dash
+
+[$HOME/Code/teladoc/internal_documentation]
+checkout = git clone teladoc:Teladoc/internal_documentation
+
+[$HOME/Code/teladoc/ios_apps]
+checkout = git clone teladoc:Teladoc/ios_apps
+
+[$HOME/Code/teladoc/member]
+checkout = git clone teladoc:Teladoc/member
+
+[$HOME/Code/teladoc/nginx_app_template]
+checkout = git clone teladoc:Teladoc/nginx_app_template
+
+[$HOME/Code/teladoc/provider]
+checkout = git clone teladoc:Teladoc/provider
+
+[$HOME/Code/teladoc/remedy-api]
+checkout = git clone teladoc:Teladoc/remedy-api
+
+[$HOME/Code/teladoc/remotely]
+checkout = git clone teladoc:Teladoc/remotely
+
+[$HOME/Code/teladoc/rte]
+checkout = git clone teladoc:Teladoc/rte
+
+[$HOME/Code/teladoc/tas]
+checkout = git clone teladoc:Teladoc/tas
+
+[$HOME/Code/teladoc/teladoc_alice]
+checkout = git clone teladoc:Teladoc/teladoc_alice
+
+[$HOME/Code/teladoc/teladoc_api]
+checkout = git clone teladoc:Teladoc/teladoc_api
+
+[$HOME/Code/teladoc/teladoc_constants_gem]
+checkout = git clone teladoc:Teladoc/teladoc_constants_gem
+
+[$HOME/Code/teladoc/teladoc_ehr]
+checkout = git clone teladoc:Teladoc/teladoc_ehr
+
+[$HOME/Code/teladoc/teladoc_framework]
+checkout = git clone teladoc:Teladoc/teladoc_framework
+
+[$HOME/Code/teladoc/teladoc_scripts]
+checkout = git clone teladoc:Teladoc/teladoc_scripts

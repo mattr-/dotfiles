@@ -47,7 +47,6 @@ Plug 'elzr/vim-json'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'mattn/webapi-vim'
 Plug 'janko-m/vim-test'
-Plug 'kassio/neoterm'
 Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
@@ -56,6 +55,12 @@ Plug 'skammer/vim-css-color'
 Plug 'junegunn/vim-easy-align'
 Plug 'alexbel/vim-rubygems'
 Plug 'lucidstack/hex.vim'
+Plug 'slim-template/vim-slim'
+if has("nvim")
+    Plug 'kassio/neoterm'
+    Plug 'slashmili/alchemist.vim'
+    Plug 'Shougo/deoplete.nvim'
+endif
 call plug#end()
 " }}}
 
@@ -64,6 +69,7 @@ runtime! plugin/matchit.vim
 runtime! macros/matchit.vim
 
 "Plugin settings {{{
+let g:deoplete#enable_at_startup = 1
 let g:ragtag_global_maps = 1
 
 let g:CommandTMaxHeight=10

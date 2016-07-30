@@ -13,7 +13,7 @@ alias desktopIconGutter move screenOriginX;screenOriginY screenSizeX-screenSizeX
 alias leftHalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 alias rightHalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
 alias topHalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
-alias bottomHalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY
+alias bottomHalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
 alias layeredGutter move screenOriginX+screenSizeX/4;screenOriginY screenSizeX-screenSizeX/4-screenSizeX/12;screenSizeY
 alias leftSideFullHeight move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 alias rightHalfGutter move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2-screenSizeX/12;screenSizeY
@@ -26,6 +26,7 @@ alias bottomLeftCorner move screenOriginX;screenOriginY+(screenSizeY-900) 1440;9
 alias bottomRightCorner move screenOriginX+1440;screenOriginY+(screenSizeY-700) 1120;700
 alias topRightCorner move screenOriginX+1440;screenOriginY 1120;740
 alias centered move screenOriginX+(screenSizeX/8);screenOriginY+(screenSizeY/8) screenSizeX-(screenSizeX/4);screenSizeY-(screenSizeY/4)
+alias leftTwoThirds move screenOriginX;screenOriginY screenSizeX-(screenSizeX/3);screenSizeY
 
 alias laptop-rightHalf ${rightHalf} ${laptop}
 alias laptop-full ${full} ${laptop}
@@ -38,9 +39,10 @@ alias laptop-leftSideFullHeight ${leftSideFullHeight} ${laptop}
 alias laptop-rightHalfGutter ${rightHalfGutter} ${laptop}
 alias laptop-centered ${centered} ${laptop}
 
+
 alias showNormalHint hint ASDFGHJKLQWERUIO
 
-layout doublemonitors 'iTerm':IGNORE_FAIL,SORT_TITLE,REPEAT_LAST ${laptop-desktopIconGutter}
+layout doublemonitors 'iTerm':IGNORE_FAIL,SORT_TITLE,REPEAT_LAST ${leftTwoThirds} ${mon-right}
 layout doublemonitors 'Google Chrome':IGNORE_FAIL,REPEAT_LAST ${bottomLeftCorner} ${mon-right}
 layout doublemonitors 'HipChat':IGNORE_FAIL,REPEAT_LAST ${bottomRightCorner} ${mon-right}
 layout doublemonitors 'Evernote':IGNORE_FAIL,REPEAT_LAST ${topRightCorner} ${mon-right}
@@ -64,6 +66,7 @@ layout laptoplayout 'Dash':IGNORE_FAIL,REPEAT_LAST ${laptop-centered}
 layout laptoplayout 'Vienna':IGNORE_FAIL,REPEAT_LAST ${laptop-leftSide}
 
 default laptoplayout count:1
+default doublemonitors count:2
 
 bind right:cmd;shift;ctrl ${rightHalf}
 bind left:cmd;shift;ctrl  ${leftHalf}
@@ -80,6 +83,6 @@ bind h:cmd;ctrl ${showNormalHint}
 bind a:cmd;alt;ctrl;shift layout doublemonitors
 bind return:cmd;alt;ctrl;shift layout laptoplayout
 
-bind t:cmd;alt;ctrl;shift focus 'iTerm'
+bind t:cmd;alt;ctrl;shift focus 'Terminal'
 bind w:cmd;alt;ctrl;shift focus 'Google Chrome'
 

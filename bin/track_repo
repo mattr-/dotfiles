@@ -1,0 +1,28 @@
+#!/bin/sh
+function check_repo {
+    local repo=$1
+    [[ -z "$repo" ]] && die "repo not specified"
+    [[ "$repo" =~ / ]] || die "\"$repo\" not in the proper nwo format"
+}
+
+function add_to_mr {
+  local repo=$1
+  name=`echo "$repo" | cut -d'/' -f2`
+  grep -q $repo ~/.mrconfig
+  if [ $? -eq 0 ]; then
+    echo "$name is already set up in mr. Not adding"
+  else
+  echo "Adding \"$name\" to mr"
+  echo -e "\n[\$HOME/Code/teladoc/$name]" >> ~/.mrconfig
+  echo "checkout = git clone teladoc:$repo" >> ~/.mrconfig
+  fi
+}
+
+function die {
+    echo $@
+    exit 1
+}
+
+REPO=$1
+check_repo "$REPO"
+add_to_mr "$REPO"
