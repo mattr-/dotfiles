@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# Takes the current branch you're on and sets and upstream branch on the origin
+# repository so that commands like `git pull --rebase` will just work automatically.
+#
+# Uses the current branch as the target on the origin repository if one is not given
+UPSTREAM_BRANCH=$1
+CURRENT_BRANCH=`git symbolic-ref --short HEAD`
+if [ -z "$UPSTREAM_BRANCH" ]
+then
+    UPSTREAM_BRANCH=$CURRENT_BRANCH
+fi
+
+git branch --set-upstream-to=origin/$UPSTREAM_BRANCH $CURRENT_BRANCH
