@@ -59,7 +59,7 @@ Plug 'slim-template/vim-slim'
 if has("nvim")
     Plug 'kassio/neoterm'
     Plug 'slashmili/alchemist.vim'
-    Plug 'Shougo/deoplete.nvim'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
 call plug#end()
 " }}}
@@ -275,13 +275,13 @@ imap <C-l> <space>=><space>
 nnoremap ,' ""yls<C-r>={'"': "'", "'": '"'}[@"]<CR><Esc>
 
 " Fugitive/Git mappings
-map ,gs :Gstatus<CR>
-map ,gpl :Git pull<CR>
-map ,gpr :Git pull --rebase<CR>
-map ,gpu :Git push<CR>
-map ,gdi :Git diff<CR>
-map ,gdc :Git diff --cached<CR>
-map ,ga :update \| Git add %<CR>
+nmap ,gs :Gstatus<CR>
+nmap ,gpl :Git pull<CR>
+nmap ,gpr :Git pull --rebase<CR>
+nmap ,gpu :Git push<CR>
+nmap ,gdi :Git diff<CR>
+nmap ,gdc :Git diff --cached<CR>
+nmap ,ga :update \| Git add %<CR>
 
 " vim-test mappings
 nmap ,T :TestNearest<CR>
@@ -326,7 +326,7 @@ map ,ear :Rabbrev AR:: ActiveRecord<CR>
 map ,br :execute 'silent !tmux send-keys -t server C-c rs C-m'<Bar>redraw!<CR>
 
 " Switch hash keys with values
-map ,ks :s/\([:_a-zA-z]\+\) => \([a-zA-Z:_]\+\)/\2 => \1/g<CR>
+map ,ks :s/\([:_a-zA-z]\+\)\s=>\s\([a-zA-Z:_]\+\),/\2 => \1/g<CR>
 
 " Migrate and rollback
 map ,dbm :!bin/rake db:migrate<CR>
