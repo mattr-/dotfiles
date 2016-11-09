@@ -78,6 +78,7 @@
 [hub]
     protocol = https
 	host = github.us1.teladoc.com
+	host = github.prod.env.teladoc.com
 [push]
     default = current
 
