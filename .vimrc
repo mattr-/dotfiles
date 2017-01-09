@@ -1,6 +1,11 @@
 set nocompatible
 
 " {{{ Plugin List
+
+function! DoRemote(arg)
+    normal :UpdateRemotePlugins<CR>
+endfunction
+
 call plug#begin('~/.vim/bundle')
 Plug 'tpope/vim-pathogen'
 Plug 'altercation/vim-colors-solarized'
@@ -56,6 +61,8 @@ Plug 'skammer/vim-css-color'
 Plug 'junegunn/vim-easy-align'
 Plug 'alexbel/vim-rubygems'
 Plug 'lucidstack/hex.vim'
+Plug 'slashmili/alchemist.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 call plug#end()
 " }}}
 
@@ -64,6 +71,7 @@ runtime! plugin/matchit.vim
 runtime! macros/matchit.vim
 
 "Plugin settings {{{
+let g:deoplete#enable_at_startup = 1
 let g:ragtag_global_maps = 1
 
 let g:CommandTMaxHeight=10
