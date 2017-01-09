@@ -57,6 +57,7 @@
     undo = "!source ~/.githelpers && undo_local_changes"
     sdcp = "!source ~/.githelpers && dryrun_dcommit_with_patch"
     sdc = svn dcommit
+    srf = symbolic-ref HEAD
     t = tag
     td = tag -d
     count = shortlog -sn
