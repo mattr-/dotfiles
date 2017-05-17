@@ -1,0 +1,4 @@
+# This loads nodenv into a shell session.
+path=($HOME/.nodenv/bin $path)
+eval "$(nodenv init -)"
+
