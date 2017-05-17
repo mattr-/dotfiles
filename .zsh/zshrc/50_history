@@ -5,7 +5,7 @@ setopt append_history \
 
 HISTSIZE=2000
 SAVEHIST=6000
-HISTFILE=~/.zsh/history.$HOST
+HISTFILE=~/.zsh/history
 
 
 # vim:ft=zsh
