@@ -70,14 +70,15 @@
     ssp = stash show -p
     sl = stash list
     sa = stash apply
+    srf = symbolic-ref HEAD
     r = !GIT_NO_PAGER=1 git l -30
     ra = !git r --all
 
 [core]
     excludesfile = /opt/boxen/config/git/gitignore
+
 [hub]
     protocol = https
-	host = github.us1.teladoc.com
 	host = github.prod.env.teladoc.com
 [push]
     default = current
