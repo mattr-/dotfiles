@@ -33,7 +33,6 @@ Plug 'tpope/vim-abolish'
 Plug 'endel/vim-github-colorscheme'
 Plug 'elixir-lang/vim-elixir'
 Plug 'mattn/emmet-vim'
-Plug 'rking/ag.vim'
 Plug 'godlygeek/tabular'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-repeat'
@@ -112,11 +111,15 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_error_symbol = "⛔️ "
 let g:syntastic_warning_symbol = "⚠️ "
 
+let g:ackprg = "ag --vimgrep"
+
 if has("nvim")
     set mouse-=a
     let test#strategy = "neoterm"
     "Escape for normal mode in terminal mode
     tnoremap <Esc> <C-\><C-n>
+    nnoremap <silent> ,cc :call neoterm#close()<CR>
+    nnoremap <silent> ,ck :call neoterm#kill()<CR>
 endif
 " }}}
 
@@ -260,7 +263,7 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <CR> :nohlsearch<CR>
 
 " Ctrl-Shift-F for Ag
-map <C-F> :Ag<Space>
+map <C-F> :Ack<Space>
 
 " <Leader>= to make all windows the same size
 map <Leader>= <C-w>=
@@ -281,7 +284,9 @@ nmap ,gpr :Git pull --rebase<CR>
 nmap ,gpu :Git push<CR>
 nmap ,gdi :Git diff<CR>
 nmap ,gdc :Git diff --cached<CR>
-nmap ,ga :update \| Git add %<CR>
+if has("nvim")
+    nmap ,ga :update \| :T git add %<CR>
+endif
 
 " vim-test mappings
 nmap ,T :TestNearest<CR>
@@ -457,8 +462,17 @@ function! PromoteToLet()
   :s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
   :silent normal ==
 endfunction
+
+function! PromoteToLetBang()
+  :s/\(\w\+\) = \(.*\)$/let!(:\1) { \2 }/
+  :silent normal ==
+endfunction
+
 command! PromoteToLet :call PromoteToLet()
+command! PromoteToLetBang :call PromoteToLetBang()
+
 map <leader>p :PromoteToLet<cr>
+map <leader>p! :PromoteToLetBang<cr>
 
 " }}}
 
