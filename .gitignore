@@ -47,6 +47,7 @@
 /.fontconfig/
 /.gem/
 /.gitk
+/.go
 /.gradle
 /.guard_history
 /.heroku/
