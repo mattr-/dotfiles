@@ -81,3 +81,5 @@
 
 [github]
 	user = mattr-
+[credential]
+	helper = osxkeychain
