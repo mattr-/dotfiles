@@ -163,8 +163,8 @@ function prompt_mattr_precmd() {
     psvar[5]=$(git_branch)
     psvar[6]=$(git_has_untracked)
     psvar[7]=$(git_has_stashed)
-    psvar[8]=$(git_diffstat)
-    psvar[9]=$(git_commits_ahead)
+    # psvar[8]=$(git_diffstat)
+    # psvar[9]=$(git_commits_ahead)
 }
 
 
@@ -238,7 +238,7 @@ prompt_mattr2_setup() {
     PROMPT=
     PROMPT+="%3v$pc[user]%n$pc[reset]@$pc[host]%m$pc[reset]($pc[scm_branch]%5v$pc[reset]%6v%7v$pc[reset]:$pc[path]%2~$pc[reset]) %4v "
     RPROMPT=
-    RPROMPT+="$pc[scm_time_uncommitted]%8v$pc[reset] $pc[scm_time_uncommitted][+%9v]$pc[reset]"
+    # RPROMPT+="$pc[scm_time_uncommitted]%8v$pc[reset] $pc[scm_time_uncommitted][+%9v]$pc[reset]"
     precmd_functions+='prompt_mattr_precmd'
 }
 
