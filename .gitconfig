@@ -81,9 +81,11 @@
     protocol = https
 	host = github.prod.env.teladoc.com
 [push]
-    default = current
+	default = nothing
 
 [credential]
 
 [github]
 	user = mattr-
+[credential]
+	helper = osxkeychain
