@@ -39,6 +39,9 @@
 /.done.txt
 /.dotfiles/
 /.dropbox/
+/.emacs.d/.cache/
+/.emacs.d/elpa/
+/.emacs.d/eshell/
 /.env/
 /.erlang.cookie
 /.exercism
@@ -111,3 +114,5 @@
 /.zsh/functions/prompt_grb_setup
 /.zsh/history.*
 /.zsh_history
+*~
+\#*
