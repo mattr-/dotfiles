@@ -37,14 +37,8 @@ checkout = git clone teladoc:Teladoc/dash
 [$HOME/Code/teladoc/internal_documentation]
 checkout = git clone teladoc:Teladoc/internal_documentation
 
-[$HOME/Code/teladoc/ios_apps]
-checkout = git clone teladoc:Teladoc/ios_apps
-
 [$HOME/Code/teladoc/member]
 checkout = git clone teladoc:Teladoc/member
-
-[$HOME/Code/teladoc/nginx_app_template]
-checkout = git clone teladoc:Teladoc/nginx_app_template
 
 [$HOME/Code/teladoc/provider]
 checkout = git clone teladoc:Teladoc/provider
