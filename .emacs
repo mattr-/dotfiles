@@ -1,33 +1,35 @@
 ;; Increase the GC threshold so we go longer without garbage collection
-(setq gc-cons-threshold 20000000)
 
-;; {{{ Package Setup
-;; Enable the package repositories
-(require 'package)
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives '("marmalade" .  "https://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" .  "https://melpa.org/packages/") t)
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
 (package-initialize)
 
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+(setq gc-cons-threshold 20000000)
 
-;; Set up use-package
-(eval-when-compile
-  (require 'use-package))
-(require 'diminish)
-(require 'bind-key)
+;; Add our custom code directory to the load path
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-(use-package org
-  :ensure t)
+(require 'init-packages)
+(require 'init-evil)
+(require 'init-line-numbers)
+
+(use-package org :ensure t)
+;; {{{ org-mode settings
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(setq org-agenda-files '("~/Dropbox/org"))
+;; }}}
 
 (use-package helm
   :ensure t
   :config
   (helm-autoresize-mode 1)
   (setq helm-autoresize-min-height 10)
-  (setq helm-autoresize-max-height 20))
+  (setq helm-autoresize-max-height 20)
+  (global-set-key (kbd "M-x") 'helm-M-x)
+  (global-set-key (kbd "C-x C-f") 'helm-find-files)
+)
 
 (use-package lua-mode
   :ensure t
@@ -40,19 +42,21 @@
   :ensure t
 )
 
-(use-package evil
-  :ensure t
-  :config
-  (evil-mode 1))
-
 (use-package markdown-mode
   :ensure t
 )
 
-;; {{{ org-mode settings
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(setq org-agenda-files '("~/Dropbox/org"))
-;; }}}
+(use-package rainbow-delimiters
+  :ensure t
+)
+
+(use-package dash-at-point
+  :ensure t
+  :config
+  (global-set-key "\C-cd" 'dash-at-point)
+  )
+;;}}}
+
 
 ;; Turn off the menu bar
 (menu-bar-mode -1)
@@ -82,13 +86,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("7ceb8967b229c1ba102378d3e2c5fef20ec96a41f615b454e0dc0bfa1d326ea6" default)))
- '(org-agenda-files (quote ("~/Dropbox/org/minecraft.org")))
  '(package-selected-packages
    (quote
-    (markdown-mode evil arjen-grey-theme lua-mode helm use-package))))
+    (rainbow-delimiters markdown-mode evil arjen-grey-theme lua-mode helm use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
