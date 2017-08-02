@@ -14,12 +14,8 @@
 (require 'init-packages)
 (require 'init-evil)
 (require 'init-line-numbers)
+(require 'init-org-mode)
 
-(use-package org :ensure t)
-;; {{{ org-mode settings
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(setq org-agenda-files '("~/Dropbox/org"))
-;; }}}
 
 (use-package helm
   :ensure t
