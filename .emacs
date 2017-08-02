@@ -15,6 +15,7 @@
 (require 'init-evil)
 (require 'init-line-numbers)
 (require 'init-org-mode)
+(require 'init-emacs-defaults)
 
 
 (use-package helm
@@ -53,24 +54,6 @@
   )
 ;;}}}
 
-
-;; Turn off the menu bar
-(menu-bar-mode -1)
-
-;; Use 'y' or 'n' instead of 'yes' or 'no'
-(fset 'yes-or-no-p 'y-or-n-p)
-
-;; Show line numbers in the status bar
-(setq line-number-mode t)
-
-;; Show column numbers in the status bar
-(setq column-number-mode t)
-
-;; Set the default line wrap to 78
-(set-default 'fill-column 78)
-
-;; Highlight parenthesis after you type/navigate over them
-(show-paren-mode t)
 
 ;; {{{ Custom color theme settings
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
