@@ -17,4 +17,7 @@
 ;; Highlight parenthesis after you type/navigate over them
 (show-paren-mode t)
 
+;; Don't wrap long lines
+(setq-default truncate-lines nil)
+
 (provide 'init-emacs-defaults)
