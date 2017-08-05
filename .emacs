@@ -35,16 +35,13 @@
   (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 )
 
-(use-package ir-black-theme
-  :ensure t
+(use-package ir-black-theme :ensure t
 )
 
-(use-package markdown-mode
-  :ensure t
+(use-package markdown-mode :ensure t
 )
 
-(use-package rainbow-delimiters
-  :ensure t
+(use-package rainbow-delimiters :ensure t
 )
 
 (use-package dash-at-point
