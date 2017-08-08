@@ -39,9 +39,7 @@
 /.done.txt
 /.dotfiles/
 /.dropbox/
-/.emacs.d/.cache/
-/.emacs.d/elpa/
-/.emacs.d/eshell/
+/.emacs.d
 /.env/
 /.erlang.cookie
 /.exercism
