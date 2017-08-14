@@ -1,12 +1,12 @@
 ;; Increase the GC threshold so we go longer without garbage collection
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(package-initialize)
-
 (setq gc-cons-threshold 20000000)
+
+
+;; Set up user name info
+(setq user-full-name "Matt Rogers"
+      user-mail-address "codemattr@gmail.com")
+
+
 
 ;; Add our custom code directory to the load path
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
@@ -71,3 +71,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; (package-initialize)
