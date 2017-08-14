@@ -1,0 +1,23 @@
+# TAS environment variables
+export MY_ENV="mrogers"
+# Replace dev1 with your first name first initial and last name eg. pbasile
+
+export MY_SMTP_RELAY="smtp2.lan.teladoc.com"
+export MY_OMS="http://localhost:5000"
+export API_HOST="http://localhost:3030"
+export API_HOST_TEST="http://localhost:3030"
+export TAS_HOST="http://localhost:3030"
+export ADMIN_HOST="http://localhost:3100"
+export CALLCENTER_HOST="http://localhost:3200"
+export CLIENT_HOST="http://localhost:3300"
+export MEMBER_HOST="http://localhost:3400"
+export PROVIDER_HOST="http://localhost:3500"
+export REDIS_HOST="localhost"
+export REDIS_PORT="6379"
+export ESEARCH_QUEUE="esearch_index"
+export ESEARCH_HOST="http://localhost:9200"
+export MEMCACHED_SERVER="127.0.0.1"
+export MEDIA_URL="http://dev1.dal.teladoc.com"
+export IMAGE_URL="http://dev1.dal.teladoc.com"
+export DOWNLOAD_HOST="http://localhost:3030"
+export SIP_PREFIX="dev1"
