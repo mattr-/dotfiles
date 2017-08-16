@@ -1,13 +1,6 @@
 ;; Increase the GC threshold so we go longer without garbage collection
 (setq gc-cons-threshold 20000000)
 
-
-;; Set up user name info
-(setq user-full-name "Matt Rogers"
-      user-mail-address "codemattr@gmail.com")
-
-
-
 ;; Add our custom code directory to the load path
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
