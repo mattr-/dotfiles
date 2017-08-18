@@ -5,6 +5,7 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (require 'init-packages)
+(require 'init-keybindings)
 (require 'init-evil)
 (require 'init-line-numbers)
 (require 'init-org-mode)
