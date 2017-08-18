@@ -8,6 +8,7 @@
 (require 'init-evil)
 (require 'init-line-numbers)
 (require 'init-org-mode)
+(require 'init-magit)
 (require 'init-emacs-defaults)
 
 
