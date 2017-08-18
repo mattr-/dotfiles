@@ -62,7 +62,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (rainbow-delimiters markdown-mode evil arjen-grey-theme lua-mode helm use-package))))
+    (magit evil-matchit rainbow-delimiters markdown-mode evil arjen-grey-theme lua-mode helm use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
