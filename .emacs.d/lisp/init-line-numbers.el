@@ -1,3 +1,6 @@
+(use-package linum-relative
+  :commands (linum-relative-toggle linum-relative-on))
+
 (require 'linum)
 
 (defcustom linum-disabled-modes-list
@@ -46,5 +49,8 @@
   (setq linum-format 'linum-format-func))
 
 (global-linum-mode 1)
+
+(bind-map-set-keys my-base-leader-map
+  "nr" 'linum-relative-toggle)
 
 (provide 'init-line-numbers)
