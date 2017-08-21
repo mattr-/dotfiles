@@ -5,6 +5,7 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (require 'init-packages)
+(require 'init-keybindings)
 (require 'init-evil)
 (require 'init-line-numbers)
 (require 'init-org-mode)
@@ -30,16 +31,13 @@
   (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 )
 
-(use-package ir-black-theme
-  :ensure t
+(use-package ir-black-theme :ensure t
 )
 
-(use-package markdown-mode
-  :ensure t
+(use-package markdown-mode :ensure t
 )
 
-(use-package rainbow-delimiters
-  :ensure t
+(use-package rainbow-delimiters :ensure t
 )
 
 (use-package dash-at-point

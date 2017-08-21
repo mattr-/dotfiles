@@ -20,4 +20,7 @@
 ;; Don't wrap long lines
 (setq-default truncate-lines nil)
 
+;; End sentences with a single space
+(setq sentence-end-double-space nil)
+
 (provide 'init-emacs-defaults)
