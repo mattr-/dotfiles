@@ -11,6 +11,7 @@
 (require 'init-org-mode)
 (require 'init-magit)
 (require 'init-whitespace)
+(require 'init-editorconfig)
 (require 'init-emacs-defaults)
 
 
