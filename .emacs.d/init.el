@@ -14,6 +14,7 @@
 (require 'init-whitespace)
 (require 'init-editorconfig)
 (require 'init-emacs-defaults)
+(require 'init-ruby)
 
 
 (use-package helm
