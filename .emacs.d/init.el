@@ -7,6 +7,7 @@
 (require 'init-packages)
 (require 'init-keybindings)
 (require 'init-company)
+(require 'init-flycheck)
 (require 'init-evil)
 (require 'init-line-numbers)
 (require 'init-org-mode)
