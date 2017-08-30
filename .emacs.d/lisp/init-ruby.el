@@ -78,12 +78,20 @@
       "rcF" 'rubocop-autocorrect-current-file
       "rcD" 'rubocop-autocorrect-directory)))
 
+(use-package ruby-refactor
+  :ensure t
+  :init
+  (progn
+    (add-hook 'enh-ruby-mode-hook 'ruby-refactor-mode-launch))
+  :config
+  (progn
+    (bind-map-set-keys my-base-leader-map
+      "rll", 'ruby-refactor-extract-to-let)))
 
 
 (mattr|add-company-hook enh-ruby-mode)
 (with-eval-after-load 'company-dabbrev-code
   (push 'enh-ruby-mode company-dabbrev-code-modes))
-
 
 
 (provide 'init-ruby)
