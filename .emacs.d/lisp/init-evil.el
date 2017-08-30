@@ -13,6 +13,7 @@
 
 (use-package evil-numbers :ensure t)
 
+(use-package evil-tabs :ensure t)
 
 (evil-mode 1)
 
