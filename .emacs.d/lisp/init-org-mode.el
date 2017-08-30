@@ -1,9 +1,10 @@
 (use-package org-plus-contrib :ensure t)
-(use-package evil-org-mode
+(use-package evil-org
   :ensure t
   :after org
-  :config
-  (add-hook 'org-mode-book 'evil-org-mode)
+  :commands (evil-org-mode evil-org-recompute-clocks)
+  :init
+  (add-hook 'org-mode-hook 'evil-org-mode)
   (add-hook 'evil-org-mode-hook
 	    (lambda()
 	      (evil-org-set-key-theme))))

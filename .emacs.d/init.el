@@ -6,12 +6,16 @@
 
 (require 'init-packages)
 (require 'init-keybindings)
+(require 'init-company)
+(require 'init-flycheck)
 (require 'init-evil)
 (require 'init-line-numbers)
 (require 'init-org-mode)
 (require 'init-magit)
 (require 'init-whitespace)
+(require 'init-editorconfig)
 (require 'init-emacs-defaults)
+(require 'init-ruby)
 
 
 (use-package helm
