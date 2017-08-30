@@ -60,28 +60,38 @@
       "tt" 'ruby-test-run
       "tn" 'ruby-test-run-at-point)))
 
-  (use-package rubocop
-    :ensure t
-    :defer t
-    :init
-    (progn
-      (add-hook 'enh-ruby-mode-hook 'rubocop-mode)
-    :config
-    (progn
-      (with-eval-after-load 'rubocop
-	(diminish 'rubocop-mode))
-      (bind-map-set-keys my-base-leader-map
-	"rcp" 'rubocop-check-project
-	"rcd" 'rubocop-check-directory
-	"rcf" 'rubocop-check-current-file
-	"rcP" 'rubocop-autocorrect-project
-	"rcF" 'rubocop-autocorrect-current-file
-	"rcD" 'rubocop-autocorrect-directory))))
+(use-package rubocop
+  :ensure t
+  :defer t
+  :init
+  (progn
+    (add-hook 'enh-ruby-mode-hook 'rubocop-mode))
+  :config
+  (progn
+    (with-eval-after-load 'rubocop
+      (diminish 'rubocop-mode))
+    (bind-map-set-keys my-base-leader-map
+      "rcp" 'rubocop-check-project
+      "rcd" 'rubocop-check-directory
+      "rcf" 'rubocop-check-current-file
+      "rcP" 'rubocop-autocorrect-project
+      "rcF" 'rubocop-autocorrect-current-file
+      "rcD" 'rubocop-autocorrect-directory)))
+
+(use-package ruby-refactor
+  :ensure t
+  :init
+  (progn
+    (add-hook 'enh-ruby-mode-hook 'ruby-refactor-mode-launch))
+  :config
+  (progn
+    (bind-map-set-keys my-base-leader-map
+      "rll", 'ruby-refactor-extract-to-let)))
+
 
 (mattr|add-company-hook enh-ruby-mode)
 (with-eval-after-load 'company-dabbrev-code
   (push 'enh-ruby-mode company-dabbrev-code-modes))
-
 
 
 (provide 'init-ruby)
