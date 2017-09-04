@@ -5,10 +5,16 @@ hs.window.animationDuration = 0 -- Don't animate window movements/resizes
 
 hyper = {"cmd", "shift", "ctrl", "alt"}
 reload_keys = {hyper, "R"}
-hs.hotkey.bind(reload_keys[1], reload_keys[2], "Reload Configuration", function () hs.reload() end)
+hs.hotkey.bind(reload_keys[1],
+               reload_keys[2],
+               "Reload Configuration",
+               function () hs.reload() end)
 
 time_keys = {hyper, "T"}
-hs.hotkey.bind(time_keys[1], time_keys[2], nil, function() show_time() end)
+hs.hotkey.bind(time_keys[1],
+               time_keys[2],
+               "Show a clock",
+               function() show_time() end)
 
 darkblue = {red=24/255,blue=195/255,green=145/255,alpha=1}
 
@@ -126,17 +132,29 @@ hs.hotkey.bind(resizeextra_lefthalf_keys[1], resizeextra_lefthalf_keys[2], nil, 
 
 resizeextra_righthalf_keys = {hyper, "right"}
 if string.len(resizeextra_righthalf_keys[2]) > 0 then
-    hs.hotkey.bind(resizeextra_righthalf_keys[1], resizeextra_righthalf_keys[2], nil, function() resize_win('halfright') end)
+   hs.hotkey.bind(resizeextra_righthalf_keys[1],
+                  resizeextra_righthalf_keys[2],
+                  nil,
+                  function() resize_win('halfright') end)
 end
 resizeextra_fullscreen_keys = {hyper, "up"}
 if string.len(resizeextra_fullscreen_keys[2]) > 0 then
-    hs.hotkey.bind(resizeextra_fullscreen_keys[1], resizeextra_fullscreen_keys[2], nil, function() resize_win('fullscreen') end)
+   hs.hotkey.bind(resizeextra_fullscreen_keys[1],
+                  resizeextra_fullscreen_keys[2],
+                  nil,
+                  function() resize_win('fullscreen') end)
 end
 resizeextra_fcenter_keys = {hyper, "down"}
 if string.len(resizeextra_fcenter_keys[2]) > 0 then
-    hs.hotkey.bind(resizeextra_fcenter_keys[1], resizeextra_fcenter_keys[2], nil, function() resize_win('fcenter') end)
+   hs.hotkey.bind(resizeextra_fcenter_keys[1],
+                  resizeextra_fcenter_keys[2],
+                  nil,
+                  function() resize_win('fcenter') end)
 end
 resizeextra_center_keys = {hyper, "return"}
 if string.len(resizeextra_center_keys[2]) > 0 then
-    hs.hotkey.bind(resizeextra_center_keys[1], resizeextra_center_keys[2], nil, function() resize_win('center') end)
+   hs.hotkey.bind(resizeextra_center_keys[1],
+                  resizeextra_center_keys[2],
+                  nil,
+                  function() resize_win('center') end)
 end
