@@ -29,7 +29,7 @@ function show_time()
       time_draw:setLevel(hs.drawing.windowLevels.overlay)
       time_draw:show()
       if ttimer == nil then
-          ttimer = hs.timer.doAfter(4, function() time_draw:delete() time_draw=nil end)
+          ttimer = hs.timer.doAfter(1.5, function() time_draw:delete() time_draw=nil end)
       else
           ttimer:start()
       end
