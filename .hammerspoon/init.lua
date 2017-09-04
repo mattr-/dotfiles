@@ -1,5 +1,6 @@
 -- {{{ Adjust Hammerspoon defaults
-hs.window.animationDuration = 0
+hs.hotkey.alertDuration = 0 -- Don't show titles for hotkeys
+hs.window.animationDuration = 0 -- Don't animate window movements/resizes
 -- }}}
 
 hyper = {"cmd", "shift", "ctrl", "alt"}
