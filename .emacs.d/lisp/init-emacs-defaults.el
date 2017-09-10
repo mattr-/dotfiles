@@ -32,4 +32,7 @@
 ;; End sentences with a single space
 (setq sentence-end-double-space nil)
 
+;; Only use spaces
+(setq-default indent-tabs-mode nil)
+
 (provide 'init-emacs-defaults)
