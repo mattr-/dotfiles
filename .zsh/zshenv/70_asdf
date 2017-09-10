@@ -1,0 +1,2 @@
+path=(/usr/local/opt/asdf/bin /usr/local/opt/asdf/shims $path)
+export ASDF_DIR=/usr/local/opt/asdf
