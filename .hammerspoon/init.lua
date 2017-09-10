@@ -1,4 +1,5 @@
 -- {{{ Adjust Hammerspoon defaults
+
 hs.hotkey.alertDuration = 0 -- Don't show titles for hotkeys
 hs.window.animationDuration = 0 -- Don't animate window movements/resizes
 -- }}}
@@ -19,32 +20,36 @@ hs.hotkey.bind(time_keys[1],
 darkblue = {red=24/255,blue=195/255,green=145/255,alpha=1}
 
 -- {{{ Show the time
+function close_time_display()
+   time_draw:delete()
+   time_draw = nil
+end
+
 function show_time()
    if time_draw == nil then
       local mainScreen = hs.screen.mainScreen()
       local mainRes = mainScreen:fullFrame()
       local localMainRes = mainScreen:absoluteToLocal(mainRes)
       local time_str = hs.styledtext.new(os.date("%H:%M"),
-                     {font={name="Impact",size=120},
-                      color=darkblue,
-                      paragraphStyle={alignment="center"}})
-      local timeframe = hs.geometry.rect(mainScreen:localToAbsolute((localMainRes.w-300)/2,
-                        (localMainRes.h-200)/2,
-                        300,
-                        200))
+                                         {font={name="Impact",size=120},
+                                          color=darkblue,
+                                          paragraphStyle={alignment="center"}})
+      local timeframe = hs.geometry.rect(mainScreen:localToAbsolute(
+                                            (localMainRes.w - 300) / 2,
+                                            (localMainRes.h - 200) / 2,
+                                            300, 200))
       time_draw = hs.drawing.text(timeframe,time_str)
       time_draw:setLevel(hs.drawing.windowLevels.overlay)
       time_draw:show()
       if ttimer == nil then
-          ttimer = hs.timer.doAfter(1.5, function() time_draw:delete() time_draw=nil end)
+         ttimer = hs.timer.doAfter(1.5, close_time_display)
       else
-          ttimer:start()
+         ttimer:start()
       end
   else
       ttimer:stop()
-      time_draw:delete()
-      time_draw=nil
-   end
+      close_time_display()
+  end
 end -- }}}
 
 -- {{{ Resize Windows
@@ -120,6 +125,12 @@ function resize_win(direction)
         if direction == "mdown" then
             localf.y = localf.y+steph
         end
+        if direction == "720hd" then
+           localf.x = 0
+           localf.y = 180
+           localf.w = 1280
+           localf.h = 720
+        end
         local absolutef = screen:localToAbsolute(localf)
         win:setFrame(absolutef)
     else
@@ -158,3 +169,24 @@ if string.len(resizeextra_center_keys[2]) > 0 then
                   nil,
                   function() resize_win('center') end)
 end
+resizeextra_720hd_keys = {hyper, "7"}
+if string.len(resizeextra_720hd_keys[2]) > 0 then
+   hs.hotkey.bind(resizeextra_720hd_keys[1],
+                  resizeextra_720hd_keys[2],
+                  nil,
+                  function() resize_win('720hd') end)
+end
+
+
+-- {{{ Modal window management configuration
+modal_toggle_key = "W"
+window_manager = hs.hotkey.modal.new(hyper, modal_toggle_key)
+window_manager:bind('', 'escape', function() window_manager:exit() end)
+window_manager:bind('', "L", function() resize_win("halfleft") end)
+window_manager:bind('', "R", function() resize_win("halfright") end)
+window_manager:bind('', "T", function() resize_win("halfup") end)
+window_manager:bind('', "B", function() resize_win("halfdown") end)
+window_manager:bind('', "1", function() apply_layout("default") end)
+window_manager:bind('', "2", function() apply_layout("stream") end)
+
+-- }}}
