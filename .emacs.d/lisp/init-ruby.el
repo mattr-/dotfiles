@@ -86,7 +86,7 @@
   :config
   (progn
     (bind-map-set-keys my-base-leader-map
-      "rll", 'ruby-refactor-extract-to-let)))
+      "rll" 'ruby-refactor-extract-to-let)))
 
 
 (mattr|add-company-hook enh-ruby-mode)

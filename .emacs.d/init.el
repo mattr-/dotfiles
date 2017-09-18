@@ -16,6 +16,7 @@
 (require 'init-editorconfig)
 (require 'init-emacs-defaults)
 (require 'init-ruby)
+(require 'init-elixir)
 
 
 (use-package helm
