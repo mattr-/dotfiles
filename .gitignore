@@ -116,3 +116,8 @@
 /.zsh_history
 *~
 \#*
+.emacs.d/network-security.data
+.bundle/cache
+.zsh/cache-gloop
+.aws/credentials
+.nodenv
