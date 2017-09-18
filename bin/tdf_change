@@ -1,0 +1,17 @@
+#!/bin/sh
+NEWLINE="true"
+while getopts n OPT ; do
+    case "$OPT" in
+        n)
+            NEWLINE="false" ;;
+    esac
+done
+
+shift $((OPTIND-1))
+
+for dir in tas teladoc_framework admin client member provider; do
+    pushd $dir>/dev/null
+    [[ "$NEWLINE" == "false" ]] && /bin/echo -n "$dir: " || /bin/echo "$dir: "
+    $*
+    popd >/dev/null
+done

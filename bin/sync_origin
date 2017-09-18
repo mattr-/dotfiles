@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -e
+
+git fetch origin && git merge origin/master && git commit
+[[ "$1" == "--push" ]] && git push origin `git symbolic-ref --short`
