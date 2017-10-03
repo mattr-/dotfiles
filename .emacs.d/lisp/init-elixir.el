@@ -66,18 +66,21 @@
 ;;;
 ;;;      "," 'alchemist-goto-jump-back)
 ;;;
-;;;    (dolist (mode (list alchemist-compile-mode-map
-;;;                        alchemist-eval-mode-map
-;;;                        alchemist-execute-mode-map
-;;;                        alchemist-message-mode-map
-;;;                        alchemist-help-minor-mode-map
-;;;                        alchemist-mix-mode-map
-;;;                        alchemist-macroexpand-mode-map
-;;;                        alchemist-refcard-mode-map
-;;;                        alchemist-test-report-mode-map))
-;;;      (evil-define-key 'normal mode
-;;;        (kbd "q") 'quit-window))))
-;;;
+(dolist (mode (list alchemist-compile-mode-map
+                    alchemist-eval-mode-map
+                    alchemist-execute-mode-map
+                    alchemist-message-mode-map
+                    alchemist-help-minor-mode-map
+                    alchemist-mix-mode-map
+                    alchemist-macroexpand-mode-map
+                    alchemist-refcard-mode-map
+                    alchemist-test-report-mode-map))
+  (evil-define-key 'normal mode
+    (kbd "q") 'quit-window))
+
+(push '("*alchemist test report*" :noselect t) popwin:special-display-config)
+(push '("*alchemist mix*" :noselect t) popwin:special-display-config)
+
 
 (use-package elixir-mode
   :ensure t
