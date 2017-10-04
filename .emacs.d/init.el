@@ -6,6 +6,7 @@
 
 (require 'init-packages)
 (require 'init-keybindings)
+(require 'init-popwin)
 (require 'init-company)
 (require 'init-flycheck)
 (require 'init-evil)
@@ -65,7 +66,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (magit evil-matchit rainbow-delimiters markdown-mode evil arjen-grey-theme lua-mode helm use-package))))
+    (popwin flycheck-credo elixir-mode alchemist magit evil-matchit rainbow-delimiters markdown-mode evil arjen-grey-theme lua-mode helm use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
