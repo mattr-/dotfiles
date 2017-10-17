@@ -1,0 +1,7 @@
+#!/bin/sh
+[ -n $1 ] && HOST="$1" || HOST="localhost"
+echo "Checking deployed branches on $HOST"
+ssh $HOST 'for app in admin application_version callcenter client krono member mobile_api oms provider tas
+do
+    echo "$app : `cat /telapp/$app/current/.branch`"
+done'

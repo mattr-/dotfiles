@@ -35,4 +35,8 @@
 ;; Only use spaces
 (setq-default indent-tabs-mode nil)
 
+;; No backup files please
+(setq backup-inhibited t)
+(setq make-backup-files nil)
+
 (provide 'init-emacs-defaults)
