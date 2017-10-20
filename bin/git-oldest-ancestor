@@ -1,0 +1,2 @@
+#!/bin/zsh
+diff --old-line-format='' --new-line-format='' <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | head -1 | cut -c1-7
