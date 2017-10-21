@@ -131,6 +131,12 @@ function resize_win(direction)
            localf.w = 1280
            localf.h = 720
         end
+        if direction == "1080hd" then
+            localf.x = 0
+            localf.y = 0
+            localf.w = 1920
+            localf.h = 1080
+        end
         local absolutef = screen:localToAbsolute(localf)
         win:setFrame(absolutef)
     else
@@ -175,6 +181,14 @@ if string.len(resizeextra_720hd_keys[2]) > 0 then
                   resizeextra_720hd_keys[2],
                   nil,
                   function() resize_win('720hd') end)
+end
+
+resizeextra_1080_keys = {hyper, "9"}
+if string.len(resizeextra_1080_keys[2]) > 0 then
+   hs.hotkey.bind(resizeextra_1080_keys[1],
+                  resizeextra_1080_keys[2],
+                  nil,
+                  function() resize_win('1080hd') end)
 end
 
 
