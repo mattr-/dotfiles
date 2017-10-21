@@ -1,0 +1,78 @@
+#+TITLE: Matt Rogers' Emacs Config
+#+OPTIONS: toc:4 h:4
+#+STARTUP: showeverything
+
+* Configuration
+** About
+   :PROPERTIES:
+   :CUSTOM_ID: babel-init
+   :END:
+<<babel-init>>
+My little emacs configuration. This is inspired by DOOM, Spacemacs, and Sacha
+Chua's emacs config. It's an attempt to make my emacs configuration less of a
+mess.
+
+Run =M-x org-babel-tangle= (=C-c C-v t=) to get a =mattr.el= file and then
+symlink that to =init.el=
+
+** Package initialization
+#+BEGIN_SRC emacs-lisp :tangle yes
+;; All the package set up goes here
+(require 'package)
+
+(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
+
+;;; On-demand installation of packages - Thanks to Steve Purcell for these two
+;;; functions below
+
+(defun require-package (package &optional min-version no-refresh)
+  "Install given PACKAGE, optionally requiring MIN-VERSION.
+If NO-REFRESH is non-nil, the available package lists will not be
+re-downloaded in order to locate PACKAGE."
+  (if (package-installed-p package min-version)
+      t
+    (if (or (assoc package package-archive-contents) no-refresh)
+        (if (boundp 'package-selected-packages)
+            ;; Record this as a package the user installed explicitly
+            (package-install package nil)
+          (package-install package))
+      (progn
+        (package-refresh-contents)
+        (require-package package min-version t)))))
+
+
+(defun maybe-require-package (package &optional min-version no-refresh)
+  "Try to install PACKAGE, and return non-nil if successful.
+In the event of failure, return nil and print a warning message.
+Optionally require MIN-VERSION.  If NO-REFRESH is non-nil, the
+available package lists will not be re-downloaded in order to
+locate PACKAGE."
+  (condition-case err
+      (require-package package min-version no-refresh)
+    (error
+     (message "Couldn't install optional package `%s': %S" package err)
+     nil)))
+
+
+(setq package-enable-at-startup nil)
+(package-initialize)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+;; Set up use-package
+(eval-when-compile (require 'use-package))
+(require 'diminish)
+(require 'bind-key)
+
+#+END_SRC
+
+** Personal Information
+#+BEGIN_SRC emacs-lisp :tangle yes
+(setq user-full-name  "Matt Rogers"
+      user-mail-address "codemattr@gmail.com"
+#+END_SRC
+
