@@ -42,6 +42,9 @@
 /.emacs.d/.cache/
 /.emacs.d/elpa/
 /.emacs.d/eshell/
+/.emacs.d/savehist
+/.emacs.d/projectile.cache
+/.emacs.d/projectile.project
 /.env/
 /.erlang.cookie
 /.exercism
