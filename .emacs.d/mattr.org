@@ -254,17 +254,6 @@ Trigger whitespace cleanup whenever I want
   "sw" 'whitespace-cleanup)
 #+END_SRC
 
-
-
-
-
-
-
-
-
-
-
-
 *** Editor Config Support
 Support =.editorconfig=
 #+BEGIN_SRC emacs-lisp :tangle yes
