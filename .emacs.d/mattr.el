@@ -174,34 +174,30 @@
 
 
 (use-package evil-surround
-  :ensure t
   :config
   (global-evil-surround-mode 1))
 
 (use-package evil-matchit
-  :ensure t
   :config
   (global-evil-matchit-mode 1))
 
-(use-package evil-numbers :ensure t)
-(use-package evil-tabs :ensure t)
+(use-package evil-numbers)
+(use-package evil-tabs)
 (evil-mode 1)
 
 (use-package popwin
   :config
-  (progn
-    (popwin-mode 1)
-    (bind-map-set-keys my-normal-base-leader-map
+  (popwin-mode 1)
+  (bind-map-set-keys my-normal-base-leader-map
       "wpm" 'popwin:messages
-      "wpp" 'popwin:close-popup-window)))
+      "wpp" 'popwin:close-popup-window))
 
 (use-package flycheck
   :defer t
   :init
-  (progn
     (add-hook 'after-init-hook #'global-flycheck-mode)
-    (with-eval-after-load 'flycheck
-      (diminish 'flycheck-mode " ⓢ"))))
+  :config
+    (diminish 'flycheck-mode " ⓢ"))
 
 (defvar mattr-default-company-backends
   '((company-dabbrev-code company-gtags company-etags company-keywords)
@@ -237,24 +233,30 @@ The initialization function is hooked to `MODE-hook'."
 (use-package company
   :defer t
   :init
-  (progn
     (setq company-idle-delay 0.2
 	  company-minimum-prefix-length 2
 	  company-require-match nil
 	  company-dabbrev-ignore-case nil
-	  company-dabbrev-downcase nil))
+	  company-dabbrev-downcase nil)
   :config
-  (progn
     (diminish company-mode)
     (let ((map company-active-map))
       (define-key map (kbd "C-j") 'company-select-next)
       (define-key map (kbd "C-k") 'company-select-previous)
-      (define-key map (kbd "C-l") 'company-complete-selection))))
+      (define-key map (kbd "C-l") 'company-complete-selection)))
 
-(use-package magit :defer t)
+(use-package magit
+  :defer t
+  :config
+    (bind-map-set-keys my-normal-base-leader-map
+      "gs" 'magit-status))
+
 (use-package evil-magit :defer t)
-(bind-map-set-keys my-normal-base-leader-map
-  "gs" 'magit-status)
+
+(use-package projectile
+  :config
+  (setq projectile-cache-file (concat user-emacs-directory "projectile.cache")
+        projectile-known-projects-file (concat user-emacs-directory "projectile.project")))
 
 ;; From spacemacs
 (defun spacemacs//enable-rbenv ()
@@ -273,7 +275,6 @@ The initialization function is hooked to `MODE-hook'."
 (mattr|defvar-company-backends enh-ruby-mode)
 
 (use-package bundler
-  :ensure t
   :defer t
   :init
   (bind-map-set-keys my-normal-base-leader-map
@@ -285,14 +286,12 @@ The initialization function is hooked to `MODE-hook'."
     "bo" 'bundle-open))
 
 (use-package rbenv
-  :ensure t
   :defer t
   :init
   (add-hook 'spacemacs//enable-rbenv 'enh-ruby-mode-hook))
 
 (use-package enh-ruby-mode
   :defer t
-  :ensure t
   :mode (("Appraisals\\'" . enh-ruby-mode)
 	 ("\\(Rake\\|Thor\\|Guard\\|Gem\\|Cap\\|Vagrant\\|Berks\\|Pod\\|Puppet\\)file\\'" . enh-ruby-mode)
 	 ("\\.\\(rb\\|rabl\\|ru\\|builder\\|rake\\|thor\\|gemspec\\|jbuilder\\)\\'" . enh-ruby-mode))
@@ -304,7 +303,6 @@ The initialization function is hooked to `MODE-hook'."
 
 (use-package robe
   :defer t
-  :ensure t
   :init
   (progn
     (add-hook 'enh-ruby-mode-hook 'robe-mode)
@@ -315,7 +313,6 @@ The initialization function is hooked to `MODE-hook'."
 
 (use-package ruby-test-mode
   :defer t
-  :ensure t
   :config
   (progn
     (bind-map-set-keys my-normal-base-leader-map
@@ -323,7 +320,6 @@ The initialization function is hooked to `MODE-hook'."
       "tn" 'ruby-test-run-at-point)))
 
 (use-package rubocop
-  :ensure t
   :defer t
   :init
   (progn
@@ -341,7 +337,6 @@ The initialization function is hooked to `MODE-hook'."
       "rcD" 'rubocop-autocorrect-directory)))
 
 (use-package ruby-refactor
-  :ensure t
   :defer t
   :init
   (progn
@@ -443,11 +438,9 @@ The initialization function is hooked to `MODE-hook'."
 
 
 (use-package elixir-mode
-  :ensure t
   :defer t)
 
 (use-package flycheck-credo
-  :ensure t
   :defer t
   :init (add-hook 'flycheck-mode-hook #'flycheck-credo-setup))
 
@@ -455,7 +448,6 @@ The initialization function is hooked to `MODE-hook'."
 
 (use-package lua-mode
   :defer t
-  :ensure t
   :mode (("\\.lua$" . lua-mode))
   :interpreter "lua"
 )
@@ -476,3 +468,17 @@ The initialization function is hooked to `MODE-hook'."
     (doom-themes-visual-bell-config) ; flash mode line on error
     (doom-themes-org-config) ; improve org-mode native fontification
 )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (doom-themes projectile yaml-mode vimrc-mode use-package toml-mode ruby-test-mode ruby-refactor rubocop robe rbenv rainbow-delimiters popwin org-plus-contrib memoize markdown-mode lua-mode linum-relative ir-black-theme helm font-lock+ flycheck-credo evil-tabs evil-surround evil-org evil-numbers evil-matchit evil-magit enh-ruby-mode editorconfig dockerfile-mode dash-at-point bundler bind-map auto-compile alchemist))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

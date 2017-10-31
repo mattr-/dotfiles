@@ -303,17 +303,15 @@ me. And the more like vim we can make emacs, the better
 
 
 (use-package evil-surround
-  :ensure t
   :config
   (global-evil-surround-mode 1))
 
 (use-package evil-matchit
-  :ensure t
   :config
   (global-evil-matchit-mode 1))
 
-(use-package evil-numbers :ensure t)
-(use-package evil-tabs :ensure t)
+(use-package evil-numbers)
+(use-package evil-tabs)
 (evil-mode 1)
 #+END_SRC
 
@@ -322,11 +320,10 @@ me. And the more like vim we can make emacs, the better
 #+BEGIN_SRC emacs-lisp :tangle yes 
 (use-package popwin
   :config
-  (progn
-    (popwin-mode 1)
-    (bind-map-set-keys my-normal-base-leader-map
+  (popwin-mode 1)
+  (bind-map-set-keys my-normal-base-leader-map
       "wpm" 'popwin:messages
-      "wpp" 'popwin:close-popup-window)))
+      "wpp" 'popwin:close-popup-window))
 #+END_SRC
 ** Automatic syntax checking
 Currently, we'll be using Flycheck for this. Seems pretty handy
@@ -334,10 +331,9 @@ Currently, we'll be using Flycheck for this. Seems pretty handy
 (use-package flycheck
   :defer t
   :init
-  (progn
     (add-hook 'after-init-hook #'global-flycheck-mode)
-    (with-eval-after-load 'flycheck
-      (diminish 'flycheck-mode " ⓢ"))))
+  :config
+    (diminish 'flycheck-mode " ⓢ"))
 #+END_SRC
 ** Automatic completion
 I took a lot of the company config from spacemacs because I liked how
@@ -387,34 +383,31 @@ Setup company itself
 (use-package company
   :defer t
   :init
-  (progn
     (setq company-idle-delay 0.2
 	  company-minimum-prefix-length 2
 	  company-require-match nil
 	  company-dabbrev-ignore-case nil
-	  company-dabbrev-downcase nil))
+	  company-dabbrev-downcase nil)
   :config
-  (progn
     (diminish company-mode)
     (let ((map company-active-map))
       (define-key map (kbd "C-j") 'company-select-next)
       (define-key map (kbd "C-k") 'company-select-previous)
-      (define-key map (kbd "C-l") 'company-complete-selection))))
+      (define-key map (kbd "C-l") 'company-complete-selection)))
 #+END_SRC
-
-
-
-
 
 ** Version Control
 I love how simple this is to setup and how well it works without a
 bunch of tweaking out of the box. magit is good stuff
 
 #+BEGIN_SRC emacs-lisp :tangle yes
-(use-package magit :defer t)
+(use-package magit
+  :defer t
+  :config
+    (bind-map-set-keys my-normal-base-leader-map
+      "gs" 'magit-status))
+
 (use-package evil-magit :defer t)
-(bind-map-set-keys my-normal-base-leader-map
-  "gs" 'magit-status)
 #+END_SRC
 
 
@@ -428,7 +421,7 @@ mean time, let's set up =projectile= for project stuff
 (use-package projectile
   :config
   (setq projectile-cache-file (concat user-emacs-directory "projectile.cache")
-        projectile-known-projects-file (concat user-emacs-directory "projectile.project")
+        projectile-known-projects-file (concat user-emacs-directory "projectile.project")))
 #+END_SRC
 
 ** Language Support
@@ -452,7 +445,6 @@ mean time, let's set up =projectile= for project stuff
 (mattr|defvar-company-backends enh-ruby-mode)
 
 (use-package bundler
-  :ensure t
   :defer t
   :init
   (bind-map-set-keys my-normal-base-leader-map
@@ -464,14 +456,12 @@ mean time, let's set up =projectile= for project stuff
     "bo" 'bundle-open))
 
 (use-package rbenv
-  :ensure t
   :defer t
   :init
   (add-hook 'spacemacs//enable-rbenv 'enh-ruby-mode-hook))
 
 (use-package enh-ruby-mode
   :defer t
-  :ensure t
   :mode (("Appraisals\\'" . enh-ruby-mode)
 	 ("\\(Rake\\|Thor\\|Guard\\|Gem\\|Cap\\|Vagrant\\|Berks\\|Pod\\|Puppet\\)file\\'" . enh-ruby-mode)
 	 ("\\.\\(rb\\|rabl\\|ru\\|builder\\|rake\\|thor\\|gemspec\\|jbuilder\\)\\'" . enh-ruby-mode))
@@ -483,7 +473,6 @@ mean time, let's set up =projectile= for project stuff
 
 (use-package robe
   :defer t
-  :ensure t
   :init
   (progn
     (add-hook 'enh-ruby-mode-hook 'robe-mode)
@@ -494,7 +483,6 @@ mean time, let's set up =projectile= for project stuff
 
 (use-package ruby-test-mode
   :defer t
-  :ensure t
   :config
   (progn
     (bind-map-set-keys my-normal-base-leader-map
@@ -502,7 +490,6 @@ mean time, let's set up =projectile= for project stuff
       "tn" 'ruby-test-run-at-point)))
 
 (use-package rubocop
-  :ensure t
   :defer t
   :init
   (progn
@@ -520,7 +507,6 @@ mean time, let's set up =projectile= for project stuff
       "rcD" 'rubocop-autocorrect-directory)))
 
 (use-package ruby-refactor
-  :ensure t
   :defer t
   :init
   (progn
@@ -627,11 +613,9 @@ mean time, let's set up =projectile= for project stuff
 
 
 (use-package elixir-mode
-  :ensure t
   :defer t)
 
 (use-package flycheck-credo
-  :ensure t
   :defer t
   :init (add-hook 'flycheck-mode-hook #'flycheck-credo-setup))
 
@@ -642,7 +626,6 @@ mean time, let's set up =projectile= for project stuff
 #+BEGIN_SRC emacs-lisp :tangle yes 
 (use-package lua-mode
   :defer t
-  :ensure t
   :mode (("\\.lua$" . lua-mode))
   :interpreter "lua"
 )
