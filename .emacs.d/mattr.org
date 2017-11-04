@@ -404,9 +404,10 @@ bunch of tweaking out of the box. magit is good stuff
 (use-package magit
   :defer t
   :config
-    (bind-map-set-keys my-normal-base-leader-map
-      "gs" 'magit-status))
-
+  (with-eval-after-load 'magit
+    (require 'evil-magit)))
+  (bind-map-set-keys my-normal-base-leader-map
+    "gs" 'magit-status))
 (use-package evil-magit :defer t)
 #+END_SRC
 
