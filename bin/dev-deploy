@@ -1,9 +1,18 @@
 #!/bin/sh
+#
+# Usage: dev-deploy <repo> <branch> <host>
+#
+# Deploy the branch specified by <branch> from the repo <repo> to the
+# host specified by the -t option
+#
+# Make sure that you've defined two environment variables before using this script
+#   GITHUB_USER - your GitHub username
+#   GITHUB_TOKEN - A personal access token from GitHub with at least `read:org` access
 
+HOST=$3
+REPO=$1
+BRANCH=$2
 
-HOST=$1
-REPO=$2
-BRANCH=$3
 echo "Deploying $BRANCH of $REPO to $HOST"
 curl -X POST \
  --user "$GITHUB_USER:$GITHUB_TOKEN" \
