@@ -1,0 +1,11 @@
+#!/bin/bash
+
+while true
+do
+  build_status=`hub ci-status`
+  test "$build_status" != "pending" && break
+  sleep 60
+done
+
+say -v Daniel Your build is complete
+

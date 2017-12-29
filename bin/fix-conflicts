@@ -1,0 +1,8 @@
+#!/bin/sh
+
+conflicted_files=$(git conflicts)
+if [ "$conflicted_files" != "" ]
+then
+    vim $(git conflicts)
+fi
+

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+CURRENT_DIR=`basename $PWD`
+if [ "$CURRENT_DIR" == "teladoc_constants_gem" -o "$CURRENT_DIR" == "rte" ] ; then
+    echo "No TCG to update"
+    exit 0
+fi
+
+bundle update teladoc_constants_gem && git add Gemfile.lock && git commit -m "update teladoc_constants_gem"
+

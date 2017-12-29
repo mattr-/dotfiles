@@ -7,5 +7,5 @@ if [ "$CURRENT_DIR" == "tas" -o "$CURRENT_DIR" == "teladoc_framework" ] ; then
     exit 0
 fi
 
-bundle update teladoc_framework && git add Gemfile.lock && git commit -m "update teladoc_framework" && git push -u origin `git symbolic-ref --short HEAD`
+bundle update teladoc_framework && git add Gemfile.lock && git commit -m "update teladoc_framework"
 

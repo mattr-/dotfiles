@@ -13,8 +13,14 @@ HOST=$3
 REPO=$1
 BRANCH=$2
 
+if [ "$REPO" == "--current" ]; then
+    HOST="$2"
+    REPO=`basename $PWD`
+    BRANCH=`git srf --short`
+fi
+
 echo "Deploying $BRANCH of $REPO to $HOST"
 curl -X POST \
- --user "$GITHUB_USER:$GITHUB_TOKEN" \
+ --user "$GITHUB_JENKINS_USER:$GITHUB_JENKINS_TOKEN" \
  --data-urlencode json='{"parameter": [{"name":"DEPLOY_ENV", "value": "'$HOST'"}, {"name":"DEPLOY_TARGET", "value":"'$REPO'"}, {"name":"DEPLOY_BRANCH", "value":"'$BRANCH'"}]}' \
  jenkins.prod.env.teladoc.com/job/deploy-dev/build

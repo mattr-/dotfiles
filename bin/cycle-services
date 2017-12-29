@@ -1,0 +1,6 @@
+#!/bin/sh
+for session in `tmux ls -F "#{session_name}"`
+do
+    echo "Cycling session $session"
+    tmux send-keys -t "${session}:2" C-c '' Enter
+done

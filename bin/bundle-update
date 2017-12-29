@@ -1,0 +1,10 @@
+#!/bin/sh
+for dir in admin callcenter client dash member provider rte tas teladoc_api teladoc_constants_gem teladoc_ehr teladoc_framework testservers mobile_api xtremepush
+do
+    pushd $dir
+    git stash ; git co master ; git reset --hard origin/master
+    git pull --rebase
+    rm Gemfile.lock
+    CC=/usr/local/Cellar/apple-gcc42/4.2.1-5666.3/bin/gcc-4.2 CXX=/usr/local/Cellar/apple-gcc42/4.2.1-5666.3/bin/g++-4.2 CPP=/usr/local/Cellar/apple-gcc42/4.2.1-5666.3/bin/cpp-4.2 bundle
+    popd
+done

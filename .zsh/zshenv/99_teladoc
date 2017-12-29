@@ -21,3 +21,4 @@ export MEDIA_URL="http://dev1.dal.teladoc.com"
 export IMAGE_URL="http://dev1.dal.teladoc.com"
 export DOWNLOAD_HOST="http://localhost:3030"
 export SIP_PREFIX="dev1"
+export GITHUB_JENKINS_USER='mrogers'

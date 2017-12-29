@@ -1,0 +1,6 @@
+#!/bin/sh
+# Usage: git-conflicts
+# Show list of files in a conflict state.
+# Wynn Netherland wrote this and posted it at https://wynnnetherland.com/journal/extending-the-command-line/
+git ls-files -u | awk '{print $4}' | sort -u
+

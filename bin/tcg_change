@@ -9,7 +9,7 @@ done
 
 shift $((OPTIND-1))
 
-for dir in tas teladoc_constants_gem teladoc_framework admin client member provider mobile_api acceptance_tests teladoc_api; do
+for dir in tas rte teladoc_constants_gem teladoc_framework admin client callcenter member provider mobile_api acceptance_tests teladoc_api; do
     pushd $dir>/dev/null
     [[ "$NEWLINE" == "false" ]] && /bin/echo -n "$dir: " || /bin/echo "$dir: "
     $*
