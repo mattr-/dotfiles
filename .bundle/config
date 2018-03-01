@@ -1,4 +1,2 @@
 ---
-BUNDLE_LOCAL__CAPISTRANO_GITHUB-FLOW: "/Users/matt/Code/mattr-/capistrano_github-flow"
-BUNDLE_PATH: ".bundle"
 BUNDLE_BUILD__THRIFT: "--with-cppflags=-D_FORTIFY_SOURCE=0"
