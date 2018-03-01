@@ -62,7 +62,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'alexbel/vim-rubygems'
 Plug 'lucidstack/hex.vim'
 Plug 'slashmili/alchemist.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 " }}}
 
