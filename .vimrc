@@ -62,6 +62,7 @@ Plug 'alexbel/vim-rubygems'
 Plug 'lucidstack/hex.vim'
 Plug 'slashmili/alchemist.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'tpope/vim-dispatch'
 call plug#end()
 " }}}
 
@@ -119,7 +120,7 @@ endif
 
 if has("nvim")
     set mouse-=a
-    let test#strategy = "neoterm"
+    let test#strategy = "dispatch"
     "Escape for normal mode in terminal mode
     tnoremap <Esc> <C-\><C-n>
 endif
