@@ -2,6 +2,7 @@
 --exclude=.hg
 --exclude=log
 --exclude=tmp
+--exclude=vendor
 
 --c++-kinds=+pl
 --fields=+iaS
