@@ -38,7 +38,6 @@ Plug 'tpope/vim-abolish'
 Plug 'endel/vim-github-colorscheme'
 Plug 'elixir-lang/vim-elixir'
 Plug 'mattn/emmet-vim'
-Plug 'rking/ag.vim'
 Plug 'godlygeek/tabular'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-repeat'
@@ -113,6 +112,10 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_enable_signs = 1
 let g:syntastic_error_symbol = "⛔️ "
 let g:syntastic_warning_symbol = "⚠️ "
+
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
 
 if has("nvim")
     set mouse-=a
@@ -262,7 +265,7 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <CR> :nohlsearch<CR>
 
 " Ctrl-Shift-F for Ag
-map <C-F> :Ag<Space>
+map <C-F> :Ack<Space>
 
 " <Leader>= to make all windows the same size
 map <Leader>= <C-w>=
