@@ -24,6 +24,9 @@
     insteadOf = dallasrb:
     pushInsteadOf = dallasrb:
 
+[commit]
+    verbose = true
+
 [diff]
 [color]
     ui = auto
