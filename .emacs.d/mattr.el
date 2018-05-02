@@ -1,7 +1,8 @@
+
 (setq gc-cons-threshold 128000000)
 (add-hook 'after-init-hook #'(lambda ()
-			       ;; restore after startup
-			       (setq gc-cons-threshold 800000)))
+                               ;; restore after startup
+                               (setq gc-cons-threshold 800000)))
 
 ;; All the package set up goes here
 (require 'package)
@@ -44,8 +45,8 @@
   (tooltip-mode -1))
 
 (when (display-graphic-p)
-  (set-face-attribute 'default nil :font "Fira Code Retina 12")
-  (set-frame-font "Fira Code Retina 12" nil t))
+  (set-face-attribute 'default nil :font "Hack 12")
+  (set-frame-font "Hack 12" nil t))
 
 (setq inhibit-startup-screen t
       initial-scratch-message ";; ready\n\n")
@@ -92,9 +93,9 @@
   "* When linum is running globally, disable line number in modes defined in `linum-disabled-modes-list'. Changed by linum-off. Also turns off numbering in starred modes like *scratch*"
 
   (unless (or (minibufferp)
-	      (member major-mode linum-disabled-modes-list)
-	      (string-match "*" (buffer-name))
-	      (> (buffer-size) 3000000)) ;; disable for buffers bigger than 3MB
+              (member major-mode linum-disabled-modes-list)
+              (string-match "*" (buffer-name))
+              (> (buffer-size) 3000000)) ;; disable for buffers bigger than 3MB
     (linum-mode 1)))
 
 
@@ -102,9 +103,9 @@
   (add-hook 'linum-before-numbering-hook
   (lambda ()
     (setq-local linum-format-fmt
-		(let ((w (length (number-to-string
-				  (count-lines (point-min) (point-max))))))
-		  (concat "%" (number-to-string w) "d"))))))
+                (let ((w (length (number-to-string
+                                  (count-lines (point-min) (point-max))))))
+                  (concat "%" (number-to-string w) "d"))))))
 
 (defun linum-format-func (line)
   (concat
@@ -147,20 +148,20 @@
   :demand t
   :init
   (setq evil-want-C-u-scroll t
-	evil-want-visual-char-semi-exclusive t
-	evil-want-Y-yank-to-eol t
-	evil-magic t
-	evil-echo-state t
-	evil-indent-convert-tabs t
-	evil-ex-search-vim-style-regexp t
-	evil-ex-substitute-global t
-	evil-ex-visual-char-range t  ; column range for ex commands
-	evil-insert-skip-empty-lines t
-	evil-mode-line-format 'nil
-	;; more vim-like behavior
-	evil-symbol-word-search t
-	;; don't activate mark on shift-click
-	shift-select-mode nil)
+        evil-want-visual-char-semi-exclusive t
+        evil-want-Y-yank-to-eol t
+        evil-magic t
+        evil-echo-state t
+        evil-indent-convert-tabs t
+        evil-ex-search-vim-style-regexp t
+        evil-ex-substitute-global t
+        evil-ex-visual-char-range t  ; column range for ex commands
+        evil-insert-skip-empty-lines t
+        evil-mode-line-format 'nil
+        ;; more vim-like behavior
+        evil-symbol-word-search t
+        ;; don't activate mark on shift-click
+        shift-select-mode nil)
   :config
   ;; Move to new split -- setting `evil-split-window-below' &
   ;; `evil-vsplit-window-right' to non-nil mimics this, but that doesn't update
@@ -219,14 +220,14 @@ The variable name format is company-backends-MODE."
 MODE must match the symbol passed in `mattr|defvar-company-backends'.
 The initialization function is hooked to `MODE-hook'."
   (let ((mode-hook (intern (format "%S-hook" mode)))
-	(func (intern (format "mattr//init-company-%S" mode)))
-	(backend-list (intern (format "company-backends-%S" mode))))
+        (func (intern (format "mattr//init-company-%S" mode)))
+        (backend-list (intern (format "company-backends-%S" mode))))
     `(defun ,func ()
        ,(format "Initialize company for %S" mode)
        (set (make-variable-buffer-local 'auto-completion-front-end)
-	    'company)
+            'company)
        (set (make-variable-buffer-local 'company-backends)
-	    ,backend-list))
+            ,backend-list))
     `(add-hook ',mode-hook ',func t)
     `(add-hook ',mode-hook 'company-mode t)))
 
@@ -234,10 +235,10 @@ The initialization function is hooked to `MODE-hook'."
   :defer t
   :init
     (setq company-idle-delay 0.2
-	  company-minimum-prefix-length 2
-	  company-require-match nil
-	  company-dabbrev-ignore-case nil
-	  company-dabbrev-downcase nil)
+          company-minimum-prefix-length 2
+          company-require-match nil
+          company-dabbrev-ignore-case nil
+          company-dabbrev-downcase nil)
   :config
     (diminish company-mode)
     (let ((map company-active-map))
@@ -248,9 +249,10 @@ The initialization function is hooked to `MODE-hook'."
 (use-package magit
   :defer t
   :config
-    (bind-map-set-keys my-normal-base-leader-map
-      "gs" 'magit-status))
-
+  (with-eval-after-load 'magit
+    (require 'evil-magit))
+  (bind-map-set-keys my-normal-base-leader-map
+    "gs" 'magit-status))
 (use-package evil-magit :defer t)
 
 (use-package projectile
@@ -293,13 +295,13 @@ The initialization function is hooked to `MODE-hook'."
 (use-package enh-ruby-mode
   :defer t
   :mode (("Appraisals\\'" . enh-ruby-mode)
-	 ("\\(Rake\\|Thor\\|Guard\\|Gem\\|Cap\\|Vagrant\\|Berks\\|Pod\\|Puppet\\)file\\'" . enh-ruby-mode)
-	 ("\\.\\(rb\\|rabl\\|ru\\|builder\\|rake\\|thor\\|gemspec\\|jbuilder\\)\\'" . enh-ruby-mode))
+         ("\\(Rake\\|Thor\\|Guard\\|Gem\\|Cap\\|Vagrant\\|Berks\\|Pod\\|Puppet\\)file\\'" . enh-ruby-mode)
+         ("\\.\\(rb\\|rabl\\|ru\\|builder\\|rake\\|thor\\|gemspec\\|jbuilder\\)\\'" . enh-ruby-mode))
   :interpreter "ruby"
   :init
   (progn
     (setq enh-ruby-deep-indent-paren nil
-	  enh-ruby-hanging-paren-deep-indent-level 2)))
+          enh-ruby-hanging-paren-deep-indent-level 2)))
 
 (use-package robe
   :defer t
@@ -364,16 +366,16 @@ The initialization function is hooked to `MODE-hook'."
   :config
   (progn
     (dolist (mode (list alchemist-compile-mode-map
-			alchemist-eval-mode-map
-			alchemist-execute-mode-map
-			alchemist-message-mode-map
-			alchemist-help-minor-mode-map
-			alchemist-mix-mode-map
-			alchemist-macroexpand-mode-map
-			alchemist-refcard-mode-map
-			alchemist-test-report-mode-map))
+                        alchemist-eval-mode-map
+                        alchemist-execute-mode-map
+                        alchemist-message-mode-map
+                        alchemist-help-minor-mode-map
+                        alchemist-mix-mode-map
+                        alchemist-macroexpand-mode-map
+                        alchemist-refcard-mode-map
+                        alchemist-test-report-mode-map))
     (evil-define-key 'normal mode
-	(kbd "q") 'quit-window))))
+        (kbd "q") 'quit-window))))
 
 ; pull in spacemacs' elixir config but comment it out so that we can see it here for reference
 ;;;    (spacemacs/set-leader-keys-for-major-mode 'elixir-mode
@@ -452,6 +454,13 @@ The initialization function is hooked to `MODE-hook'."
   :interpreter "lua"
 )
 
+(setq org-log-done t)
+
+(require 'org)
+(bind-map-set-keys my-normal-base-leader-map
+  "obt" 'org-babel-tangle
+  "ot" 'org-todo)
+
 (use-package toml-mode :mode "\\.toml$")
 (use-package yaml-mode :mode "\\.ya?ml$")
 (use-package dockerfile-mode :mode "/Dockerfile$")
@@ -468,17 +477,3 @@ The initialization function is hooked to `MODE-hook'."
     (doom-themes-visual-bell-config) ; flash mode line on error
     (doom-themes-org-config) ; improve org-mode native fontification
 )
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (doom-themes projectile yaml-mode vimrc-mode use-package toml-mode ruby-test-mode ruby-refactor rubocop robe rbenv rainbow-delimiters popwin org-plus-contrib memoize markdown-mode lua-mode linum-relative ir-black-theme helm font-lock+ flycheck-credo evil-tabs evil-surround evil-org evil-numbers evil-matchit evil-magit enh-ruby-mode editorconfig dockerfile-mode dash-at-point bundler bind-map auto-compile alchemist))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

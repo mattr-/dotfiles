@@ -84,8 +84,8 @@ strips it all out. No toolbars, menu bars, scroll bars, nothing.
 Let's set a nice font for when we're using a GUI
 #+BEGIN_SRC emacs-lisp :tangle yes
 (when (display-graphic-p)
-  (set-face-attribute 'default nil :font "Fira Code Retina 12")
-  (set-frame-font "Fira Code Retina 12" nil t))
+  (set-face-attribute 'default nil :font "Hack 12")
+  (set-frame-font "Hack 12" nil t))
 
 #+END_SRC
 
@@ -405,7 +405,7 @@ bunch of tweaking out of the box. magit is good stuff
   :defer t
   :config
   (with-eval-after-load 'magit
-    (require 'evil-magit)))
+    (require 'evil-magit))
   (bind-map-set-keys my-normal-base-leader-map
     "gs" 'magit-status))
 (use-package evil-magit :defer t)
@@ -635,6 +635,37 @@ mean time, let's set up =projectile= for project stuff
 (use-package markdown-mode)
 
 
+*** Org Mode
+This is going to be fairly customized as I work through org mode
+tutorials and the like. Going to start first with good keybindings and
+then go from there.
+
+**** TODO Figure out how doom loads a newer version of org so I can use the latest and greatest
+**** TODO Remember that =M-shift-RET= inserts additional headings
+**** TODO =C-c C-o= does =org-open-at-point= which is handy for links in docs. How to map this?
+**** TODO =C-c l= does =org-store-link=. Can be used to store a link to the current location in the file being looked at.
+**** TODO =C-c C-l= does =org-insert-link= which adds the stored link to the current file.
+**** TODO =shift-TAB= for cycling headings. top-level, then all headings, then normal.
+**** TODO =C-c a t= for the org-agenda todo list.
+a
+
+Pull in org
+#+BEGIN_SRC emacs-lisp :tangle yes
+(require 'org)
+#+END_SRC
+
+Log when I finish TODO tasks
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+(setq org-log-done t)
+
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+(bind-map-set-keys my-normal-base-leader-map
+  "obt" 'org-babel-tangle
+  "ot" 'org-todo)
+#+END_SR
 *** Miscellaneous language support
 Stuff that I use and want support for but don't have enough functionality for to give it its own heading
 
