@@ -1,6 +1,7 @@
 [user]
     email = codemattr@gmail.com
     name = Matt Rogers
+    signingkey = 605D017C07EB4316
 
 [url "git://anongit.kde.org/"]
     insteadOf = kde:
@@ -26,6 +27,7 @@
 
 [commit]
     verbose = true
+    gpgSign = true
 
 [diff]
 [color]
@@ -75,6 +77,7 @@
 
 [core]
     excludesfile = /opt/boxen/config/git/gitignore
+	editor = nvim
 [hub]
     protocol = https
 [push]
