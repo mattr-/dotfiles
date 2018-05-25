@@ -118,6 +118,11 @@ if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
 
+if executable('rg')
+    let g:ackprg = 'rg --vimgrep --color=never'
+    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+endif
+
 if has("nvim")
     set mouse-=a
     let test#strategy = "dispatch"
