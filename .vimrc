@@ -420,6 +420,7 @@ if has("autocmd")
         autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
         autocmd FileType make setl noexpandtab
         autocmd FileType text setl ai tw=78
+        autocmd FileType qf   setl number norelativenumber
     augroup END " }}}2
 endif
 
