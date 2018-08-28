@@ -74,6 +74,7 @@
     sa = stash apply
     r = !GIT_NO_PAGER=1 git l -30
     ra = !git r --all
+    pfl = "!source ~/.githelpers && restrictive_force_push"
 
 [core]
     excludesfile = /opt/boxen/config/git/gitignore

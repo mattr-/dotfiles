@@ -53,3 +53,6 @@ change_author() {
     git commit --amend --author "$1 <$2>" -C HEAD
 }
 
+restrictive_force_push() {
+    git push -u --force-with-lease origin `git srf --short`
+}
