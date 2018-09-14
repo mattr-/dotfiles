@@ -63,6 +63,7 @@ Plug 'lucidstack/hex.vim'
 Plug 'slashmili/alchemist.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-dispatch'
+Plug 'vim-scripts/groovy.vim'
 call plug#end()
 " }}}
 
