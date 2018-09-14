@@ -293,7 +293,7 @@ map ,gpr :Git pull --rebase<CR>
 map ,gpu :Git push<CR>
 map ,gdi :Git diff<CR>
 map ,gdc :Git diff --cached<CR>
-map ,ga :update \| Git add %<CR>
+map ,ga :update \| Dispatch git add %<CR>
 
 " vim-test mappings
 nmap ,T :TestNearest<CR>
