@@ -7,7 +7,6 @@ function! DoRemote(arg)
 endfunction
 
 call plug#begin('~/.vim/bundle')
-Plug 'tpope/vim-pathogen'
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-commentary'
