@@ -137,7 +137,7 @@ endif
 set shell=/bin/sh
 
 set background=light
-color mattr
+color base16-tomorrow-night
 
 set hidden "background buffers without writing them. saves marks/undo as well
 
@@ -181,6 +181,7 @@ set t_ti= t_te=
 
 " Use 256 colors all the time
 set t_Co=256
+set termguicolors
 
 " swap files
 set backup
