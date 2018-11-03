@@ -63,6 +63,8 @@ Plug 'slashmili/alchemist.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-dispatch'
 Plug 'vim-scripts/groovy.vim'
+Plug 'w0rp/ale'
+
 call plug#end()
 " }}}
 
