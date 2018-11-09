@@ -420,7 +420,7 @@ if has("autocmd")
         autocmd FileType apache                 setlocal commentstring=#\ %s
         autocmd FileType css silent! setlocal omnifunc=csscomplete#CompleteCSS
         autocmd FileType cucumber silent! compiler cucumber | setl makeprg=cucumber\ \"%:p\" | imap <buffer><expr> <Tab> pumvisible() ? "\<C-N>" : (CucumberComplete(1,'') >= 0 ? "\<C-X>\<C-O>" : (getline('.') =~ '\S' ? ' ' : "\<C-I>"))
-        autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1
+        autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1 nolist
         autocmd FileType make setl noexpandtab
         autocmd FileType text setl ai tw=78
         autocmd FileType qf   setl number norelativenumber
