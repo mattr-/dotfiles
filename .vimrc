@@ -78,7 +78,7 @@ let g:CommandTMaxHeight=10
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
-let g:airline_theme = "dark"
+let g:airline_theme = "base16"
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
