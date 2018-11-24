@@ -256,6 +256,7 @@ map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
 
+" Opens a write command with the path of the currently edited file filled in
 map <Leader>w :w <C-R>=expand("%:p:h") . "/" <CR>
 
 " Opens an edit command with the path of the currently edited file filled in
