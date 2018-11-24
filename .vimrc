@@ -344,6 +344,15 @@ map ,ks :s/\([:_a-zA-z]\+\) => \([a-zA-Z:_]\+\)/\2 => \1/g<CR>
 " Migrate and rollback
 map ,dbm :!bin/rake db:migrate<CR>
 map ,dbr :!bin/rake db:rollback<CR>
+
+" System clipboard niceties. (Stolen from Mastering Vim Quickly)
+
+map ,y "+y
+map ,d "+d
+map ,p "+p
+map ,P "+P
+
+
 "}}}
 
 " File type setup for files unknown to Vim {{{
