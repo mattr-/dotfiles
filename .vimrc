@@ -496,6 +496,14 @@ augroup vimrcEx
     \   exe "normal g`\"" |
     \ endif
   autocmd VimResized * exe "normal! \<C-w>="
+
+
+" Testing out less relative numbers. (Stolen from Mastering Vim Quickly)
+augroup relativeNumbers
+  autocmd!
+  autocmd InsertEnter * :setlocal norelativenumber
+  autocmd InsertLeave * :setlocal relativenumber
+augroup END
 " }}}
 
 
