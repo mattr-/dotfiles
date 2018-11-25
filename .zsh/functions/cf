@@ -1,3 +1,3 @@
 cf() {
-  cd `find ~/Code -maxdepth 2 -type d -name $1`
+  cd `find ~/Code -mindepth 2 -maxdepth 2 -type d -name $1`
 }
