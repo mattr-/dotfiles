@@ -506,5 +506,140 @@ augroup relativeNumbers
 augroup END
 " }}}
 
+" Fugitive like pull request creation {{{
+" Inspired by or taken from vim-fugitive
+" Requires my custom hub fork at https://github.com/mattr-/hub
+" The following are taken directly from vim-fugitive to make this easier
+"  - s:ShellExpand and it's dependencies: s:var, s:flag, and s:expand
+"  - s:shellesc
+"  - s:Tree
+"  - s:throw
+"  - s:gsub
+" s:PullRequest is based on s:Commit from vim-fugitive but modified to match
+" what `hub pull-request` does.
+
+let s:var = '\%(%\|#<\=\d\+\|##\=\)'
+let s:flag = '\%(:[p8~.htre]\|:g\=s\(.\).\{-\}\1.\{-\}\1\)'
+let s:expand = '\%(\(' . s:var . '\)\(' . s:flag . '*\)\(:S\)\=\)'
+
+function! s:ShellExpand(cmd) abort
+  return substitute(a:cmd, '\(\\[!#%]\|!\d*\)\|' . s:expand,
+        \ '\=s:ExpandVar(submatch(1),submatch(2),submatch(3),submatch(5))', 'g')
+endfunction
+
+function! s:shellesc(arg) abort
+  if a:arg =~ '^[A-Za-z0-9_/.-]\+$'
+    return a:arg
+  elseif s:winshell()
+    return '"'.s:gsub(s:gsub(a:arg, '"', '""'), '\%', '"%"').'"'
+  else
+    return shellescape(a:arg)
+  endif
+endfunction
+
+function! s:Tree(...) abort
+    return FugitiveTreeForGitDir(a:0 ? a:1 : get(b:, 'git_dir', ''))
+endfunction
+
+function! s:throw(string) abort
+  let v:errmsg = 'fugitive: '.a:string
+  throw v:errmsg
+endfunction
+
+function! s:gsub(str,pat,rep) abort
+  return substitute(a:str,'\v\C'.a:pat,a:rep,'g')
+endfunction
+
+function! s:PullRequest(mods, args, ...) abort
+  let mods = s:gsub(a:mods ==# '<mods>' ? '' : a:mods, '<tab>', '-tab')
+  let dir = a:0 ? a:1 : b:git_dir
+  let tree = s:Tree(dir)
+  let cd = exists('*haslocaldir') && haslocaldir() ? 'lcd' : 'cd'
+  let cwd = getcwd()
+  let msgfile = dir . '/PULLREQ_EDITMSG'
+  let outfile = tempname()
+  let errorfile = tempname()
+  try
+      let guioptions = &guioptions
+      try
+          if &guioptions =~# '!'
+              setglobal guioptions-=!
+          endif
+          execute cd fnameescape(tree)
+
+          "Windows support is removed
+          let command = 'env GIT_EDITOR=false '
+          let args = s:ShellExpand(a:args)
+          let command .= expand('$HOME') . '/bin/hub pull-request ' . args
+          noautocmd silent execute '!'.command.' > '.outfile.' 2> '.errorfile
+          let error = v:shell_error
+      finally
+          execute cd fnameescape(cwd)
+          let &guioptions = guioptions
+      endtry
+      if !has('gui_running')
+          redraw!
+      endif
+      if !error
+          if filereadable(outfile)
+              for line in readfile(outfile)
+                  echo line
+              endfor
+          endif
+          return ''
+      else
+          let errors = readfile(errorfile)
+          let error = get(errors, 0, '!')
+          if error =~# '^error using text editor for pull request message$'
+              let cd = exists('*haslocaldir') && haslocaldir() ? 'lcd' : 'cd'
+              let cwd = getcwd()
+              let args = '-F '.s:shellesc(msgfile).' '.args
+              if bufname('%') == '' && line('$') == 1 && getline(1) == '' && !&mod
+                  execute mods 'keepalt edit' fnameescape(msgfile)
+              elseif a:args =~# '\%(^\| \)-\w*v' || mods =~# '\<tab\>'
+                  execute mods 'keepalt -tabedit' fnameescape(msgfile)
+              elseif get(b:, 'fugitive_type', '') ==# 'index'
+                  execute mods 'keepalt edit' fnameescape(msgfile)
+                  execute (search('^#','n')+1).'wincmd+'
+                  setlocal nopreviewwindow
+              else
+                  execute mods 'keepalt split' fnameescape(msgfile)
+              endif
+              let b:mattr_pr_arguments = args
+              setlocal bufhidden=wipe filetype=gitcommit
+              return '1'
+          elseif error ==# '!'
+              return 'GPullRequest'
+          else
+              call s:throw(empty(error)?join(errors, ' '):error)
+          endif
+      endif
+  catch /^fugitive:/
+      return 'echoerr v:errmsg'
+  finally
+      call delete(outfile)
+      call delete(errorfile)
+  endtry
+endfunction
+
+
+function! s:FinishPullRequest() abort
+    let args = getbufvar(+expand('<abuf>'), 'mattr_pr_arguments')
+    if !empty(args)
+        call setbufvar(+expand('<abuf>'), 'mattr_pr_arguments', '')
+        return s:PullRequest('', args)
+    endif
+    return ''
+endfunction
+
+augroup github_pull_requests
+    autocmd!
+    autocmd VimLeavePre,BufDelete PULLREQ_EDITMSG exec s:FinishPullRequest()
+    autocmd User Fugitive
+                \ command! -buffer -nargs=? GPullRequest :execute s:PullRequest('<mods>', <q-args>)
+augroup END
+
+" }}}
+
 
 " vim: set et sts=4 sw=4 ts=16 fdm=marker :
