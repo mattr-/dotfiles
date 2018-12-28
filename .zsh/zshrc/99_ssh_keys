@@ -1,9 +1,6 @@
+eval $(ssh-agent)
 if [ -n "$SSH_AGENT_PID" ]
 then
-    for file in `ls $HOME/.ssh/\*id_{d,r}sa 2>/dev/null`
-    do
-        ssh-add $file >/dev/null 2>&1
-    done
-
+    ssh-add $HOME/.ssh/id_rsa >/dev/null 2>&1
 fi
 
