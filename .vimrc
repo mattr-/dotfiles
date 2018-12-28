@@ -9,21 +9,16 @@ endfunction
 call plug#begin('~/.vim/bundle')
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-commentary'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-haml'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'pangloss/vim-javascript'
-Plug 'ddollar/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-cucumber'
 Plug 'timcharper/textile.vim'
 Plug 'tpope/vim-rails'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-unimpaired'
 Plug 'kchmck/vim-coffee-script'
@@ -42,8 +37,6 @@ Plug 'tpope/vim-jdaddy'
 Plug 'tpope/vim-liquid'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'fatih/vim-go'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'elzr/vim-json'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'mattn/webapi-vim'
@@ -62,6 +55,13 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-dispatch'
 Plug 'vim-scripts/groovy.vim'
 Plug 'w0rp/ale'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'itspriddle/vim-marked'
+Plug 'tpope/vim-rhubarb'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'ElmCast/elm-vim'
 
 call plug#end()
 " }}}
@@ -98,15 +98,6 @@ let g:airline_mode_map = {
             \ '' : 'S',
             \ }
 
-let g:ctrlp_map = ',f'
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-      \ --ignore .git
-      \ --ignore .DS_Store
-      \ --ignore .bundle
-      \ -g ""'
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-let g:ctrlp_use_caching = 0
-
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
@@ -120,14 +111,10 @@ endif
 
 if executable('rg')
     let g:ackprg = 'rg --vimgrep --color=never'
-    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 endif
 
 if has("nvim")
-    set mouse-=a
     let test#strategy = "dispatch"
-    "Escape for normal mode in terminal mode
-    tnoremap <Esc> <C-\><C-n>
 endif
 " }}}
 
@@ -352,6 +339,10 @@ map ,d "+d
 map ,p "+p
 map ,P "+P
 
+" Set up fzf
+
+map ,f :Files<CR>
+map ,gf :GFiles<CR>
 
 "}}}
 
