@@ -148,7 +148,7 @@ set smartcase
 set winwidth=78
 
 set wildmenu "make tab completion behave like bash
-set wildmode=list:longest
+set wildmode=list:full
 
 set wildignore+=.hg,.git,.svn
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
