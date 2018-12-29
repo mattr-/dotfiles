@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Partially borrowed and definitely inspired by @pengwynn's post:
+# https://wynnnetherland.com/journal/extending-the-command-line/ and because I
+# got tired of typing
+
+
+if [[ $# > 0 ]]; then
+    case "$1" in
+        vls )
+            docker volume ls
+            ;;
+        vrm )
+            shift
+            docker volume rm "$@"
+            ;;
+        vclean )
+            docker rmi $(docker images -f "dangling=true" -q)
+            ;;
+        *)
+            docker "$@"
+            ;;
+    esac
+else
+    docker
+
+fi
+

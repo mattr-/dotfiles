@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Partially borrowed and definitely inspired by @pengwynn's post:
+# https://wynnnetherland.com/journal/extending-the-command-line/ and because I
+# got tired of typing
+
+
+if [[ $# > 0 ]]; then
+    case "$1" in
+        *)
+            docker-compose "$@"
+            ;;
+    esac
+else
+    docker-compose
+fi
+
