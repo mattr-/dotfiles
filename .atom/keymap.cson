@@ -1,0 +1,71 @@
+# Your keymap
+#
+# Atom keymaps work similarly to style sheets. Just as style sheets use
+# selectors to apply styles to elements, Atom keymaps use selectors to associate
+# keystrokes with events in specific contexts. Unlike style sheets however,
+# each selector can only be declared once.
+#
+# You can create a new keybinding in this file by typing "key" and then hitting
+# tab.
+#
+# Here's an example taken from Atom's built-in keymap:
+#
+# 'atom-text-editor':
+#   'enter': 'editor:newline'
+#
+# 'atom-workspace':
+#   'ctrl-shift-p': 'core:move-up'
+#   'ctrl-p': 'core:move-down'
+#
+# You can find more information about keymaps in these guides:
+# * http://flight-manual.atom.io/using-atom/sections/basic-customization/#customizing-keybindings
+# * http://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/
+#
+# If you're having trouble with your keybindings not working, try the
+# Keybinding Resolver: `Cmd+.` on macOS and `Ctrl+.` on other platforms. See the
+# Debugging Guide for more information:
+# * http://flight-manual.atom.io/hacking-atom/sections/debugging/#check-the-keybindings
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#configuring-with-cson
+
+# Normal Mode Bindings
+#
+# This is a mixture of vim-mode-plus selectors and atom-workspace selectors,
+# mostly as an experiment to see where/if the more specific selector makes more
+# sense
+
+'atom-workspace':
+  ', f': 'fuzzy-finder:toggle-file-finder'
+  ', a p f': 'application:add-project-folder'
+  ', g h t': 'github:toggle-github-tab'
+  ', g t': 'github:toggle-git-tab'
+  ', s p': 'scratch:toggle'
+
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  # open-on-github custom bindings
+  ', g h o': 'open-on-github:file'
+  ', g h b l': 'open-on-github:blame'
+  ', g h h': 'open-on-github:history'
+  ', g h i': 'open-on-github:issues'
+  ', g h p r': 'open-on-github:pull-requests'
+  ', g h c': 'open-on-github:copy-url'
+  ', g h b c': 'open-on-github:branch-compare'
+  ', g h r': 'open-on-github:repository'
+  # git-plus custom bindings
+  ', g a': 'git-plus:add'
+  ', g s': 'git-plus:status'
+  ', g p l': 'git-plus:pull'
+  ', g p u': 'git-plus:push-set-upstream'
+  # bookmarks key bindings to try to simulate vim's jump list
+  'ctrl-o': 'bookmarks:jump-to-previous-bookmark'
+  'ctrl-i': 'bookmarks:jump-to-next-bookmark'
+  ', b m c': 'bookmarks:clear-bookmarks'
+  ', b m t': 'bookmarks:toggle-bookmark'
+  # Quick shortcuts to various config settings
+  ', a c m': 'application:open-your-keymap'
+
+"atom-text-editor.vim-mode-plus:not(.insert-mode)[data-grammar^='source gfm']":
+  ', m d p': 'markdown-preview:toggle'
