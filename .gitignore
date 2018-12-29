@@ -112,6 +112,7 @@
 /.xsession-errors
 /.zcompdump
 /.zlogin
+/.zsh/cache-*
 /.zsh/.zcomdump
 /.zsh/.zcompdump
 /.zsh/functions/prompt_grb_setup
@@ -121,7 +122,6 @@
 \#*
 .emacs.d/network-security.data
 .bundle/cache
-.zsh/cache-gloop
 .aws/credentials
 .nodenv
 tags
