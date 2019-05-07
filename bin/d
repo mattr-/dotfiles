@@ -14,8 +14,20 @@ if [[ $# > 0 ]]; then
             shift
             docker volume rm "$@"
             ;;
-        vclean )
+        iclean )
             docker rmi $(docker images -f "dangling=true" -q)
+            ;;
+        cclean )
+            docker rm $(docker ps -f "status=exited" -q)
+            ;;
+        rms )
+            shift
+            docker stop "$@"
+            docker rm "$@"
+            ;;
+        bash )
+            shift
+            docker exec -it "$1" bash
             ;;
         *)
             docker "$@"
