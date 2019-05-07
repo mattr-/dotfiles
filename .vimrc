@@ -2,12 +2,7 @@ set nocompatible
 
 " {{{ Plugin List
 
-function! DoRemote(arg)
-    normal :UpdateRemotePlugins<CR>
-endfunction
-
 call plug#begin('~/.vim/bundle')
-Plug 'altercation/vim-colors-solarized'
 Plug 'vim-ruby/vim-ruby'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-fugitive'
@@ -15,7 +10,6 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'ervandew/supertab'
 Plug 'tpope/vim-cucumber'
 Plug 'timcharper/textile.vim'
 Plug 'tpope/vim-rails'
@@ -50,25 +44,31 @@ Plug 'skammer/vim-css-color'
 Plug 'junegunn/vim-easy-align'
 Plug 'alexbel/vim-rubygems'
 Plug 'lucidstack/hex.vim'
-Plug 'slashmili/alchemist.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-dispatch'
 Plug 'vim-scripts/groovy.vim'
-Plug 'w0rp/ale'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 Plug 'itspriddle/vim-marked'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'ElmCast/elm-vim'
 
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() } }
+
+" colorscheme plugins
+Plug 'ayu-theme/ayu-vim'
+Plug 'ayu-theme/ayu-vim-airline'
+Plug 'altercation/vim-colors-solarized'
+Plug 'joshdick/onedark.vim'
+
 call plug#end()
-" }}}
 
 "Extra plugins
 runtime! plugin/matchit.vim
 runtime! macros/matchit.vim
+
+" }}}
 
 "Plugin settings {{{
 let g:deoplete#enable_at_startup = 1
@@ -78,7 +78,7 @@ let g:CommandTMaxHeight=10
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
-let g:airline_theme = "base16"
+let g:airline_theme = "ayu"
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -97,13 +97,16 @@ let g:airline_mode_map = {
             \ 'S'  : 'S',
             \ '' : 'S',
             \ }
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+
 
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_enable_signs = 1
-let g:syntastic_error_symbol = "⛔️ "
-let g:syntastic_warning_symbol = "⚠️ "
+let g:syntastic_error_symbol = "! "
+let g:syntastic_warning_symbol = "* "
 
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
@@ -121,8 +124,9 @@ endif
 "Settings {{{
 set shell=/bin/sh
 
-set background=light
-color base16-tomorrow-night
+let ayucolor="dark" " other options are `light` or `mirage`
+colorscheme ayu
+
 
 set hidden "background buffers without writing them. saves marks/undo as well
 
@@ -164,9 +168,12 @@ set showcmd "show partial command in the status line
 " prevent Vim from clobbering the scrollback buffer
 set t_ti= t_te=
 
-" Use 256 colors all the time
-set t_Co=256
+" Use pretty colors all the time
 set termguicolors
+if has("termguicolors") && &tgc && &t_8f == ''
+  set t_8f=[38;2;%lu;%lu;%lum
+  set t_8b=[48;2;%lu;%lu;%lum
+endif
 
 " swap files
 set backup
@@ -292,6 +299,10 @@ nmap ,a :TestSuite<CR>
 map ,ca :w\|:!script/features<cr>
 map ,cw :w\|:!script/features --profile wip<cr>
 
+map ,cc :cclose<cr>
+map ,cn :cnext<cr>
+map ,cp :cprev<cr>
+
 noremap H ^
 noremap L $
 
@@ -352,8 +363,8 @@ if has("autocmd")
     au BufRead,BufNewFile {GemFile,Rakefile,VagrantFile,Thorfile,config.ru} set ft=ruby
     au BufRead,BufNewFile *.thor set ft=ruby
     au BufRead,BufNewFile *.god set ft=ruby
-    au BufRead,BufNewFile *.json set ft=javascript
     au BufRead,BufNewFile *.jasmine_fixture set ft=html
+    au BufRead,BufNewFile Dockerfile.* set ft=dockerfile
 endif
 "}}}
 
@@ -399,6 +410,7 @@ if has("autocmd")
         autocmd BufNewFile,BufRead css.erb set ft=eruby.css
         autocmd BufNewFile,BufRead scss.erb set ft=eruby.scss
         autocmd BufNewFile,BufRead less.erb set ft=eruby.less
+        autocmd BufNewFile,BufRead .git/PULLREQ_EDITMSG setl tw=0 wrap ft=markdown
 
     augroup END " }}}2
 
@@ -439,9 +451,6 @@ command! -bar -nargs=* -bang W :write<bang> <args>
 "Create a scratch file
 command! -bar -nargs=0 -bang Scratch :silent edit<bang> \[Scratch]|set buftype=nofile bufhidden=hide noswapfile buflisted
 
-"Load an RFC in vim
-command! -bar -count=0 RFC     :e http://www.ietf.org/rfc/rfc<count>.txt|setl ro noma
-
 "Rename a file
 command! -bar -nargs=* -bang -complete=file Rename :
       \ let v:errmsg = ""|
@@ -473,6 +482,24 @@ function! PromoteToLet()
 endfunction
 command! PromoteToLet :call PromoteToLet()
 map <leader>p :PromoteToLet<cr>
+
+" Open a PR on GitHub based on the SHA while using :Gblame
+function! OpenPR(sha)
+  let pr_number = system("git log --merges --ancestry-path --oneline ". a:sha . "..master | grep 'pull request' | tail -n1 | awk '{print $5}' | cut -c2-")
+  let remote = fugitive#RemoteUrl(".")
+  let root = rhubarb#homepage_for_url(remote)
+  let url = root . '/pull/' . substitute(pr_number, '\v\C\n', '', 1)
+  call netrw#BrowseX(url, 0)
+endfunction
+
+augroup fugitive_ext
+  autocmd!
+  " Browse to the commit under my cursor
+  autocmd FileType fugitiveblame nnoremap <buffer> <localleader>gb :execute ":Gbrowse " . expand("<cword>")<cr>
+
+  " Browse to the PR for commit under my cursor
+  autocmd FileType fugitiveblame nnoremap <buffer> <localleader>pr :call OpenPR(expand("<cword>"))<cr>
+augroup END
 
 " }}}
 
