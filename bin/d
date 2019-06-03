@@ -29,6 +29,10 @@ if [[ $# > 0 ]]; then
             shift
             docker exec -it "$1" bash
             ;;
+        run-bash )
+            shift
+            docker run --rm -it "$1" bash
+            ;;
         *)
             docker "$@"
             ;;
