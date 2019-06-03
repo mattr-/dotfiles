@@ -66,6 +66,7 @@
   ', b m t': 'bookmarks:toggle-bookmark'
   # Quick shortcuts to various config settings
   ', a c m': 'application:open-your-keymap'
+  ', s w': 'whitespace:remove-trailing-whitespace'
 
 "atom-text-editor.vim-mode-plus:not(.insert-mode)[data-grammar^='source gfm']":
   ', m d p': 'markdown-preview:toggle'
