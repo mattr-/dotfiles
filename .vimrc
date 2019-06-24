@@ -1,113 +1,138 @@
 set nocompatible
 
-" {{{ Plugin List
+"{{{ Plugin List
 
 call plug#begin('~/.vim/bundle')
-Plug 'vim-ruby/vim-ruby'
-Plug 'mileszs/ack.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'pangloss/vim-javascript'
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-cucumber'
-Plug 'timcharper/textile.vim'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-unimpaired'
-Plug 'kchmck/vim-coffee-script'
-Plug 'ajf/puppet-vim'
-Plug 'mattn/gist-vim'
+
+" Git and GitHub
 Plug 'tpope/vim-git'
-Plug 'tpope/vim-ragtag'
-Plug 'adinapoli/vim-markmultiple'
-Plug 'tpope/vim-abolish'
-Plug 'elixir-lang/vim-elixir'
-Plug 'mattn/emmet-vim'
-Plug 'godlygeek/tabular'
-Plug 'bling/vim-airline'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-jdaddy'
-Plug 'tpope/vim-liquid'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'fatih/vim-go'
-Plug 'elzr/vim-json'
-Plug 'PeterRincker/vim-argumentative'
+Plug 'tpope/vim-fugitive'
+Plug 'mattr-/vim-rhubarb', { 'branch': 'override-filetypes' }
+Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
-Plug 'janko-m/vim-test'
-Plug 'kassio/neoterm'
-Plug 'scrooloose/syntastic'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'chriskempson/base16-vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'skammer/vim-css-color'
-Plug 'junegunn/vim-easy-align'
-Plug 'alexbel/vim-rubygems'
-Plug 'lucidstack/hex.vim'
-Plug 'tpope/vim-dispatch'
-Plug 'vim-scripts/groovy.vim'
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
-Plug 'itspriddle/vim-marked'
-Plug 'tpope/vim-rhubarb'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'ElmCast/elm-vim'
 
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() } }
-
-" colorscheme plugins
+" UI and Colorscheme Plugins
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'ayu-theme/ayu-vim'
 Plug 'ayu-theme/ayu-vim-airline'
-Plug 'altercation/vim-colors-solarized'
-Plug 'joshdick/onedark.vim'
+
+" Utility Plugins
+Plug 'mileszs/ack.vim' "Search
+Plug 'junegunn/fzf' " Fuzzy search
+Plug 'junegunn/fzf.vim' " Fuzzy search
+Plug 'junegunn/vim-easy-align' " Alignment
+Plug 'janko-m/vim-test' " Test running
+Plug 'PeterRincker/vim-argumentative' " Function argument handling
+Plug 'tpope/vim-abolish' " Abbreviation, Substitution, and Coercion
+Plug 'tpope/vim-surround' " Surroundings
+Plug 'tpope/vim-repeat' " Repeating plugin maps
+Plug 'tpope/vim-dispatch' " Command running
+Plug 'tpope/vim-unimpaired' " Complementary mappings
+Plug 'scrooloose/nerdcommenter' " Commenting
+Plug 'terryma/vim-multiple-cursors' " Multiple Cursors
+Plug 'w0rp/ale' " Linting and potentially LSP(?)
+
+" Language Support
+
+" Ruby and Rails
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'alexbel/vim-rubygems'
+
+" Javascript and related languages
+Plug 'tpope/vim-jdaddy'
+Plug 'pangloss/vim-javascript'
+Plug 'elzr/vim-json'
+Plug 'kchmck/vim-coffee-script'
+
+" HTML & CSS
+Plug 'mattn/emmet-vim'
+Plug 'skammer/vim-css-color'
+
+" Elixir
+Plug 'elixir-lang/vim-elixir'
+Plug 'lucidstack/hex.vim'
+
+Plug 'ElmCast/elm-vim' " Elm
+Plug 'fatih/vim-go' " Go
+Plug 'tpope/vim-liquid' " Liquid
+Plug 'tpope/vim-cucumber' " Cucumber
+Plug 'ajf/puppet-vim' " Puppet
+
+" Markdown
+Plug 'tpope/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'mzlogin/vim-markdown-toc'
 
 call plug#end()
 
-"Extra plugins
+"Built in plugins not loaded by default
 runtime! plugin/matchit.vim
 runtime! macros/matchit.vim
 
+"}}}
+
+" {{{ fugitive configuration
+" Open a PR on GitHub based on the SHA while using :Gblame
+" requires both vim-fugitive and vim-rhubarb
+function! OpenPR(sha)
+  let pr_number = system("git log --merges --ancestry-path --oneline ". a:sha . "..master | grep 'pull request' | tail -n1 | awk '{print $5}' | cut -c2-")
+  let remote = fugitive#RemoteUrl(".")
+  let root = rhubarb#homepage_for_url(remote)
+  let url = root . '/pull/' . substitute(pr_number, '\v\C\n', '', 1)
+  call netrw#BrowseX(url, 0)
+endfunction
+
+augroup fugitive_ext
+  autocmd!
+  " Browse to the commit under my cursor
+  autocmd FileType fugitiveblame nnoremap <buffer> <localleader>gb :execute ":Gbrowse " . expand("<cword>")<cr>
+
+  " Browse to the PR for commit under my cursor
+  autocmd FileType fugitiveblame nnoremap <buffer> <localleader>pr :call OpenPR(expand("<cword>"))<cr>
+augroup END
+
+map ,gs :Gstatus<CR>
+map ,gpl :Git pull<CR>
+map ,gpr :Git pull --rebase<CR>
+map ,gpu :Git push<CR>
+map ,gdi :Git diff<CR>
+map ,gdc :Git diff --cached<CR>
+map ,ga :update \| Dispatch git add %<CR>
+
 " }}}
 
-"Plugin settings {{{
-let g:deoplete#enable_at_startup = 1
-let g:ragtag_global_maps = 1
-
-let g:CommandTMaxHeight=10
-
+" {{{ Airline configuration
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline_theme = "ayu"
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+  let g:airline_symbols = {}
 endif
 let g:airline_symbols.branch = '⎇ '
 let g:airline_symbols.paste = 'ρ'
 let g:airline_mode_map = {
-            \ '__' : '-',
-            \ 'n'  : 'N',
-            \ 'i'  : 'I',
-            \ 'R'  : 'R',
-            \ 'c'  : 'C',
-            \ 'v'  : 'V',
-            \ 'V'  : 'V',
-            \ '' : 'V',
-            \ 's'  : 'S',
-            \ 'S'  : 'S',
-            \ '' : 'S',
-            \ }
-let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+      \ '__' : '-',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ '' : 'V',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ '' : 'S',
+      \ }
 
+" This is for if I add back coc
+"let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+"let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+" }}}
 
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_enable_signs = 1
-let g:syntastic_error_symbol = "! "
-let g:syntastic_warning_symbol = "* "
-
+" {{{ ag.vim configuration
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
@@ -116,44 +141,89 @@ if executable('rg')
     let g:ackprg = 'rg --vimgrep --color=never'
 endif
 
-if has("nvim")
-    let test#strategy = "dispatch"
-endif
+" Ctrl-Shift-F for Ag
+map <C-F> :Ack<Space>
 " }}}
 
-"Settings {{{
+" {{{ vim-test configuration
+nmap ,T :TestNearest<CR>
+nmap ,t :TestFile<CR>
+nmap ,a :TestSuite<CR>
+" }}}
+
+" {{{ FZF configuration
+map ,f :Files<CR>
+map ,gf :GFiles<CR>
+" }}}
+
+" {{{ Vim configuration
+
+" Use a shell that's always there
 set shell=/bin/sh
 
+"Color scheme
 let ayucolor="dark" " other options are `light` or `mirage`
 colorscheme ayu
 
-
 set hidden "background buffers without writing them. saves marks/undo as well
 
-set number
-set relativenumber
-set ruler
-set laststatus=2
-set report=0
+set number " absolute line numbers
+set ruler " line and column number of cursor
+set laststatus=2 " always show the status line (ruler goes in the status line)
+set report=0 " Always report number of lines changed by ex commands
+
+"Short message options. Vim docs have the full list. My chosen options are
+"below.
+"flag	meaning when present
+" f	use "(3 of 5)" instead of "(file 3 of 5)"
+" i	use "[noeol]" instead of "[Incomplete last line]"
+" l	use "999L, 888C" instead of "999 lines, 888 characters"
+" m	use "[+]" instead of "[Modified]"
+" n	use "[New]" instead of "[New File]"
+" r	use "[RO]" instead of "[readonly]"
+" w	use "[w]" instead of "written" for file write message
+"               and "[a]" instead of "appended" for ':w >> file' command
+" x	use "[dos]" instead of "[dos format]", "[unix]" instead of
+"               "[unix format]" and "[mac]" instead of "[mac format]".
+" t	truncate file message at the start if it is too long to fit
+"               on the command-line, "<" will appear in the left most column.
+"               Ignored in Ex mode.
+" T	truncate other messages in the middle if they are too long to
+"               fit on the command line.  "..." will appear in the middle.
+"               Ignored in Ex mode.
+" o	overwrite message for writing a file with subsequent message
+"               for reading a file (useful for ":wn" or when 'autowrite' on)
+" O	message for reading a file overwrites any previous message.
+"               Also for quickfix message (e.g., ":cn").
 set shortmess=filmnrwxtToO
 
+" Don't wrap for display by default. Often overwritten by filetypes
 set nowrap
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set smarttab
-set shiftround
 
+" Don't beep
+set visualbell
+
+" Default indentation options.
+" - Always use spaces
+" - Two space indent
+" - Tab at start of line always indents
+" - Round indents to two spaces
+set et sta sr ts=2 sts=2 sw=2
+
+" Allow modelines to work and search for them in the first 10 and last 10
+" lines of files
+set modeline
+set modelines=10
+
+
+" Searches. Highlight them, be incremental, ignore case by default, pay
+" attention to case when upper case letters are present
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set winwidth=78
 
-set wildmenu "make tab completion behave like bash
-set wildmode=list:full
-
+" Patterns to ignore when expanding wildcards
 set wildignore+=.hg,.git,.svn
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 set wildignore+=*.sw?
@@ -163,19 +233,26 @@ set wildignore+=vendor/gems
 set wildignore+=log/**
 set wildignore+=node_modules/**
 
-set showcmd "show partial command in the status line
+" Show partial commands in the command line
+set showcmd
 
+" {{{ Terminal configuration
 " prevent Vim from clobbering the scrollback buffer
 set t_ti= t_te=
 
-" Use pretty colors all the time
+" Set things up for true color
 set termguicolors
 if has("termguicolors") && &tgc && &t_8f == ''
   set t_8f=[38;2;%lu;%lu;%lum
   set t_8b=[48;2;%lu;%lu;%lum
 endif
 
-" swap files
+set timeoutlen=1200 "more time for typing complex mappings
+set ttimeoutlen=10 "Make esc work faster
+" }}}
+
+" {{{ Swap file configuration
+" I don't use them and want to keep vim's cruft contained
 set backup
 set noswapfile
 set undodir=~/.vim/tmp/undo
@@ -189,12 +266,11 @@ endif
 if !isdirectory(expand(&backupdir))
     call mkdir(expand(&backupdir), "p")
 endif
+" }}}
 
-" Modelines
-set modeline
-set modelines=10
-
-set visualbell "dont beep
+" List mode configuration
+" on by default, with my custom character setup based on how capable my
+" terminal is
 
 if ((&termencoding ==# 'utf-8' || &encoding ==# 'utf-8') && version >= 700) || has("gui_running")
   set listchars=trail:·,precedes:«,extends:»,tab:▸-
@@ -205,19 +281,18 @@ else
 endif
 
 set list
-set nostartofline
+
+" Window configuration. New windows on the bottom and the right and don't make
+" them the same size unless I say so
+set splitbelow splitright noequalalways
+
+" Movement configuration
+set nostartofline "Attempt to keep the cursor in the same column
 set scrolloff=3 "3 lines of context when scrolling
 set showmatch "show matching pairs
 set backspace=indent,eol,start "backspace over everything!
 
-set splitbelow "new windows on the bottom
-set splitright "and on the right
-set noequalalways
-
-set timeoutlen=1200 "more time for macros
-set ttimeoutlen=10 "Make esc work faster
-
-
+" GUI options, for the rare times I use it
 set guioptions-=T "no toolbar
 set guioptions-=m "or menu
 set guioptions-=r "or right hand scrollbar
@@ -226,25 +301,21 @@ set guioptions-=l "or left hand scrollbar
 set guioptions-=L
 set guifont=Monospace\ 9
 
-set cursorline
 
 " }}}
 
-"Mappings {{{
-
-"Make kj emulate Escape
-imap kj <Esc>
-
-"Make myself use Ctrl-H and Ctrl-W
-inoremap <C-K> <C-O>D
+" {{{ Generic custom mappings
+" I use a hybrid 'dual leader' mapping scheme. <Leader> is the default `\` and
+" `,` gets used as a defacto leader key. You'll see the scheme used throughout
+" each plugin's configuration as well as filetype specific configuration.
 
 "Nuke the help mapping
 noremap K <Nop>
 
-"Make Y consistent with D and C
+"Make Y consistent with D and C. Yanks until EOL
 nnoremap Y y$
 
-"Make myself use hjkl instead of arrow keys
+"Make myself use hjkl instead of arrow keys in normal mode
 map <Left> <Nop>
 map <Right> <Nop>
 map <Up> <Nop>
@@ -266,58 +337,11 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 " Clear the search buffer when hitting return
 nnoremap <CR> :nohlsearch<CR>
 
-" Ctrl-Shift-F for Ag
-map <C-F> :Ack<Space>
-
 " <Leader>= to make all windows the same size
 map <Leader>= <C-w>=
 
 " <Leader><Leader> to edit an alternate file
 nnoremap <Leader><Leader> <C-^>
-
-" Hashrocket with <C-l>
-imap <C-l> <space>=><space>
-
-" Make <leader>' switch between ' and "
-nnoremap ,' ""yls<C-r>={'"': "'", "'": '"'}[@"]<CR><Esc>
-
-" Fugitive/Git mappings
-map ,gs :Gstatus<CR>
-map ,gpl :Git pull<CR>
-map ,gpr :Git pull --rebase<CR>
-map ,gpu :Git push<CR>
-map ,gdi :Git diff<CR>
-map ,gdc :Git diff --cached<CR>
-map ,ga :update \| Dispatch git add %<CR>
-
-" vim-test mappings
-nmap ,T :TestNearest<CR>
-nmap ,t :TestFile<CR>
-nmap ,a :TestSuite<CR>
-
-" My custom test mappings
-map ,ca :w\|:!script/features<cr>
-map ,cw :w\|:!script/features --profile wip<cr>
-
-map ,cc :cclose<cr>
-map ,cn :cnext<cr>
-map ,cp :cprev<cr>
-
-noremap H ^
-noremap L $
-
-noremap j gj
-noremap k gk
-
-" Use the alternate command
-nnoremap <leader>. :A<CR>
-
-" CTags
-map <Leader>rt :!ctags -R *<CR><CR>
-map <C-\> :tnext<CR>
-
-"Close tag
-imap ,/ </<C-X><C-O>
 
 "Remove trailing whitespace
 nnoremap <silent> ,sw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
@@ -326,121 +350,80 @@ nnoremap <silent> ,sw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 map ,nr :set rnu!<CR>
 map ,na :set nu!<CR>
 
-" Save a file and reload the active tab in Chrome
-map ,r :!osascript ~/bin/chrome_reload_tab.scpt<CR><CR>
-
-" Turn off the ActiveRecord rails mapping
-map ,mar :Rabbrev! AR<CR>
-map ,ear :Rabbrev AR:: ActiveRecord<CR>
-
-" Restart a rails server
-map ,br :execute 'silent !tmux send-keys -t server C-c rs C-m'<Bar>redraw!<CR>
-
-" Switch hash keys with values
-map ,ks :s/\([:_a-zA-z]\+\) => \([a-zA-Z:_]\+\)/\2 => \1/g<CR>
-
-" Migrate and rollback
-map ,dbm :!bin/rake db:migrate<CR>
-map ,dbr :!bin/rake db:rollback<CR>
-
 " System clipboard niceties. (Stolen from Mastering Vim Quickly)
-
 map ,y "+y
 map ,d "+d
 map ,p "+p
 map ,P "+P
 
-" Set up fzf
+" CTags
+map <Leader>rt :!ctags -R *<CR><CR>
+map <C-\> :tnext<CR>
 
-map ,f :Files<CR>
-map ,gf :GFiles<CR>
+" Quickfix mappings
+map ,cc :cclose<cr>
+map ,cn :cnext<cr>
+map ,cp :cprev<cr>
 
-"}}}
+" Movement mappings
+noremap H ^
+noremap L $
+noremap j gj
+noremap k gk
 
-" File type setup for files unknown to Vim {{{
-if has("autocmd")
-    "File types and stuff
-    au BufRead,BufNewFile {GemFile,Rakefile,VagrantFile,Thorfile,config.ru} set ft=ruby
-    au BufRead,BufNewFile *.thor set ft=ruby
-    au BufRead,BufNewFile *.god set ft=ruby
-    au BufRead,BufNewFile *.jasmine_fixture set ft=html
-    au BufRead,BufNewFile Dockerfile.* set ft=dockerfile
-endif
-"}}}
-
-" File type configuration for known filetypes {{{
-if has("autocmd")
-    augroup FTMisc " {{{2
-        autocmd!
-
-        "Write all files when losing focus
-        autocmd FocusLost * silent! wall
-
-        "Update the git status when regaining focus
-        autocmd FocusGained * silent! call fugitive#reload_status()
-
-        "look more like less when using vim as less
-        autocmd SourcePre */macros/less.vim set ls=0 cmdheight=1
-
-        "Make new files writeable by default if they start with a sha-bang
-        autocmd BufNewFile */.netrc,*/.fetchmailrc,*/.my.cnf let b:chmod_new="go-rwx"
-        autocmd BufNewFile  * let b:chmod_exe=1
-        autocmd BufWritePre * if exists("b:chmod_exe") |
-            \ unlet b:chmod_exe |
-            \ if getline(1) =~ '^#!' | let b:chmod_new="+x" | endif |
-            \ endif
-        autocmd BufWritePost,FileWritePost * if exists("b:chmod_new")|
-            \ silent! execute "!chmod ".b:chmod_new." <afile>"|
-            \ unlet b:chmod_new|
-            \ endif
-
-        "Unzip jars
-        autocmd BufReadCmd *.jar call zip#Browse(expand("<amatch>"))
-
-    augroup END "}}}2
-
-    augroup FTCheck " {{{2
-        autocmd!
-        autocmd BufNewFile,BufRead /etc/udev/rules.d/*.rules set ft=udev
-        autocmd BufNewFile,BufRead *.txt,README,INSTALL,NEWS,TODO if &ft == ""|set ft=text|endif
-        autocmd BufRead * if ! did_filetype() && getline(1)." ".getline(2).
-                  \ " ".getline(3) =~? '<\%(!DOCTYPE \)\=html\>' | setf html | endif
-        autocmd BufNewFile,BufRead html.erb set ft=eruby.html
-        autocmd BufNewFile,BufRead js.erb set ft=eruby.javascript
-        autocmd BufNewFile,BufRead css.erb set ft=eruby.css
-        autocmd BufNewFile,BufRead scss.erb set ft=eruby.scss
-        autocmd BufNewFile,BufRead less.erb set ft=eruby.less
-        autocmd BufNewFile,BufRead .git/PULLREQ_EDITMSG setl tw=0 wrap ft=markdown
-
-    augroup END " }}}2
-
-    augroup FTOptions " {{{2
-        autocmd!
-        autocmd FileType c,cpp,cs,java          setlocal ai et sta sw=4 sts=4 cin
-        autocmd FileType sh,csh,tcsh,zsh        setlocal ai et sta sw=4 sts=4
-        autocmd FileType tcl,perl,python        setlocal ai et sta sw=4 sts=4
-        autocmd FileType markdown,liquid        setlocal ai et sta sw=2 sts=2 tw=72
-        autocmd FileType javascript             setlocal ai et sta sw=2 sts=2 ts=2 cin isk+=$
-        autocmd FileType css,scss               setlocal ai et sta sw=2 sts=2
-        autocmd FileType html,xhtml             setlocal ai et sta sw=2 sts=2
-        autocmd FileType eruby,yaml,ruby        setlocal ai et sta sw=2 sts=2
-        autocmd FileType cucumber               setlocal ai et sta sw=2 sts=2 ts=2
-        autocmd FileType sh,zsh,csh,tcsh        inoremap <silent> <buffer> <C-X>! #!/bin/<C-R>=&ft<CR>
-        autocmd FileType perl,python,ruby       inoremap <silent> <buffer> <C-X>! #!/usr/bin/<C-R>=&ft<CR>
-        autocmd FileType c,cpp,cs,java,perl,javascript,css let b:surround_101 = "\r\n}"
-        autocmd FileType apache                 setlocal commentstring=#\ %s
-        autocmd FileType css silent! setlocal omnifunc=csscomplete#CompleteCSS
-        autocmd FileType cucumber silent! compiler cucumber | setl makeprg=cucumber\ \"%:p\" | imap <buffer><expr> <Tab> pumvisible() ? "\<C-N>" : (CucumberComplete(1,'') >= 0 ? "\<C-X>\<C-O>" : (getline('.') =~ '\S' ? ' ' : "\<C-I>"))
-        autocmd FileType git,gitcommit setlocal foldmethod=syntax foldlevel=1 nolist
-        autocmd FileType make setl noexpandtab
-        autocmd FileType text setl ai tw=78
-        autocmd FileType qf   setl number norelativenumber
-    augroup END " }}}2
-endif
+" Make <leader>' switch between ' and "
+nnoremap ,' ""yls<C-r>={'"': "'", "'": '"'}[@"]<CR><Esc>
 
 " }}}
 
-" Custom commands and their mappings {{{
+" {{{ Generic custom autocommands
+" As much as possible, these are language independent
+if has("autocmd")
+  augroup generic_vim_fu
+    autocmd!
+
+    "Write all files when losing focus
+    autocmd FocusLost * silent! wall
+
+    "Update the git status when regaining focus
+    autocmd FocusGained * silent! call fugitive#reload_status()
+
+    "look more like less when using vim as less
+    autocmd SourcePre */macros/less.vim set ls=0 cmdheight=1
+
+    "Make new files writeable by default if they start with a sha-bang
+    "This works regardless of filetype
+    autocmd BufNewFile */.netrc,*/.fetchmailrc,*/.my.cnf let b:chmod_new="go-rwx"
+    autocmd BufNewFile  * let b:chmod_exe=1
+    autocmd BufWritePre * if exists("b:chmod_exe") |
+          \ unlet b:chmod_exe |
+          \ if getline(1) =~ '^#!' | let b:chmod_new="+x" | endif |
+        \ endif
+    autocmd BufWritePost,FileWritePost * if exists("b:chmod_new")|
+          \ silent! execute "!chmod ".b:chmod_new." <afile>"|
+          \ unlet b:chmod_new|
+          \ endif
+
+    "Unzip jars
+    autocmd BufReadCmd *.jar call zip#Browse(expand("<amatch>"))
+
+    " No line numbers for quickfix windows
+    autocmd FileType qf   setl number norelativenumber
+
+    " Jump to last cursor position unless it's invalid or in an event handler
+    autocmd BufReadPost *
+          \ if line("'\"") > 0 && line("'\"") <= line("$") |
+          \   exe "normal g`\"" |
+          \ endif
+
+    " Make all windows equal size if vim is resized
+    autocmd VimResized * exe "normal! \<C-w>="
+
+  augroup END
+endif
+" }}}
+
+" {{{ Custom commands
 
 "Write out with sudo
 command! -bar -nargs=0 SudoW   :setl nomod|silent exe 'write !sudo tee % >/dev/null'|let &mod = v:shell_error
@@ -451,18 +434,9 @@ command! -bar -nargs=* -bang W :write<bang> <args>
 "Create a scratch file
 command! -bar -nargs=0 -bang Scratch :silent edit<bang> \[Scratch]|set buftype=nofile bufhidden=hide noswapfile buflisted
 
-"Rename a file
-command! -bar -nargs=* -bang -complete=file Rename :
-      \ let v:errmsg = ""|
-      \ saveas<bang> <args>|
-      \ if v:errmsg == ""|
-      \   call delete(expand("#"))|
-      \ endif
-
 " }}}
 
-" Custom Functions and their mappings {{{
-
+" {{{ Custom Functions
 "Rename current file
 function! RenameFile()
     let old_name = expand('%')
@@ -474,55 +448,5 @@ function! RenameFile()
     endif
 endfunction
 map <leader>n :call RenameFile()<cr>
-
-"Promote variable to rspec let
-function! PromoteToLet()
-  :s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
-  :silent normal ==
-endfunction
-command! PromoteToLet :call PromoteToLet()
-map <leader>p :PromoteToLet<cr>
-
-" Open a PR on GitHub based on the SHA while using :Gblame
-function! OpenPR(sha)
-  let pr_number = system("git log --merges --ancestry-path --oneline ". a:sha . "..master | grep 'pull request' | tail -n1 | awk '{print $5}' | cut -c2-")
-  let remote = fugitive#RemoteUrl(".")
-  let root = rhubarb#homepage_for_url(remote)
-  let url = root . '/pull/' . substitute(pr_number, '\v\C\n', '', 1)
-  call netrw#BrowseX(url, 0)
-endfunction
-
-augroup fugitive_ext
-  autocmd!
-  " Browse to the commit under my cursor
-  autocmd FileType fugitiveblame nnoremap <buffer> <localleader>gb :execute ":Gbrowse " . expand("<cword>")<cr>
-
-  " Browse to the PR for commit under my cursor
-  autocmd FileType fugitiveblame nnoremap <buffer> <localleader>pr :call OpenPR(expand("<cword>"))<cr>
-augroup END
-
 " }}}
-
-" Misc AutoCommands {{{
-augroup vimrcEx
-  " Clear all autocmds in the group
-  autocmd!
-  autocmd FileType text setlocal textwidth=78
-  " Jump to last cursor position unless it's invalid or in an event handler
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-  autocmd VimResized * exe "normal! \<C-w>="
-
-
-" Testing out less relative numbers. (Stolen from Mastering Vim Quickly)
-augroup relativeNumbers
-  autocmd!
-  autocmd InsertEnter * :setlocal norelativenumber
-  autocmd InsertLeave * :setlocal relativenumber
-augroup END
-" }}}
-
-
-" vim: set et sts=4 sw=4 ts=16 fdm=marker :
+" vim: set et sts=2 sw=2 ts=16 fdm=marker :
