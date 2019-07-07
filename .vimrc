@@ -54,6 +54,7 @@ Plug 'skammer/vim-css-color'
 " Elixir
 Plug 'elixir-lang/vim-elixir'
 Plug 'lucidstack/hex.vim'
+Plug 'slashmili/alchemist.vim'
 
 Plug 'ElmCast/elm-vim' " Elm
 Plug 'fatih/vim-go' " Go
