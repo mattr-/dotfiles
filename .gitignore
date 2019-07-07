@@ -22,6 +22,7 @@
 /.Xauthority
 /.android/
 /.asdf/
+/.azure/
 /.bash_history
 /.bash_login
 /.bash_logout
@@ -55,11 +56,13 @@
 /.exercism.json
 /.fontconfig/
 /.gem/
+/.gervill/
 /.gist-vim
 /.gitk
 /.gnupg
 /.go
 /.gradle
+/.groovy/
 /.guard_history
 /.heroku/
 /.hex/
@@ -69,6 +72,7 @@
 /.irb_history
 /.jenkins/
 /.kde4/
+/.kube/
 /.lein/
 /.lesshst
 /.local/
@@ -82,11 +86,14 @@
 /.mutt/temp
 /.mysql_history
 /.ncftp/
-/.netrc/
+/.netrc
 /.ngrok2/
+/.node-gyp/
+/.node_repl_history
 /.npm/
 /.oh-my-zsh/
 /.oracle_jre_usage/
+/.p2/
 /.pgpass
 /.pgadmin_histoqueries
 /.pip/
@@ -96,6 +103,7 @@
 /.pulse-cookie
 /.pulse/
 /.puppet/
+/.python-eggs/
 /.rbenv/
 /.rdebug_hist
 /.rediscli_history
@@ -107,7 +115,9 @@
 /.sh_history
 /.smartbear/
 /.sqlite_history
+/.solargraph/
 /.ssh/
+/.standard-cache/
 /.subversion
 /.todo.txt*
 /.tooling
@@ -119,6 +129,7 @@
 /.vim/tmp
 /.vim*.tmp
 /.viminfo
+/.vscode/
 /.xbmc/
 /.xsession-errors
 /.yarn
