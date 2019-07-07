@@ -21,6 +21,7 @@
 /.Trash/
 /.Xauthority
 /.android/
+/.asdf/
 /.bash_history
 /.bash_login
 /.bash_logout
@@ -54,6 +55,7 @@
 /.exercism.json
 /.fontconfig/
 /.gem/
+/.gist-vim
 /.gitk
 /.gnupg
 /.go
