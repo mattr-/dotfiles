@@ -33,6 +33,7 @@ Plug 'tpope/vim-unimpaired' " Complementary mappings
 Plug 'scrooloose/nerdcommenter' " Commenting
 Plug 'terryma/vim-multiple-cursors' " Multiple Cursors
 Plug 'w0rp/ale' " Linting and potentially LSP(?)
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Completion
 
 " Language Support
 
@@ -155,6 +156,10 @@ nmap ,a :TestSuite<CR>
 " {{{ FZF configuration
 map ,f :Files<CR>
 map ,gf :GFiles<CR>
+" }}}
+
+" {{{ Deoplete configuration
+let g:deoplete#enable_at_startup = 1
 " }}}
 
 " {{{ Vim configuration
