@@ -151,6 +151,8 @@ map <C-F> :Ack<Space>
 nmap ,T :TestNearest<CR>
 nmap ,t :TestFile<CR>
 nmap ,a :TestSuite<CR>
+
+let test#strategy = 'dispatch'
 " }}}
 
 " {{{ FZF configuration
