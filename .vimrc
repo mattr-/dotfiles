@@ -34,6 +34,8 @@ Plug 'scrooloose/nerdcommenter' " Commenting
 Plug 'terryma/vim-multiple-cursors' " Multiple Cursors
 Plug 'w0rp/ale' " Linting and potentially LSP(?)
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Completion
+Plug 'SirVer/ultisnips' " Snippet engine
+Plug 'honza/vim-snippets' " Snippet contents
 
 " Language Support
 
@@ -162,6 +164,12 @@ map ,gf :GFiles<CR>
 
 " {{{ Deoplete configuration
 let g:deoplete#enable_at_startup = 1
+" }}}
+
+" {{{ Ultisnips configuration
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-l>"
+let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 " }}}
 
 " {{{ Vim configuration
