@@ -179,6 +179,16 @@ let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 " }}}
 
+" {{{ vim-multiple-cursor configuration
+function g:Multiple_cursors_before()
+  call deoplete#custom#buffer_option('auto_complete', v:false)
+endfunction
+
+function g:Multiple_cursors_after()
+  call deoplete#custom#buffer_option('auto_complete', v:true)
+endfunction
+" }}} vim-multiple-cursor configuration
+
 " {{{ Vim configuration
 
 " Use a shell that's always there
