@@ -7,7 +7,7 @@ call plug#begin('~/.vim/bundle')
 " Git and GitHub
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
-Plug 'mattr-/vim-rhubarb', { 'branch': 'override-filetypes' }
+Plug 'tpope/vim-rhubarb'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'airblade/vim-gitgutter'
