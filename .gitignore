@@ -22,6 +22,8 @@
 /.Xauthority
 /.android/
 /.asdf/
+/.atom/scratch
+/.aws/
 /.azure/
 /.bash_history
 /.bash_login
