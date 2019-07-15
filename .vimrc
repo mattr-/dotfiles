@@ -189,6 +189,12 @@ function g:Multiple_cursors_after()
 endfunction
 " }}} vim-multiple-cursor configuration
 
+" {{{ ALE Configuration
+let g:ale_sign_error = '◉'
+let g:ale_sign_warning = '◉'
+let g:ale_fix_on_save = 1
+" }}}
+
 " {{{ Vim configuration
 
 " Use a shell that's always there
