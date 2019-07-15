@@ -340,7 +340,6 @@ set guioptions-=l "or left hand scrollbar
 set guioptions-=L
 set guifont=Monospace\ 9
 
-
 " }}}
 
 " {{{ Generic custom mappings
