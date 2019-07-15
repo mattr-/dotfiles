@@ -148,48 +148,22 @@ resizeextra_lefthalf_keys = {hyper, "left"}
 hs.hotkey.bind(resizeextra_lefthalf_keys[1], resizeextra_lefthalf_keys[2], nil, function() resize_win('halfleft') end)
 
 resizeextra_righthalf_keys = {hyper, "right"}
-if string.len(resizeextra_righthalf_keys[2]) > 0 then
-   hs.hotkey.bind(resizeextra_righthalf_keys[1],
-                  resizeextra_righthalf_keys[2],
-                  nil,
-                  function() resize_win('halfright') end)
-end
+hs.hotkey.bind(resizeextra_righthalf_keys[1], resizeextra_righthalf_keys[2], nil, function() resize_win('halfright') end)
+
 resizeextra_fullscreen_keys = {hyper, "up"}
-if string.len(resizeextra_fullscreen_keys[2]) > 0 then
-   hs.hotkey.bind(resizeextra_fullscreen_keys[1],
-                  resizeextra_fullscreen_keys[2],
-                  nil,
-                  function() resize_win('fullscreen') end)
-end
+hs.hotkey.bind(resizeextra_fullscreen_keys[1], resizeextra_fullscreen_keys[2], nil, function() resize_win('fullscreen') end)
+
 resizeextra_fcenter_keys = {hyper, "down"}
-if string.len(resizeextra_fcenter_keys[2]) > 0 then
-   hs.hotkey.bind(resizeextra_fcenter_keys[1],
-                  resizeextra_fcenter_keys[2],
-                  nil,
-                  function() resize_win('fcenter') end)
-end
+hs.hotkey.bind(resizeextra_fcenter_keys[1], resizeextra_fcenter_keys[2], nil, function() resize_win('fcenter') end)
+
 resizeextra_center_keys = {hyper, "return"}
-if string.len(resizeextra_center_keys[2]) > 0 then
-   hs.hotkey.bind(resizeextra_center_keys[1],
-                  resizeextra_center_keys[2],
-                  nil,
-                  function() resize_win('center') end)
-end
+hs.hotkey.bind(resizeextra_center_keys[1], resizeextra_center_keys[2], nil, function() resize_win('center') end)
+
 resizeextra_720hd_keys = {hyper, "7"}
-if string.len(resizeextra_720hd_keys[2]) > 0 then
-   hs.hotkey.bind(resizeextra_720hd_keys[1],
-                  resizeextra_720hd_keys[2],
-                  nil,
-                  function() resize_win('720hd') end)
-end
+hs.hotkey.bind(resizeextra_720hd_keys[1], resizeextra_720hd_keys[2], nil, function() resize_win('720hd') end)
 
 resizeextra_1080_keys = {hyper, "9"}
-if string.len(resizeextra_1080_keys[2]) > 0 then
-   hs.hotkey.bind(resizeextra_1080_keys[1],
-                  resizeextra_1080_keys[2],
-                  nil,
-                  function() resize_win('1080hd') end)
-end
+hs.hotkey.bind(resizeextra_1080_keys[1], resizeextra_1080_keys[2], nil, function() resize_win('1080hd') end)
 
 
 -- {{{ Modal window management configuration
@@ -200,7 +174,7 @@ window_manager:bind('', "L", function() resize_win("halfleft") end)
 window_manager:bind('', "R", function() resize_win("halfright") end)
 window_manager:bind('', "T", function() resize_win("halfup") end)
 window_manager:bind('', "B", function() resize_win("halfdown") end)
-window_manager:bind('', "1", function() apply_layout("default") end)
-window_manager:bind('', "2", function() apply_layout("stream") end)
-
 -- }}}
+
+-- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
+hs.loadSpoon('ControlEscape'):start()
