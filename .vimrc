@@ -169,6 +169,10 @@ let g:deoplete#ignore_sources = {}
 let g:deoplete#ignore_sources._ = ['buffer', 'around']
 " }}}
 
+" {{{ Markdown preview configuration
+let g:mkdp_command_for_global = 0
+" }}}
+
 " {{{ Ultisnips configuration
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
