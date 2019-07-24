@@ -36,6 +36,7 @@ Plug 'w0rp/ale' " Linting and potentially LSP(?)
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Completion
 Plug 'SirVer/ultisnips' " Snippet engine
 Plug 'honza/vim-snippets' " Snippet contents
+Plug 'ervandew/supertab' " Super powered <Tab>
 
 " Language Support
 
@@ -193,6 +194,12 @@ endfunction
 let g:ale_sign_error = '◉'
 let g:ale_sign_warning = '◉'
 let g:ale_fix_on_save = 1
+" }}}
+
+" {{{ Supertab configuration
+" Configure deoplete so that it uses tabs
+let g:SuperTabDefaultCompletionType = "<C-n>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " }}}
 
 " {{{ Vim configuration
