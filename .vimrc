@@ -159,6 +159,7 @@ let test#strategy = 'dispatch'
 " }}}
 
 " {{{ FZF configuration
+let $FZF_DEFAULT_COMMAND='rg --files --hidden'
 map ,f :Files<CR>
 map ,gf :GFiles<CR>
 " }}}
