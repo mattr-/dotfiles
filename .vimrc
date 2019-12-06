@@ -176,7 +176,7 @@ let g:mkdp_command_for_global = 0
 " }}}
 
 " {{{ Ultisnips configuration
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-space>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 " }}}
