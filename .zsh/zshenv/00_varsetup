@@ -6,3 +6,5 @@ typeset -TU LD_LIBRARY_PATH ld_library_path
 
 path=($HOME/bin /usr/local/share/npm/bin /usr/local/sbin /usr/local/bin $path)
 
+#don't print errors about matching globs
+setopt nonomatch
