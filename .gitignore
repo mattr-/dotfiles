@@ -1,6 +1,7 @@
 /Applications
 /Box Sync/
 /Code
+/Calibre Library
 /Desktop/
 /Documents/
 /Downloads
@@ -22,6 +23,7 @@
 /.Xauthority
 /.android/
 /.asdf/
+/.atom/packages/
 /.atom/scratch
 /.aws/
 /.azure/
@@ -34,6 +36,7 @@
 /.boot2docker/
 /.bundler/
 /.cache/
+/.cargo/
 /.coffee_history
 /.config/
 /.cups/
@@ -112,6 +115,7 @@
 /.report.txt
 /.rnd
 /.ruby-version
+/.rustup
 /.rvm
 /.rvm/
 /.sh_history
