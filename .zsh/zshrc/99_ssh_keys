@@ -1,6 +1,6 @@
-eval $(ssh-agent)
-if [ -n "$SSH_AGENT_PID" ]
-then
-    ssh-add $HOME/.ssh/id_rsa >/dev/null 2>&1
-fi
+#eval $(ssh-agent)
+#if [ -n "$SSH_AGENT_PID" ]
+#then
+#    ssh-add $HOME/.ssh/id_rsa >/dev/null 2>&1
+#fi
 
