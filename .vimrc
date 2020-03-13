@@ -17,6 +17,7 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ayu-theme/ayu-vim'
 Plug 'ayu-theme/ayu-vim-airline'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Utility Plugins
 Plug 'mileszs/ack.vim' "Search
@@ -112,7 +113,7 @@ map ,ga :update \| Dispatch git add %<CR>
 " {{{ Airline configuration
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
-let g:airline_theme = "ayu"
+let g:airline_theme = "dracula"
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -210,7 +211,7 @@ set shell=/bin/sh
 
 "Color scheme
 let ayucolor="dark" " other options are `light` or `mirage`
-colorscheme ayu
+colorscheme dracula
 
 set hidden "background buffers without writing them. saves marks/undo as well
 
