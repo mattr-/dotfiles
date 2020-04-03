@@ -204,6 +204,10 @@ let g:SuperTabDefaultCompletionType = "<C-n>"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " }}}
 
+" {{{ vim-json configuration
+let g:vim_json_syntax_conceal = 0
+" }}}
+
 " {{{ Vim configuration
 
 " Use a shell that's always there
