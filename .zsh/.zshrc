@@ -222,7 +222,9 @@ export ANDROID_HOME=$HOME/Applications/Android
 export ANT_HOME=$HOME/Applications/apache-ant-1.8
 
 autoload -U bashcompinit
-bashcompinitalias be="bundle exec"
+bashcompinit
+
+alias be="bundle exec"
 
 # Aliases
 alias g='git'
@@ -331,6 +333,7 @@ zstyle ':vcs_info:*' formats       \
 # %  vcs_info_printsys 
 # for supported systems 
   zstyle ':vcs_info:*' enable git cvs svn hg
+
 autoload -U promptinit; promptinit
 prompt mattr2
 
