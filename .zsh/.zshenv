@@ -1,3 +1,4 @@
+export ZDOTDIR=$HOME/.zsh
 fpath=($ZDOTDIR/functions $fpath)
 
 
