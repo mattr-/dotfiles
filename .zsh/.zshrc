@@ -2,7 +2,7 @@ setopt auto_cd \
        no_beep \
        no_hup \
        pushd_ignore_dups
-       
+
 bindkey -e
 
 export LSCOLORS=ExfxcxdxCxegedabagacad
@@ -28,6 +28,9 @@ setopt correct
 
 #magical adding/removing final characters on tab completion
 setopt auto_param_keys auto_param_slash auto_remove_slash
+
+#zinit initialization
+source ~/.zinit/bin/zinit.zsh
 
 #load and initialize stuff
 zmodload zsh/complist
@@ -375,3 +378,7 @@ export RUBY_GC_OLDMALLOC_LIMIT=64000000
 
 [[ -f /usr/local/opt/asdf/asdf.sh ]] && source /usr/local/opt/asdf/asdf.sh
 [[ -f /opt/asdf-vm/asdf.sh ]] && source /opt/asdf-vm/asdf.sh
+
+#zinit plugins
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma/fast-syntax-highlighting
