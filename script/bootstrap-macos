@@ -26,5 +26,3 @@ brew "jq"
 brew "mr"
 brew "ripgrep"
 EOF
-
-brew bundle -f "$TMPFILE"
