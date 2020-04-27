@@ -32,6 +32,10 @@ setopt auto_param_keys auto_param_slash auto_remove_slash
 #zinit initialization
 source ~/.zinit/bin/zinit.zsh
 
+#homeshick initialization
+source ~/.homesick/repos/homeshick/homeshick.sh
+fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+
 #load and initialize stuff
 zmodload zsh/complist
 
