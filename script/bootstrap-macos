@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Cowardly refuse to run if we're not on macOS
+if [ "$(uname -s)" != "Darwin" ]
+then
+  echo "This is not macOS. Aborting."
+  exit 1
+fi
+
+# I'm stubbornly refusing to put a Brewfile at the root of this repo, so we're streaming one in to `brew bundle` from standard output
+brew bundle --file=- <<EOF
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+
+cask "hammerspoon"
+
+cask "font-iosevka"
+cask "font-fira-code"
+cask "font-hack"
+
+brew "zsh"
+brew "git"
+brew "hub"
+brew "tmux"
+brew "jq"
+brew "mr"
+brew "ripgrep"
+EOF
+
+brew bundle -f "$TMPFILE"

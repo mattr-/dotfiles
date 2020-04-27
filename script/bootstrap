@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+# Do some rudimentary OS detection and run the appropriate bootstrap script to install dependencies for things in my dotfiles
+os=$(uname -s)
+
+if [ "$os" == "Darwin" ]
+then
+  ./script/bootstrap-macos && keep_going=1
+else
+  if [ -f /etc/debian_version ]
+  then
+    ./script/bootstrap-debian && keep_going=1
+  else # assume ArchLinux
+    ./script/bootstrap-arch && keep_going=1
+  fi
+fi
+
+
+if [ -n "$keep_going" ]
+then
+  # shamelessly stolen from https://github.com/jordemort/dotfiles/blob/6643b5b0a883be5fd773bb6903e17d512b3747f8/setup.sh
+  # put our dotfiles in the proper place
+
+  homesick_repos="$HOME/.homesick/repos"
+  preferred_dir="$homesick_repos/dotfiles"
+  homeshick_dir="$homesick_repos/homeshick"
+  current_dir=$(git rev-parse --show-toplevel)
+
+  if [ "$current_dir" != "$preferred_dir" ] ; then
+    mkdir -p "$(dirname "$preferred_dir")"
+    mv "$current_dir" "$preferred_dir"
+  fi
+
+  git clone https://github.com/andsens/homeshick.git "$homeshick_dir"
+fi
+
