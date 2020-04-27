@@ -94,6 +94,14 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
 # unless we really want to
 zstyle '*' single-ignored show
 
+# setup some nice completions with fzf-tab - from their readme
+# give a preview of commandline arguments when completing `kill`
+zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm,cmd -w -w"
+zstyle ':fzf-tab:complete:kill:argument-rest' extra-opts --preview=$extract'ps --pid=$in[(w)1] -o cmd --no-headers -w -w' --preview-window=down:3:wrap
+
+# give a preview of directory by exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' extra-opts --preview=$extract'exa -1 --color=always $realpath'
+
 
 # commands that take commands as arguments
 compdef _precommand gdb
@@ -386,3 +394,4 @@ export RUBY_GC_OLDMALLOC_LIMIT=64000000
 #zinit plugins
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/fast-syntax-highlighting
+zinit light Aloxaf/fzf-tab
