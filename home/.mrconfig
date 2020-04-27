@@ -16,3 +16,4 @@ checkout = git clone https://github.com/nodenv/nodenv $HOME/.nodenv
 [$HOME/.nodenv/plugins/node-build]
 checkout = git clone https://github.com/nodenv/node-build
 
+include = cat $HOME/.mrconfig.d/*
