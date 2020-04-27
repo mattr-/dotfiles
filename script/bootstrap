@@ -5,7 +5,7 @@ cd "$(dirname "$0")/.."
 
 # Do some rudimentary OS detection and run the appropriate bootstrap script to install dependencies for things in my dotfiles
 os=$(uname -s)
-
+keep_going=""
 if [ "$os" == "Darwin" ]
 then
   ./script/bootstrap-macos && keep_going=1
