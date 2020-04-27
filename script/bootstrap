@@ -34,6 +34,10 @@ then
     mv "$current_dir" "$preferred_dir"
   fi
 
+  # setup homeshick
   git clone https://github.com/andsens/homeshick.git "$homeshick_dir"
+
+  # clone zinit for zsh plugins
+  git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
 fi
 
