@@ -177,9 +177,9 @@ let g:mkdp_command_for_global = 0
 " }}}
 
 " {{{ Ultisnips configuration
-let g:UltiSnipsExpandTrigger="<c-space>"
-let g:UltiSnipsJumpForwardTrigger="<c-l>"
-let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+let g:UltiSnipsExpandTrigger="<C-Space>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " }}}
 
 " {{{ vim-multiple-cursor configuration
