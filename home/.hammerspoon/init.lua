@@ -126,16 +126,16 @@ function resize_win(direction)
             localf.y = localf.y+steph
         end
         if direction == "720hd" then
-           localf.x = 0
-           localf.y = 180
-           localf.w = 1280
-           localf.h = 720
+          localf.w = 1280
+          localf.h = 720
+          localf.x = (max.w - localf.w)/2
+          localf.y = (max.h - localf.h)/2
         end
         if direction == "1080hd" then
-            localf.x = 0
-            localf.y = 0
-            localf.w = 1920
-            localf.h = 1080
+          localf.w = 1920
+          localf.h = 1080
+          localf.x = (max.w - localf.w)/2
+          localf.y = (max.h - localf.h)/2
         end
         local absolutef = screen:localToAbsolute(localf)
         win:setFrame(absolutef)
