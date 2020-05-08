@@ -81,6 +81,9 @@ zstyle ':completion:*' ignore-parents parent pwd
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*' force-list always
 
+# give a preview of commandline arguments when completing things that take processes
+zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
+
 # don't complete uninteresting users
 zstyle ':completion:*:*:*:users' ignored-patterns \
     adm amanda apache avahi beaglidx bin cacti canna clamav daemon \
@@ -94,13 +97,6 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
 # unless we really want to
 zstyle '*' single-ignored show
 
-# setup some nice completions with fzf-tab - from their readme
-# give a preview of commandline arguments when completing `kill`
-zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm,cmd -w -w"
-zstyle ':fzf-tab:complete:kill:argument-rest' extra-opts --preview=$extract'ps --pid=$in[(w)1] -o cmd --no-headers -w -w' --preview-window=down:3:wrap
-
-# give a preview of directory by exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' extra-opts --preview=$extract'exa -1 --color=always $realpath'
 
 
 # commands that take commands as arguments
