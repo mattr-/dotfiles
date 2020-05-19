@@ -36,6 +36,13 @@ source ~/.zinit/bin/zinit.zsh
 source ~/.homesick/repos/homeshick/homeshick.sh
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
+#asdf initialization
+[[ -f /usr/local/opt/asdf/asdf.sh ]] && ASDF_DIR=/usr/local/opt/asdf
+[[ -f /opt/asdf-vm/asdf.sh ]] && ASDF_DIR=/opt/asdf-vm
+[[ -f $HOME/.asdf/asdf.sh ]] && ASDF_DIR=$HOME/.asdf
+
+fpath=($ASDF_DIR/completions $fpath)
+
 #load and initialize stuff
 zmodload zsh/complist
 
@@ -384,8 +391,8 @@ export RUBY_GC_OLDMALLOC_LIMIT=64000000
 #    ssh-add $HOME/.ssh/id_rsa >/dev/null 2>&1
 #fi
 
-[[ -f /usr/local/opt/asdf/asdf.sh ]] && source /usr/local/opt/asdf/asdf.sh
-[[ -f /opt/asdf-vm/asdf.sh ]] && source /opt/asdf-vm/asdf.sh
+# Pull in ASDF from various places
+[[ -f $ASDF_DIR/asdf.sh ]] && source $ASDF_DIR/asdf.sh
 
 #zinit plugins
 zinit light zsh-users/zsh-autosuggestions
