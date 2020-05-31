@@ -162,6 +162,8 @@ alias ant="ant -emacs"
 alias t="todo.sh"
 
 alias vim="nvim"
+alias hs="homeshick"
+
 alias -g ...=../..
 alias -g ....=../../..
 alias -g .....=../../../..
