@@ -8,8 +8,6 @@ call plug#begin('~/.vim/bundle')
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
-Plug 'mattn/gist-vim'
-Plug 'mattn/webapi-vim'
 Plug 'airblade/vim-gitgutter'
 
 " UI and Colorscheme Plugins
