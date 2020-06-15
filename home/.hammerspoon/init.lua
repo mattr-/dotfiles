@@ -2,6 +2,7 @@
 
 hs.hotkey.alertDuration = 0 -- Don't show titles for hotkeys
 hs.window.animationDuration = 0 -- Don't animate window movements/resizes
+hs.screen.strictScreenInDirection = false -- Don't care about axes
 -- }}}
 
 hyper = {"cmd", "shift", "ctrl", "alt"}
@@ -174,6 +175,19 @@ window_manager:bind('', "L", function() resize_win("halfleft") end)
 window_manager:bind('', "R", function() resize_win("halfright") end)
 window_manager:bind('', "T", function() resize_win("halfup") end)
 window_manager:bind('', "B", function() resize_win("halfdown") end)
+-- }}}
+
+-- {{{ Screen management configuration
+
+function cycleWindowThroughScreens()
+  return function()
+    local window = hs.window.focusedWindow()
+    local screen = win:screen()
+    win:moveToScreen(screen:next(), false, true)
+  end
+end
+
+hs.hotkey.bind(hyper, "n", nil, cycleWindowThroughScreens)
 -- }}}
 
 -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
