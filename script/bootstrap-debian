@@ -1,0 +1,11 @@
+# Assume `sudo` is configured correctly for our user
+sudo apt-get update
+
+sudo apt-get install --no-install-recommends \
+ zsh \
+ git \
+ tmux \
+ jq \
+ ripgrep \
+ myrepos
+
