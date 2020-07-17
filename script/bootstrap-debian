@@ -7,5 +7,7 @@ sudo apt-get install --no-install-recommends \
  tmux \
  jq \
  ripgrep \
- myrepos
+ myrepos \
+ fzf \
+ hub
 
