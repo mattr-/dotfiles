@@ -31,6 +31,9 @@ Plug 'tpope/vim-unimpaired' " Complementary mappings
 Plug 'scrooloose/nerdcommenter' " Commenting
 Plug 'terryma/vim-multiple-cursors' " Multiple Cursors
 
+" Completion, LSP, and snippets
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Language Support
 
 " Ruby and Rails
