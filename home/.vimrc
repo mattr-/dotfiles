@@ -157,14 +157,6 @@ map ,f :Files<CR>
 map ,gf :GFiles<CR>
 " }}}
 
-" {{{ Deoplete configuration
-let g:deoplete#enable_at_startup = 1
-
-call deoplete#custom#option('ignore_sources', {
-      \ '_': ['buffer', 'around']
-      \})
-" }}}
-
 " {{{ Markdown preview configuration
 let g:mkdp_command_for_global = 0
 " }}}
@@ -184,18 +176,6 @@ function! g:Multiple_cursors_after()
   call deoplete#custom#buffer_option('auto_complete', v:true)
 endfunction
 " }}} vim-multiple-cursor configuration
-
-" {{{ ALE Configuration
-let g:ale_sign_error = '◉'
-let g:ale_sign_warning = '◉'
-let g:ale_fix_on_save = 1
-" }}}
-
-" {{{ Supertab configuration
-" Configure deoplete so that it uses tabs
-let g:SuperTabDefaultCompletionType = "<C-n>"
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" }}}
 
 " {{{ vim-json configuration
 let g:vim_json_syntax_conceal = 0
