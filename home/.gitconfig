@@ -1,7 +1,7 @@
 [user]
     email = codemattr@gmail.com
     name = Matt Rogers
-    signingkey = 90A9ACC72043995B
+    signingkey = FCEF33D0BA5E349B
 
 [url "git://anongit.kde.org/"]
     insteadOf = kde:
