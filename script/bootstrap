@@ -39,5 +39,10 @@ then
 
   # clone zinit for zsh plugins
   git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
+
+  # clone asdf for tool management
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+  cd ~/.asdf
+  git checkout "$(git describe --abbrev=0 --tags)"
 fi
 
