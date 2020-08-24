@@ -48,7 +48,7 @@
     cp = cherry-pick
     cane = commit --amend --no-edit
     ff = merge --ff-only
-    pff = pull --ff-only
+    pff = pull --ff-only -p
     last = !git l -1
     last10 = !git l -10
     l = "!source ~/.githelpers && pretty_git_log"
@@ -68,7 +68,7 @@
     count = shortlog -sn
     credit = "!source ~/.githelpers && change_author"
     rv = remote -v
-    pullr = pull --rebase --stat
+    pullr = pull --rebase --stat -p
     ssp = stash show -p
     sl = stash list
     sa = stash apply
