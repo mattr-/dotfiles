@@ -36,7 +36,9 @@ Plug 'scrooloose/nerdcommenter' " Commenting
 Plug 'terryma/vim-multiple-cursors' " Multiple Cursors
 
 " Completion, LSP, and snippets
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+if has("nvim")
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+endif
 
 " Language Support
 
@@ -68,7 +70,9 @@ Plug 'ajf/puppet-vim' " Puppet
 
 " Markdown
 Plug 'tpope/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+if has("nvim")
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+endif
 Plug 'mzlogin/vim-markdown-toc'
 
 call plug#end()
