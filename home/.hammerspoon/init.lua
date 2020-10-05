@@ -12,47 +12,6 @@ hs.hotkey.bind(reload_keys[1],
                "Reload Configuration",
                function () hs.reload() end)
 
-time_keys = {hyper, "T"}
-hs.hotkey.bind(time_keys[1],
-               time_keys[2],
-               "Show a clock",
-               function() show_time() end)
-
-darkblue = {red=24/255,blue=195/255,green=145/255,alpha=1}
-
--- {{{ Show the time
-function close_time_display()
-   time_draw:delete()
-   time_draw = nil
-end
-
-function show_time()
-   if time_draw == nil then
-      local mainScreen = hs.screen.mainScreen()
-      local mainRes = mainScreen:fullFrame()
-      local localMainRes = mainScreen:absoluteToLocal(mainRes)
-      local time_str = hs.styledtext.new(os.date("%H:%M"),
-                                         {font={name="Impact",size=120},
-                                          color=darkblue,
-                                          paragraphStyle={alignment="center"}})
-      local timeframe = hs.geometry.rect(mainScreen:localToAbsolute(
-                                            (localMainRes.w - 300) / 2,
-                                            (localMainRes.h - 200) / 2,
-                                            300, 200))
-      time_draw = hs.drawing.text(timeframe,time_str)
-      time_draw:setLevel(hs.drawing.windowLevels.overlay)
-      time_draw:show()
-      if ttimer == nil then
-         ttimer = hs.timer.doAfter(1.5, close_time_display)
-      else
-         ttimer:start()
-      end
-  else
-      ttimer:stop()
-      close_time_display()
-  end
-end -- }}}
-
 -- {{{ Resize Windows
 function resize_win(direction)
     local win = hs.window.focusedWindow()
