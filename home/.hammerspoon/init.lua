@@ -130,10 +130,10 @@ hs.hotkey.bind(resizeextra_1080_keys[1], resizeextra_1080_keys[2], nil, function
 modal_toggle_key = "W"
 window_manager = hs.hotkey.modal.new(hyper, modal_toggle_key)
 window_manager:bind('', 'escape', function() window_manager:exit() end)
-window_manager:bind('', "L", function() resize_win("halfleft") end)
-window_manager:bind('', "R", function() resize_win("halfright") end)
-window_manager:bind('', "T", function() resize_win("halfup") end)
-window_manager:bind('', "B", function() resize_win("halfdown") end)
+window_manager:bind('', "L", function() resize_win("halfleft"); window_manager:exit() end)
+window_manager:bind('', "R", function() resize_win("halfright"); window_manager:exit() end)
+window_manager:bind('', "T", function() resize_win("halfup"); window_manager:exit() end)
+window_manager:bind('', "B", function() resize_win("halfdown"); window_manager:exit() end)
 -- }}}
 
 -- {{{ Screen management configuration
