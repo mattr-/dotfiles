@@ -55,7 +55,7 @@ Plug 'kchmck/vim-coffee-script'
 
 " HTML & CSS
 Plug 'mattn/emmet-vim'
-Plug 'skammer/vim-css-color'
+Plug 'ap/vim-css-color'
 
 " Elixir
 Plug 'elixir-lang/vim-elixir'
