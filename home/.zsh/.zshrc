@@ -184,6 +184,16 @@ alias -g T='| tail'
 alias -g TL='| tail -n $(( +LINES ? LINES - 4 : 20 ))'
 alias -g ET='|& tail'
 alias -g ETL='|& tail -n $(( +LINES ? LINES - 4 : 20 ))'
+
+# Optional aliases if commands are present
+if command which -s bat ; then
+  alias cat='bat -n'
+fi
+
+if command which -s exa ; then
+  alias ls='exa'
+fi
+
 setopt append_history \
        bang_hist \
        extended_history \
