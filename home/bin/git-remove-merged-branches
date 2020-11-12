@@ -1,1 +1,1 @@
-git branch -d `git branch --merged | grep -v '^\*' | grep -v 'master'`
+git branch -d `git branch --merged | grep -v '^\*' | grep -v -e 'master\|main'`
