@@ -3,7 +3,6 @@ sudo apt-get update
 
 sudo apt-get install -y --no-install-recommends \
  zsh \
- git \
  tmux \
  jq \
  ripgrep \
