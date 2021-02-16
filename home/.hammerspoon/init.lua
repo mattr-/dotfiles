@@ -130,7 +130,23 @@ function halfmiddlecenter(window, screen)
     local max = screen:fullFrame()
     window.w = max.w / 2
     window.h = max.h
-    window.x = window.w / 2
+    window.x = max.w / 4
+    window.y = 0
+end
+
+function leftthird(window, screen)
+    local max = screen:fullFrame()
+    window.w = max.w / 4
+    window.h = max.h
+    window.x = 0
+    window.y = 0
+end
+
+function rightthird(window, screen)
+    local max = screen:fullFrame()
+    window.w = max.w / 4
+    window.h = max.h
+    window.x = max.w - (max.w / 4) + 1
     window.y = 0
 end
  -- }}}
@@ -158,6 +174,12 @@ hs.hotkey.bind(resizeextra_1080_keys[1], resizeextra_1080_keys[2], nil, function
 
 resizeextra_halfmiddlecenter_keys = {hyper, "M"}
 hs.hotkey.bind(resizeextra_halfmiddlecenter_keys[1], resizeextra_halfmiddlecenter_keys[2], nil, function() resize_win(halfmiddlecenter) end)
+
+resizeextra_rightthird_keys = {hyper, "P"}
+hs.hotkey.bind(resizeextra_rightthird_keys[1], resizeextra_rightthird_keys[2], nil, function() resize_win(rightthird) end)
+
+resizeextra_leftthird_keys = {hyper, "W"}
+hs.hotkey.bind(resizeextra_leftthird_keys[1], resizeextra_leftthird_keys[2], nil, function() resize_win(leftthird) end)
 
 -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
 hs.loadSpoon('ControlEscape'):start()
