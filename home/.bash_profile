@@ -41,10 +41,10 @@ alias hs="homeshick"
 [[ -f $ASDF_DIR/asdf.sh ]] && . $ASDF_DIR/asdf.sh
 
 # Optional aliases if commands are present
-if command which -s bat ; then
+if which -s bat &>/dev/null; then
   alias cat='bat -n'
 fi
 
-if command which -s exa ; then
+if which -s exa &>/dev/null; then
   alias ls='exa'
 fi
