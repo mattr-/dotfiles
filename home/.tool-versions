@@ -1,6 +1,6 @@
-elixir 1.10.3
-erlang 22.3.3
+elixir 1.11.4
+erlang 23.3.0
 elm 0.19.1
-ruby 2.7.1 2.6.6 2.5.8
-nodejs 14.5.0 12.18.3
-rust 1.45.2
+ruby 3.0.1 2.7.3 2.6.6
+nodejs 14.16.1 16.1.0
+rust 1.51.0
