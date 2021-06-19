@@ -8,9 +8,8 @@
 [url "git@git.kde.org:"]
     pushInsteadOf = kde:
 
-[url "https://github.com/"]
-    insteadOf = github:
 [url "git@github.com:"]
+    insteadOf = github:
     pushInsteadOf = github:
 
 [url "git@github.com:mattr-/"]
