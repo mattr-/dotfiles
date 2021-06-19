@@ -98,3 +98,5 @@
 
 [includeIf "gitdir:~/Code/github"]
 	path = ~/Code/github/.gitconfig
+[init]
+	defaultBranch = main
