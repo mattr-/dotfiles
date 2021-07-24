@@ -1,3 +1,6 @@
+# Do nothing inside of a codespace
+[[ -n $CODESPACES ]] && exit 0
+
 # Assume `sudo` is configured correctly for our user
 sudo apt-get update
 
@@ -9,4 +12,3 @@ sudo apt-get install -y --no-install-recommends \
  myrepos \
  fzf \
  hub
-
