@@ -1,3 +1,7 @@
 cf() {
-  cd `find ~/Code -mindepth 2 -maxdepth 2 -type d -name $1`
+  if [ "$#" -eq 1 ] ; then
+    cd $(find ~/Code -mindepth 2 -maxdepth 2 -type d -name $1)
+  else
+    cd $(find ~/Code -mindepth 2 -maxdepth 2 -type d | fzy)
+  fi
 }
