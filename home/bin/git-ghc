@@ -6,4 +6,4 @@ function die {
 [ $# -ne 1 ] && die "Wrong number of arguments."
 nwo=$1
 
-git clone https://github.com/$nwo $nwo
+git clone git@github.com:$nwo $nwo
