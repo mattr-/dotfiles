@@ -12,6 +12,10 @@
     insteadOf = github:
     pushInsteadOf = github:
 
+[url "git@github.com:jekyll/"]
+    insteadOf = jekyll:
+    pushInsteadOf = jekyll:
+
 [url "git@github.com:mattr-/"]
     insteadOf = mattr:
     pushInsteadOf = mattr:
