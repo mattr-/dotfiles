@@ -66,7 +66,6 @@ Plug 'ElmCast/elm-vim' " Elm
 Plug 'fatih/vim-go' " Go
 Plug 'tpope/vim-liquid' " Liquid
 Plug 'tpope/vim-cucumber' " Cucumber
-Plug 'ajf/puppet-vim' " Puppet
 
 " Markdown
 Plug 'tpope/vim-markdown'
