@@ -410,3 +410,13 @@ export RUBY_GC_OLDMALLOC_LIMIT=64000000
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/fast-syntax-highlighting
 zinit light Aloxaf/fzf-tab
+
+# Finally, set up the path properly because it's mangled otherwise
+
+path=(/usr/local/share/npm/bin /usr/local/sbin /usr/local/bin $path)
+path=($HOME/.go/bin $path)
+path=(/usr/local/heroku/bin $path)
+path=($HOME/.rbenv/bin $path)
+path=($HOME/.cargo/bin $path)
+path=(/opt/homebrew/bin $path)
+path=($HOME/bin $path)

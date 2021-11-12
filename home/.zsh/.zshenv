@@ -8,7 +8,6 @@ typeset -gU path cdpath fpath manpath fignore
 # link ld library path variables
 typeset -TU LD_LIBRARY_PATH ld_library_path
 
-path=(/usr/local/share/npm/bin /usr/local/sbin /usr/local/bin $path)
 
 #don't print errors about matching globs
 setopt nonomatch
@@ -25,9 +24,3 @@ autoload -U colors ;  colors
 export EDITOR=vim
 export VISUAL=$EDITOR
 
-path=($HOME/.go/bin $path)
-path=(/usr/local/heroku/bin $path)
-path=($HOME/.rbenv/bin $path)
-path=($HOME/.cargo/bin $path)
-path=(/opt/homebrew/bin $path)
-path=($HOME/bin $path)
