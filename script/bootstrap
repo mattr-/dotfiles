@@ -44,5 +44,8 @@ then
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf
   cd ~/.asdf
   git checkout "$(git describe --abbrev=0 --tags)"
+
+  # run homeshick to link the dotfiles in
+  $homeshick_dir/bin/homeshick -f link dotfiles
 fi
 
