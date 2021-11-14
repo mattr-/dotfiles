@@ -110,7 +110,9 @@ map ,gpr :Git pull --rebase<CR>
 map ,gpu :Git push -u<CR>
 map ,gdi :Git diff<CR>
 map ,gdc :Git diff --cached<CR>
-map ,ga :update \| Dispatch git add %<CR>
+map <silent> ,gaf :update \| Git add %<CR>
+map <silent> ,gaa :update \| Git add -A<CR>
+map <silent> ,gap :update \| Git add -p <CR>
 
 " }}}
 
