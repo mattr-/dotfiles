@@ -142,10 +142,6 @@ let g:airline_mode_map = {
 " }}}
 
 " {{{ ag.vim configuration
-if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
-endif
-
 if executable('rg')
     let g:ackprg = 'rg --vimgrep --color=never'
 endif
