@@ -103,7 +103,7 @@ augroup fugitive_ext
   autocmd FileType fugitiveblame nnoremap <buffer> <localleader>pr :call OpenPR(expand("<cword>"))<cr>
 augroup END
 
-map ,gs :Gstatus<CR>
+map ,gs :Git<CR>
 map ,gpl :Git pull<CR>
 map ,gpr :Git pull --rebase<CR>
 map ,gpu :Git push<CR>
