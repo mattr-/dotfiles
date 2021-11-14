@@ -87,7 +87,8 @@ runtime! macros/matchit.vim
 " Open a PR on GitHub based on the SHA while using :Gblame
 " requires both vim-fugitive and vim-rhubarb
 function! OpenPR(sha)
-  let pr_number = system("git log --merges --ancestry-path --oneline ". a:sha . "..master | grep 'pull request' | tail -n1 | awk '{print $5}' | cut -c2-")
+  let default_branch =system("git remote show origin | sed -n '/HEAD branch/s/.*: //p'")
+  let pr_number = system("git log --merges --ancestry-path --oneline ". a:sha . ".." . default_branch . " | grep 'pull request' | tail -n1 | awk '{print $5}' | cut -c2-")
   let remote = fugitive#RemoteUrl(".")
   let root = rhubarb#homepage_for_url(remote)
   let url = root . '/pull/' . substitute(pr_number, '\v\C\n', '', 1)
