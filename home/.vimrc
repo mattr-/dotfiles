@@ -107,7 +107,7 @@ augroup END
 map ,gs :Git<CR>
 map ,gpl :Git pull<CR>
 map ,gpr :Git pull --rebase<CR>
-map ,gpu :Git push<CR>
+map ,gpu :Git push -u<CR>
 map ,gdi :Git diff<CR>
 map ,gdc :Git diff --cached<CR>
 map ,ga :update \| Dispatch git add %<CR>
