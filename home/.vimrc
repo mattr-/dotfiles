@@ -190,22 +190,6 @@ nmap ga <Plug>(EasyAlign)
 let g:mkdp_command_for_global = 0
 " }}}
 
-" {{{ Ultisnips configuration
-let g:UltiSnipsExpandTrigger="<C-Space>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-" }}}
-
-" {{{ vim-multiple-cursor configuration
-function! g:Multiple_cursors_before()
-  call deoplete#custom#buffer_option('auto_complete', v:false)
-endfunction
-
-function! g:Multiple_cursors_after()
-  call deoplete#custom#buffer_option('auto_complete', v:true)
-endfunction
-" }}} vim-multiple-cursor configuration
-
 " {{{ vim-json configuration
 let g:vim_json_syntax_conceal = 0
 " }}}
