@@ -347,6 +347,10 @@ set guioptions-=l "or left hand scrollbar
 set guioptions-=L
 set guifont=Monospace\ 9
 
+" Shorten the time for the swap file to be written and fire the CursorHold
+" autocommand event. This will make vim-signify's updates very fast. Need to
+" watch for other side effects as well.
+set updatetime=100
 " }}}
 
 " {{{ Generic custom mappings
