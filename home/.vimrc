@@ -15,11 +15,18 @@ else
 endif
 
 " UI and Colorscheme Plugins
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ayu-theme/ayu-vim'
-Plug 'ayu-theme/ayu-vim-airline'
 Plug 'audibleblink/hackthebox.vim'
+Plug 'ayu-theme/ayu-vim'
+
+if has('nvim') && has('nvim-0.5.0')
+  Plug 'konapun/vacuumline.nvim'
+  Plug 'glepnir/galaxyline.nvim'
+  Plug 'kyazdani42/nvim-web-devicons'
+else
+  Plug 'ayu-theme/ayu-vim-airline'
+  Plug 'bling/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+endif
 
 " Utility Plugins
 Plug 'mileszs/ack.vim' "Search
@@ -142,6 +149,10 @@ let g:airline_mode_map = {
 " This is for if I add back coc
 "let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
 "let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+
+if has('nvim') || has('nvim-0.5.0')
+  lua require('vacuumline').setup()
+endif
 " }}}
 
 " {{{ ag.vim configuration
