@@ -178,6 +178,14 @@ map ,f :Files<CR>
 map ,gf :GFiles<CR>
 " }}}
 
+" {{{ vim-easy-align configuration
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+" }}}
+
 " {{{ Markdown preview configuration
 let g:mkdp_command_for_global = 0
 " }}}
