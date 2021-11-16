@@ -407,7 +407,7 @@ export RUBY_GC_OLDMALLOC_LIMIT=64000000
 
 #zinit plugins
 zinit light zsh-users/zsh-autosuggestions
-zinit light zdharma/fast-syntax-highlighting
+zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light Aloxaf/fzf-tab
 
 # Finally, set up the path properly because it's mangled otherwise

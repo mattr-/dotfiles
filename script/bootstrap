@@ -41,7 +41,7 @@ then
   git clone https://github.com/andsens/homeshick.git "$homeshick_dir"
 
   # clone zinit for zsh plugins
-  git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
+  git clone https://github.com/zdharma-continuum/zinit.git ~/.zinit/bin
 
   # clone asdf for tool management
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf
