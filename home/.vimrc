@@ -34,7 +34,6 @@ Plug 'junegunn/fzf' " Fuzzy search
 Plug 'junegunn/fzf.vim' " Fuzzy search
 Plug 'junegunn/vim-easy-align' " Alignment
 Plug 'janko-m/vim-test' " Test running
-Plug 'PeterRincker/vim-argumentative' " Function argument handling
 Plug 'tpope/vim-abolish' " Abbreviation, Substitution, and Coercion
 Plug 'tpope/vim-surround' " Surroundings
 Plug 'tpope/vim-repeat' " Repeating plugin maps
