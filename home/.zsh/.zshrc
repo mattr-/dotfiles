@@ -377,7 +377,6 @@ function preexec() {
   title "$1" "$USER@%m" "%35<...<%~"
 }
 export GPG_TTY=$(tty)
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 which nodenv &> /dev/null
 [[ $? -eq 0 ]]  && eval "$(nodenv init -)"
 # This loads rbenv into a shell session.
@@ -420,3 +419,6 @@ path=($HOME/.rbenv/bin $path)
 path=($HOME/.cargo/bin $path)
 path=(/opt/homebrew/bin $path)
 path=($HOME/bin $path)
+
+# This relies on $PATH being correct. :(
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
