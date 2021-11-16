@@ -34,6 +34,9 @@ then
     mv "$current_dir" "$preferred_dir"
   fi
 
+  # switch to our preferred directory
+  pushd $preferred_dir &>/dev/null
+
   # setup homeshick
   git clone https://github.com/andsens/homeshick.git "$homeshick_dir"
 
@@ -47,5 +50,7 @@ then
 
   # run homeshick to link the dotfiles in
   $homeshick_dir/bin/homeshick -f link dotfiles
+
+  popd &>/dev/null
 fi
 
