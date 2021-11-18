@@ -6,3 +6,6 @@ if require "mattr-.first_load"() then
 end
 
 require "mattr-.plugins"
+
+-- Telescope configuration
+require "mattr-.telescope.setup"
