@@ -1,9 +1,0 @@
-{
-  "solargraph.useBundler": false,
-  "solargraph.completion": true,
-  "solargraph.hover": true,
-  "solargraph.symbols": true,
-  "solargraph.definitions": true,
-  "solargraph.references": true,
-  "solargraph.rename": true
-}
