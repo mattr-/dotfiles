@@ -40,7 +40,6 @@ Plug 'tpope/vim-repeat' " Repeating plugin maps
 Plug 'tpope/vim-dispatch' " Command running
 Plug 'tpope/vim-unimpaired' " Complementary mappings
 Plug 'scrooloose/nerdcommenter' " Commenting
-Plug 'terryma/vim-multiple-cursors' " Multiple Cursors
 
 " Completion, LSP, and snippets
 if has("nvim")
