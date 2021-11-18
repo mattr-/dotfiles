@@ -13,6 +13,8 @@ return require("packer").startup({
         vim.cmd [[colorscheme hackthebox]]
       end
     }
+
+    use "kyazdani42/nvim-web-devicons"
     --- }}}
 
     -- Fuzzy Finding
