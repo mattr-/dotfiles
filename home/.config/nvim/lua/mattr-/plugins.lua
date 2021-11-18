@@ -15,6 +15,13 @@ return require("packer").startup({
     }
     --- }}}
 
+    -- Fuzzy Finding
+    use({
+      "nvim-telescope/telescope.nvim",
+      requires = { {'nvim-lua/plenary.nvim'} },
+    })
+    use("nvim-telescope/telescope-fzf-native.nvim")
+
   end,
   config = {
     display = {
