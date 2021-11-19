@@ -413,7 +413,7 @@ zinit light Aloxaf/fzf-tab
 # Finally, set up the path properly because it's mangled otherwise
 
 path=(/usr/local/share/npm/bin /usr/local/sbin /usr/local/bin $path)
-path=($HOME/.go/bin $path)
+path=($HOME/go/bin $path)
 path=(/usr/local/heroku/bin $path)
 path=($HOME/.rbenv/bin $path)
 path=($HOME/.cargo/bin $path)
