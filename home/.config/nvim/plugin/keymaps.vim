@@ -1,7 +1,5 @@
 scriptencoding utf-8
 
-" {{{ Generic custom mappings
-"
 " I use a hybrid 'dual leader' mapping scheme. <Leader> is the default `\` and
 " `,` gets used as a defacto leader key. You'll see the scheme used throughout
 " each plugin's configuration as well as filetype specific configuration.
@@ -73,7 +71,5 @@ noremap k gk
 
 " Make <leader>' switch between ' and "
 nnoremap ,' ""yls<C-r>={'"': "'", "'": '"'}[@"]<CR><Esc>
-
-" }}}
 
 " vim: set et sts=2 sw=2 ts=16 fdm=marker :
