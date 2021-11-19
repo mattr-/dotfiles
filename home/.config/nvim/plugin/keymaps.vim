@@ -56,12 +56,12 @@ map <Leader>rt :!ctags -R *<CR><CR>
 map <C-\> :tnext<CR>
 
 " Quickfix mappings
-nnomap ,cc :echom "--> ,qfc <--"<CR>
-nnomap ,qfc :cclose<CR>
-nnomap ,cn :echom "--> ,qfc <--"<CR>
-nnomap ,qfn :cnext<CR>
-nnomap ,cp :echom "--> ,qfp <--"<CR>
-nnomap ,qfp :cprev<CR>
+nnoremap ,cc :echom "--> ,qfc <--"<CR>
+nnoremap ,qfc :cclose<CR>
+nnoremap ,cn :echom "--> ,qfc <--"<CR>
+nnoremap ,qfn :cnext<CR>
+nnoremap ,cp :echom "--> ,qfp <--"<CR>
+nnoremap ,qfp :cprev<CR>
 
 " Movement mappings
 noremap H ^
