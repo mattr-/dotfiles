@@ -8,11 +8,6 @@ require("telescope").setup({
     winblend = 0,
     preview = false,
     color_devicons = true,
-    mappings = {
-      i = {
-        ["<Esc>"] = actions.close  --Close when hitting escape
-      }
-    }
   }
 })
 

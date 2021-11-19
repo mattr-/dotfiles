@@ -9,3 +9,4 @@ require "mattr-.plugins"
 
 -- Telescope configuration
 require "mattr-.telescope.setup"
+require "mattr-.telescope.mappings"
