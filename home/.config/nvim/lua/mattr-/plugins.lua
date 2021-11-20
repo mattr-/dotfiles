@@ -2,17 +2,37 @@ _ = vim.cmd [[packadd packer.nvim]]
 
 return require("packer").startup({
   function(use)
+    local local_use = function(first, second, opts)
+      opts = opts or {}
+      local plugin_path, home
+      if second == nil then
+        plugin_path = first
+        home = "mattr-"
+      else
+        plugin_path = second
+        home = first
+      end
+
+
+      final_path = string.format("%s/%s", home, plugin_path)
+      if vim.fn.isdirectory(vim.fn.expand("~/Code/" .. final_path)) == 1 then
+        opts[1] = "~/Code/" .. final_path
+      else
+        opts[1] = final_path
+      end
+
+      use(opts)
+    end
+
     use "wbthomason/packer.nvim"
     use "lewis6991/impatient.nvim"
 
     -- UI and Colors
-    use {
-      "audibleblink/hackthebox.vim",
-      config = function()
-        vim.opt.termguicolors = true
-        vim.cmd [[colorscheme hackthebox]]
-      end
-    }
+    local_use("hackthebox.vim", nil, { config = function()
+      vim.opt.termguicolors = true
+      require("hackthebox").set()
+    end
+    })
 
     use "kyazdani42/nvim-web-devicons"
 
