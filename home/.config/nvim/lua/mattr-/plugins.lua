@@ -46,6 +46,7 @@ return require("packer").startup({
     use "tpope/vim-surround" -- TODO: Look at https://github.com/machakann/vim-sandwich at some point
     use "tpope/vim-repeat" -- Repeating plugin maps
     use "tpope/vim-abolish" -- Abbreviate, substitution, and coercion
+    use "junegunn/vim-easy-align" -- Alignment stuff
     use {
       "tpope/vim-dispatch",
       cmd = { "Dispatch", "Make" }
