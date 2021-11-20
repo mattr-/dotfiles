@@ -5,6 +5,7 @@ if require "mattr-.first_load"() then
   return
 end
 
+require "mattr-.globals"
 require "mattr-.plugins"
 
 -- Telescope configuration
