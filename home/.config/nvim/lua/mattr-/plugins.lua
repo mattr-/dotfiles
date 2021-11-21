@@ -42,6 +42,9 @@ return require("packer").startup({
       run = ':TSUpdate'
     }
 
+    -- LSP
+    use "neovim/nvim-lspconfig"
+
     -- Utilities
     use "tpope/vim-surround" -- TODO: Look at https://github.com/machakann/vim-sandwich at some point
     use "tpope/vim-repeat" -- Repeating plugin maps
