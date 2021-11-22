@@ -72,4 +72,8 @@ noremap k gk
 " Make <leader>' switch between ' and "
 nnoremap ,' ""yls<C-r>={'"': "'", "'": '"'}[@"]<CR><Esc>
 
+" Make Ctrl-a and Ctrl-e work like the default readline bindings
+cnoremap <c-a> <Home>
+cnoremap <c-e> <End>
+
 " vim: set et sts=2 sw=2 ts=16 fdm=marker :
