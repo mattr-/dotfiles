@@ -1,4 +1,5 @@
 local gl = require("galaxyline")
+local condition = require("galaxyline.condition")
 local gls = gl.section
 local api = vim.api
 local M = {}
@@ -53,13 +54,6 @@ local colors = {
   white = "#ffffff",
 }
 
-local buffer_not_empty = function()
-  if vim.fn.empty(vim.fn.expand("%:t")) ~= 1 then
-    return true
-  end
-  return false
-end
-
 gls.left[1] = {
   FirstElement = {
     provider = function()
@@ -71,7 +65,7 @@ gls.left[1] = {
 
 local modeFunction = function()
   mode = M:get_current_mode()
-  if buffer_not_empty() then
+  if condition.buffer_not_empty() then
     return string.format("%s ", mode["short"])
   else
     return string.format("%s ", mode["long"])
@@ -92,14 +86,14 @@ gls.left[2] = {
 gls.left[3] = {
   FileIcon = {
     provider = "FileIcon",
-    condition = buffer_not_empty,
+    condition = condition.buffer_not_empty,
     highlight = { require("galaxyline.providers.fileinfo").get_file_icon_color, colors.bg },
   },
 }
 gls.left[4] = {
   FileName = {
     provider = "FileName",
-    condition = buffer_not_empty,
+    condition = condition.buffer_not_empty,
     separator = " " ,
     separator_highlight = { colors.text, colors.bg },
     highlight = { colors.text, colors.bg },
@@ -111,14 +105,14 @@ gls.left[5] = {
     provider = function()
       return " "
     end,
-    condition = buffer_not_empty,
+    condition = condition.buffer_not_empty,
     highlight = { colors.white, colors.bg },
   },
 }
 gls.left[6] = {
   GitBranch = {
     provider = "GitBranch",
-    condition = buffer_not_empty,
+    condition = condition.buffer_not_empty,
     highlight = { colors.text, colors.bg },
   },
 }
@@ -127,7 +121,7 @@ gls.left[7] = {
     provider = function()
       return " "
     end,
-    condition = buffer_not_empty,
+    condition = condition.buffer_not_empty,
     separator = "" ,
     separator_highlight = { colors.text, colors.bg },
     highlight = { colors.bg, colors.bg },
