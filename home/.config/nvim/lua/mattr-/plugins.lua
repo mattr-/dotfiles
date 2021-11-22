@@ -32,6 +32,9 @@ return require("packer").startup({
     use "norcalli/nvim-colorizer.lua"
     use "kyazdani42/nvim-web-devicons"
 
+    use "rcarriga/nvim-notify" -- notifications in vim. let's try it!
+    use "folke/trouble.nvim" -- a problem list plugin
+    use "tjdevries/cyclist.vim" -- Multiple sets of listchars
     use "NTBBloodbath/galaxyline.nvim" -- Fancy statusline
 
     -- Tree Sitter
@@ -42,6 +45,16 @@ return require("packer").startup({
 
     -- LSP
     use "neovim/nvim-lspconfig"
+
+    -- Completion
+    use { "ms-jpq/coq_nvim", branch = 'coq' }
+    use { "ms-jpq/coq.artifacts", branch = 'artifacts' }
+    use { "ms-jpq/coq.thirdparty", branch = '3p' }
+
+    use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'saadparwaiz1/cmp_luasnip'
+    use 'L3MON4D3/LuaSnip' -- Snippets plugin
 
     -- Utilities
     use "tpope/vim-surround" -- TODO: Look at https://github.com/machakann/vim-sandwich at some point
@@ -58,9 +71,10 @@ return require("packer").startup({
     use "TimUntersberger/neogit"
     use "rhysd/committia.vim" -- Change the formatting and layout of the commit windo
     use "lewis6991/gitsigns.nvim" -- Asynchronous Signs!
+    use "ruifm/gitlinker.nvim" -- Line aware links to GitHub
 
     if vim.fn.executable "gh" == 1 then
-      use "pwntester/octo.nvim"
+      use "pwntester/octo.nvim" -- GitHub in NeoVim! :tada:
     end
 
     -- Fuzzy Finding
