@@ -28,13 +28,11 @@ return require("packer").startup({
     use "lewis6991/impatient.nvim"
 
     -- UI and Colors
-    local_use("hackthebox.vim", nil, { config = function()
-      vim.opt.termguicolors = true
-      require("hackthebox").set()
-    end
-    })
-
+    local_use "hackthebox.vim"
+    use "norcalli/nvim-colorizer.lua"
     use "kyazdani42/nvim-web-devicons"
+
+    use "NTBBloodbath/galaxyline.nvim" -- Fancy statusline
 
     -- Tree Sitter
     use {
