@@ -1,5 +1,6 @@
 local gl = require("galaxyline")
 local condition = require("galaxyline.condition")
+local buffer = require("galaxyline.providers.buffer")
 local gls = gl.section
 local api = vim.api
 local M = {}
@@ -75,7 +76,7 @@ end
 gls.left[2] = {
   ViMode = {
     provider = modeFunction,
-    separator = " ",
+    separator = "",
     separator_highlight = {
       colors.text,
       colors.bg,
@@ -84,13 +85,6 @@ gls.left[2] = {
   },
 }
 gls.left[3] = {
-  FileIcon = {
-    provider = "FileIcon",
-    condition = condition.buffer_not_empty,
-    highlight = { require("galaxyline.providers.fileinfo").get_file_icon_color, colors.bg },
-  },
-}
-gls.left[4] = {
   FileName = {
     provider = "FileName",
     condition = condition.buffer_not_empty,
@@ -100,7 +94,7 @@ gls.left[4] = {
   },
 }
 
-gls.left[5] = {
+gls.left[4] = {
   GitIcon = {
     provider = function()
       return " "
@@ -109,32 +103,23 @@ gls.left[5] = {
     highlight = { colors.white, colors.bg },
   },
 }
-gls.left[6] = {
+gls.left[5] = {
   GitBranch = {
     provider = "GitBranch",
+    separator = " " ,
+    separator_highlight = { colors.text, colors.bg },
     condition = condition.buffer_not_empty,
     highlight = { colors.text, colors.bg },
   },
 }
-gls.left[7] = {
-  LeftEnd = {
-    provider = function()
-      return " "
-    end,
-    condition = condition.buffer_not_empty,
-    separator = "" ,
-    separator_highlight = { colors.text, colors.bg },
-    highlight = { colors.bg, colors.bg },
-  },
-}
-gls.left[8] = {
+gls.left[6] = {
   DiagnosticError = {
     provider = "DiagnosticError",
     icon = "  ",
     highlight = { colors.red, colors.bg },
   },
 }
-gls.left[9] = {
+gls.left[7] = {
   Space = {
     provider = function()
       return " "
@@ -142,7 +127,7 @@ gls.left[9] = {
     highlight = { colors.bg, colors.bg },
   },
 }
-gls.left[10] = {
+gls.left[8] = {
   DiagnosticWarn = {
     provider = "DiagnosticWarn",
     icon = "  ",
@@ -150,6 +135,23 @@ gls.left[10] = {
   },
 }
 gls.right[1] = {
+  FileIcon = {
+    provider = "FileIcon",
+    condition = condition.buffer_not_empty,
+    highlight = { require("galaxyline.providers.fileinfo").get_file_icon_color, colors.bg },
+  },
+}
+gls.right[2] = {
+  FileTypeName = {
+    provider = function()
+      return buffer.get_buffer_filetype():lower()
+    end,
+    separator_highlight = { colors.text, colors.bg },
+    condition = condition.buffer_not_empty,
+    highlight = { colors.text, colors.bg },
+  },
+}
+gls.right[3] = {
   FileFormat = {
     provider = function()
       format = vim.bo.fileformat
@@ -161,12 +163,12 @@ gls.right[1] = {
         return ""
       end
     end,
-    separator = "",
+    separator = " ",
     separator_highlight = { colors.text, colors.bg },
     highlight = { colors.darkblue, colors.text },
   },
 }
-gls.right[2] = {
+gls.right[4] = {
   LineInfo = {
     provider = function()
       local line = vim.fn.line(".")
@@ -180,7 +182,7 @@ gls.right[2] = {
     highlight = { colors.darkblue, colors.text },
   },
 }
-gls.right[3] = {
+gls.right[5] = {
   PerCent = {
     provider = "LinePercent",
     separator = " ",
