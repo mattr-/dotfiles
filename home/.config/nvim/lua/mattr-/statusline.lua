@@ -1,6 +1,8 @@
 local gl = require("galaxyline")
 local condition = require("galaxyline.condition")
 local buffer = require("galaxyline.providers.buffer")
+local fileinfo = require("galaxyline.providers.fileinfo")
+local List = require("plenary.collections.py_list")
 local gls = gl.section
 local api = vim.api
 local M = {}
@@ -35,6 +37,34 @@ M.modes = setmetatable({
 M.get_current_mode = function(self)
   local current_mode = api.nvim_get_mode().mode
   return self.modes[current_mode]
+end
+
+-- Duplicated from NTBBloodbath/galaxyline
+M.file_readonly = function()
+  if vim.bo.filetype == "help" then
+    return true
+  end
+
+  return vim.bo.readonly
+end
+
+M.file_with_icons = function(file, modified_icon, readonly_icon)
+  if vim.fn.empty(file) == 1 then
+    return ""
+  end
+
+  modified_icon = modified_icon or ""
+  readonly_icon = readonly_icon or ""
+
+  if M.file_readonly() then
+    file = readonly_icon .. " " .. file
+  end
+
+  if vim.bo.modifiable and vim.bo.modified then
+    file = file .. " " .. modified_icon
+  end
+
+  return " " .. file .. " "
 end
 
 gl.short_line_list = { "LuaTree", "vista", "dbui" }
@@ -76,7 +106,7 @@ end
 gls.left[2] = {
   ViMode = {
     provider = modeFunction,
-    separator = "",
+    separator = " ",
     separator_highlight = {
       colors.text,
       colors.bg,
@@ -84,17 +114,8 @@ gls.left[2] = {
     highlight = { colors.text, colors.bg, "bold" },
   },
 }
-gls.left[3] = {
-  FileName = {
-    provider = "FileName",
-    condition = condition.buffer_not_empty,
-    separator = " " ,
-    separator_highlight = { colors.text, colors.bg },
-    highlight = { colors.text, colors.bg },
-  },
-}
 
-gls.left[4] = {
+gls.left[3] = {
   GitIcon = {
     provider = function()
       return " "
@@ -103,12 +124,25 @@ gls.left[4] = {
     highlight = { colors.white, colors.bg },
   },
 }
-gls.left[5] = {
+gls.left[4] = {
   GitBranch = {
     provider = "GitBranch",
     separator = " " ,
     separator_highlight = { colors.text, colors.bg },
     condition = condition.buffer_not_empty,
+    highlight = { colors.text, colors.bg },
+  },
+}
+gls.left[5] = {
+  FileName = {
+    provider = function()
+      --local path_to_file = vim.split(vim.fn.fnamemodify(vim.fn.expand("%"), ":~:."), file_sep)
+      local path_to_file = vim.fn.fnamemodify(vim.fn.expand("%"), ":~:.")
+      return M.file_with_icons(path_to_file)
+    end,
+    condition = condition.buffer_not_empty,
+    separator = "" ,
+    separator_highlight = { colors.text, colors.bg },
     highlight = { colors.text, colors.bg },
   },
 }
@@ -138,7 +172,7 @@ gls.right[1] = {
   FileIcon = {
     provider = "FileIcon",
     condition = condition.buffer_not_empty,
-    highlight = { require("galaxyline.providers.fileinfo").get_file_icon_color, colors.bg },
+    highlight = { fileinfo.get_file_icon_color, colors.bg },
   },
 }
 gls.right[2] = {
@@ -190,3 +224,6 @@ gls.right[5] = {
     highlight = { colors.darkblue, colors.text },
   },
 }
+
+gls.short_line_left = gls.left
+gls.short_line_right = gls.right
