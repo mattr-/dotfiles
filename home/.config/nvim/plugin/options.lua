@@ -51,4 +51,7 @@ opt.startofline = false -- Attempt to keep the cursor in the same column
 opt.scrolloff   = 3     -- 3 linues of context when scrolling
 opt.showmatch   = true  -- Show matching pairs
 opt.updatetime  = 100   -- Update faster
-
+if vim.fn.executable("rg") then
+  opt.grepprg = [[rg --hidden --glob "!.git" --no-heading --smart-case --vimgrep --follow $*]]
+  opt.grepformat = opt.grepformat ^ { "%f:%l:%c:%m" }
+end
