@@ -34,7 +34,6 @@ return require("packer").startup({
 
     use "rcarriga/nvim-notify" -- notifications in vim. let's try it!
     use "folke/trouble.nvim" -- a problem list plugin
-    use "tjdevries/cyclist.vim" -- Multiple sets of listchars
     use "NTBBloodbath/galaxyline.nvim" -- Fancy statusline
 
     -- Tree Sitter
