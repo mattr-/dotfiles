@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "===> Installing prequisites"
+sudo apt update
+sudo apt-get install --no-install-recommends -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
+
+echo "===> Cloning neovim"
+git clone https://github.com/neovim/neovim
+
+echo "===> Building neovim and its dependencies"
+cd neovim
+make -j$(nproc)
+
+echo "===> Installing the new neovim"
+sudo make install
+
