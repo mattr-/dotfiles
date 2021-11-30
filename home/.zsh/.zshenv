@@ -1,7 +1,6 @@
 export ZDOTDIR=$HOME/.zsh
 fpath=($ZDOTDIR/functions $fpath)
 
-
 # automatically remove duplicates from these arrays
 typeset -gU path cdpath fpath manpath fignore
 
