@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# This script is full of stuff that I want to automate but rather than bootstrap it, I want it to be semi interactive
+
+# Install ASDF plugins
+for plugin in `cat $HOME/.tool-versions | awk '{ print $1 }'`
+do
+  echo "===> Installing ASDF plugin $plugin"
+  asdf plugin add $plugin &> /dev/null
+done
+
+asdf install ruby | grep -e '^\(Downloading\|Installing\|Installed\)'
+
