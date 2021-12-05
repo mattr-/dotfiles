@@ -51,6 +51,16 @@ then
   # run homeshick to link the dotfiles in
   $homeshick_dir/bin/homeshick -f link dotfiles
 
+  # bootstrap asdf plugins
+  (
+    export PATH=$HOME/.asdf/bin:$PATH
+    for plugin in `cat $HOME/.tool-versions | awk '{ print $1 }'`
+    do
+      echo "===> Installing ASDF plugin $plugin"
+      asdf plugin add $plugin &> /dev/null
+    done
+  )
+
   popd &>/dev/null
 fi
 
