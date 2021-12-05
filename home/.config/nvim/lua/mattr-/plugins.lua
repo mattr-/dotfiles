@@ -89,6 +89,13 @@ return require("packer").startup({
       run = 'make'
     }
 
+    -- Non LSP editing support. Markdown in particular
+    use {
+      "iamcco/markdown-preview.nvim",
+      run = "cd app && yarn install",
+      cmd = "MarkdownPreview"
+    }
+
   end,
   config = {
     display = {
