@@ -1,19 +1,1 @@
-[$HOME/.rbenv]
-checkout = git clone https://github.com/sstephenson/rbenv $HOME/.rbenv
-
-[$HOME/.rbenv/plugins/rbenv-default-gems]
-checkout = git clone https://github.com/rbenv/rbenv-default-gems
-
-[$HOME/.rbenv/plugins/rbenv-gem-rehash]
-checkout = git clone https://github.com/rbenv/rbenv-gem-rehash
-
-[$HOME/.rbenv/plugins/ruby-build]
-checkout = git clone https://github.com/sstephenson/ruby-build
-
-[$HOME/.nodenv]
-checkout = git clone https://github.com/nodenv/nodenv $HOME/.nodenv
-
-[$HOME/.nodenv/plugins/node-build]
-checkout = git clone https://github.com/nodenv/node-build
-
 include = cat $HOME/.mrconfig.d/*

@@ -1,0 +1,12 @@
+[$HOME/Code/mattr-/hackthebox.vim]
+# Use the neovim branch to get a better colorscheme
+checkout = git clone https://github.com/mattr-/hackthebox.vim $HOME/Code/mattr-/hackthebox.vim
+  cd $HOME/Code/mattr-/hackthebox.vim
+  git checkout neovim
+
+[$HOME/Code/mattr-/plenary.nvim]
+# This repo has an upstream because I've forked it while I wait for a bug to
+# be fixed. Make sure we get it too
+checkout = git clone https://github.com/mattr-/plenary.nvim $HOME/Code/mattr-/plenary.nvim
+  cd $HOME/Code/mattr-/plenary.nvim
+  git remote add upstream https://github.com/nvim-lua/plenary.nvim
