@@ -26,6 +26,7 @@ return require("packer").startup({
 
     use "wbthomason/packer.nvim"
     use "lewis6991/impatient.nvim"
+    local_use "plenary.nvim"
 
     -- UI and Colors
     local_use "hackthebox.vim"
@@ -80,10 +81,7 @@ return require("packer").startup({
     end
 
     -- Fuzzy Finding
-    use {
-      "nvim-telescope/telescope.nvim",
-      requires = { {'nvim-lua/plenary.nvim'} },
-    }
+    use "nvim-telescope/telescope.nvim"
     use {
       "nvim-telescope/telescope-fzf-native.nvim",
       run = 'make'
