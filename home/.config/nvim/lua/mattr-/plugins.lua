@@ -49,9 +49,9 @@ return require("packer").startup({
     use "neovim/nvim-lspconfig"
 
     -- Completion
-    use { "ms-jpq/coq_nvim", branch = 'coq' }
-    use { "ms-jpq/coq.artifacts", branch = 'artifacts' }
-    use { "ms-jpq/coq.thirdparty", branch = '3p' }
+    -- use { "ms-jpq/coq_nvim", branch = 'coq' }
+    -- use { "ms-jpq/coq.artifacts", branch = 'artifacts' }
+    -- use { "ms-jpq/coq.thirdparty", branch = '3p' }
 
     use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
     use 'hrsh7th/cmp-nvim-lsp'
