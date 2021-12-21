@@ -53,10 +53,14 @@ return require("packer").startup({
     -- use { "ms-jpq/coq.artifacts", branch = 'artifacts' }
     -- use { "ms-jpq/coq.thirdparty", branch = '3p' }
 
-    use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'saadparwaiz1/cmp_luasnip'
-    use 'L3MON4D3/LuaSnip' -- Snippets plugin
+    use 'hrsh7th/nvim-cmp'     -- Autocompletion plugin
+    use 'hrsh7th/cmp-buffer'   -- Completion from other buffers
+    use 'hrsh7th/cmp-path'     -- Completion for filesystem paths
+    use 'hrsh7th/cmp-cmdline'  -- Completion for vim's cmdline
+    use 'hrsh7th/cmp-nvim-lsp' -- Completion from LSP servers
+
+    use 'L3MON4D3/LuaSnip'         -- Snippets plugin
+    use 'saadparwaiz1/cmp_luasnip' -- Completion from LuaSnip snippets
 
     -- Utilities
     use "tpope/vim-surround" -- TODO: Look at https://github.com/machakann/vim-sandwich at some point
