@@ -68,6 +68,7 @@ return require("packer").startup({
       "tpope/vim-dispatch",
       cmd = { "Dispatch", "Make" }
     }
+    use "tpope/vim-projectionist"
 
     -- Git & GitHub
 
