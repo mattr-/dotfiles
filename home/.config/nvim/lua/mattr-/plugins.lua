@@ -47,6 +47,7 @@ return require("packer").startup({
 
     -- LSP
     use "neovim/nvim-lspconfig"
+    use "williamboman/nvim-lsp-installer"
 
     -- Completion
     -- use { "ms-jpq/coq_nvim", branch = 'coq' }
