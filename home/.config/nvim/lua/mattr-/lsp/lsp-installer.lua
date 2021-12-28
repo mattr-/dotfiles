@@ -20,5 +20,11 @@ lsp_installer.on_server_ready(function(server)
     capabilities = require("mattr-.lsp.handlers").capabilities,
   }
 
+  -- If we've defined an options file, let's use that
+  local status_ok, server_config = pcall(require, "mattr-.lsp.settings." .. server.name)
+  if status_ok then
+    opts = vim.tbl_deep_extend("force", server_config, opts)
+  end
+
   server:setup(opts)
 end)
