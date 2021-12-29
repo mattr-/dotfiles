@@ -88,6 +88,9 @@ return require("packer").startup({
       run = 'make'
     }
 
+    -- Language specific additions for LSP
+    use "b0o/schemastore.nvim" -- Schemas for jsonls
+
     -- Non LSP editing support. Markdown in particular
     use {
       "iamcco/markdown-preview.nvim",
