@@ -57,7 +57,7 @@ theme.loadEditor = function()
     DiffChange   = { fg = colors.dark_yellow }, -- diff mode: Changed line
     DiffDelete   = { fg = colors.red }, -- diff mode: Deleted line
     DiffText     = { fg = colors.blue }, -- diff mode: Changed text within a changed line
-    ErrorMsg     = { fg = colors.white, bg = colors.dark_red}, -- error messages on the command line
+    ErrorMsg     = { fg = colors.white, bg = colors.dark_red }, -- error messages on the command line
     VertSplit    = { fg = colors.vertsplit }, -- the column separating vertically split windows
     Folded       = { fg = colors.comment_grey }, -- line used for closed folds
     --FoldColumn   = {}, -- 'foldcolumn'
@@ -169,20 +169,20 @@ theme.loadLSP = function ()
    DiagnosticFloatingError          = { fg = colors.dark_red }, -- used for "Error" diagnostic messages in the diagnostics float
    DiagnosticVirtualTextError       = { fg = colors.dark_red }, -- Virtual text "Error"
    DiagnosticUnderlineError         = { style = 'undercurl', sp = colors.dark_red }, -- used to underline "Error" diagnostics.
-   DiagnosticDefaultWarning         = { fg = colors.yellow}, -- used for "Warning" diagnostic signs in sign column
-   DiagnosticSignWarning            = { fg = colors.yellow}, -- used for "Warning" diagnostic signs in sign column
-   DiagnosticFloatingWarning        = { fg = colors.yellow}, -- used for "Warning" diagnostic messages in the diagnostics float
-   DiagnosticVirtualTextWarning     = { fg = colors.yellow}, -- Virtual text "Warning"
+   DiagnosticDefaultWarning         = { fg = colors.yellow }, -- used for "Warning" diagnostic signs in sign column
+   DiagnosticSignWarning            = { fg = colors.yellow }, -- used for "Warning" diagnostic signs in sign column
+   DiagnosticFloatingWarning        = { fg = colors.yellow }, -- used for "Warning" diagnostic messages in the diagnostics float
+   DiagnosticVirtualTextWarning     = { fg = colors.yellow }, -- Virtual text "Warning"
    DiagnosticUnderlineWarning       = { style = 'undercurl', sp = colors.dark_yellow }, -- used to underline "Warning" diagnostics.
    DiagnosticDefaultInformation     = { fg = colors.blue }, -- used for "Information" diagnostic virtual text
    DiagnosticSignInformation        = { fg = colors.blue },  -- used for "Information" diagnostic signs in sign column
    DiagnosticFloatingInformation    = { fg = colors.blue }, -- used for "Information" diagnostic messages in the diagnostics float
    DiagnosticVirtualTextInformation = { fg = colors.blue }, -- Virtual text "Information"
    DiagnosticUnderlineInformation   = { style = 'undercurl', sp = colors.paleblue }, -- used to underline "Information" diagnostics.
-   DiagnosticDefaultHint            = { fg = colors.comment_grey  },  -- used for "Hint" diagnostic virtual text
-   DiagnosticSignHint               = { fg = colors.comment_grey  }, -- used for "Hint" diagnostic signs in sign column
-   DiagnosticFloatingHint           = { fg = colors.comment_grey  }, -- used for "Hint" diagnostic messages in the diagnostics float
-   DiagnosticVirtualTextHint        = { fg = colors.comment_grey  }, -- Virtual text "Hint"
+   DiagnosticDefaultHint            = { fg = colors.comment_grey },  -- used for "Hint" diagnostic virtual text
+   DiagnosticSignHint               = { fg = colors.comment_grey }, -- used for "Hint" diagnostic signs in sign column
+   DiagnosticFloatingHint           = { fg = colors.comment_grey }, -- used for "Hint" diagnostic messages in the diagnostics float
+   DiagnosticVirtualTextHint        = { fg = colors.comment_grey }, -- Virtual text "Hint"
    DiagnosticUnderlineHint          = { style = 'undercurl', sp = colors.dark_yellow }, -- used to underline "Hint" diagnostics.
    LspReferenceText                 = { fg = colors.cyan, bg = colors.highlight }, -- used for highlighting "text" references
    LspReferenceRead                 = { fg = colors.cyan, bg = colors.highlight }, -- used for highlighting "read" references
