@@ -108,5 +108,3 @@ return require("packer").startup({
     }
   }
 })
-
--- vim: et sts=2 sw=2 foldmethod=marker
