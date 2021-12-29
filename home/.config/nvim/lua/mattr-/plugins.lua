@@ -79,6 +79,7 @@ return require("packer").startup({
       cmd = { "Dispatch", "Make" }
     }
     use "tpope/vim-projectionist"
+    use "akinsho/toggleterm.nvim" -- Terminal improvements
 
     -- Git & GitHub
     use "TimUntersberger/neogit"
