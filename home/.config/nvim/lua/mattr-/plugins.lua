@@ -22,7 +22,7 @@ return require("packer").startup({
       end
 
 
-      final_path = string.format("%s/%s", home, plugin_path)
+      local final_path = string.format("%s/%s", home, plugin_path)
       if vim.fn.isdirectory(vim.fn.expand("~/Code/" .. final_path)) == 1 then
         opts[1] = "~/Code/" .. final_path
       else
