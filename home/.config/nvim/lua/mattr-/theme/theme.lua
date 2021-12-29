@@ -184,9 +184,9 @@ theme.loadLSP = function ()
    DiagnosticFloatingHint           = { fg = colors.comment_grey }, -- used for "Hint" diagnostic messages in the diagnostics float
    DiagnosticVirtualTextHint        = { fg = colors.comment_grey }, -- Virtual text "Hint"
    DiagnosticUnderlineHint          = { style = 'undercurl', sp = colors.dark_yellow }, -- used to underline "Hint" diagnostics.
-   LspReferenceText                 = { fg = colors.cyan, bg = colors.highlight }, -- used for highlighting "text" references
-   LspReferenceRead                 = { fg = colors.cyan, bg = colors.highlight }, -- used for highlighting "read" references
-   LspReferenceWrite                = { fg = colors.cyan, bg = colors.highlight }, -- used for highlighting "write" references
+   LspReferenceText                 = { fg = colors.cyan, bg = colors.cursor_grey }, -- used for highlighting "text" references
+   LspReferenceRead                 = { fg = colors.cyan, bg = colors.cursor_grey }, -- used for highlighting "read" references
+   LspReferenceWrite                = { fg = colors.cyan, bg = colors.cursor_grey }, -- used for highlighting "write" references
  }
 
   return lsp
