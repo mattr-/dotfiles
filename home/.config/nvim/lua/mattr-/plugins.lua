@@ -44,6 +44,7 @@ return require("packer").startup({
       run = ':TSUpdate'
     }
     use "nvim-treesitter/playground"
+    use "JoosepAlviste/nvim-ts-context-commentstring" -- Context aware comment strings
 
     -- LSP
     use "neovim/nvim-lspconfig"
