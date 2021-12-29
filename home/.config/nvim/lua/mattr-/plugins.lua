@@ -37,7 +37,6 @@ return require("packer").startup({
     local_use "plenary.nvim"
 
     -- UI and Colors
-    local_use "hackthebox.vim"
     use "norcalli/nvim-colorizer.lua"
     use "kyazdani42/nvim-web-devicons"
 
