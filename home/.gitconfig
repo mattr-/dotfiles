@@ -80,8 +80,7 @@
     pfl = "!source ~/.githelpers && restrictive_force_push"
 
 [core]
-    excludesfile = /opt/boxen/config/git/gitignore
-	editor = nvim
+    editor = nvim
 [hub]
     protocol = https
 [push]
