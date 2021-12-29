@@ -49,25 +49,21 @@ return require("packer").startup({
     use "neovim/nvim-lspconfig"
     use "williamboman/nvim-lsp-installer"
 
-    -- Completion
-    -- use { "ms-jpq/coq_nvim", branch = 'coq' }
-    -- use { "ms-jpq/coq.artifacts", branch = 'artifacts' }
-    -- use { "ms-jpq/coq.thirdparty", branch = '3p' }
-
-    use 'hrsh7th/nvim-cmp'     -- Autocompletion plugin
-    use 'hrsh7th/cmp-buffer'   -- Completion from other buffers
-    use 'hrsh7th/cmp-path'     -- Completion for filesystem paths
-    use 'hrsh7th/cmp-cmdline'  -- Completion for vim's cmdline
-    use 'hrsh7th/cmp-nvim-lsp' -- Completion from LSP servers
-
+    -- Completion and Snippets
+    use 'hrsh7th/nvim-cmp'         -- Autocompletion plugin
+    use 'hrsh7th/cmp-buffer'       -- Completion from other buffers
+    use 'hrsh7th/cmp-path'         -- Completion for filesystem paths
+    use 'hrsh7th/cmp-cmdline'      -- Completion for vim's cmdline
+    use 'hrsh7th/cmp-nvim-lsp'     -- Completion from LSP servers
+    use 'hrsh7th/cmp-nvim-lua'     -- Completion for neovim's API
     use 'L3MON4D3/LuaSnip'         -- Snippets plugin
     use 'saadparwaiz1/cmp_luasnip' -- Completion from LuaSnip snippets
 
     -- Utilities
-    use "tpope/vim-surround" -- TODO: Look at https://github.com/machakann/vim-sandwich at some point
-    use "tpope/vim-repeat" -- Repeating plugin maps
-    use "tpope/vim-abolish" -- Abbreviate, substitution, and coercion
-    use "tpope/vim-commentary" -- Comment all the things!
+    use "tpope/vim-surround"      -- TODO: Look at https://github.com/machakann/vim-sandwich at some point
+    use "tpope/vim-repeat"        -- Repeating plugin maps
+    use "tpope/vim-abolish"       -- Abbreviate, substitution, and coercion
+    use "tpope/vim-commentary"    -- Comment all the things!
     use "junegunn/vim-easy-align" -- Alignment stuff
     use {
       "tpope/vim-dispatch",
@@ -76,14 +72,13 @@ return require("packer").startup({
     use "tpope/vim-projectionist"
 
     -- Git & GitHub
-
     use "TimUntersberger/neogit"
-    use "rhysd/committia.vim" -- Change the formatting and layout of the commit windo
+    use "rhysd/committia.vim"     -- Change the formatting and layout of the commit windo
     use "lewis6991/gitsigns.nvim" -- Asynchronous Signs!
-    use "ruifm/gitlinker.nvim" -- Line aware links to GitHub
+    use "ruifm/gitlinker.nvim"    -- Line aware links to GitHub
 
     if vim.fn.executable "gh" == 1 then
-      use "pwntester/octo.nvim" -- GitHub in NeoVim! :tada:
+      use "pwntester/octo.nvim"   -- GitHub in NeoVim! :tada:
     end
 
     -- Fuzzy Finding
