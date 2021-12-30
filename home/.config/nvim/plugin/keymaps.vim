@@ -3,6 +3,8 @@ scriptencoding utf-8
 " I use a hybrid 'dual leader' mapping scheme. <Leader> is the default `\` and
 " `,` gets used as a defacto leader key. You'll see the scheme used throughout
 " each plugin's configuration as well as filetype specific configuration.
+" As of 2021-12-30, I'm changing things up and the use of `\` is going to be
+" explicit
 
 "Nuke the help mapping
 noremap K <Nop>
@@ -17,13 +19,13 @@ nmap <Up> <Nop>
 nmap <Down> <Nop>
 
 " Opens a write command with the path of the currently edited file filled in
-nmap <Leader>w :w <C-R>=expand("%:p:h") . "/" <CR>
+nmap \w :w <C-R>=expand("%:p:h") . "/" <CR>
 
 " Opens an edit command with the path of the currently edited file filled in
-nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+nmap \e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Opens a tab edit command with the path of the currently edited file filled in
-nmap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+nmap \te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Inserts the path of the currently edited file into a command
 " Command mode: Ctrl+P
@@ -32,11 +34,11 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 " Clear the search buffer when hitting return
 nnoremap <CR> :nohlsearch<CR>
 
-" <Leader>= to make all windows the same size
-map <Leader>= <C-w>=
+" \= to make all windows the same size
+map \= <C-w>=
 
-" <Leader><Leader> to edit an alternate file
-nnoremap <Leader><Leader> <C-^>
+" \\ to edit an alternate file
+nnoremap \\ <C-^>
 
 "Remove trailing whitespace
 nnoremap <silent> ,sw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
@@ -52,7 +54,7 @@ map ,p "+p
 map ,P "+P
 
 " CTags
-map <Leader>rt :!ctags -R *<CR><CR>
+map \rt :!ctags -R *<CR><CR>
 map <C-\> :tnext<CR>
 
 " Quickfix mappings
