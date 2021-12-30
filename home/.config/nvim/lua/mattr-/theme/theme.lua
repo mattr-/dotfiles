@@ -52,7 +52,7 @@ theme.loadEditor = function()
     --CursorIM     = {}, -- like Cursor, but used when in IME mode
     CursorColumn = { bg = colors.cursor_grey }, -- the screen column that the cursor is in when 'cursorcolumn' is set
     CursorLine   = { bg = colors.black }, -- the screen line that the cursor is in when 'cursorline' is set
-    --Directory    = {}, -- directory names (and other special names in listings)
+    Directory    = { fg = colors.blue }, -- directory names (and other special names in listings)
     DiffAdd      = { fg = colors.green }, -- diff mode: Added line
     DiffChange   = { fg = colors.dark_yellow }, -- diff mode: Changed line
     DiffDelete   = { fg = colors.red }, -- diff mode: Deleted line
