@@ -26,3 +26,4 @@ vim.api.nvim_set_keymap("c", "<c-r><c-r>", "<Plug>(TelescopeFuzzyCommandSearch)"
 local themes = require("telescope.themes")
 telescope_map(",f", "find_files")
 telescope_map(",df", "dotfiles")
+telescope_map(",b", "buffers")
