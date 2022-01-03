@@ -96,6 +96,14 @@ theme.loadEditor = function()
   return editorSyntax
 end
 
+theme.loadCustomColors = function ()
+  local custom_colors = {
+    ActiveTerminal = { bg = colors.ansi_black, fg = colors.ansi_grey }
+  }
+
+  return custom_colors
+end
+
 theme.loadTreeSitter = function()
   -- TreeSitter highlight groups
 

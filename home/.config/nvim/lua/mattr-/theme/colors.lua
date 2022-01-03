@@ -18,6 +18,8 @@ local colors = {
   menu_grey      = visual_grey,
   special_grey   = "#3B4048",
   vertsplit      = "#181A1F",
+  ansi_black     = "#000000",
+  ansi_grey      = "#c7c7c7",
 }
 
 return colors

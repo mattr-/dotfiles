@@ -26,8 +26,8 @@ end
 util.contrast = function ()
     vim.cmd [[augroup HackTheBox]]
     vim.cmd [[  autocmd!]]
-    vim.cmd [[  autocmd ColorScheme * lua require("mattr-.theme.util").onColorScheme()]]
-    vim.cmd [[  autocmd TermOpen * setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]]
+    vim.cmd [[  autocmd ColorSchemePre * lua require("mattr-.theme.util").onColorScheme()]]
+    vim.cmd [[  autocmd TermOpen * setlocal winhighlight=Normal:ActiveTerminal,SignColumn:NormalFloat]]
     vim.cmd [[  autocmd FileType packer setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]]
     vim.cmd [[  autocmd FileType qf setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]]
     vim.cmd [[augroup end]]
@@ -74,6 +74,7 @@ function util.load()
     -- load the most importaint parts of the theme
     local editor = hackthebox.loadEditor()
     local syntax = hackthebox.loadSyntax()
+    local custom = hackthebox.loadCustomColors()
 
     -- load editor highlights
     for group, colors in pairs(editor) do
@@ -82,6 +83,10 @@ function util.load()
 
     -- load syntax highlights
     for group, colors in pairs(syntax) do
+        util.highlight(group, colors)
+    end
+
+    for group, colors in pairs(custom) do
         util.highlight(group, colors)
     end
 
