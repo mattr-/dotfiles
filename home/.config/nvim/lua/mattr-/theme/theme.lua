@@ -58,7 +58,7 @@ theme.loadEditor = function()
     DiffDelete   = { fg = colors.red }, -- diff mode: Deleted line
     DiffText     = { fg = colors.blue }, -- diff mode: Changed text within a changed line
     ErrorMsg     = { fg = colors.white, bg = colors.dark_red }, -- error messages on the command line
-    VertSplit    = { fg = colors.vertsplit }, -- the column separating vertically split windows
+    VertSplit    = { fg = colors.text }, -- the column separating vertically split windows
     Folded       = { fg = colors.comment_grey }, -- line used for closed folds
     --FoldColumn   = {}, -- 'foldcolumn'
     SignColumn   = { bg = colors.black }, -- column where signs are displayed
