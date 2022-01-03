@@ -10,3 +10,12 @@ toggleterm.setup({
     border = "single",
   }
 })
+
+-- For terminals, don't display line numbers
+vim.cmd [[
+augroup terminal_customizations
+  autocmd!
+  autocmd TermOpen * setl nonumber norelativenumber
+augroup END
+]]
+
