@@ -98,7 +98,10 @@ end
 
 theme.loadCustomColors = function ()
   local custom_colors = {
-    ActiveTerminal = { bg = colors.ansi_black, fg = colors.ansi_grey }
+    ActiveTerminal  = { bg = colors.ansi_black, fg = colors.ansi_grey },
+    HacktheboxBlue  = { fg = colors.blue },
+    HacktheboxGreen = { fg = colors.green },
+    HacktheboxOrange = { fg = colors.dark_yellow },
   }
 
   return custom_colors
