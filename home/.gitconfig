@@ -54,7 +54,7 @@
     pff = pull --ff-only -p
     last = !git l -1
     last10 = !git l -10
-    l = "!source ~/.githelpers && pretty_git_log"
+    l = "!. ~/.githelpers && pretty_git_log"
     la = !git l --all
     sm = submodule
     bd = branch -d
@@ -62,14 +62,14 @@
     b = branch
     ba = branch -a
     dc = diff --cached
-    undo = "!source ~/.githelpers && undo_local_changes"
-    sdcp = "!source ~/.githelpers && dryrun_dcommit_with_patch"
+    undo = "!. ~/.githelpers && undo_local_changes"
+    sdcp = "!. ~/.githelpers && dryrun_dcommit_with_patch"
     sdc = svn dcommit
     srf = symbolic-ref HEAD
     t = tag
     td = tag -d
     count = shortlog -sn
-    credit = "!source ~/.githelpers && change_author"
+    credit = "!. ~/.githelpers && change_author"
     rv = remote -v
     pullr = pull --rebase --stat -p
     ssp = stash show -p
@@ -77,7 +77,7 @@
     sa = stash apply
     r = !GIT_NO_PAGER=1 git l -30
     ra = !git r --all
-    pfl = "!source ~/.githelpers && restrictive_force_push"
+    pfl = "!. ~/.githelpers && restrictive_force_push"
 
 [core]
     editor = nvim
