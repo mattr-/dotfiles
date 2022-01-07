@@ -1,6 +1,8 @@
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
+
+
 local check_backspace = function()
   local col = vim.fn.col "." - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
@@ -37,10 +39,17 @@ local kind_icons = {
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
 -- luasnip setup
-local luasnip = require 'luasnip'
+local status_ok, luasnip = pcall(require, 'luasnip')
+if not status_ok then
+  return
+end
 
 -- nvim-cmp setup
-local cmp = require 'cmp'
+local status_ok, cmp = pcall(require, 'cmp')
+if not status_ok then
+  return
+end
+
 cmp.setup {
   snippet = {
     expand = function(args)

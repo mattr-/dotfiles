@@ -1,4 +1,8 @@
-require("octo").setup()
+local status_ok, octo = pcall(require, "octo")
+if not status_ok then
+  return
+end
+octo.setup()
 
 -- The mappings that are set up by octo.nvim are buffer local, so we'll add some global customizations below
 

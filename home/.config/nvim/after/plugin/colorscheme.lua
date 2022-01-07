@@ -1,4 +1,7 @@
 vim.opt.termguicolors = true
 require("mattr-.theme").set()
-require("colorizer").setup()
 require("mattr-.statusline")
+local status_ok, colorizer = pcall(require, "colorizer")
+if status_ok then
+  colorizer.setup()
+end
