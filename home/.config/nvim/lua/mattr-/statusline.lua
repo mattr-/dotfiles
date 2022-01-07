@@ -1,4 +1,7 @@
-local gl = require("galaxyline")
+local status_ok, gl = pcall(require, "galaxyline")
+if not status_ok then
+  return
+end
 local condition = require("galaxyline.condition")
 local buffer = require("galaxyline.providers.buffer")
 local fileinfo = require("galaxyline.providers.fileinfo")

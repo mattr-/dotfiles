@@ -1,7 +1,12 @@
+local status_ok, telescope = pcall(require, "telescope")
+if not status_ok then
+  return
+end
+
 local actions = require("telescope.actions")
 local action_layout = require("telescope.actions.layout")
 
-require("telescope").setup({
+telescope.setup({
   defaults = {
     prompt_prefix = "❯ ",
     selection_caret = "❯ ",
@@ -11,4 +16,4 @@ require("telescope").setup({
   }
 })
 
-require("telescope").load_extension("fzf")
+telescope.load_extension("fzf")
