@@ -31,4 +31,5 @@ vim.cmd [[
 
   snoremap <silent> <c-k> <cmd>lua require('luasnip').jump(1)<CR>
   snoremap <silent> <c-j> <cmd>lua require('luasnip').jump(-1)<CR>
+  snoremap <silent> <c-l> <cmd>lua require('luasnip').change_choice(1)<CR>
 ]]
