@@ -22,6 +22,7 @@ ls.config.setup({
 -- But for now, just hardcode the list.
 
 ls.snippets.markdown = R "mattr-.snippets.markdown"
+ls.snippets.ruby = R "mattr-.snippets.ruby"
 
 -- cmp is nice but luasnip still needs its own insert mode mappings
 vim.cmd [[
