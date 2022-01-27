@@ -1,16 +1,24 @@
 #!/bin/bash
 
+logfile=$(mktemp)
+exec 3<> "$logfile"
+source_dir=$(mktemp -d)
+
 echo "===> Installing prequisites"
-sudo apt update
-sudo apt-get install --no-install-recommends -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
+sudo apt update >&3 2>&1
+sudo apt-get install --no-install-recommends -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen >&3 2>&1
 
 echo "===> Cloning neovim"
-git clone https://github.com/neovim/neovim
+pushd "$source_dir" &>/dev/null
+git clone https://github.com/neovim/neovim >&3 2>&1
 
 echo "===> Building neovim and its dependencies"
 cd neovim
-make -j$(nproc)
+make -j$(nproc) >&3 2>&1
 
 echo "===> Installing the new neovim"
-sudo make install
+sudo make install >&3 2>&1
 
+popd &>/dev/null
+exec 3>&-
+echo "Please see $logfile for additional output"
