@@ -96,6 +96,8 @@ return require("packer").startup({
       "nvim-telescope/telescope-fzf-native.nvim",
       run = 'make'
     }
+    -- Use telescope as a backend for vim.ui.select (NeoVim 0.6)
+    use { "nvim-telescope/telescope-ui-select.nvim" }
 
     -- Language specific additions for LSP
     use "b0o/schemastore.nvim" -- Schemas for jsonls
