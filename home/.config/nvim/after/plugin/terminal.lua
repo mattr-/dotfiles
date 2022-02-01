@@ -4,8 +4,11 @@ if not status_ok then
 end
 
 toggleterm.setup({
+  open_mapping = [[<c-\>]],
+  direction = 'float',
   hide_numbers = true,
-  insert_mappings = false,
+  insert_mappings = true,
+  start_in_insert = true,
   float_opts = {
     border = "single",
   }
