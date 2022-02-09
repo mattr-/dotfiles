@@ -85,6 +85,7 @@ return require("packer").startup({
     use "rhysd/committia.vim"     -- Change the formatting and layout of the commit windo
     use "lewis6991/gitsigns.nvim" -- Asynchronous Signs!
     use "ruifm/gitlinker.nvim"    -- Line aware links to GitHub
+    use "f-person/git-blame.nvim" -- Git blame virtual text a la GitLens
 
     if vim.fn.executable "gh" == 1 then
       use "pwntester/octo.nvim"   -- GitHub in NeoVim! :tada:
