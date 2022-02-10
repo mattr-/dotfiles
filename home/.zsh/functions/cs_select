@@ -1,0 +1,3 @@
+cs_select() {
+ gh cs list | fzy | cut -f1
+}
