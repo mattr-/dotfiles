@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# GitHub CLI Codespaces helpers
+if [[ $# > 0 ]]; then
+  case "$1" in
+    delete)
+      cs_id=$(gh cs list | fzy | cut -f1)
+      [[ -n "$cs_id" ]] && gh cs delete -c $cs_id
+      ;;
+    ssh)
+      cs_id=$(gh cs list | fzy | cut -f1)
+      [[ -n "$cs_id" ]] && gh cs ssh -c $cs_id
+      ;;
+    *)
+      gh cs "$@"
+      ;;
+  esac
+else
+  gh cs
+fi
