@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby --disable-gems --disable-did_you_mean
+url = `git remote get-url origin`
+regexp = /(?<=:|\/)([a-zA-Z0-9\-_.~]+\/[a-zA-Z0-9\-_.~]+)$/
+puts url.match(regexp)[1]
+
