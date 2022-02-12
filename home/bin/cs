@@ -1,5 +1,20 @@
 #!/usr/bin/env bash
 
+function git_branch() {
+  \git rev-parse --inside-work-tree >/dev/null 2>&1 || return
+
+  local branch
+  if branch="$(\git symbolic-ref -q HEAD)"; then
+    printf "%q" "${branch#refs/heads/}"
+  fi
+}
+
+function git_repo() {
+  \git rev-parse --inside-work-tree >/dev/null 2>&1 || return
+
+  git nwo
+}
+
 # GitHub CLI Codespaces helpers
 if [[ $# > 0 ]]; then
   case "$1" in
@@ -10,6 +25,15 @@ if [[ $# > 0 ]]; then
     ssh)
       cs_id=$(gh cs list | fzy | cut -f1)
       [[ -n "$cs_id" ]] && gh cs ssh -c $cs_id
+      ;;
+    create)
+      repo=$(git_repo)
+      branch=$(git_branch)
+      if [ -z $repo -o -z $branch ]; then
+        echo "It doesn't seem like we're in a git repo"
+      else
+        gh cs create -r "$repo" -b "$branch" --status
+      fi
       ;;
     *)
       gh cs "$@"
