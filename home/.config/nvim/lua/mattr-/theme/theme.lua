@@ -4,7 +4,7 @@ local theme = {}
 theme.loadSyntax = function()
   -- Set up the old style syntax groups
   local syntaxGroups = {
-    Comment        = { fg = colors.comment_grey, style = "italic" }, -- any comment
+    Comment        = { fg = colors.comment_grey }, -- any comment
     Constant       = { fg = colors.cyan }, -- any constant
     String         = { fg = colors.green }, -- a string constant: "this is a string"
     Character      = { fg = colors.green }, -- a character constant: 'c', '\n'
@@ -118,7 +118,7 @@ theme.loadTreeSitter = function()
     TSBoolean              = { fg = colors.dark_yellow },    -- For booleans.
     TSCharacter            = { fg = colors.green },    -- For characters.
     TSClass                = { fg = colors.purple },
-    TSComment              = { fg = colors.comment_grey, style = 'italic' },    -- For comment blocks.
+    TSComment              = { fg = colors.comment_grey },    -- For comment blocks.
     TSConditional          = { fg = colors.purple },    -- For keywords related to conditionnals.
     TSConstructor          = { fg = colors.text }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
     TSConstant             = { fg = colors.text },    -- For constants
