@@ -42,5 +42,10 @@ return {
   s({ trig = "ol", desc = "ordered list"}, {
     t({"", "\t 1. "}), i(1), d(2, rec_ol, {}),
     i(0)
+  }),
+  s({ trig = "table", desc = "initial table setup"}, {
+    t({"| "}), i(1), t({" | "}), i(2),
+    t({" |", "| ---- | ---- |", "| "}), i(3), t({" | "}), i(4), t({" |"}),
+    i(0)
   })
 }
