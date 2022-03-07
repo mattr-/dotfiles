@@ -1,12 +1,24 @@
 :root {
   --color-accent-fg: #58a6ff;
+  --color-border-default: #30363d;
 }
+
+* {
+  box-sizing: border-box;
+}
+
 html,
 body,
 .markdown-body {
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
     font-size: 16px;
 }
+
+table {
+  border-spacing: 0;
+  border-spacing: collapse;
+}
+
 
 .markdown-body {
     background-color: var(--background-color);
@@ -34,6 +46,16 @@ body,
 
 .markdown-body svg {
   fill: currentColor;
+}
+
+.markdown-body table {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body table th, .markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid var(--color-border-default);
 }
 
 
