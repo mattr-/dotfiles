@@ -1,8 +1,6 @@
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
-
-
 local check_backspace = function()
   local col = vim.fn.col "." - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
