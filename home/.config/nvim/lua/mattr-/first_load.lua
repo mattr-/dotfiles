@@ -12,7 +12,6 @@ local download_packer = function()
   )
 
   print(out)
-  print "You'll need to restart now."
 end
 
 return function()
