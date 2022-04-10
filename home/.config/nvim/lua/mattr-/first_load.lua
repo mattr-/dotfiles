@@ -1,7 +1,7 @@
 -- Bootstrap packer.nvim
 -- Inspired by xdg_config/nvim/lua/tj/first_load.lua in tjdevries/config_manager on GitHub
 local download_packer = function()
-  print("Packer wasn't found. Downloading...")
+  print("Bootstrapping packer. Please wait...")
   
   local directory = string.format("%s/site/pack/packer/start/", vim.fn.stdpath "data")
 
