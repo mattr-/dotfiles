@@ -8,12 +8,10 @@ local M = {}
 function M.dotfiles()
   local opts_with_preview
 
-  opts_with_preview = themes.get_ivy {
+  opts_with_preview = {
     prompt_title = " dotfiles ",
-    layout_config = {
-      height = 15,
-    },
     shorten_path = false,
+    preview = true,
     cwd = "~/.homesick/repos/dotfiles",
   }
 
@@ -21,11 +19,9 @@ function M.dotfiles()
 end
 
 function M.find_files()
-  local opts = themes.get_ivy {
+  local opts = {
     prompt_title = "🔎 Files 🔍",
-    layout_config = {
-      height = 15,
-    }
+    preview = true,
   }
   local ok = pcall(require'telescope.builtin'.git_files, opts)
   if not ok then require'telescope.builtin'.find_files(opts) end
