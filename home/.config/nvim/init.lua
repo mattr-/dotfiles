@@ -3,7 +3,6 @@ pcall(require, "impatient")
 
 vim.g.gitblame_date_format = "%r"
 
-require "mattr-.first_load"()
 require "mattr-.globals"
 require "mattr-.plugins"
 require "mattr-.lsp"
