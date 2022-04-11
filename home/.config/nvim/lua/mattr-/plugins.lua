@@ -28,34 +28,18 @@ local packer = require("packer")
 
 packer.startup({
   function(use)
-    local local_use = function(first, second, opts)
-      opts = opts or {}
-      local plugin_path, home
-      if second == nil then
-        plugin_path = first
-        home = "mattr-"
-      else
-        plugin_path = second
-        home = first
-      end
-
-
-      local final_path = string.format("%s/%s", home, plugin_path)
-      if vim.fn.isdirectory(vim.fn.expand("~/Code/" .. final_path)) == 1 then
-        opts[1] = "~/Code/" .. final_path
-      else
-        opts[1] = final_path
-      end
-
-      use(opts)
-    end
 
     use({
       "wbthomason/packer.nvim",
       opt = true
     })
     use "lewis6991/impatient.nvim"
-    local_use "plenary.nvim"
+
+    -- Use my fork of plenary.nvim until nvim-lua/plenary.nvim#290 gets merged
+    use({
+      "mattr-/plenary.nvim",
+      branch = "fix-dashes-at-end-of-usernames"
+    })
 
     -- UI and Colors
     use "norcalli/nvim-colorizer.lua"
