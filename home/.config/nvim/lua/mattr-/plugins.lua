@@ -1,4 +1,20 @@
-_ = vim.cmd [[packadd packer.nvim]]
+packer_bootstrap = false
+
+local packer_path = string.format("%s/site/pack/packer/opt/packer.nvim", vim.fn.stdpath("data"))
+if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
+
+  packer_bootstrap = true
+  print("Bootstrapping packer. Please wait...")
+  local packer_path = string.format("%s/site/pack/packer/opt/packer.nvim", vim.fn.stdpath("data"))
+  vim.fn.mkdir(packer_path, "p")
+  vim.fn.system({
+    "git",
+    "clone",
+    "https://github.com/wbthomason/packer.nvim",
+    packer_path})
+end
+
+vim.cmd [[packadd packer.nvim]]
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd [[
@@ -8,7 +24,9 @@ vim.cmd [[
   augroup end
 ]]
 
-return require("packer").startup({
+local packer = require("packer")
+
+packer.startup({
   function(use)
     local local_use = function(first, second, opts)
       opts = opts or {}
@@ -32,7 +50,10 @@ return require("packer").startup({
       use(opts)
     end
 
-    use "wbthomason/packer.nvim"
+    use({
+      "wbthomason/packer.nvim",
+      opt = true
+    })
     use "lewis6991/impatient.nvim"
     local_use "plenary.nvim"
 
@@ -118,3 +139,7 @@ return require("packer").startup({
     }
   }
 })
+
+if packer_bootstrap then
+    packer.sync()
+end
