@@ -1,4 +1,4 @@
-packer_bootstrap = false
+local packer_bootstrap = false
 
 local packer_path = string.format("%s/site/pack/packer/opt/packer.nvim", vim.fn.stdpath("data"))
 if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
