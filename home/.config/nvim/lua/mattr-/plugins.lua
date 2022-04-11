@@ -56,10 +56,11 @@ packer.startup({
     use "kevinhwang91/nvim-hlslens" -- interesting search match information
 
     -- Tree Sitter
-    use {
+    use({
       "nvim-treesitter/nvim-treesitter",
-      run = ':TSUpdate'
-    }
+      run = ':TSUpdate',
+      config = require("mattr-.config.treesitter")
+    })
     use "nvim-treesitter/playground"
     use "JoosepAlviste/nvim-ts-context-commentstring" -- Context aware comment strings
 
