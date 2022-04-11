@@ -45,7 +45,12 @@ packer.startup({
     use "norcalli/nvim-colorizer.lua"
     use "kyazdani42/nvim-web-devicons"
 
-    use "rcarriga/nvim-notify" -- notifications in vim. let's try it!
+    -- notifications in vim. let's try it!
+    use({
+      "rcarriga/nvim-notify",
+      event = VimEnter,
+      config = require("mattr-.config.notify")
+    })
     use "folke/trouble.nvim" -- a problem list plugin
     use "NTBBloodbath/galaxyline.nvim" -- Fancy statusline
     use "kevinhwang91/nvim-hlslens" -- interesting search match information
