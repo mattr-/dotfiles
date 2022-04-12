@@ -61,8 +61,16 @@ packer.startup({
       run = ":TSUpdate",
       config = require("mattr-.config.treesitter"),
     })
-    use("nvim-treesitter/playground")
-    use("JoosepAlviste/nvim-ts-context-commentstring") -- Context aware comment strings
+
+    use({
+      "nvim-treesitter/playground",
+      after = "nvim-treesiter",
+    })
+    -- Context aware comment strings
+    use({
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      after = "nvim-treesitter",
+    })
 
     -- LSP
     use("neovim/nvim-lspconfig")
