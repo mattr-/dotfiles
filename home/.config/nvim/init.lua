@@ -1,5 +1,3 @@
--- Impatient speeds up loading but we don't want to bail if it's not present
-pcall(require, "impatient")
 
 vim.g.gitblame_date_format = "%r"
 

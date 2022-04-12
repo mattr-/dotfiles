@@ -24,7 +24,6 @@ packer.startup({
       "wbthomason/packer.nvim",
       opt = true,
     })
-    use("lewis6991/impatient.nvim")
 
     -- Use my fork of plenary.nvim until nvim-lua/plenary.nvim#290 gets merged
     use({
