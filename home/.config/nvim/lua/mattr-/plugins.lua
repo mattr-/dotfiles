@@ -25,6 +25,12 @@ packer.startup({
       opt = true,
     })
 
+    use({
+      "folke/which-key.nvim",
+      config = require("mattr-.config.which-key"),
+    })
+
+
     -- Use my fork of plenary.nvim until nvim-lua/plenary.nvim#290 gets merged
     use({
       "mattr-/plenary.nvim",
