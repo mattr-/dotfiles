@@ -1,3 +1,5 @@
+-- Store startup time in seconds
+vim.g.start_time = vim.fn.reltime()
 
 vim.g.gitblame_date_format = "%r"
 

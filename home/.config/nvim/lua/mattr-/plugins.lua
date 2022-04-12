@@ -34,6 +34,10 @@ packer.startup({
     -- UI and Colors
     use("norcalli/nvim-colorizer.lua")
     use("kyazdani42/nvim-web-devicons")
+    use({
+      "glepnir/dashboard-nvim",
+      config = require("mattr-.config.dashboard")
+    })
 
     -- notifications in vim. let's try it!
     use({
