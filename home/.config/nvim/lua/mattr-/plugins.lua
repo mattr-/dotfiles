@@ -52,8 +52,10 @@ packer.startup({
       config = require("mattr-.config.notify"),
     })
     use("folke/trouble.nvim") -- a problem list plugin
-    use("NTBBloodbath/galaxyline.nvim") -- Fancy statusline
-    use("kevinhwang91/nvim-hlslens") -- interesting search match information
+    use({
+      "NTBBloodbath/galaxyline.nvim", -- Fancy statusline
+      config = require("mattr-.config.galaxyline"),
+    })
 
     -- Tree Sitter
     use({
@@ -61,29 +63,27 @@ packer.startup({
       run = ":TSUpdate",
       config = require("mattr-.config.treesitter"),
     })
-
-    use({
-      "nvim-treesitter/playground",
-      after = "nvim-treesiter",
-    })
-    -- Context aware comment strings
-    use({
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      after = "nvim-treesitter",
-    })
+    use("nvim-treesitter/playground")
+    use("JoosepAlviste/nvim-ts-context-commentstring") -- Context aware comment strings
 
     -- LSP
     use("neovim/nvim-lspconfig")
     use("williamboman/nvim-lsp-installer")
 
     -- Completion and Snippets
-    use("hrsh7th/nvim-cmp") -- Autocompletion plugin
+    use({
+      "hrsh7th/nvim-cmp", -- Autocompletion plugin
+      config = require("mattr-.config.nvim-cmp"),
+    })
     use("hrsh7th/cmp-buffer") -- Completion from other buffers
     use("hrsh7th/cmp-path") -- Completion for filesystem paths
     use("hrsh7th/cmp-cmdline") -- Completion for vim's cmdline
     use("hrsh7th/cmp-nvim-lsp") -- Completion from LSP servers
     use("hrsh7th/cmp-nvim-lua") -- Completion for neovim's API
-    use("L3MON4D3/LuaSnip") -- Snippets plugin
+    use({
+      "L3MON4D3/LuaSnip", -- Snippets plugin
+      config = require("mattr-.config.luasnip"),
+    })
     use("saadparwaiz1/cmp_luasnip") -- Completion from LuaSnip snippets
 
     -- Utilities
@@ -91,23 +91,52 @@ packer.startup({
     use("tpope/vim-repeat") -- Repeating plugin maps
     use("tpope/vim-abolish") -- Abbreviate, substitution, and coercion
     use("tpope/vim-commentary") -- Comment all the things!
-    use("junegunn/vim-easy-align") -- Alignment stuff
     use({
       "tpope/vim-dispatch",
       cmd = { "Dispatch", "Make" },
     })
     use("tpope/vim-projectionist")
-    use("akinsho/toggleterm.nvim") -- Terminal improvements
+    use({
+      "akinsho/toggleterm.nvim", -- Terminal improvements
+      config = require("mattr-.config.toggleterm"),
+    })
 
     -- Git & GitHub
     use("TimUntersberger/neogit")
     use("rhysd/committia.vim") -- Change the formatting and layout of the commit windo
     use("lewis6991/gitsigns.nvim") -- Asynchronous Signs!
-    use("ruifm/gitlinker.nvim") -- Line aware links to GitHub
-    use("f-person/git-blame.nvim") -- Git blame virtual text a la GitLens
+    use({
+      "ruifm/gitlinker.nvim", -- Line aware links to GitHub
+      config = function()
+        require("gitlinker").setup()
+      end,
+    })
+
+    use({
+      "f-person/git-blame.nvim", -- Git blame virtual text a la GitLens
+      setup = function()
+        vim.g.gitblame_date_format = "%r"
+        vim.g.gitblame_ignored_filetypes = {'packer', 'TelescopePrompt', 'NeogitStatus', 'NeogitPopup', 'Trouble', 'gitcommit', 'octo'}
+      end,
+    })
 
     if vim.fn.executable("gh") == 1 then
-      use("pwntester/octo.nvim") -- GitHub in NeoVim! :tada:
+      use({
+        "pwntester/octo.nvim", -- GitHub in NeoVim! :tada:
+        config = function()
+
+          local octo = require("octo")
+          octo.setup()
+
+          -- The mappings that are set up by octo.nvim are buffer local, so we'll add some global customizations below
+
+          -- Add a mapping to list issues in the current repo (letting octo.nvim figure that out for us)
+          vim.api.nvim_set_keymap("n", ",ghil", ":Octo issue list<CR>", { noremap = true, silent = true })
+
+          -- Add a mapping to list PRs in the current repo (letting octo.nvim figure that out for us)
+          vim.api.nvim_set_keymap("n", ",ghpl", ":Octo pr list<CR>", { noremap = true, silent = true })
+        end,
+      })
     end
 
     -- Fuzzy Finding
