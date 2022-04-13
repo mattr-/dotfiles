@@ -21,6 +21,7 @@ local colors = {
   vertsplit      = "#181A1F",
   ansi_black     = "#000000",
   ansi_grey      = "#c7c7c7",
+  alternate_background = "#3e4452",
 }
 
 return colors
