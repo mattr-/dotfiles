@@ -1,5 +1,7 @@
 local opt = vim.opt
 
+vim.g.mapleader = " "
+
 opt.hidden        = true  -- background buffers without writing them. saves marks/undo as well
 opt.shortmess     = opt.shortmess
                     + "f" --use "(3 of 5)" instead of "(file 3 of 5)"
@@ -39,7 +41,7 @@ opt.softtabstop   = 2     -- ... and here ...
 opt.shiftwidth    = 2     -- ... and here ...
 opt.shiftround    = true  -- Round indent to a multiple of shiftwidth
 opt.breakindent   = true  -- Make nice paragraphs out of comments
-opt.timeoutlen    = 1200  -- Give me more time for complex mappings
+opt.timeoutlen    = 300   -- Give me more time for complex mappings
 opt.ttimeoutlen   = 10    -- Make Escape work faster
 opt.backup        = false -- No backups
 opt.swapfile      = false -- No swap files. I too like to live...dangerously.

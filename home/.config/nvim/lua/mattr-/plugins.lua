@@ -4,7 +4,6 @@ local packer_path = string.format("%s/site/pack/packer/opt/packer.nvim", vim.fn.
 if vim.fn.empty(vim.fn.glob(packer_path)) > 0 then
   packer_bootstrap = true
   print("Bootstrapping packer. Please wait...")
-  local packer_path = string.format("%s/site/pack/packer/opt/packer.nvim", vim.fn.stdpath("data"))
   vim.fn.mkdir(packer_path, "p")
   vim.fn.system({
     "git",
@@ -29,7 +28,6 @@ packer.startup({
       "folke/which-key.nvim",
       config = require("mattr-.config.which-key"),
     })
-
 
     -- Use my fork of plenary.nvim until nvim-lua/plenary.nvim#290 gets merged
     use({
@@ -119,9 +117,12 @@ packer.startup({
     use("rhysd/committia.vim") -- Change the formatting and layout of the commit windo
     use("lewis6991/gitsigns.nvim") -- Asynchronous Signs!
     use({
-      "ruifm/gitlinker.nvim", -- Line aware links to GitHub
+      "mattr-/gitlinker.nvim", -- Line aware links to GitHub
+      branch = "use-false-for-no-mappings",
       config = function()
-        require("gitlinker").setup()
+        require("gitlinker").setup({
+          mappings = false,
+        })
       end,
     })
 
@@ -153,13 +154,27 @@ packer.startup({
     end
 
     -- Fuzzy Finding
-    use("nvim-telescope/telescope.nvim")
     use({
-      "nvim-telescope/telescope-fzf-native.nvim",
-      run = "make",
+      "nvim-telescope/telescope.nvim", -- Fuzzy finding
+      opt = true,
+      cmd = "Telescope",
+      module = "telescope",
+      config = require("mattr-.config.telescope"),
+      wants = {
+        "plenary.nvim",
+        "telescope-fzf-native.nvim",
+        "telescope-ui-select.nvim",
+      },
+      requires = {
+        {
+          "nvim-telescope/telescope-fzf-native.nvim", --fzf based searching
+          run = "make",
+        },
+        {
+          "nvim-telescope/telescope-ui-select.nvim", -- Use telescope as a backend for vim.ui.select (NeoVim 0.6)
+        }
+      }
     })
-    -- Use telescope as a backend for vim.ui.select (NeoVim 0.6)
-    use({ "nvim-telescope/telescope-ui-select.nvim" })
 
     -- Language specific additions for LSP
     use("b0o/schemastore.nvim") -- Schemas for jsonls

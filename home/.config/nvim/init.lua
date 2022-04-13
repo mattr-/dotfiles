@@ -5,6 +5,10 @@ require "mattr-.globals"
 require "mattr-.plugins"
 require "mattr-.lsp"
 
--- Telescope configuration
-require "mattr-.telescope.setup"
-require "mattr-.telescope.mappings"
+vim.defer_fn(function()
+  require "mattr-.keybindings"
+
+  vim.cmd([[
+      PackerLoad which-key.nvim
+  ]])
+end, 0)

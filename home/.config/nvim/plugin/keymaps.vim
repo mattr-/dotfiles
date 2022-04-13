@@ -31,27 +31,11 @@ nmap \te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 " Command mode: Ctrl+P
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
-" Clear the search buffer when hitting return
-nnoremap <CR> :nohlsearch<CR>
-
-" \= to make all windows the same size
-map \= <C-w>=
-
 " \\ to edit an alternate file
 nnoremap \\ <C-^>
 
 "Remove trailing whitespace
 nnoremap <silent> ,sw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-
-" Mappings for numbering
-map ,nr :set rnu!<CR>
-map ,na :set nu!<CR>
-
-" System clipboard niceties. (Stolen from Mastering Vim Quickly)
-map ,y "+y
-map ,d "+d
-map ,p "+p
-map ,P "+P
 
 " CTags
 map \rt :!ctags -R *<CR><CR>
