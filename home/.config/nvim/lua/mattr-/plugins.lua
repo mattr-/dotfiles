@@ -74,17 +74,30 @@ packer.startup({
     use({
       "hrsh7th/nvim-cmp", -- Autocompletion plugin
       config = require("mattr-.config.nvim-cmp"),
+      event = "InsertEnter",
+      wants = { "LuaSnip" },
+      requires = {
+        "L3MON4D3/LuaSnip", -- Snippets plugin
+        config = require("mattr-.config.luasnip"),
+        event = "BufReadPre"
+      }
     })
-    use("hrsh7th/cmp-buffer") -- Completion from other buffers
-    use("hrsh7th/cmp-path") -- Completion for filesystem paths
-    use("hrsh7th/cmp-cmdline") -- Completion for vim's cmdline
-    use("hrsh7th/cmp-nvim-lsp") -- Completion from LSP servers
-    use("hrsh7th/cmp-nvim-lua") -- Completion for neovim's API
+    use({"hrsh7th/cmp-buffer", -- Completion from other buffers
+      after = "nvim-cmp",
+    })
+    use({"hrsh7th/cmp-path", -- Completion for filesystem paths
+      after = "nvim-cmp",
+    })
+    use({"hrsh7th/cmp-nvim-lsp", -- Completion from LSP servers
+      after = "nvim-cmp",
+    })
+    use({"hrsh7th/cmp-nvim-lua", -- Completion for neovim's API
+      after = "nvim-cmp",
+    })
     use({
-      "L3MON4D3/LuaSnip", -- Snippets plugin
-      config = require("mattr-.config.luasnip"),
+      "saadparwaiz1/cmp_luasnip", -- Completion from LuaSnip snippets
+      after = "nvim-cmp",
     })
-    use("saadparwaiz1/cmp_luasnip") -- Completion from LuaSnip snippets
 
     -- Utilities
     use("tpope/vim-surround") -- TODO: Look at https://github.com/machakann/vim-sandwich at some point
