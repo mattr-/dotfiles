@@ -175,6 +175,15 @@ packer.startup({
         }
       }
     })
+    use({
+      "lazytanuki/nvim-mapper", -- keymapping search
+      config = function()
+        require("nvim-mapper").setup({
+          no_map = true,
+          action_on_enter = "execute",
+        })
+      end,
+    })
 
     -- Language specific additions for LSP
     use("b0o/schemastore.nvim") -- Schemas for jsonls

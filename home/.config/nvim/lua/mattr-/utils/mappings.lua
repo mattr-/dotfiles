@@ -25,7 +25,7 @@ if module_utils.is_plugin_available("nvim-mapper") then
   end
 
   mappings.nmap = function(keys, cmd, options, category, unique_indentifer, description)
-    mapper.map("n", keys, cmd, options, category, unique_indentifer, description)
+    mappings.map("n", keys, cmd, options, category, unique_indentifer, description)
   end
 
   mappings.vmap = function(keys, cmd, options, category, unique_indentifer, description)
