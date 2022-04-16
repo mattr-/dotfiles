@@ -115,7 +115,10 @@ packer.startup({
     -- Git & GitHub
     use("TimUntersberger/neogit")
     use("rhysd/committia.vim") -- Change the formatting and layout of the commit windo
-    use("lewis6991/gitsigns.nvim") -- Asynchronous Signs!
+    use({
+      "lewis6991/gitsigns.nvim", -- Asynchronous Signs!
+      config = require("mattr-.config.gitsigns")
+    })
     use({
       "mattr-/gitlinker.nvim", -- Line aware links to GitHub
       branch = "use-false-for-no-mappings",
