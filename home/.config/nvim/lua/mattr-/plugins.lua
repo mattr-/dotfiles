@@ -46,7 +46,7 @@ packer.startup({
     -- notifications in vim. let's try it!
     use({
       "rcarriga/nvim-notify",
-      event = VimEnter,
+      event = "VimEnter",
       config = require("mattr-.config.notify"),
     })
     use("folke/trouble.nvim") -- a problem list plugin
