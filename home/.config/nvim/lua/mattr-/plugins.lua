@@ -71,6 +71,7 @@ packer.startup({
     -- Completion and Snippets
     use({
       "hrsh7th/nvim-cmp", -- Autocompletion plugin
+      commit = "4f1358e659d51c69055ac935e618b684cf4f1429",
       config = require("mattr-.config.nvim-cmp"),
       event = "InsertEnter",
       wants = { "LuaSnip" },
