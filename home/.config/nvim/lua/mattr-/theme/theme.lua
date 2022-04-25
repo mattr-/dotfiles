@@ -60,7 +60,7 @@ theme.loadEditor = function()
     ErrorMsg     = { fg = colors.white, bg = colors.dark_red }, -- error messages on the command line
     VertSplit    = { fg = colors.text }, -- the column separating vertically split windows
     Folded       = { fg = colors.comment_grey }, -- line used for closed folds
-    --FoldColumn   = {}, -- 'foldcolumn'
+    FoldColumn   = { bg = colors.black, fg = colors.cyan }, -- 'foldcolumn'
     SignColumn   = { bg = colors.black }, -- column where signs are displayed
     IncSearch    = { fg = colors.black, bg = colors.yellow }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     LineNr       = { fg = colors.gutter_fg_grey }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
