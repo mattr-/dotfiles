@@ -29,10 +29,8 @@ packer.startup({
       config = require("mattr-.config.which-key"),
     })
 
-    -- Use my fork of plenary.nvim until nvim-lua/plenary.nvim#290 gets merged
     use({
-      "mattr-/plenary.nvim",
-      branch = "fix-dashes-at-end-of-usernames",
+      "nvim-lua/plenary.nvim",
     })
 
     -- UI and Colors
