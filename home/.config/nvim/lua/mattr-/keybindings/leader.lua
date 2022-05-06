@@ -174,7 +174,7 @@ mappings.nmap(
 -- }}}
 -- }}}
 
--- [{{ Open group mappings
+-- {{{ Open group mappings
 mappings.nmap("<leader>ta",
   "<cmd>:set nu!<CR>",
   opts,
@@ -197,6 +197,7 @@ mappings.nmap("<leader>tt",
   "Terminal"
 )
 -- }}}
+
 -- {{{ Window group mappings
 --
 mappings.nmap("<leader>ww",
