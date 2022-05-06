@@ -75,3 +75,5 @@ if vim.fn.executable("rg") then
   opt.grepprg = [[rg --hidden --glob "!.git" --no-heading --smart-case --vimgrep --follow $*]]
   opt.grepformat = opt.grepformat ^ { "%f:%l:%c:%m" }
 end
+
+vim.cmd([[set foldtext=luaeval(\"require('mattr-.folds').decorate_folds()\")]])
