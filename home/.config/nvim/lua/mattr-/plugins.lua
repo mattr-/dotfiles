@@ -110,6 +110,9 @@ packer.startup({
       "akinsho/toggleterm.nvim", -- Terminal improvements
       config = require("mattr-.config.toggleterm"),
     })
+    use({
+      "vim-test/vim-test"
+    })
 
     -- Git & GitHub
     use("TimUntersberger/neogit")

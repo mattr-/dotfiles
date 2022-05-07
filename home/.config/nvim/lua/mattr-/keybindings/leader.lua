@@ -19,6 +19,35 @@ mappings.nmap(
   "Interactive Grep"
 )
 
+-- {{{ Code group mappings
+mappings.nmap(
+  "<leader>cta",
+  "<cmd>TestSuite<CR>",
+  opts,
+  "Code",
+  "test_all",
+  "Run the full test suite"
+)
+
+mappings.nmap(
+  "<leader>ctf",
+  "<cmd>TestFile<CR>",
+  opts,
+  "Code",
+  "test_file",
+  "Run the current test file"
+)
+
+mappings.nmap(
+  "<leader>ctn",
+  "<cmd>TestNearest<CR>",
+  opts,
+  "Code",
+  "test_nearest",
+  "Run the nearest test"
+)
+-- }}}
+
 -- {{{ File group mappings
 mappings.nmap(
   "<leader>ff",

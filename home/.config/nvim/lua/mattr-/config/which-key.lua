@@ -10,6 +10,12 @@ return function()
   })
 
   local normal_group_mappings = {
+    c = {
+      name = "code",
+      t = {
+        name = "test",
+      }
+    },
     f = {
       name = "files",
     },
