@@ -229,6 +229,20 @@ mappings.nmap("<leader>tt",
 
 -- {{{ Window group mappings
 --
+mappings.nmap("<leader>ws",
+  "<Cmd>split",
+  opts,
+  "Window",
+  "horizontal_split",
+  "Split window horizontally"
+)
+mappings.nmap("<leader>wv",
+  "<Cmd>vsplit",
+  opts,
+  "Window",
+  "vert_split",
+  "Split window vertically"
+)
 mappings.nmap("<leader>ww",
   "<C-W>w",
   opts,
