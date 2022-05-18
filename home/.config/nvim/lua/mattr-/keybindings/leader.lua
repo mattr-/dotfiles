@@ -77,7 +77,7 @@ mappings.vmap(
   "Link to current file"
 )
 mappings.nmap(
-  "<leader>gs",
+  "<leader>gg",
   "<cmd>Neogit<CR>",
   opts,
   "Git",
