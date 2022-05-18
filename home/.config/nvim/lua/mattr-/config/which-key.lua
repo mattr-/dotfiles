@@ -23,7 +23,10 @@ return function()
       name = "git",
       h = {
         name = "GitHub",
-      }
+      },
+      s = {
+        name = "stage",
+      },
     },
     h = {
       name = "help",
@@ -41,7 +44,10 @@ return function()
 
   local visual_group_mappings = {
     g = {
-      name = "git"
+      name = "git",
+      s = {
+        name = "stage",
+      },
     },
   }
   wk.register(normal_group_mappings, { prefix = "<leader>" })

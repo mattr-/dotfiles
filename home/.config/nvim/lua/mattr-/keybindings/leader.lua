@@ -84,6 +84,23 @@ mappings.nmap(
   "git_status",
   "Status"
 )
+mappings.nmap(
+  "<leader>gsh",
+  "<cmd>Gitsigns stage_hunk<CR>",
+  opts,
+  "Git",
+  "git_stage_hunk",
+  "Stage hunk"
+)
+mappings.nmap(
+  "<leader>gsf",
+  "<cmd>!git add %<CR>",
+  opts,
+  "Git",
+  "git_stage_file",
+  "Stage file"
+)
+
 -- }}}
 
 -- {{{ Help group mappings
