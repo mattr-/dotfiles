@@ -100,6 +100,15 @@ mappings.nmap(
   "git_stage_file",
   "Stage file"
 )
+mappings.nmap(
+  "<leader>guh",
+  "<cmd>Gitsigns undo_stage_hunk<CR>",
+  opts,
+  "Git",
+  "git_undo_stage_hunk",
+  "Unstage hunk"
+)
+
 
 -- }}}
 

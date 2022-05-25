@@ -27,6 +27,9 @@ return function()
       s = {
         name = "stage",
       },
+      u = {
+        name = "unstage",
+      },
     },
     h = {
       name = "help",
