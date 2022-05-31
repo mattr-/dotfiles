@@ -57,6 +57,15 @@ mappings.nmap(
   "find_files",
   "Find files"
 )
+
+mappings.nmap(
+  "<leader>fn",
+  '<cmd>enew<CR>',
+  opts,
+  "File",
+  "new_file",
+  "New file"
+)
 -- }}}
 
 -- {{{ Git group mappings
