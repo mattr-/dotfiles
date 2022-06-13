@@ -59,13 +59,32 @@ mappings.nmap(
 )
 
 mappings.nmap(
-  "<leader>fn",
+  "<leader>fnf",
   '<cmd>enew<CR>',
   opts,
   "File",
   "new_file",
   "New file"
 )
+
+mappings.nmap(
+  "<leader>fns",
+  '<cmd>new<CR>',
+  opts,
+  "File",
+  "new_split_file",
+  "Below"
+)
+
+mappings.nmap(
+  "<leader>fnv",
+  '<cmd>vnew<CR>',
+  opts,
+  "File",
+  "new_vsplit_file",
+  "To the right"
+)
+
 -- }}}
 
 -- {{{ Git group mappings

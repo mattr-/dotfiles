@@ -18,6 +18,9 @@ return function()
     },
     f = {
       name = "files",
+      n = {
+        name = "new",
+      }
     },
     g = {
       name = "git",
