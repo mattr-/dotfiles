@@ -38,7 +38,8 @@ packer.startup({
     use("kyazdani42/nvim-web-devicons")
     use({
       "glepnir/dashboard-nvim",
-      config = require("mattr-.config.dashboard")
+      commit = "a36b3232c98616149784f2ca2654e77caea7a522",
+      config = require("mattr-.config.dashboard"),
     })
 
     use("folke/trouble.nvim") -- a problem list plugin
