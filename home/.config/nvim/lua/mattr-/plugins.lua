@@ -37,6 +37,10 @@ packer.startup({
     use("norcalli/nvim-colorizer.lua")
     use("kyazdani42/nvim-web-devicons")
     use({
+      "onsails/lspkind.nvim",
+      opt = true,
+    })
+    use({
       "glepnir/dashboard-nvim",
       commit = "a36b3232c98616149784f2ca2654e77caea7a522",
       config = require("mattr-.config.dashboard"),
@@ -64,7 +68,6 @@ packer.startup({
     -- Completion and Snippets
     use({
       "hrsh7th/nvim-cmp", -- Autocompletion plugin
-      commit = "4f1358e659d51c69055ac935e618b684cf4f1429",
       config = require("mattr-.config.nvim-cmp"),
       event = "InsertEnter",
       wants = { "LuaSnip" },

@@ -38,13 +38,22 @@ return function()
   -- find more here: https://www.nerdfonts.com/cheat-sheet
 
   -- luasnip setup
-  local status_ok, luasnip = pcall(require, 'luasnip')
+  local status_ok = nil
+  local luasnip = nil
+  local cmp = nil
+  local lspkind = nil
+  status_ok, luasnip = pcall(require, 'luasnip')
   if not status_ok then
     return
   end
 
   -- nvim-cmp setup
-  local status_ok, cmp = pcall(require, 'cmp')
+  status_ok, cmp = pcall(require, 'cmp')
+  if not status_ok then
+    return
+  end
+
+  status_ok, lspkind = pcall(require, 'lspkind')
   if not status_ok then
     return
   end
@@ -55,16 +64,12 @@ return function()
         luasnip.lsp_expand(args.body)
       end,
     },
-    mapping = {
+    mapping = cmp.mapping.preset.insert({
       ['<C-k>'] = cmp.mapping.select_prev_item(),
       ['<C-j>'] = cmp.mapping.select_next_item(),
       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
-      ["<C-e>"] = cmp.mapping {
-        i = cmp.mapping.abort(),
-        c = cmp.mapping.close(),
-      },
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
@@ -77,10 +82,7 @@ return function()
         else
           fallback()
         end
-      end, {
-          "i",
-          "s",
-        }),
+      end),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
@@ -89,25 +91,10 @@ return function()
         else
           fallback()
         end
-      end, {
-          "i",
-          "s",
-        }),
-    },
+      end)
+    }),
     formatting = {
-      fields = { "kind", "abbr", "menu" },
-      format = function(entry, vim_item)
-        -- Kind icons
-        vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-        vim_item.menu = ({
-          nvim_lsp = "[LSP]",
-          nvim_lua = "[Vim]",
-          luasnip = "[Snippet]",
-          buffer = "[Buffer]",
-          path = "[Path]",
-        })[entry.source.name]
-        return vim_item
-      end,
+      format = lspkind.cmp_format({})
     },
     sources = {
       { name = 'nvim_lsp' },
