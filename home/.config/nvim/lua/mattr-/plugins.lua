@@ -41,12 +41,6 @@ packer.startup({
       config = require("mattr-.config.dashboard")
     })
 
-    -- notifications in vim. let's try it!
-    use({
-      "rcarriga/nvim-notify",
-      event = "VimEnter",
-      config = require("mattr-.config.notify"),
-    })
     use("folke/trouble.nvim") -- a problem list plugin
     use({
       "NTBBloodbath/galaxyline.nvim", -- Fancy statusline
@@ -169,6 +163,7 @@ packer.startup({
         "plenary.nvim",
         "telescope-fzf-native.nvim",
         "telescope-ui-select.nvim",
+        "nvim-notify"
       },
       requires = {
         {
@@ -177,7 +172,12 @@ packer.startup({
         },
         {
           "nvim-telescope/telescope-ui-select.nvim", -- Use telescope as a backend for vim.ui.select (NeoVim 0.6)
-        }
+        },
+        {
+          "rcarriga/nvim-notify",
+          event = "VimEnter",
+          config = require("mattr-.config.notify"),
+        },
       }
     })
     use({
