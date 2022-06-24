@@ -12,7 +12,7 @@ mappings.nmap(
 
 mappings.nmap(
   "<leader>/",
-  "<cmd>Telescope live_grep<CR>",
+  '<cmd>lua require("mattr-.telescope").live_grep()<CR>',
   opts,
   "Editor",
   "live_grep",
