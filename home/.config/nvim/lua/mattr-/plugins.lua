@@ -38,7 +38,6 @@ packer.startup({
     use("kyazdani42/nvim-web-devicons")
     use({
       "onsails/lspkind.nvim",
-      opt = true,
     })
     use({
       "glepnir/dashboard-nvim",
@@ -69,12 +68,10 @@ packer.startup({
     use({
       "hrsh7th/nvim-cmp", -- Autocompletion plugin
       config = require("mattr-.config.nvim-cmp"),
-      event = "InsertEnter",
       wants = { "LuaSnip" },
       requires = {
         "L3MON4D3/LuaSnip", -- Snippets plugin
         config = require("mattr-.config.luasnip"),
-        event = "BufReadPre"
       }
     })
     use({"hrsh7th/cmp-buffer", -- Completion from other buffers
@@ -159,9 +156,6 @@ packer.startup({
     -- Fuzzy Finding
     use({
       "nvim-telescope/telescope.nvim", -- Fuzzy finding
-      opt = true,
-      cmd = "Telescope",
-      module = "telescope",
       config = require("mattr-.config.telescope"),
       wants = {
         "plenary.nvim",
@@ -179,7 +173,6 @@ packer.startup({
         },
         {
           "rcarriga/nvim-notify",
-          event = "VimEnter",
           config = require("mattr-.config.notify"),
         },
       }
