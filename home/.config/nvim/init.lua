@@ -6,9 +6,10 @@ require "mattr-.plugins"
 require "mattr-.lsp"
 
 vim.defer_fn(function()
-  require "mattr-.keybindings"
-
-  vim.cmd([[
+  if (packer_plugins and packer_plugins["which-key.nvim"])
+  then
+    vim.cmd([[
       PackerLoad which-key.nvim
-  ]])
+    ]])
+  end
 end, 0)

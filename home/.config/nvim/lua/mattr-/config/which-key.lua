@@ -58,4 +58,7 @@ return function()
   }
   wk.register(normal_group_mappings, { prefix = "<leader>" })
   wk.register(visual_group_mappings, { prefix = "<leader>", mode = "v" })
+
+  -- Set up the keybindings here, since they rely on which-key being loaded
+  require "mattr-.keybindings"
 end
