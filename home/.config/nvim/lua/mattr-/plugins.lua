@@ -193,7 +193,7 @@ packer.startup({
     -- Non LSP editing support. Markdown in particular
     use({
       "iamcco/markdown-preview.nvim",
-      run = "cd app && yarn install",
+      run = function() vim.fn["mkdp#util#install"]() end
     })
   end,
   config = {
