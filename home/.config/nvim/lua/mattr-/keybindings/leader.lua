@@ -182,7 +182,7 @@ mappings.nmap(
  "Key Maps"
 )
 mappings.nmap(
-  "<leader>hs",
+  "<leader>hg",
  "<cmd>:Telescope highlights<cr>",
  opts,
  "Help",
