@@ -221,6 +221,14 @@ mappings.nmap(
  "help_autocommands",
  "Auto Commands"
 )
+mappings.nmap(
+  "<leader>hs",
+  "<cmd>lua require('luasnip.loaders').edit_snippet_files()<CR>",
+  opts,
+  "Help",
+  "help_edit_snippets",
+  "Edit snippets"
+)
 -- {{{ Packer mappings
 mappings.nmap(
   "<leader>hpc",
