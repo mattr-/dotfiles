@@ -1,9 +1,5 @@
 return function()
   local ls = require("luasnip")
-
-  local s = ls.snippet
-  local t = ls.text_node
-  local i = ls.insert_node
   local types = require('luasnip.util.types')
 
   -- See lua/luasnip/config.lua for the defaults should they need to be change
