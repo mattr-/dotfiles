@@ -54,7 +54,6 @@ packer.startup({
     -- Tree Sitter
     use({
       "nvim-treesitter/nvim-treesitter",
-      run = ":TSUpdate",
       config = require("mattr-.config.treesitter"),
     })
     use("nvim-treesitter/playground")
