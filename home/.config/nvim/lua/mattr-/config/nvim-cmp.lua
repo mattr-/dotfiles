@@ -1,6 +1,6 @@
 return function()
   -- Set completeopt to have a better completion experience
-  vim.o.completeopt = 'menuone,noselect'
+  vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
   local check_backspace = function()
     local col = vim.fn.col "." - 1
@@ -41,7 +41,6 @@ return function()
   local status_ok = nil
   local luasnip = nil
   local cmp = nil
-  local lspkind = nil
   status_ok, luasnip = pcall(require, 'luasnip')
   if not status_ok then
     return
@@ -49,11 +48,6 @@ return function()
 
   -- nvim-cmp setup
   status_ok, cmp = pcall(require, 'cmp')
-  if not status_ok then
-    return
-  end
-
-  status_ok, lspkind = pcall(require, 'lspkind')
   if not status_ok then
     return
   end
@@ -94,7 +88,19 @@ return function()
       end)
     }),
     formatting = {
-      format = lspkind.cmp_format({})
+      fields = { "kind", "abbr", "menu" },
+      format = function(entry, vim_item)
+        -- Kind icons
+        vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+        vim_item.menu = ({
+          nvim_lsp = "[LSP]",
+          nvim_lua = "[Vim]",
+          luasnip = "[Snippet]",
+          buffer = "[Buffer]",
+          path = "[Path]",
+        })[entry.source.name]
+        return vim_item
+      end,
     },
     sources = {
       { name = 'nvim_lsp' },
