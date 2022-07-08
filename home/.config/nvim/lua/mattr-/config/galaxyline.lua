@@ -3,7 +3,6 @@ return function()
   local condition = require("galaxyline.condition")
   local buffer = require("galaxyline.providers.buffer")
   local fileinfo = require("galaxyline.providers.fileinfo")
-  local List = require("plenary.collections.py_list")
   local gls = gl.section
   local api = vim.api
   local M = {}
