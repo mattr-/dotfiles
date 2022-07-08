@@ -65,13 +65,15 @@ packer.startup({
 
     -- Completion and Snippets
     use({
+      "L3MON4D3/LuaSnip", -- Snippets plugin
+      event = "BufReadPre",
+      config = require("mattr-.config.luasnip"),
+    })
+    use({
       "hrsh7th/nvim-cmp", -- Autocompletion plugin
       config = require("mattr-.config.nvim-cmp"),
       wants = { "LuaSnip" },
-      requires = {
-        "L3MON4D3/LuaSnip", -- Snippets plugin
-        config = require("mattr-.config.luasnip"),
-      }
+      event = "InsertEnter",
     })
     use({"hrsh7th/cmp-buffer", -- Completion from other buffers
       after = "nvim-cmp",
