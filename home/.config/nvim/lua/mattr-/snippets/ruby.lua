@@ -9,7 +9,7 @@ local d = ls.dynamic_node
 local c = ls.choice_node
 local r = ls.restore_node
 
-return {
+ls.add_snippets('ruby', {
   s({ trig = "def", desc = "method definition"}, {
     t("def "),
     c(1, {
@@ -32,5 +32,5 @@ return {
     i(0),
     t({"", "end"}),
   }),
-}
+})
 

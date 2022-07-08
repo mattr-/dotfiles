@@ -1,6 +1,5 @@
-local ls = require "luasnip"
+local ls = require("luasnip")
 
--- local snippet = ls.s
 local sn = ls.sn
 local s = ls.snippet
 local i = ls.insert_node
@@ -34,7 +33,7 @@ rec_ol = function()
   });
 end
 
-return {
+ls.add_snippets('markdown', {
   s({ trig = "ul", desc = "unordered list"}, {
     t({"", "\t - "}), i(1), d(2, rec_ul, {}),
     i(0)
@@ -48,4 +47,4 @@ return {
     t({" |", "| ---- | ---- |", "| "}), i(3), t({" | "}), i(4), t({" |"}),
     i(0)
   })
-}
+})
