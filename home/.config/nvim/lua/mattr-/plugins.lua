@@ -66,7 +66,7 @@ packer.startup({
     -- Completion and Snippets
     use({
       "L3MON4D3/LuaSnip", -- Snippets plugin
-      event = "BufReadPre",
+    --   event = "BufReadPre",
       config = require("mattr-.config.luasnip"),
     })
     use({
