@@ -34,7 +34,10 @@ packer.startup({
     })
 
     -- UI and Colors
-    use("norcalli/nvim-colorizer.lua")
+    use({
+      "norcalli/nvim-colorizer.lua",
+      config = require("mattr-.config.colorizer"),
+    })
     use("kyazdani42/nvim-web-devicons")
     use({
       "onsails/lspkind.nvim",
