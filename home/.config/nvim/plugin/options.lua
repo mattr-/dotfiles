@@ -2,6 +2,7 @@ local opt = vim.opt
 
 vim.g.mapleader = " "
 
+opt.termguicolors = true  -- Enables 24-bit RGB color
 opt.hidden        = true  -- background buffers without writing them. saves marks/undo as well
 opt.shortmess     = opt.shortmess
                     + "f" --use "(3 of 5)" instead of "(file 3 of 5)"
