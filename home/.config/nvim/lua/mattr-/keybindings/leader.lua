@@ -140,6 +140,29 @@ mappings.nmap(
 
 -- }}}
 
+-- {{{ GitHub group mappings
+-- This gets its own group because it's going to be large
+
+mappings.nmap(
+  "<leader>ghil",
+  "<cmd>Octo issue list",
+  opts,
+  "GitHub",
+  "issue_list",
+  "List Issues"
+)
+
+mappings.nmap(
+  "<leader>ghpl",
+  "<cmd>Octo pr list",
+  opts,
+  "GitHub",
+  "pr_list",
+  "List Pull Requests"
+)
+
+-- }}}
+
 -- {{{ Help group mappings
 mappings.nmap(
   "<leader>ht",

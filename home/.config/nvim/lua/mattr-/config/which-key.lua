@@ -25,7 +25,13 @@ return function()
     g = {
       name = "git",
       h = {
-        name = "GitHub",
+        name = "github",
+        i = {
+          name = "issues",
+        },
+        p = {
+          name = "pull pequests"
+        }
       },
       s = {
         name = "stage",
