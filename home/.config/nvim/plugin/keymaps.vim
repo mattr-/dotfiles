@@ -1,10 +1,10 @@
 scriptencoding utf-8
 
-" I use a hybrid 'dual leader' mapping scheme. <Leader> is the default `\` and
-" `,` gets used as a defacto leader key. You'll see the scheme used throughout
-" each plugin's configuration as well as filetype specific configuration.
-" As of 2021-12-30, I'm changing things up and the use of `\` is going to be
-" explicit
+" I use a hybrid 'dual leader' mapping scheme. <Leader> is `<Space>` and `,`
+" gets used as a sort of minor mode leader key. You'll see the scheme used
+" throughout each plugin's configuration as well as filetype specific
+" configuration. I introduced the `<Space>`/`,` combo in 2022. Any bindings
+" left here are old an in transition to new bindings
 
 "Nuke the help mapping
 noremap K <Nop>
@@ -37,26 +37,11 @@ nnoremap \\ <C-^>
 "Remove trailing whitespace
 nnoremap <silent> ,sw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-" CTags
-map \rt :!ctags -R *<CR><CR>
-map <C-\> :tnext<CR>
-
-" Quickfix mappings
-nnoremap ,cc :echom "--> ,qfc <--"<CR>
-nnoremap ,qfc :cclose<CR>
-nnoremap ,cn :echom "--> ,qfc <--"<CR>
-nnoremap ,qfn :cnext<CR>
-nnoremap ,cp :echom "--> ,qfp <--"<CR>
-nnoremap ,qfp :cprev<CR>
-
 " Movement mappings
 noremap H ^
 noremap L $
 noremap j gj
 noremap k gk
-
-" Make <leader>' switch between ' and "
-nnoremap ,' ""yls<C-r>={'"': "'", "'": '"'}[@"]<CR><Esc>
 
 " Make Ctrl-a and Ctrl-e work like the default readline bindings
 cnoremap <c-a> <Home>
