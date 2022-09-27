@@ -11,3 +11,6 @@ done
 
 asdf install ruby | grep -e '^\(Downloading\|Installing\|Installed\)'
 
+rustup_log=$(mktemp)
+echo "Installing rust. Please see ${rustup_log} for additional output"
+asdf install rust >${rustup_log} 2>&1
