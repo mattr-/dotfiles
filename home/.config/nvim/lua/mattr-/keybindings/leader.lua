@@ -145,7 +145,7 @@ mappings.nmap(
 
 mappings.nmap(
   "<leader>ghil",
-  "<cmd>Octo issue list",
+  "<cmd>Octo issue list<CR>",
   opts,
   "GitHub",
   "issue_list",
@@ -154,7 +154,7 @@ mappings.nmap(
 
 mappings.nmap(
   "<leader>ghpl",
-  "<cmd>Octo pr list",
+  "<cmd>Octo pr list<CR>",
   opts,
   "GitHub",
   "pr_list",
