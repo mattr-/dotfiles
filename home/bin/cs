@@ -24,7 +24,7 @@ if [[ $# > 0 ]]; then
       ;;
     ssh)
       cs_id=$(gh cs list | fzy | cut -f1)
-      [[ -n "$cs_id" ]] && gh cs ssh -c $cs_id
+      [[ -n "$cs_id" ]] && gh cs ssh -c $cs_id -- -R 127.0.0.1:7391:$(rdm socket)
       ;;
     create)
       repo=$(git_repo)
