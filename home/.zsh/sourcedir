@@ -1,0 +1,32 @@
+#r sourcedir
+#
+# Defines helper function to source files in a directory
+#
+# Copyright © 1994 - 2008 martin f. krafft <madduck@madduck.net>
+# Copyright © 2010 Matt Rogers <mattr@kde.org>
+#
+# Released under the terms of the Artistic License 2.0
+#
+
+
+sourcedir() {
+  if [ ! -d "$1" ]; then
+    echo "no such directory: $1"
+    return 1
+  fi
+
+  # List plain files and symlinks, setting the NULL_GLOB option for each pattern
+  # . - plain files
+  # @ - symlinks
+  # NULL_GLOB prevents warnings when nothing exists to glob
+  for f in "$1"/*(.N,@N); do
+    case "$f" in
+      # Don't execute backup, old, swap, compiled, or disabled files
+      *~|*.bak|*.old|*.sw?|*.zwc|*.disabled) continue;;
+    esac
+
+    source "$f"
+  done
+}
+
+# vim:ft=zsh
