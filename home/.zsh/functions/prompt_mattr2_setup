@@ -12,24 +12,6 @@ prompt_mattr2_help () {
 EOF
 }
 
-function battery_levels() {
-    local pmset="$(pmset -g batt | sed -n -e '/InternalBattery/p')"
-    local bat="$(cut -f2 <<<"$pmset")"
-    bat="${bat%%%*}% "
-    local charge_status=""
-    case "$pmset" in
-        *charged* | "")
-            charge_status=""
-            bat=""
-            ;;
-        *discharging*)
-            charge_status="⌁"
-            ;;
-    esac
-
-    echo "${charge_status}${bat}"
-}
-
 function git_branch() {
     \git rev-parse --inside-work-tree >/dev/null 2>&1 || return
 
@@ -158,13 +140,12 @@ function prompt_mattr_precmd() {
     fi
 
     psvar[2]=${PWD/#$HOME/~}
-    psvar[3]=$(battery_levels)
-    psvar[4]=$(prompt_char)
-    psvar[5]=$(git_branch)
-    psvar[6]=$(git_has_untracked)
-    psvar[7]=$(git_has_stashed)
-    # psvar[8]=$(git_diffstat)
-    # psvar[9]=$(git_commits_ahead)
+    psvar[3]=$(prompt_char)
+    psvar[4]=$(git_branch)
+    psvar[5]=$(git_has_untracked)
+    psvar[6]=$(git_has_stashed)
+    # psvar[7]=$(git_diffstat)
+    # psvar[8]=$(git_commits_ahead)
 }
 
 
