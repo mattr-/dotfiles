@@ -1,66 +1,23 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/bin/sh
 
-cd "$(dirname "$0")/.."
+set -e
 
-# Do some rudimentary OS detection and run the appropriate bootstrap script to install dependencies for things in my dotfiles
-os=$(uname -s)
-keep_going=""
-if [ "$os" == "Darwin" ]
-then
-  ./script/bootstrap-macos && keep_going=1
+if [ ! "$(command -v chezmoi)" ]; then
+  bin_dir="$HOME/.local/bin"
+  chezmoi="$bin_dir/chezmoi"
+  if [ "$(command -v curl)" ]; then
+    sh -c "$(curl -fsSL https://git.io/chezmoi)" -- -b "$bin_dir"
+  elif [ "$(command -v wget)" ]; then
+    sh -c "$(wget -qO- https://git.io/chezmoi)" -- -b "$bin_dir"
+  else
+    echo "To install chezmoi, you must have curl or wget installed." >&2
+    exit 1
+  fi
 else
-  if [ -f /etc/debian_version ]
-  then
-    ./script/bootstrap-debian && keep_going=1
-  else # assume ArchLinux
-    ./script/bootstrap-arch && keep_going=1
-  fi
+  chezmoi=chezmoi
 fi
 
-
-if [ -n "$keep_going" ]
-then
-  # shamelessly stolen from https://github.com/jordemort/dotfiles/blob/6643b5b0a883be5fd773bb6903e17d512b3747f8/setup.sh
-  # put our dotfiles in the proper place
-
-  homesick_repos="$HOME/.homesick/repos"
-  preferred_dir="$homesick_repos/dotfiles"
-  homeshick_dir="$homesick_repos/homeshick"
-  current_dir=$(git rev-parse --show-toplevel)
-
-  if [ "$current_dir" != "$preferred_dir" ] ; then
-    mkdir -p "$(dirname "$preferred_dir")"
-    mv "$current_dir" "$preferred_dir"
-  fi
-
-  # switch to our preferred directory
-  pushd $preferred_dir &>/dev/null
-
-  # setup homeshick
-  git clone https://github.com/andsens/homeshick.git "$homeshick_dir"
-
-  # clone zinit for zsh plugins
-  git clone https://github.com/zdharma-continuum/zinit.git ~/.zinit/bin
-
-  # clone asdf for tool management
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-  cd ~/.asdf
-  git checkout "$(git describe --abbrev=0 --tags)"
-
-  # run homeshick to link the dotfiles in
-  $homeshick_dir/bin/homeshick -f link dotfiles
-
-  # bootstrap asdf plugins
-  (
-    export PATH=$HOME/.asdf/bin:$PATH
-    for plugin in `cat $HOME/.tool-versions | awk '{ print $1 }'`
-    do
-      echo "===> Installing ASDF plugin $plugin"
-      asdf plugin add $plugin &> /dev/null
-    done
-  )
-
-  popd &>/dev/null
-fi
-
+# Since the repo will be checked out already, let's use `git` to set the source dir
+script_dir="$(git rev-parse --show-toplevel)"
+# exec: replace current process with chezmoi init
+exec "$chezmoi" init --apply "--source=$script_dir"
