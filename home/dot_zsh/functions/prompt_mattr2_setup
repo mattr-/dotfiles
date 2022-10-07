@@ -140,10 +140,11 @@ function prompt_mattr_precmd() {
     fi
 
     psvar[2]=${PWD/#$HOME/~}
-    psvar[3]=$(prompt_char)
-    psvar[4]=$(git_branch)
+    psvar[3]=""
+    psvar[4]=$(prompt_char)
+    psvar[5]=$(git_branch)
     psvar[5]=$(git_has_untracked)
-    psvar[6]=$(git_has_stashed)
+    psvar[7]=$(git_has_stashed)
     # psvar[7]=$(git_diffstat)
     # psvar[8]=$(git_commits_ahead)
 }
