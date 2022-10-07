@@ -1,7 +1,4 @@
-{{/* detect codespaces */}}
-{{- if (env "CODESPACES") -}}
-{{-   $codespaces = true -}}
-{{- end -}}
+{{- $codespaces := env "CODESPACES" | not | not -}}
 
 [data]
   codespaces = {{ $codespaces }}
