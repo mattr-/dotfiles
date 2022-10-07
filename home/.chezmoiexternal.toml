@@ -1,0 +1,9 @@
+[".zinit/bin"]
+  type = "git-repo"
+  url = "https://github.com/zdharma-continuum/zinit.git"
+
+[".asdf"]
+  type = "archive"
+  url = "https://github.com/asdf-vm/asdf/archive/refs/tags/v0.10.2.tar.gz"
+  exact = true
+  stripComponents = 1
