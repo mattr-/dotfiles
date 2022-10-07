@@ -1,0 +1,9 @@
+{{/* detect codespaces */}}
+{{- if (env "CODESPACES") -}}
+{{-   $codespaces = true -}}
+{{- end -}}
+
+[data]
+  codespaces = {{ $codespaces }}
+
+# vim: ft=toml
