@@ -134,11 +134,11 @@ alias -g ET='|& tail'
 alias -g ETL='|& tail -n $(( +LINES ? LINES - 4 : 20 ))'
 
 # Optional aliases if commands are present
-if command which -s bat ; then
+if command which bat &>/dev/null ; then
   alias cat='bat -n'
 fi
 
-if command which -s exa ; then
+if command which exa &>/dev/null ; then
   alias ls='exa'
 fi
 
