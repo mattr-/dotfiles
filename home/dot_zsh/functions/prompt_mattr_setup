@@ -1,13 +1,13 @@
-# mattr2 prompt them
-# copied from mattr prompt theme and modified
+# mattr prompt theme
+# copied from the original (now deleted) mattr prompt theme and modified
 
 autoload -U zgitinit
 zgitinit
 
-prompt_mattr2_help () {
+prompt_mattr_help () {
   cat <<'EOF'
 
-  prompt mattr2
+  prompt mattr
 
 EOF
 }
@@ -150,7 +150,7 @@ function prompt_mattr_precmd() {
 }
 
 
-prompt_mattr2_setup() {
+prompt_mattr_setup() {
     # Color Setup {{{
     typeset -A colorcode
     colorcode[black]=0
@@ -224,6 +224,6 @@ prompt_mattr2_setup() {
     precmd_functions+='prompt_mattr_precmd'
 }
 
-prompt_mattr2_setup "$@"
+prompt_mattr_setup "$@"
 
 # vim:set ft=zsh:
