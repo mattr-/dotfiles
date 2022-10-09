@@ -30,7 +30,7 @@ setopt correct
 setopt auto_param_keys auto_param_slash auto_remove_slash
 
 #zinit initialization
-source ~/.zinit/bin/zinit.zsh
+source ~/.local/share/zinit/zinit.zsh
 
 #homeshick initialization
 source ~/.homesick/repos/homeshick/homeshick.sh
