@@ -33,10 +33,7 @@ setopt auto_param_keys auto_param_slash auto_remove_slash
 source ~/.local/share/zinit/zinit.zsh
 
 #asdf initialization
-[[ -f /usr/local/opt/asdf/asdf.sh ]] && ASDF_DIR=/usr/local/opt/asdf
-[[ -f /opt/asdf-vm/asdf.sh ]] && ASDF_DIR=/opt/asdf-vm
 [[ -f $HOME/.asdf/asdf.sh ]] && ASDF_DIR=$HOME/.asdf
-
 fpath=($ASDF_DIR/completions $fpath)
 
 #load and initialize stuff
