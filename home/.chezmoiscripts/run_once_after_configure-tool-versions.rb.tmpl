@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+#
+# We want to run this anytime .tool-versions changes so that the tools update automatically
+# .tool-versions hash: {{ include "dot_tool-versions" | sha256sum }}
+
+tool_versions_file = File.join(Dir.home, ".tool-versions")
+tool_versions = File.read(tool_versions_file).split("\n").map { |entry| entry.split(" ") }
+
+installed_plugins = `$HOME/.asdf/bin/asdf plugin list`
+installed_plugins = installed_plugins.chomp.split("\n")
+
+tool_versions.each do |entry|
+  language = entry.shift
+  if !installed_plugins.include?(language)
+    `asdf plugin add #{language}`
+  else
+    `asdf plugin update #{language}`
+  end
+end
+
+`asdf install`
+
