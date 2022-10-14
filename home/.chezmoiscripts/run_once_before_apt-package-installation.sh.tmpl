@@ -1,0 +1,24 @@
+{{ if eq .osid "linux-debian" "linux-raspbian" "linux-ubuntu" -}}
+
+{{ $packages := list
+    "zsh"
+    "tmux"
+    "jq"
+    "ripgrep"
+    "myrepos"
+    "fzf"
+    "hub" -}}
+
+{{ $sudo := "sudo " -}}
+{{ if eq .chezmoi.username "root" -}}
+{{   $sudo = "" -}}
+{{ end -}}
+
+#!/bin/bash
+
+set -eo pipefail
+
+{{ $sudo }}apt-get update
+{{ $sudo }}apt-get install -y {{ $packages | join " " }}
+
+{{ end -}}
