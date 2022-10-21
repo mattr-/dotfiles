@@ -16,8 +16,8 @@ function git_branch() {
     \git rev-parse --inside-work-tree >/dev/null 2>&1 || return
 
     local branch
-    if branch="$(\git symbolic-ref -q HEAD)"; then
-        printf "%q" "${branch#refs/heads/}"
+    if branch="$(\git symbolic-ref --short -q HEAD)"; then
+        printf "%q" "${branch}"
     else
         # In detached head state, use commit instead
         # No escape needed
@@ -143,10 +143,10 @@ function prompt_mattr_precmd() {
     psvar[3]=""
     psvar[4]=$(prompt_char)
     psvar[5]=$(git_branch)
-    psvar[5]=$(git_has_untracked)
+    psvar[6]=$(git_has_untracked)
     psvar[7]=$(git_has_stashed)
-    # psvar[7]=$(git_diffstat)
-    # psvar[8]=$(git_commits_ahead)
+    # psvar[8]=$(git_diffstat)
+    # psvar[9]=$(git_commits_ahead)
 }
 
 
