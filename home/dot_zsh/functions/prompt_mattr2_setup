@@ -1,0 +1,137 @@
+# mattr prompt theme
+# copied from the original (now deleted) mattr prompt theme and modified
+
+autoload -U zgitinit
+zgitinit
+
+prompt_mattr2_help () {
+  cat <<'EOF'
+
+  prompt mattr2
+
+EOF
+}
+
+function git_branch() {
+    \git rev-parse --inside-work-tree >/dev/null 2>&1 || return
+
+    local branch
+    if branch="$(\git symbolic-ref --short -q HEAD)"; then
+        printf "%q" "${branch}"
+    else
+        # In detached head state, use commit instead
+        # No escape needed
+        \git rev-parse --short -q HEAD
+    fi
+}
+
+function git_has_untracked() {
+    if LC_ALL=C \git status --porcelain 2>/dev/null | grep -Eq '^\?\?'; then
+        printf "%q" "+"
+    fi
+}
+
+function git_has_stashed() {
+    if [[ -n "$(git stash list -n 1 2>/dev/null)" ]]; then
+        echo -ne "*"
+    fi
+}
+
+function git_commits_ahead() {
+    local branch
+    local -i has_commit
+    has_commit=0
+    branch="$(git_branch)"
+    if [[ -n "$branch" ]] ; then
+        local remote
+        remote="$(git config --get branch.${branch}.remote 2>/dev/null)"
+        if [[ -n "$remote" ]]; then
+            local remote_branch
+            remote_branch="$(git config --get branch.${branch}.merge)"
+            if [[ -n "$remote_branch" ]]; then
+                has_commit="$(git rev-list --count ${remote_branch/refs\/heads/refs\/remotes\/$remote}..HEAD 2>/dev/null)"
+                [[ -z "$has_commit" ]] && has_commit=0
+            fi
+        fi
+    fi
+    echo "$has_commit"
+}
+
+function git_diffstat() {
+    local branch
+    branch="$(git_branch)"
+    if [[ -n "$branch" ]] ; then
+        local remote
+        remote="$(git config --get branch.${branch}.remote 2>/dev/null)"
+
+        local ret
+        local shortstat # only to check for uncommitted changes
+        shortstat="$(LC_ALL=C git diff --shortstat HEAD 2>/dev/null)"
+
+        if [[ -n "$shortstat" ]] ; then
+            local u_stat # shorstat of *unstaged* changes
+            u_stat="$(LC_ALL=C git diff --shortstat 2>/dev/null)"
+            u_stat=${u_stat/*changed, /} # removing "n file(s) changed"
+
+            local i_lines # inserted lines
+            if [[ "$u_stat" = *insertion* ]] ; then
+                i_lines=${u_stat/ inser*}
+            else
+                i_lines=0
+            fi
+
+            local d_lines # deleted lines
+            if [[ "$u_stat" = *deletion* ]] ; then
+                d_lines=${u_stat/*\(+\), }
+                d_lines=${d_lines/ del*/}
+            else
+                d_lines=0
+            fi
+
+            local has_lines
+            has_lines="+$i_lines/-$d_lines"
+
+            ret="($has_lines)" # changes to commit
+        fi
+        echo -ne "$ret"
+    fi
+}
+
+function prompt_char() {
+    git branch >/dev/null 2>/dev/null && echo '±' && return
+    hg root >/dev/null 2>/dev/null && echo '☿' && return
+    echo '○'
+}
+
+function prompt_mattr2_precmd() {
+    local ex=$?
+    psvar=()
+
+    if [[ $ex -ge 128 ]]; then
+        sig=$signals[$ex-127]
+        psvar[1]="sig${(L)sig}"
+    else
+        psvar[1]="$ex"
+    fi
+
+    psvar[2]=${PWD/#$HOME/~}
+    psvar[3]=""
+    psvar[4]=$(prompt_char)
+    psvar[5]=$(git_branch)
+    psvar[6]=$(git_has_untracked)
+    psvar[7]=$(git_has_stashed)
+    # psvar[8]=$(git_diffstat)
+    # psvar[9]=$(git_commits_ahead)
+}
+
+
+prompt_mattr2_setup() {
+    PROMPT=
+    PROMPT+="%3v$fg[cyan]%n$fg[none]@$fg[bright-green]%m$fg[none]($fg[green]%5v$fg[none]%6v%7v$fg[none]:$fg[bright-white]%2~$fg[none])o%4v "
+    RPROMPT=
+    precmd_functions+='prompt_mattr2_precmd'
+}
+
+prompt_mattr2_setup "$@"
+
+# vim:set ft=zsh:
