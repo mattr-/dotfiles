@@ -12,6 +12,27 @@ prompt_mattr2_help () {
 EOF
 }
 
+# Borrow some git handling code from ohmyzsh, specifically to ensure that
+# prompt git commands are read-only (TIL they aren't) and for hiding prompt
+# info for larger git trees
+function __git_prompt_git() {
+  GIT_OPTIONAL_LOCKS=0 command git "$@"
+}
+
+function __git_prompt_info() {
+  if ! __git_prompt_git rev-parse --git-dir &> /dev/null || \
+     [[ "$(__git_prompt_git config --get mattr-.hide-info 2>/dev/null)" == 1 ]]; then
+    return 0
+  fi
+
+  local ref
+  ref=$(__git_prompt_git symbolic-ref --short HEAD 2>/dev/null) \
+    || ref=$(__git_prompt_git rev-parse --short HEAD 2>/dev/null) \
+    || return 0
+
+  echo "at ${ref:gs/%/%%}"
+}
+
 function git_branch() {
     \git rev-parse --inside-work-tree >/dev/null 2>&1 || return
 
@@ -97,10 +118,21 @@ function git_diffstat() {
     fi
 }
 
-function prompt_char() {
-    git branch >/dev/null 2>/dev/null && echo '±' && return
-    hg root >/dev/null 2>/dev/null && echo '☿' && return
-    echo '○'
+function in_git_repo() {
+  type git &>/dev/null && git rev-parse --inside-work-tree >/dev/null 2>&1 && return 0 || return 1
+}
+
+function prompt_char2() {
+    git branch >/dev/null 2>/dev/null && echo '' && return
+    echo '○ '
+}
+
+function prompt_mattr2_git_info() {
+  if in_git_repo ; then
+    echo ""
+  else
+    echo ""
+  fi
 }
 
 function prompt_mattr2_precmd() {
@@ -114,20 +146,21 @@ function prompt_mattr2_precmd() {
         psvar[1]="$ex"
     fi
 
-    psvar[2]=${PWD/#$HOME/~}
-    psvar[3]=""
-    psvar[4]=$(prompt_char)
-    psvar[5]=$(git_branch)
-    psvar[6]=$(git_has_untracked)
-    psvar[7]=$(git_has_stashed)
-    # psvar[8]=$(git_diffstat)
-    # psvar[9]=$(git_commits_ahead)
+    psvar[2]=$(prompt_char2)
+    psvar[3]=$(__git_prompt_info)
 }
 
 
 prompt_mattr2_setup() {
+    [[ "$USER" == "root" ]] && USERCOLOR="red" || USERCOLOR="cyan"
+    user="$fg_bold[$USERCOLOR] %n$reset_color"
+    waiting="%(?,%{$fg_bold[green]%}%2v,%{fg_bold[red]%}%2v)"
+    directory="%{$fg_no_bold[bright-white]%}  %4~${reset_color}"
+    git_info="%{$fg_no_bold[green]%}%3v${reset_color}"
+
     PROMPT=
-    PROMPT+="%3v$fg[cyan]%n$fg[none]@$fg[bright-green]%m$fg[none]($fg[green]%5v$fg[none]%6v%7v$fg[none]:$fg[bright-white]%2~$fg[none])o%4v "
+    #PROMPT+="%3v$fg[cyan]%n$fg[none]@$fg[bright-green]%m$fg[none]($fg[green]%5v$fg[none]%6v%7v$fg[none]:$fg[bright-white]%2~$fg[none])o%4v "
+    PS1="$user$directory $git_info$prompt_newline $waiting"
     RPROMPT=
     precmd_functions+='prompt_mattr2_precmd'
 }
