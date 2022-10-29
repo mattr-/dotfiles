@@ -1,8 +1,6 @@
 -- Inspired by and partially copied from tjdevries' telescope config
 -- https://github.com/tjdevries/config_manager/blob/master/xdg_config/nvim/lua/tj/telescope/init.lua
 
-local themes = require "telescope.themes"
-
 local M = {}
 
 function M.dotfiles()
@@ -23,8 +21,7 @@ function M.find_files()
     prompt_title = "🔎 Files 🔍",
     preview = true,
   }
-  local ok = pcall(require'telescope.builtin'.git_files, opts)
-  if not ok then require'telescope.builtin'.find_files(opts) end
+  require'telescope.builtin'.find_files(opts)
 end
 
 return setmetatable({}, {
