@@ -96,8 +96,7 @@ packer.startup({
     })
 
     -- Utilities
-    use("machakann/vim-sandwich") -- vim-surround replacement
-    -- use("tpope/vim-surround") -- TODO: Look at https://github.com/machakann/vim-sandwich at some point
+    use("tpope/vim-surround")
     use("tpope/vim-repeat") -- Repeating plugin maps
     use("tpope/vim-abolish") -- Abbreviate, substitution, and coercion
     use("tpope/vim-commentary") -- Comment all the things!
