@@ -115,7 +115,7 @@ packer.startup({
 
     -- Git & GitHub
     use("TimUntersberger/neogit")
-    use("rhysd/committia.vim") -- Change the formatting and layout of the commit windo
+    use("rhysd/committia.vim") -- Change the formatting and layout of the commit window
     use({
       "lewis6991/gitsigns.nvim", -- Asynchronous Signs!
       config = require("mattr-.config.gitsigns")
