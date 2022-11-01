@@ -110,6 +110,7 @@ alias ls="ls -G"
 [[ $OSTYPE == "linux-gnu" ]] && alias ls="ls --color=auto"
 
 alias vim="nvim"
+alias cz="chezmoi"
 alias hs="homeshick"
 
 alias -g ...=../..
