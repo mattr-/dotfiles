@@ -314,7 +314,7 @@ zstyle ':vcs_info:*' formats       \
   zstyle ':vcs_info:*' enable git cvs svn hg
 
 autoload -U promptinit; promptinit
-prompt mattr
+prompt mattr2
 
 compctl -/ -W ~/Code c
 compctl -/ -W ~/Projects/Hireology h
