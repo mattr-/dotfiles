@@ -27,10 +27,6 @@ alias sk="sudo kill"
 alias sk9="sudo kill -9"
 
 alias vim="nvim"
-alias hs="homeshick"
-
-#homeshick initialization
-. ~/.homesick/repos/homeshick/homeshick.sh
 
 #asdf initialization
 [[ -f /usr/local/opt/asdf/asdf.sh ]] && ASDF_DIR=/usr/local/opt/asdf
