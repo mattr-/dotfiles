@@ -1,1 +1,1 @@
-require("mattr-.theme").set()
+vim.cmd([[colorscheme tokyonight]])
