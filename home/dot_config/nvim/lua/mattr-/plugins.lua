@@ -106,11 +106,11 @@ packer.startup({
 
     -- Language Support Plugins
     -- Tree Sitter
-    -- use({
-    --   "nvim-treesitter/nvim-treesitter",
-    --   config = require("mattr-.config.treesitter"),
-    -- })
-    -- use("nvim-treesitter/playground")
+    use({
+      "nvim-treesitter/nvim-treesitter",
+      config = require("mattr-.config.treesitter"),
+    })
+    use("nvim-treesitter/playground")
     -- use("JoosepAlviste/nvim-ts-context-commentstring") -- Context aware comment strings
 
     -- -- LSP
