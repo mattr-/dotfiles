@@ -5,46 +5,14 @@ return function()
     return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
   end
 
-  -- Icons courtesy of the LunarVim project
-  local kind_icons = {
-    Text = "  ",
-    Method = " m ",
-    Function = "  ",
-    Constructor = "   ",
-    Field = "  ",
-    Variable = "  ",
-    Class = "  ",
-    Interface = "  ",
-    Module = "  ",
-    Property = "  ",
-    Unit = "  ",
-    Value = "  ",
-    Enum = "  ",
-    Keyword = "  ",
-    Snippet = "  ",
-    Color = "  ",
-    File = "  ",
-    Reference = "  ",
-    Folder = "  ",
-    EnumMember = "  ",
-    Constant = "  ",
-    Struct = "  ",
-    Event = "  ",
-    Operator = "  ",
-    TypeParameter = "  ",
-  }
-  -- find more here: https://www.nerdfonts.com/cheat-sheet
-
   -- luasnip setup
-  local status_ok = nil
-  local luasnip = nil
-  local cmp = nil
-  luasnip = require('luasnip')
+  local luasnip = require("luasnip")
+  local lspkind = require("lspkind")
 
   -- nvim-cmp setup
-  cmp = require("cmp")
+  local cmp = require("cmp")
 
-  cmp.setup {
+  cmp.setup({
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body)
@@ -66,7 +34,7 @@ return function()
         else
           fallback()
         end
-      end),
+      end, { "i", "s" }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
@@ -75,37 +43,40 @@ return function()
         else
           fallback()
         end
-      end)
+      end, { "i", "s" })
     }),
     formatting = {
       fields = { "kind", "abbr", "menu" },
-      format = function(entry, vim_item)
-        -- Kind icons
-        vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-        vim_item.menu = ({
-          nvim_lsp = "[LSP]",
-          nvim_lua = "[Vim]",
-          luasnip = "[Snippet]",
-          buffer = "[Buffer]",
-          path = "[Path]",
-        })[entry.source.name]
-        return vim_item
-      end,
+      format = lspkind.cmp_format({
+        mode = "symbol",
+        maxwidth = 50,
+        ellipsis_char = " ",
+        before = function (entry, vim_item)
+          -- Kind icons
+          vim_item.menu = ({
+            nvim_lsp = "[LSP]",
+            nvim_lua = "[Vim]",
+            luasnip = "[Snippet]",
+            buffer = "[Buffer]",
+            path = "[Path]",
+          })[entry.source.name]
+          return vim_item
+        end,
+      })
     },
-    sources = {
+    sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = 'nvim_lua' },
       { name = 'luasnip' },
       { name = 'path' },
-    },
+    }),
     confirm_opts = {
       behavior = cmp.ConfirmBehavior.Replace,
       select = false,
     },
     window = {
-      documentation = {
-        border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-      },
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered()
     },
-  }
+  })
 end

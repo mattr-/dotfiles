@@ -30,6 +30,7 @@ packer.startup({
       config = require("mattr-.config.colorizer"),
     })
     use("kyazdani42/nvim-web-devicons")
+    use("onsails/lspkind.nvim") -- LSP icons
     use({
       "folke/tokyonight.nvim",
       config = function()
@@ -60,9 +61,7 @@ packer.startup({
     })
 
     -- Libraries
-    use({
-      "nvim-lua/plenary.nvim",
-    })
+    use("nvim-lua/plenary.nvim")
 
     -- Fuzzy Finding
     use({
@@ -99,9 +98,6 @@ packer.startup({
     })
 
     -- -- UI and Colors
-    -- use({
-    --   "onsails/lspkind.nvim",
-    -- })
 
 
     -- Language Support Plugins
@@ -128,36 +124,38 @@ packer.startup({
     })
 
     -- -- Completion and Snippets
-    -- use({
-    --   "L3MON4D3/LuaSnip", -- Snippets plugin
-    -- --   event = "BufReadPre",
-    --   config = require("mattr-.config.luasnip"),
-    -- })
-    -- use({
-    --   "hrsh7th/nvim-cmp", -- Autocompletion plugin
-    --   config = require("mattr-.config.nvim-cmp"),
-    --   wants = { "LuaSnip" },
-    --   event = "InsertEnter",
-    -- })
-    -- use({"hrsh7th/cmp-buffer", -- Completion from other buffers
-    --   after = "nvim-cmp",
-    -- })
-    -- use({"hrsh7th/cmp-path", -- Completion for filesystem paths
-    --   after = "nvim-cmp",
-    -- })
-    -- use({"hrsh7th/cmp-nvim-lsp", -- Completion from LSP servers
-    --   after = "nvim-cmp",
-    -- })
-    -- use({"hrsh7th/cmp-nvim-lua", -- Completion for neovim's API
-    --   after = "nvim-cmp",
-    -- })
-    -- use({
-    --   "saadparwaiz1/cmp_luasnip", -- Completion from LuaSnip snippets
-    --   after = "nvim-cmp",
-    -- })
+    use({
+      "L3MON4D3/LuaSnip", -- Snippets plugin
+      -- event = "BufReadPre",
+      config = require("mattr-.config.luasnip"),
+    })
+    use({
+      "hrsh7th/nvim-cmp", -- Autocompletion plugin
+      config = require("mattr-.config.nvim-cmp"),
+      requires = {
+        { "onsails/lspkind.nvim" },
+        { "L3MON4D3/LuaSnip" }
+      },
+    })
+    use({"hrsh7th/cmp-buffer", -- Completion from other buffers
+      after = "nvim-cmp",
+    })
+    use({"hrsh7th/cmp-path", -- Completion for filesystem paths
+      after = "nvim-cmp",
+    })
+    use({"hrsh7th/cmp-nvim-lsp", -- Completion from LSP servers
+      after = "nvim-cmp",
+    })
+    use({"hrsh7th/cmp-nvim-lua", -- Completion for neovim's API
+      after = "nvim-cmp",
+    })
+    use({
+      "saadparwaiz1/cmp_luasnip", -- Completion from LuaSnip snippets
+      after = "nvim-cmp",
+    })
 
     -- -- Language specific additions for LSP
-    -- use("b0o/schemastore.nvim") -- Schemas for jsonls
+    use("b0o/schemastore.nvim") -- Schemas for jsonls
 
     -- -- Non LSP editing support. Markdown in particular
     -- use({
