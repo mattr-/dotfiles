@@ -61,6 +61,7 @@ opt.startofline   = false -- Attempt to keep the cursor in the same column
 opt.scrolloff     = 3     -- 3 linues of context when scrolling
 opt.showmatch     = true  -- Show matching pairs
 opt.updatetime    = 100   -- Update faster
+opt.mouse         = ""    -- Disable mouse by default
 opt.fillchars = {
     vert = "▕",
     fold = " ",
