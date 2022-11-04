@@ -1,6 +1,4 @@
 return function()
-  -- Set completeopt to have a better completion experience
-  vim.opt.completeopt = { "menu", "menuone", "preview", "noselect" }
 
   local check_backspace = function()
     local col = vim.fn.col "." - 1

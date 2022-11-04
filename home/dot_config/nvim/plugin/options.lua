@@ -73,6 +73,10 @@ opt.fillchars = {
     foldsep = "│",
 }
 
+-- popup menu even with only one match with extra info in a preview window
+-- and force me to make a selection
+opt.completeopt = { "menu", "menuone", "preview", "noselect" }
+
 if vim.fn.executable("rg") then
   opt.grepprg = [[rg --hidden --glob "!.git" --no-heading --smart-case --vimgrep --follow $*]]
   opt.grepformat = opt.grepformat ^ { "%f:%l:%c:%m" }
