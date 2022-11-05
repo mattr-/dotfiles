@@ -3,6 +3,5 @@ if not status_ok then
   return
 end
 
-require("mattr-.lsp.lsp-installer")
 require("mattr-.lsp.handlers").setup()
 
