@@ -288,13 +288,21 @@ mappings.nmap(
 -- }}}
 -- }}}
 
--- {{{ Open group mappings
+-- {{{ Toggle group mappings
 mappings.nmap("<leader>ta",
   "<cmd>:set nu!<CR>",
   opts,
   "Toggles",
   "toggle_absolute_line_numbering",
   "Absolute Line Numbering"
+)
+
+mappings.nmap("<leader>tf",
+  "<cmd>TroubleToggle quickfix<CR>",
+  opts,
+  "Toggles",
+  "toggle_trouble_quickfix",
+  "Quickfix"
 )
 mappings.nmap("<leader>tr",
   "<cmd>:set rnu!<CR>",
