@@ -137,20 +137,28 @@ packer.startup({
         { "L3MON4D3/LuaSnip" }
       },
     })
-    use({"hrsh7th/cmp-buffer", -- Completion from other buffers
+    use({
+      "hrsh7th/cmp-buffer", -- Completion from other buffers
       after = "nvim-cmp",
     })
-    use({"hrsh7th/cmp-path", -- Completion for filesystem paths
+    use({
+      "hrsh7th/cmp-path", -- Completion for filesystem paths
       after = "nvim-cmp",
     })
-    use({"hrsh7th/cmp-nvim-lsp", -- Completion from LSP servers
+    use({
+      "hrsh7th/cmp-nvim-lsp", -- Completion from LSP servers
       after = "nvim-cmp",
     })
-    use({"hrsh7th/cmp-nvim-lua", -- Completion for neovim's API
+    use({
+      "hrsh7th/cmp-nvim-lua", -- Completion for neovim's API
       after = "nvim-cmp",
     })
     use({
       "saadparwaiz1/cmp_luasnip", -- Completion from LuaSnip snippets
+      after = "nvim-cmp",
+    })
+    use({
+      "hrsh7th/cmp-cmdline",
       after = "nvim-cmp",
     })
 
