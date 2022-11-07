@@ -1,5 +1,6 @@
 local M = {}
 
+-- sets up fancy icons for signs
 local function define_signs()
   local signs = {
     { name = "DiagnosticSignError", text = "ﱥ" },
@@ -29,7 +30,7 @@ end
 
 local function lsp_highlight_document(client)
   -- Highlight references when the cursor stops somewhere
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.documentHighlightProvider then
     vim.api.nvim_exec(
       [[
       augroup lsp_document_highlight
@@ -47,19 +48,9 @@ M.setup = function()
   define_signs()
 
   local config = {
-    underline = true,
-    virtual_text = false,
-    signs = true,
-    float = {
-      style = "minimal",
-      border = "rounded",
-      focusable = false,
-      header = "",
-      source = "always",
-      prefix = "",
-    },
-    update_in_insert = true,
-    severity_sort = true,
+    virtual_text = false, -- default is true
+    update_in_insert = true, -- default is false
+    severity_sort = true, -- default is false
   }
 
   vim.diagnostic.config(config)
@@ -74,41 +65,15 @@ M.setup = function()
   })
 end
 
--- LSP configuration when attached to a new buffer
-M.on_attach = function(client, bufnr)
+local on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
 end
+-- LSP configuration when attached to a new buffer
+M.on_attach = on_attach
 
 -- nvim-cmp supports additional completion capabilities and we want to add those to LSP
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.preselectSupport = true
-  capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
-  capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
-  capabilities.textDocument.completion.completionItem.deprecatedSupport = true
-  capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
-  capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-  capabilities.textDocument.completion.completionItem.resolveSupport = {
-    properties = { "documentation", "detail", "additionalTextEdits" },
-  }
-  capabilities.textDocument.codeAction = {
-    dynamicRegistration = false,
-    codeActionLiteralSupport = {
-      codeActionKind = {
-        valueSet = {
-          "",
-          "quickfix",
-          "refactor",
-          "refactor.extract",
-          "refactor.inline",
-          "refactor.rewrite",
-          "source",
-          "source.organizeImports",
-        },
-      },
-    },
-  }
-M.capabilities = capabilities
+-- local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- M.capabilities = capabilities
 
 return M
