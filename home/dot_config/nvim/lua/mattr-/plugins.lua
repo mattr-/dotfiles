@@ -39,7 +39,7 @@ packer.startup({
             comments = { italic = true },
             keywords = { italic = false },
           },
-          lualine_bold = true
+          lualine_bold = true,
         })
       end,
     })
@@ -57,7 +57,7 @@ packer.startup({
     use({
       "nvim-lualine/lualine.nvim",
       config = require("mattr-.config.lualine"),
-      requires = { "kyazdani42/nvim-web-devicons", opt = true }
+      requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
 
     -- Libraries
@@ -71,7 +71,7 @@ packer.startup({
         "plenary.nvim",
         "telescope-fzf-native.nvim",
         "telescope-ui-select.nvim",
-        "nvim-notify"
+        "nvim-notify",
       },
       requires = {
         {
@@ -85,7 +85,7 @@ packer.startup({
           "rcarriga/nvim-notify",
           config = require("mattr-.config.notify"),
         },
-      }
+      },
     })
     use({
       "lazytanuki/nvim-mapper", -- keymapping search
@@ -99,7 +99,6 @@ packer.startup({
 
     -- -- UI and Colors
 
-
     -- Language Support Plugins
     -- Tree Sitter
     use({
@@ -109,19 +108,6 @@ packer.startup({
     use("nvim-treesitter/playground")
     -- use("JoosepAlviste/nvim-ts-context-commentstring") -- Context aware comment strings
 
-    -- -- LSP
-    use({
-      "neovim/nvim-lspconfig",
-      after = "mason-lspconfig.nvim",
-    })
-    use({
-      "williamboman/mason.nvim",
-      config = require("mattr-.config.mason"),
-    })
-    use({
-      "williamboman/mason-lspconfig.nvim",
-      requires = { 'williamboman/mason.nvim' }
-    })
 
     -- -- Completion and Snippets
     use({
@@ -134,7 +120,7 @@ packer.startup({
       config = require("mattr-.config.nvim-cmp"),
       requires = {
         { "onsails/lspkind.nvim" },
-        { "L3MON4D3/LuaSnip" }
+        { "L3MON4D3/LuaSnip" },
       },
     })
     use({
@@ -160,6 +146,25 @@ packer.startup({
     use({
       "hrsh7th/cmp-cmdline",
       after = "nvim-cmp",
+    })
+
+    -- LSP
+    use({
+      "neovim/nvim-lspconfig",
+    })
+    use({
+      "williamboman/mason.nvim",
+    })
+    use({
+      "williamboman/mason-lspconfig.nvim",
+      requires = { "mason.nvim", "nvim-lspconfig" },
+      after = { "mason.nvim", "nvim-lspconfig" },
+      config = require("mattr-.config.mason")
+    })
+    use({
+      "jose-elias-alvarez/null-ls.nvim",
+      after = {"mason-lspconfig.nvim"},
+      config = require("mattr-.config.null-ls"),
     })
 
     -- -- Language specific additions for LSP
@@ -194,7 +199,7 @@ packer.startup({
     use("rhysd/committia.vim") -- Change the formatting and layout of the commit window
     use({
       "lewis6991/gitsigns.nvim", -- Asynchronous Signs!
-      config = require("mattr-.config.gitsigns")
+      config = require("mattr-.config.gitsigns"),
     })
     use({
       "mattr-/gitlinker.nvim", -- Line aware links to GitHub
@@ -212,7 +217,8 @@ packer.startup({
       "f-person/git-blame.nvim", -- Git blame virtual text a la GitLens
       setup = function()
         vim.g.gitblame_date_format = "%r"
-        vim.g.gitblame_ignored_filetypes = {'packer', 'TelescopePrompt', 'NeogitStatus', 'NeogitPopup', 'Trouble', 'gitcommit', 'octo'}
+        vim.g.gitblame_ignored_filetypes =
+          { "packer", "TelescopePrompt", "NeogitStatus", "NeogitPopup", "Trouble", "gitcommit", "octo" }
       end,
     })
 
