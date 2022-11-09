@@ -1,28 +1,28 @@
-local null_ls = require("null-ls")
-local features = require("mattr-.features")
-local mason_utils = require("mattr-.mason_utils")
-
-local code_actions = null_ls.builtins.code_actions
-local diagnostics = null_ls.builtins.diagnostics
-local formatting = null_ls.builtins.formatting
-
-mason_utils.ensure_installed({
-  "luacheck",
-  "stylua",
-})
-
-local sources = {
-  code_actions.gitsigns,
-  diagnostics.luacheck.with({ command = mason_utils.path_for("luacheck") }),
-  formatting.stylua.with({ command = mason_utils.path_for("stylua") }),
-}
-
-if features.rubocop.available then
-  table.insert(sources, formatting.rubocop.with({ command = features.rubocop.command }))
-  table.insert(sources, diagnostics.rubocop.with({ command = features.rubocop.command }))
-end
-
 return function()
+  local null_ls = require("null-ls")
+  local features = require("mattr-.features")
+  local mason_utils = require("mattr-.mason_utils")
+
+  local code_actions = null_ls.builtins.code_actions
+  local diagnostics = null_ls.builtins.diagnostics
+  local formatting = null_ls.builtins.formatting
+
+  mason_utils.ensure_installed({
+    "luacheck",
+    "stylua",
+  })
+
+  local sources = {
+    code_actions.gitsigns,
+    diagnostics.luacheck.with({ command = mason_utils.path_for("luacheck") }),
+    formatting.stylua.with({ command = mason_utils.path_for("stylua") }),
+  }
+
+  if features.rubocop.available then
+    table.insert(sources, formatting.rubocop.with({ command = features.rubocop.command }))
+    table.insert(sources, diagnostics.rubocop.with({ command = features.rubocop.command }))
+  end
+
   null_ls.setup({
     debug = false,
     sources = sources,
