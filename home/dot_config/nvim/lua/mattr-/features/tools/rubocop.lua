@@ -1,9 +1,9 @@
 local has_rubocop_file = function()
   return (
-    vim.fn.filereadable(".rubocop.yml")
-    or vim.fn.filereadable(".rubocop_todo.yml")
-    or vim.fn.filereadable(".rubocop.yaml")
-    or vim.fn.filereadable(".rubocop_todo.yaml")
+    vim.fn.filereadable(".rubocop.yml") == 1
+    or vim.fn.filereadable(".rubocop_todo.yml") == 1
+    or vim.fn.filereadable(".rubocop.yaml") == 1
+    or vim.fn.filereadable(".rubocop_todo.yaml") == 1
   )
 end
 
@@ -12,13 +12,13 @@ local rubocop_command = function()
   -- If there is a binstub, prefer that
   -- If there is a rubocop yaml file default to bare rubocop
   -- If there is a Gemfile, look for a bundle binstub and use that or use `bundle exec`
-  if vim.fn.executable("bin/rubocop") then
+  if vim.fn.executable("bin/rubocop") == 1 then
     cmd = "bin/rubocop"
   elseif has_rubocop_file() then
     cmd = "rubocop"
-    if vim.fn.filereadable("Gemfile") then
+    if vim.fn.filereadable("Gemfile") == 1 then
       local bundler_prefix = "bundle exec"
-      if vim.fn.executable("bin/bundle") then
+      if vim.fn.executable("bin/bundle") == 1 then
         bundler_prefix = "bin/" .. bundler_prefix
       end
       cmd = bundler_prefix .. cmd
