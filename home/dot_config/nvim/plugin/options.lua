@@ -1,6 +1,7 @@
 local opt = vim.opt
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 opt.termguicolors = true  -- Enables 24-bit RGB color
 opt.hidden        = true  -- background buffers without writing them. saves marks/undo as well
