@@ -150,20 +150,13 @@ packer.startup({
     -- LSP
     use({
       "neovim/nvim-lspconfig",
-    })
-    use({
-      "williamboman/mason.nvim",
-    })
-    use({
-      "williamboman/mason-lspconfig.nvim",
-      requires = { "mason.nvim", "nvim-lspconfig" },
-      after = { "mason.nvim", "nvim-lspconfig" },
-      config = require("mattr-.config.mason")
-    })
-    use({
-      "jose-elias-alvarez/null-ls.nvim",
-      after = {"mason-lspconfig.nvim"},
-      config = require("mattr-.config.null-ls"),
+      requires = {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "jose-elias-alvarez/null-ls.nvim",
+        "folke/trouble.nvim",
+      },
+      config = require("mattr-.config.mason"),
     })
 
     -- -- Language specific additions for LSP

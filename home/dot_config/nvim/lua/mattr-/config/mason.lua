@@ -23,12 +23,15 @@ return function()
         on_attach = require("mattr-.lsp.handlers").on_attach,
         capabilities = require("mattr-.lsp.handlers").capabilities(),
       }
-      local status_ok, server_config = pcall(require, "mattr-.lsp.settings." .. server_name)
+      local server_config_file = "mattr-.lsp.settings." .. server_name
+      local status_ok, server_config = pcall(require, server_config_file)
       if status_ok then
-        opts = vim.tbl_deep_extend("force", server_config, opts)
+        opts = vim.tbl_deep_extend("force", opts, server_config)
       end
 
       require("lspconfig")[server_name].setup(opts)
     end,
   })
+  local null_ls_setup = require("mattr-.config.null-ls")
+  null_ls_setup()
 end
