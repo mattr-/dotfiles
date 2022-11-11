@@ -108,7 +108,6 @@ packer.startup({
     use("nvim-treesitter/playground")
     -- use("JoosepAlviste/nvim-ts-context-commentstring") -- Context aware comment strings
 
-
     -- -- Completion and Snippets
     use({
       "L3MON4D3/LuaSnip", -- Snippets plugin
@@ -218,7 +217,7 @@ packer.startup({
       setup = function()
         vim.g.gitblame_date_format = "%r"
         vim.g.gitblame_ignored_filetypes =
-          { "packer", "TelescopePrompt", "NeogitStatus", "NeogitPopup", "Trouble", "gitcommit", "octo" }
+        { "packer", "TelescopePrompt", "NeogitStatus", "NeogitPopup", "Trouble", "gitcommit", "octo" }
       end,
     })
 

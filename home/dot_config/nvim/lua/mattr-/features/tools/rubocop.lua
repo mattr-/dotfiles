@@ -1,10 +1,10 @@
 local has_rubocop_file = function()
   return (
-    vim.fn.filereadable(".rubocop.yml") == 1
-    or vim.fn.filereadable(".rubocop_todo.yml") == 1
-    or vim.fn.filereadable(".rubocop.yaml") == 1
-    or vim.fn.filereadable(".rubocop_todo.yaml") == 1
-  )
+      vim.fn.filereadable(".rubocop.yml") == 1
+          or vim.fn.filereadable(".rubocop_todo.yml") == 1
+          or vim.fn.filereadable(".rubocop.yaml") == 1
+          or vim.fn.filereadable(".rubocop_todo.yaml") == 1
+      )
 end
 
 local rubocop_command = function()
