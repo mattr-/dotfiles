@@ -15,13 +15,13 @@ local rubocop_command = function()
   if vim.fn.executable("bin/rubocop") == 1 then
     cmd = "bin/rubocop"
   elseif has_rubocop_file() then
-    cmd = "rubocop"
+    cmd = { "rubocop" }
     if vim.fn.filereadable("Gemfile") == 1 then
-      local bundler_prefix = "bundle exec"
+      local bundler_prefix = {"bundle", "exec"}
       if vim.fn.executable("bin/bundle") == 1 then
-        bundler_prefix = "bin/" .. bundler_prefix
+        bundler_prefix = { "bin/bundle", "exec" }
       end
-      cmd = bundler_prefix .. cmd
+      cmd = bundler_prefix + cmd
     end
   end
 
