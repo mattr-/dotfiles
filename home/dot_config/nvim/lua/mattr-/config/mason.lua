@@ -3,7 +3,7 @@ return function()
   local mason_lspconfig = require("mason-lspconfig")
   mason.setup({
     ui = {
-      border = "single",
+      border = "rounded",
       icons = {
         package_installed = " ",
         package_pending = " ",
