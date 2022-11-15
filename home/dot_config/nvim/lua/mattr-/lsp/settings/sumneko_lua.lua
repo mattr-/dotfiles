@@ -16,7 +16,10 @@ lspconfig.sumneko_lua.setup({
         version = "LuaJIT",
       },
       diagnostics = {
-        globals = { "vim", "packer_plugins" },
+        globals = {
+          "vim",
+          "packer_plugins"
+        },
       },
       workspace = {
         library = {
