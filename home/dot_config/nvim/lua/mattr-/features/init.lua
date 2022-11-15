@@ -1,17 +1,8 @@
 local scan = require("plenary.scandir")
 local Path = require("plenary.path")
--- default tooling prototype
-local prototype = {
-  available = function()
-    return false
-  end,
-  cmd = function()
-    return nil
-  end,
-}
 
 local Features = setmetatable({}, {
-  __index = function(table, key)
+  __index = function(_, _)
     return {
       available = function()
         return false

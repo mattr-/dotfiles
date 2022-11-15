@@ -73,7 +73,6 @@ end
 M.on_attach = on_attach
 
 -- nvim-cmp supports additional completion capabilities and we want to add those to LSP
--- local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 M.capabilities = function()
   return require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 end

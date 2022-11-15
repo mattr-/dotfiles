@@ -157,6 +157,7 @@ packer.startup({
         "folke/trouble.nvim",
       },
       config = require("mattr-.config.mason"),
+      after = "cmp-nvim-lsp",
     })
 
     -- -- Language specific additions for LSP
