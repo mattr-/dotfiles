@@ -13,7 +13,7 @@ mason_utils.ensure_installed({
 
 local sources = {
   code_actions.gitsigns,
-  diagnostics.luacheck.with({ command = mason_utils.path_for("luacheck") }),
+  -- diagnostics.luacheck.with({ command = mason_utils.path_for("luacheck") }),
   formatting.stylua.with({ command = mason_utils.path_for("stylua") }),
 }
 
