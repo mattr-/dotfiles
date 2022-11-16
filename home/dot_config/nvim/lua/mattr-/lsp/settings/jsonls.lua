@@ -1,12 +1,10 @@
 local lspconfig = require("lspconfig")
-local config = require("mattr-.lsp.handlers")
+local config = require("mattr-.lsp.config")
 
-lspconfig.jsonls.setup({
-  on_attach = config.on_attach,
-  capabilities = config.capabilities(),
-  settings = {
-    json = {
-      schemas = require('schemastore').json.schemas(),
-    },
+config.settings = {
+  json = {
+    schemas = require('schemastore').json.schemas(),
   },
-})
+}
+
+lspconfig.jsonls.setup(config)
