@@ -14,8 +14,9 @@ local sorbet_command = function()
     if vim.fn.filereadable("Gemfile") == 1 then
       if vim.fn.executable("bin/bundle") == 1 then
         cmd = { "bin/bundle", "exec", "srb" }
+      else
+        cmd = { "bundle", "exec", "srb" }
       end
-      cmd = { "bundle", "exec", "srb" }
     end
   end
 
