@@ -32,7 +32,7 @@ if [[ $# > 0 ]]; then
       if [ -z $repo -o -z $branch ]; then
         echo "It doesn't seem like we're in a git repo"
       else
-        gh cs create -r "$repo" -b "$branch"
+        gh cs create -R "$repo" -b "$branch"
       fi
       ;;
     *)
