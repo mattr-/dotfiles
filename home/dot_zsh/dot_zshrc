@@ -105,6 +105,9 @@ compdef _precommand nohup
 compdef _precommand strace
 
 
+# Obsidian aliases
+alias obv="cd $HOME/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/Obsidian"
+
 #ls aliases
 alias ls="ls -G"
 [[ $OSTYPE == "linux-gnu" ]] && alias ls="ls --color=auto"
