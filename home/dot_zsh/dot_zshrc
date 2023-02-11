@@ -137,14 +137,6 @@ alias -g TL='| tail -n $(( +LINES ? LINES - 4 : 20 ))'
 alias -g ET='|& tail'
 alias -g ETL='|& tail -n $(( +LINES ? LINES - 4 : 20 ))'
 
-# Optional aliases if commands are present
-if command which bat &>/dev/null ; then
-  alias cat='bat -n'
-fi
-
-if command which exa &>/dev/null ; then
-  alias ls='exa'
-fi
 
 setopt append_history \
        bang_hist \
@@ -374,3 +366,13 @@ path=($HOME/bin $path)
 
 # This relies on $PATH being correct. :(
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+
+# Optional aliases if commands are present. Also relies on $PATH being correct :(
+if command which bat &>/dev/null ; then
+  alias cat='bat -n'
+fi
+
+
+if command which exa &>/dev/null ; then
+  alias ls='exa'
+fi
