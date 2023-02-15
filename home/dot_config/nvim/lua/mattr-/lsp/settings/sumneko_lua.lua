@@ -9,7 +9,7 @@ config.settings = {
     diagnostics = {
       globals = {
         "vim",
-        "packer_plugins"
+        "packer_plugins",
       },
     },
     workspace = {
@@ -22,11 +22,11 @@ config.settings = {
 }
 
 config.on_attach = function(client, bufnr)
-    -- let null-ls handle document formatting for lua
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
+  -- let null-ls handle document formatting for lua
+  client.server_capabilities.documentFormattingProvider = false
+  client.server_capabilities.documentRangeFormattingProvider = false
 
-    require("mattr-.lsp.config").on_attach(client, bufnr)
-  end,
+  require("mattr-.lsp.config").on_attach(client, bufnr)
+end
 
-lspconfig.sumneko_lua.setup(config)
+lspconfig.lua_ls.setup(config)

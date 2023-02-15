@@ -15,7 +15,7 @@ return function()
   mason_lspconfig.setup({
     ensure_installed = {
       "marksman",
-      "sumneko_lua"
+      "lua_ls",
     },
   })
 
