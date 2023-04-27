@@ -1,1 +1,15 @@
+[DEFAULT]
+
+reset_default =
+  git fetch -q origin
+  default_branch=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+  git co $default_branch
+  git reset --hard origin/$default_branch
+
+codb =
+  echo "Updating and switching to the default branch"
+  git fetch -q origin
+  git checkout $(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+  git merge -q --ff-only $(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+
 include = cat $HOME/.mrconfig.d/*
