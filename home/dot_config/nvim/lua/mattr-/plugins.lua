@@ -164,10 +164,10 @@ packer.startup({
     use("b0o/schemastore.nvim") -- Schemas for jsonls
 
     -- -- Non LSP editing support. Markdown in particular
-    -- use({
-    --   "iamcco/markdown-preview.nvim",
-    --   run = function() vim.fn["mkdp#util#install"]() end
-    -- })
+    use({
+      "iamcco/markdown-preview.nvim",
+      run = function() vim.fn["mkdp#util#install"]() end
+    })
 
     -- Utilities
     use("tpope/vim-surround")
