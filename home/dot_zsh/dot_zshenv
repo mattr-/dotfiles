@@ -23,3 +23,6 @@ autoload -U colors ;  colors
 export EDITOR=vim
 export VISUAL=$EDITOR
 
+#Set a config file path for ripgrep
+export RIPGREP_CONFIG_FILE=$HOME/.config/ripgrep/rc
+
