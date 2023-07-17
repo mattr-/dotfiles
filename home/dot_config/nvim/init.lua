@@ -1,14 +1,41 @@
--- Store startup time in seconds
-vim.g.start_time = vim.fn.reltime()
+local lazy = require("mattr-.util.lazy")
 
-require "mattr-.globals"
-require "mattr-.plugins"
+-- Make sure lazy.nvim is installed
+lazy.ensure_installed()
 
-vim.defer_fn(function()
-  if (packer_plugins and packer_plugins["which-key.nvim"])
-  then
-    vim.cmd([[
-      PackerLoad which-key.nvim
-    ]])
-  end
-end, 0)
+-- Do stuff before loading lazy
+require("mattr-.config").init()
+
+-- plugins 🎉
+require("lazy").setup({
+  spec = {
+    { import = "mattr-.plugins" },
+  },
+  defaults = {
+    -- Explicitly require plugins to be lazy loaded
+    lazy = false,
+    version = false, -- always use the latest git commit
+    -- version = "*", -- try installing the latest stable version for plugins that support semver
+  },
+  install = { colorscheme = { "catppuccin", "habamax" } },
+  checker = { enabled = true }, -- automatically check for plugin updates
+  performance = {
+    rtp = {
+      -- disable some rtp plugins
+      disabled_plugins = {
+        "gzip",
+        "matchit",
+        "matchparen",
+        "netrwPlugin",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "vimballPlugin",
+        "zipPlugin",
+      },
+    },
+  },
+})
+
+-- post plugin install initialization
+require("mattr-.config").setup()
