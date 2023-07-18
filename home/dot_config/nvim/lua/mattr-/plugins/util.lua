@@ -7,7 +7,7 @@ return {
     -- Repeating plugin maps
     {
       "tpope/vim-repeat",
-      event = { "BufReadPost", "BufNewFile" }
+      event = "VeryLazy"
     },
 
     -- Abbreviate, substitution, and coercion
