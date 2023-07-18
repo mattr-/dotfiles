@@ -20,7 +20,7 @@ done
 autoload -U colors ;  colors
 
 #Set editor variables
-export EDITOR=vim
+export EDITOR=nvim
 export VISUAL=$EDITOR
 
 #Set a config file path for ripgrep
