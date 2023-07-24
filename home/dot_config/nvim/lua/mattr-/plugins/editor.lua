@@ -105,7 +105,7 @@ return {
           },
           h = {
             name = "help",
-            p = { name = "packer", }
+            n = { name = "noice", }
           },
           t = { name = "toggle" },
           w = { name = "window" },
