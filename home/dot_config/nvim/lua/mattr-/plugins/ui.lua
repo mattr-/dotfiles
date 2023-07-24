@@ -135,6 +135,7 @@ return {
               { find = "%d+ fewer line" },
               { find = "%d lines?" },
               { find = "Already at oldest change" },
+              { find = "^E486" }, -- The couldn't find it error
             },
           },
           view = "mini",
