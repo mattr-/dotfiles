@@ -15,4 +15,13 @@ function M.ensure_installed()
   vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 end
 
+function M.on_very_lazy(fn)
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "VeryLazy",
+    callback = function()
+      fn()
+    end
+  })
+end
+
 return M
