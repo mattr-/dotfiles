@@ -9,7 +9,8 @@ require("mattr-.config").init()
 -- plugins 🎉
 require("lazy").setup({
   spec = {
-    { import = "mattr-.plugins" },
+    { import = "mattr-.plugins" }, -- the base set of plugins
+    { import = "mattr-.plugins.lang" }, -- language specific extensions
   },
   defaults = {
     -- Explicitly require plugins to be lazy loaded
