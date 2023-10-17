@@ -35,6 +35,13 @@ if [[ $# > 0 ]]; then
         gh cs create -R "$repo" -b "$branch"
       fi
       ;;
+    me)
+      gh cs ssh -c $(gh cs create \
+        -R $(gh repo view --json nameWithOwner --jq .nameWithOwner) \
+        -b $(gh repo view --json defaultBranchRef --jq .defaultBranchRef.name) \
+        -m largePremiumLinux \
+        --default-permissions | tail -1) -- -R 127.0.0.1:7391:$(rdm socket)
+      ;;
     *)
       gh cs "$@"
       ;;
