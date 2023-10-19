@@ -2,6 +2,8 @@
 # PATH shenanigans
 export PATH="$PATH:$HOME/.homeshick/repos/homeshick/bin"
 
+# give me a decent editor
+export EDITOR=vim
 
 #ls aliases
 alias ls="ls -G"
