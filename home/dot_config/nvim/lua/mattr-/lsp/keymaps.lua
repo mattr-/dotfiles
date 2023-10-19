@@ -1,9 +1,12 @@
 local M = {}
 
----@type PluginLspKeys
+--- @type LazyKeysLspSpec[]|nil
 M._keys = nil
 
----@return (LazyKeys|{has?:string})[]
+--- @alias LazyKeysLspSpec LazyKeysSpec|{has?:string}
+--- @alias LazyKeysLsp LazyKeysSpec|{has?:string}
+
+---@return LazyKeysLspSpec[]
 function M.get()
   local Util = require("mattr-.lsp.util")
   if not M._keys then
@@ -79,23 +82,14 @@ function M.has(buffer, method)
   return false
 end
 
+--- @return (LazyKeys|{has?:string})[]
 function M.resolve(buffer)
   local Keys = require("lazy.core.handler.keys")
-  local keymaps = {} ---@type table<string,LazyKeys|{has?:string}>
-
-  local function add(keymap)
-    local keys = Keys.parse(keymap)
-    if keys[2] == false then
-      keymaps[keys.id] = nil
-    else
-      keymaps[keys.id] = keys
-    end
+  if not Keys.resolve then
+    return {}
   end
 
-  -- add the default keymaps
-  for _, keymap in ipairs(M.get()) do
-    add(keymap)
-  end
+  local spec = M.get()
 
   -- check if server config has been attached to the nvim-lspconfig
   -- options and if there are keymaps specific to that server, add them here
@@ -103,11 +97,10 @@ function M.resolve(buffer)
   local clients = vim.lsp.get_clients({ bufnr = buffer })
   for _, client in ipairs(clients) do
     local maps = opts.servers[client.name] and opts.servers[client.name].keys or {}
-    for _, keymap in ipairs(maps) do
-      add(keymap)
-    end
+    vim.list_extend(spec, maps)
   end
-  return keymaps
+
+  return Keys.resolve(spec)
 end
 
 function M.on_attach(_client, buffer)
@@ -121,10 +114,9 @@ function M.on_attach(_client, buffer)
       opts.has = nil
       opts.silent = opts.silent ~= false
       opts.buffer = buffer
-      vim.keymap.set(keys.mode or "n", keys[1], keys[2], opts)
+      vim.keymap.set(keys.mode or "n", keys.lhs, keys.rhs, opts)
     end
   end
 end
-
 
 return M
