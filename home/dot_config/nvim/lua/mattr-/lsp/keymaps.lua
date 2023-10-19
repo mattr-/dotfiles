@@ -8,64 +8,65 @@ M._keys = nil
 
 ---@return LazyKeysLspSpec[]
 function M.get()
-  local Util = require("mattr-.lsp.util")
-  if not M._keys then
-    ---@class PluginLspKeys
-    -- stylua: ignore
-    M._keys =  {
-      -- { "<leader>cd", vim.diagnostic.open_float, desc = "Line Diagnostics" },
-      -- { "<leader>cl", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
-      { "gd", "<cmd>Telescope lsp_definitions<cr>", desc = "Goto Definition", has = "definition" },
-      { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
-      { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration", has = "declaration" },
-      { "gI", "<cmd>Telescope lsp_implementations<cr>", desc = "Goto Implementation", has = "implementation" },
-      { "gy", "<cmd>Telescope lsp_type_definitions<cr>", desc = "Goto T[y]pe Definition" },
-      { "K", vim.lsp.buf.hover, desc = "Hover" },
-      { "gK", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
-      { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
-      { "]d", Util.diagnostic_goto("next"), desc = "Next Diagnostic" },
-      { "[d", Util.diagnostic_goto("previous"), desc = "Prev Diagnostic" },
-      { "]e", Util.diagnostic_goto("next", "ERROR"), desc = "Next Error" },
-      { "[e", Util.diagnostic_goto("previous", "ERROR"), desc = "Prev Error" },
-      { "]w", Util.diagnostic_goto("next", "WARN"), desc = "Next Warning" },
-      { "[w", Util.diagnostic_goto("previous", "WARN"), desc = "Prev Warning" },
-      { "<localleader>f", vim.lsp.buf.format, desc = "Format Document", has = "formatting" },
-      { "<localleader>f", vim.lsp.buf.format, desc = "Format Range", mode = "v", has = "rangeFormatting" },
-      { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
-      {
-        "<leader>cA",
-        function()
-          vim.lsp.buf.code_action({
-            context = {
-              only = {
-                "source",
-              },
-              diagnostics = {},
-            },
-          })
-        end,
-        desc = "Source Action",
-        has = "codeAction",
-      },
-      { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
-    }
-
-    -- TODO: Check out the inc-rename.nvim plugin
-    -- if require("mattr-.util.lazy").has("inc-rename.nvim") then
-    --   M._keys[#M._keys + 1] = {
-    --     "<leader>cr",
-    --     function()
-    --       local inc_rename = require("inc_rename")
-    --       return ":" .. inc_rename.config.cmd_name .. " " .. vim.fn.expand("<cword>")
-    --     end,
-    --     expr = true,
-    --     desc = "Rename",
-    --     has = "rename",
-    --   }
-    -- else
-    --   M._keys[#M._keys + 1] = { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" }
-    -- end
+  if M._keys then
+    return M._keys
   end
+
+  local Util = require("mattr-.lsp.util")
+  -- stylua: ignore
+  M._keys = {
+    -- { "<leader>cd", vim.diagnostic.open_float, desc = "Line Diagnostics" },
+    -- { "<leader>cl", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
+    { "gd", function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, desc = "Goto Definition", has = "definition" },
+    { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
+    { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration", has = "declaration" },
+    { "gI", function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end, desc = "Goto Implementation", has = "implementation" },
+    { "gy", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true }) end, desc = "Goto T[y]pe Definition" },
+    { "K", vim.lsp.buf.hover, desc = "Hover" },
+    { "gK", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
+    { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
+    { "]d", Util.diagnostic_goto("next"), desc = "Next Diagnostic" },
+    { "[d", Util.diagnostic_goto("previous"), desc = "Prev Diagnostic" },
+    { "]e", Util.diagnostic_goto("next", "ERROR"), desc = "Next Error" },
+    { "[e", Util.diagnostic_goto("previous", "ERROR"), desc = "Prev Error" },
+    { "]w", Util.diagnostic_goto("next", "WARN"), desc = "Next Warning" },
+    { "[w", Util.diagnostic_goto("previous", "WARN"), desc = "Prev Warning" },
+    { "<localleader>f", vim.lsp.buf.format, desc = "Format Document", has = "formatting" },
+    { "<localleader>f", vim.lsp.buf.format, desc = "Format Range", mode = "v", has = "rangeFormatting" },
+    { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
+    {
+      "<leader>cA",
+      function()
+        vim.lsp.buf.code_action({
+          context = {
+            only = {
+              "source",
+            },
+            diagnostics = {},
+          },
+        })
+      end,
+      desc = "Source Action",
+      has = "codeAction",
+    },
+    { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" },
+  }
+
+  -- TODO: Check out the inc-rename.nvim plugin
+  -- if require("mattr-.util.lazy").has("inc-rename.nvim") then
+  --   M._keys[#M._keys + 1] = {
+  --     "<leader>cr",
+  --     function()
+  --       local inc_rename = require("inc_rename")
+  --       return ":" .. inc_rename.config.cmd_name .. " " .. vim.fn.expand("<cword>")
+  --     end,
+  --     expr = true,
+  --     desc = "Rename",
+  --     has = "rename",
+  --   }
+  -- else
+  --   M._keys[#M._keys + 1] = { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" }
+  -- end
 
   return M._keys
 end
