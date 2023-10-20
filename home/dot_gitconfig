@@ -88,12 +88,9 @@
 [pull]
     rebase = true
 
-[credential]
-
 [github]
 	user = mattr-
-[credential]
-	helper = osxkeychain
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
