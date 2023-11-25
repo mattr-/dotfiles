@@ -132,10 +132,18 @@ return {
     build = (not jit.os:find("Windows"))
         and "echo 'NOTE: jsregexp is optional, so not a big deal if it fails to build'; make install_jsregexp"
       or nil,
-    opts = {
-      history = true,
-      delete_check_events = "TextChanged",
-    },
+    opts = function()
+      local types = require("luasnip.util.types")
+      return {
+        history = true,
+        delete_check_events = "TextChanged",
+        ext_opts = {
+          [types.choiceNode] = {
+            active = { virt_text = {{ "●", require("catppuccin.palettes").get_palette("mocha")["pink"] }} }
+          },
+        },
+      }
+    end,
     -- stylua: ignore
     keys = {
       {
