@@ -1,7 +1,7 @@
 cf() {
   if [ "$#" -eq 1 ] ; then
-    cd $(find ~/Code -mindepth 2 -maxdepth 2 -type d -name $1)
+    cd $(fd --type d --exact-depth 2 $1 ~/Code)
   else
-    cd $(find ~/Code -mindepth 2 -maxdepth 2 -type d | fzy)
+    cd ~/Code/$(cd ~/Code ; fd --type d --exact-depth 2 | fzf --height=20% --reverse)
   fi
 }
