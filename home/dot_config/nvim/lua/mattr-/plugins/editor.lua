@@ -156,6 +156,15 @@ return {
       { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
       { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
     },
+    config = function(_, opts)
+      local ls = require("luasnip")
+      ls.setup(opts)
+
+      -- Dynamically load any custom snippets I've put in place
+      for _, snippet_path in ipairs(vim.api.nvim_get_runtime_file("lua/mattr-/snippets/*.lua", true)) do
+        loadfile(snippet_path)()
+      end
+    end,
   },
 
   -- autocompletion
