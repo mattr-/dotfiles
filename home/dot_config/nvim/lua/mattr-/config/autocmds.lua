@@ -94,3 +94,11 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
   end,
 })
+
+vim.api.nvim_create_autocmd("TermOpen", {
+  group = augroup("terminal_numbers"),
+  callback = function(_)
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+  end,
+})
