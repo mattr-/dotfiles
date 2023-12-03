@@ -1,0 +1,29 @@
+# vcsstub
+#
+# Stub for all .z* files; actual content comes from a directory
+#
+# Copyright 1994 - 2008 Martin F. Krafft <madduck@madduck.net>
+# Copyright 2010 Matt Rogers <codemattr@gmail.com>
+#
+# Released under the terms of the Artistic License 2.0
+
+if [[ -z "$ZDOTDIR" ]] ; then
+    export ZDOTDIR=$HOME/.zsh
+fi
+
+if [[ -o rcs ]]; then
+
+    source $ZDOTDIR/sourcedir
+
+    _dir=$ZDOTDIR/${${(%):-%1N}#.}
+    sourcedir $_dir
+
+    if [[ -d $_dir/parts.d ]]; then
+        sourcedir $_dir/parts.d
+    fi
+
+    unset _dir
+
+fi
+
+# vim:ft=zsh
