@@ -1,51 +1,6 @@
 #ls aliases
 alias ls="ls -G"
 [[ $OSTYPE == "linux-gnu" ]] && alias ls="ls --color=auto"
-alias l="ls -l"
-alias lh="ls -lh"
-alias la="ls -lha"
-alias lla="ls -la"
-alias lsa="ls -ah"
-alias lsd="ls -d"
-alias ld="ls -ldh"
-alias lart="ls -larth"
-alias llart="ls -lart"
-alias lr='ls -lRh'
-alias llr='ls -lR'
-
-#process aliases
-alias psg="ps ax | grep"
-alias psug="ps ax | grep"
-alias k="kill"
-alias k9="kill -9"
-alias sk="sudo kill"
-alias sk9="sudo kill -9"
-
-#debian/ubuntu shortcuts
-alias sapt="sudo aptitude"
-alias sapti="sudo aptitude install"
-alias saptbd="sudo aptitude build-dep"
-
-#SUSE shortcuts
-alias szi="sudo zypper install"
-alias szs="sudo zypper search"
-
-#Archlinux shortcuts
-alias spac="sudo pacman-color"
-alias spacs="sudo pacman-color -S"
-alias pacsearch="sudo pacman-color -Ss"
-alias aurs="yaourt -Ss"
-alias aurdl="cower -d"
-
-
-#apply me some patches
-alias pp0i="patch -p0 -i "
-alias pp1i="patch -p1 -i "
-
-alias roo="roo.sh"
-alias ant="ant -emacs"
-
-alias t="todo.sh"
 
 alias vim="nvim"
 alias cz="chezmoi"
