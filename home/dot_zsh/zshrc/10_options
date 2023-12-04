@@ -2,6 +2,6 @@ setopt auto_cd \
        no_beep \
        no_hup \
        pushd_ignore_dups
-       
+
 bindkey -e
-# vim:ft=zsh
+# vim:ft=sh

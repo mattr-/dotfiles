@@ -85,4 +85,4 @@ compdef _precommand gdb
 compdef _precommand nohup
 compdef _precommand strace
 
-# vim:ft=zsh
+# vim:ft=sh

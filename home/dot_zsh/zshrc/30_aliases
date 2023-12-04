@@ -49,3 +49,5 @@ alias t="todo.sh"
 
 alias vim="nvim"
 alias cz="chezmoi"
+
+# vim: ft=sh

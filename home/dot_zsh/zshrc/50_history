@@ -8,4 +8,4 @@ SAVEHIST=6000
 HISTFILE=~/.zsh/history.$HOST
 
 
-# vim:ft=zsh
+# vim:ft=sh
