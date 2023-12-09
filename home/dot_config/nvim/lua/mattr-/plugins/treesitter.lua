@@ -19,6 +19,9 @@ return {
       ensure_installed = {
         "bash",
         "c",
+        "gitattributes",
+        "gitcommit",
+        "gitignore",
         "html",
         "javascript",
         "json",
