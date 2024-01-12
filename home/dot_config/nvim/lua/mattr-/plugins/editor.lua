@@ -103,11 +103,11 @@ return {
             s = { name = "stage", },
             u = { name = "unstage", },
           },
-          h = {
-            name = "help",
+          t = { name = "toggle" },
+          v = {
+            name = "vim",
             n = { name = "noice", }
           },
-          t = { name = "toggle" },
           w = { name = "window" },
         },
         visual_mode = {
