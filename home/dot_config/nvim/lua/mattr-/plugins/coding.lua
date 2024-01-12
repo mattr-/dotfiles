@@ -99,4 +99,59 @@ return {
       }
     end,
   },
+
+  -- testing core support
+  {
+    "nvim-neotest/neotest",
+    opts = {
+      adapters = {},
+      status = { virtual_text = true },
+      output = { open_on_run = true },
+      quickfix = {
+        open = function()
+          require("trouble").open({ mode = "quickfix", focus = false })
+        end,
+      },
+    },
+    config = function(_, opts)
+      local adapters = {}
+      for name, config in pairs(opts.adapters or {}) do
+        if type(name) == "number" then
+          if type(config) == "string" then
+            config = require(config)
+          end
+          adapters[#adapters + 1] = config
+        elseif config ~= false then
+          local adapter = require(name)
+          if type(config) == "table" and not vim.tbl_isempty(config) then
+            local meta = getmetatable(adapter)
+            if adapter.setup then
+              adapter.setup(config)
+            elseif meta and meta.__call then
+              adapter(config)
+            else
+              error("Adapter " .. name .. " does not support setup")
+            end
+          end
+          adapters[#adapters + 1] = adapter
+        end
+      end
+
+      opts.adapters = adapters
+
+      require("neotest").setup(opts)
+    end,
+    keys = {
+      { "<leader>ctt", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run File" },
+      { "<leader>ctT", function() require("neotest").run.run(vim.loop.cwd()) end, desc = "Run All Test Files" },
+      { "<leader>ctr", function() require("neotest").run.run() end, desc = "Run Nearest" },
+      { "<leader>cts", function() require("neotest").summary.toggle() end, desc = "Toggle Summary" },
+      { "<leader>cto", function() require("neotest").output.open({ enter = true, auto_close = true }) end, desc = "Show Output" },
+      { "<leader>ctO", function() require("neotest").output_panel.toggle() end, desc = "Toggle Output Panel" },
+      { "<leader>ctS", function() require("neotest").run.stop() end, desc = "Stop" },
+      { "<localleader>tt", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run File" },
+      { "<localleader>tT", function() require("neotest").run.run(vim.loop.cwd()) end, desc = "Run All Test Files" },
+      { "<localleader>tn", function() require("neotest").run.run() end, desc = "Run Nearest" },
+    },
+  }
 }
