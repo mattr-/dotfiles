@@ -1,7 +1,7 @@
 local M = {}
 
 local defaults = {
-  colorscheme = "catppuccin",
+  colorscheme = "tokyonight",
   icons = {
     dap = {
       Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
