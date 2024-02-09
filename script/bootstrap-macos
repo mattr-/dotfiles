@@ -23,6 +23,7 @@ cask "parsec"
 cask "raycast"
 cask "spotify"
 cask "vlc"
+cask "1password-cli"
 
 cask "font-iosevka-nerd-font"
 cask "font-fira-code-nerd-font"
