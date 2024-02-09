@@ -35,7 +35,8 @@ if [[ $# > 0 ]]; then
         gh cs create \
           -R "$repo" \
           -b "$branch" \
-          --devcontainer-path .devcontainer/devcontainer.json
+          --devcontainer-path .devcontainer/devcontainer.json \
+          --idle-timeout 2h
       fi
       ;;
     me)
