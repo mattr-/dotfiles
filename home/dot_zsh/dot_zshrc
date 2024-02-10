@@ -30,7 +30,7 @@ setopt correct
 setopt auto_param_keys auto_param_slash auto_remove_slash
 
 #zinit initialization
-source ~/.local/share/zinit/zinit.zsh
+# source ~/.local/share/zinit/zinit.zsh
 
 #asdf initialization
 [[ -f $HOME/.asdf/asdf.sh ]] && ASDF_DIR=$HOME/.asdf
@@ -350,9 +350,9 @@ export RUBY_GC_OLDMALLOC_LIMIT=64000000
 [[ -f $ASDF_DIR/asdf.sh ]] && source $ASDF_DIR/asdf.sh
 
 #zinit plugins
-zinit light zsh-users/zsh-autosuggestions
-zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light Aloxaf/fzf-tab
+# zinit light zsh-users/zsh-autosuggestions
+# zinit light zdharma-continuum/fast-syntax-highlighting
+# zinit light Aloxaf/fzf-tab
 
 # Finally, set up the path properly because it's mangled otherwise
 

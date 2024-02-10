@@ -143,8 +143,8 @@ function prompt_mattr_precmd() {
     psvar[3]=""
     psvar[4]=$(prompt_char)
     psvar[5]=$(git_branch)
-    psvar[6]=$(git_has_untracked)
-    psvar[7]=$(git_has_stashed)
+    # psvar[6]=$(git_has_untracked)
+    # psvar[7]=$(git_has_stashed)
     # psvar[8]=$(git_diffstat)
     # psvar[9]=$(git_commits_ahead)
 }
