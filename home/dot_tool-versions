@@ -2,6 +2,6 @@ elixir 1.13.2
 erlang 25.0.1
 elm 0.19.1
 ruby 3.2.2 2.7.6
-nodejs 16.15.1
+nodejs 20.11.0
 rust 1.76.0
 shellcheck 0.8.0
