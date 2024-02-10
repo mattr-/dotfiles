@@ -50,5 +50,18 @@ return {
         vim.list_extend(opts.ensure_installed, { "rubocop" })
       end
     end,
+  },
+
+  {
+    "nvim-neotest/neotest",
+    optional = true,
+    dependencies = {
+      "zidhuss/neotest-minitest",
+    },
+    opts = {
+      adapters = {
+        ["neotest-minitest"] = {},
+      }
+    },
   }
 }
