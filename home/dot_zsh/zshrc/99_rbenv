@@ -1,3 +1,0 @@
-# This loads rbenv into a shell session.
-which rbenv &> /dev/null
-[[ $? -eq 0 ]] && eval "$(rbenv init -)"

@@ -1,2 +1,3 @@
 compctl -/ -W ~/Code c
-compctl -/ -W ~/Projects/Hireology h
+
+# vim:ft=sh

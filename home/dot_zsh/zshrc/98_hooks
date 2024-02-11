@@ -5,3 +5,5 @@ function precmd() {
 function preexec() {
   title "$1" "$USER@%m" "%35<...<%~"
 }
+
+# vim:ft=sh

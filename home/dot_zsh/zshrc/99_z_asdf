@@ -1,2 +1,0 @@
-[[ -f /usr/local/opt/asdf/asdf.sh ]] && source /usr/local/opt/asdf/asdf.sh
-[[ -f /opt/asdf-vm/asdf.sh ]] && source /opt/asdf-vm/asdf.sh

@@ -1,32 +1,14 @@
-# Append instead of overwrite history
-setopt APPEND_HISTORY
-
-# Do csh style textual expansion. Treats `!` specially
-setopt BANG_HIST
-
-# Augment history with timestamp and duration
-setopt EXTENDED_HISTORY
-
-# Repeated duplicate entries are ignored
-setopt HIST_IGNORE_DUPS
-
-# Commands that start with spaces are ignored
-setopt HIST_IGNORE_SPACE
-
-# Remove history invocations from history
-setopt HIST_NO_STORE
-
-# Reduce blanks when saving history
-setopt HIST_REDUCE_BLANKS
-
-# Add history entries right away (instead of on shell exit)
-# and write them after the command is done (to better work with the
-# `EXTENDED_HISTORY` option)
-setopt INC_APPEND_HISTORY_TIME
+setopt append_history \
+       bang_hist \
+       extended_history \
+       hist_ignore_space \
+       hist_no_store \
+       hist_reduce_blanks \
+       inc_append_history_time
 
 HISTSIZE=20000
 SAVEHIST=60000
-HISTFILE=~/.zsh/history.$HOST
 
+HISTFILE=~/.zsh/history.$HOST
 
 # vim:ft=sh

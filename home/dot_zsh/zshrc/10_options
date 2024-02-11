@@ -4,4 +4,5 @@ setopt auto_cd \
        pushd_ignore_dups
 
 bindkey -e
+
 # vim:ft=sh

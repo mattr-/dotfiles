@@ -8,6 +8,8 @@ restart () {
 }
 
 # Sweet trick from zshwiki.org :-)
+# More than one arg, call the builtin
+# One arg? If file, go to the file's directory, otherwise, call the builtin
 cd () {
   if (( $# != 1 )); then
     builtin cd "$@"

@@ -1,2 +1,0 @@
-which nodenv &> /dev/null
-[[ $? -eq 0 ]]  && eval "$(nodenv init -)"

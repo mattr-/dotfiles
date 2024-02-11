@@ -1,3 +1,4 @@
 autoload -U promptinit; promptinit
-prompt mattr2
+prompt mattr
 
+# vim:ft=sh

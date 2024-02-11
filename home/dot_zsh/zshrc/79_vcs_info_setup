@@ -5,7 +5,7 @@ zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '!'
 zstyle ':vcs_info:*' stagedstr '+'
  
-# Format when some action is going on in 
+# Format when some action is going on in
 # your repository (rebranch,merge conflict, ...)
 #
 zstyle ':vcs_info:*' actionformats \
@@ -15,8 +15,10 @@ zstyle ':vcs_info:*' actionformats \
 # Full of prompt formatting :)
 zstyle ':vcs_info:*' formats       \
     "%r(%s) | %b%c%u"
- 
-# Used VCS use 
-# %  vcs_info_printsys 
-# for supported systems 
-  zstyle ':vcs_info:*' enable git cvs svn hg
+
+# Used VCS use
+# %  vcs_info_printsys
+# for supported systems
+zstyle ':vcs_info:*' enable git svn hg
+
+# vim:ft=sh

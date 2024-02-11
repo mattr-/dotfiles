@@ -19,4 +19,4 @@ alias -g TL='| tail -n $(( +LINES ? LINES - 4 : 20 ))'
 alias -g ET='|& tail'
 alias -g ETL='|& tail -n $(( +LINES ? LINES - 4 : 20 ))'
 
-# vim: ft=sh
+# vim:ft=sh

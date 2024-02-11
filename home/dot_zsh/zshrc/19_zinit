@@ -1,5 +1,0 @@
-# Pull in zinit for zsh plugins
-
-source ~/.local/share/zinit/zinit.zsh
-
-# vim: ft=sh

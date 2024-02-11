@@ -1,4 +1,0 @@
-alias rvmu="rvm use"
-alias rvmg="rvm gemset"
-alias rvmgla="rvm gemset list_all"
-alias rvmi="rvm install"
