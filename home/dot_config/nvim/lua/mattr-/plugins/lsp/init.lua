@@ -28,7 +28,6 @@ return {
         severity_sort = true,
       },
       -- LSP Server Settings
-      ---@type lspconfig.options
       servers = {
         jsonls = {},
         lua_ls = {
