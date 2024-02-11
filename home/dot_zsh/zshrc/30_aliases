@@ -27,4 +27,13 @@ alias pp1i="patch -p1 -i "
 alias vim="nvim"
 alias cz="chezmoi"
 
+# Optional aliases if commands are present
+if which bat &>/dev/null; then
+  alias cat='bat -n'
+fi
+
+if which exa &>/dev/null; then
+  alias ls='exa'
+fi
+
 # vim:ft=sh
