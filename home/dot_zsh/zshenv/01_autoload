@@ -6,6 +6,4 @@ done
 # make colors available
 autoload -U colors ;  colors
 
-# vim:ft=zsh
-
-
+# vim:ft=sh
