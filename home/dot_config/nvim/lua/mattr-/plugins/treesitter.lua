@@ -87,4 +87,7 @@ return {
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+  },
 }
