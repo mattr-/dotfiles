@@ -1,5 +1,5 @@
-elixir 1.13.2
-erlang 25.0.1
+elixir 1.16.1
+erlang 26.2.2
 elm 0.19.1
 ruby 3.3.0
 node 20.11.0
