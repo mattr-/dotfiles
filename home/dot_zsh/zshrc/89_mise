@@ -1,5 +1,5 @@
 # Activate the `mise` development environment tool
 
-eval "$(/Users/mattr-/.local/bin/mise activate zsh)"
+eval "$($HOME/.local/bin/mise activate zsh)"
 
 # vim:ft=sh
