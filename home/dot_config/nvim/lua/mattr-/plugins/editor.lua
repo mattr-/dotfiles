@@ -15,19 +15,6 @@ return {
       defaults = {
         prompt_prefix = " ",
         selection_caret = " ",
-        -- give me hidden files but skip .git
-        -- matches the ripgrep confg in $HOME/.config/ripgrep/rc
-        vimgrep_arguments = {
-          "rg",
-          "--color=never",
-          "--no-heading",
-          "--with-filename",
-          "--line-number",
-          "--column",
-          "--smart-case",
-          "--hidden",
-          "--glob !.git",
-        },
         pickers = {
           find_files = {
             -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
