@@ -31,7 +31,7 @@ cask "font-hack-nerd-font"
 cask "font-inconsolata-nerd-font"
 
 brew "bat"
-brew "exa"
+brew "eza"
 brew "fd"
 brew "fzf"
 brew "fzy"

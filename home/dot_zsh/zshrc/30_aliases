@@ -32,8 +32,8 @@ if which bat &>/dev/null; then
   alias cat='bat -n'
 fi
 
-if which exa &>/dev/null; then
-  alias ls='exa'
+if which eza &>/dev/null; then
+  alias ls='eza'
 fi
 
 # vim:ft=sh

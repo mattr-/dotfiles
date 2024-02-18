@@ -5,8 +5,21 @@
 {{-   $osID = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
+{{- $arch := "x86_64" -}}
+{{- $vendor := "unknown" -}}
+{{- $osFlavor := "linux-gnu" -}}
+
+{{- if (eq .chezmoi.os "darwin") -}}
+  {{ $vendor = "apple" -}}
+  {{ $osFlavor = "darwin" -}}
+  {{- if (eq .chezmoi.arch "arm64") -}}
+  {{-   $arch = "aarch64" -}}
+  {{- end -}}
+{{- end -}}
+
 [data]
   codespaces = {{ $codespaces }}
   osid = {{ $osID | quote }}
+  target_triplet = {{ printf "%s-%s-%s" $arch $vendor $osFlavor | quote }}
 
 # vim: ft=toml
