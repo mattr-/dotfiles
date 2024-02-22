@@ -127,7 +127,9 @@ function M.load(name)
       end,
     })
   end
+
   _load("mattr-.config." .. name)
+
   if vim.bo.filetype == "lazy" then
     -- HACK: LazyVim may have overwritten options of the Lazy ui, so reset this here
     vim.cmd([[do VimResized]])
@@ -140,7 +142,7 @@ setmetatable(M, {
     if options == nil then
       return vim.deepcopy(defaults)[key]
     end
-    ---@cast options LazyVimConfig
+
     return options[key]
   end,
 })
