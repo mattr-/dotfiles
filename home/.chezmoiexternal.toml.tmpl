@@ -1,11 +1,29 @@
+{{- $miseVersionTag := (gitHubLatestRelease "jdx/mise").TagName }}
+{{ $miseOsNames := dict "linux" "linux" "darwin" "macos" "windows" "INVALID_OS" }}
+{{ $miseOsName := (get $miseOsNames .chezmoi.os) }}
+{{ $miseArchNames := dict "amd64" "x64" "arm64" "arm64" }}
+{{ $miseArch := (get $miseArchNames .chezmoi.arch) }}
+
 [".local/share/zinit"]
   type = "git-repo"
   url = "https://github.com/zdharma-continuum/zinit.git"
+
+
+[".local/bin/mise"]
+  type = "archive-file"
+  url = "https://github.com/jdx/mise/releases/download/{{ $miseVersionTag }}/mise-{{ $miseVersionTag }}-{{ $miseOsName }}-{{ $miseArch }}.tar.gz"
+  executable = true
+  refreshPeriod = "48h"
+  path = "mise/bin/mise"
+
 {{- if (eq .chezmoi.os "linux") -}}
 {{- $ezaVersionTag := (gitHubLatestRelease "eza-community/eza").TagName }}
 [".local/bin/eza"]
   type = "archive-file"
   url = "https://github.com/eza-community/eza/releases/download/{{ $ezaVersionTag }}/eza_{{ .target_triplet }}.tar.gz"
   executable = true
+  refreshPeriod = "168h"
   path = "./eza"
 {{- end -}}
+
+# vim: ft=toml

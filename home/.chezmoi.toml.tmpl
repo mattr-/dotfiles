@@ -10,8 +10,8 @@
 {{- $osFlavor := "linux-gnu" -}}
 
 {{- if (eq .chezmoi.os "darwin") -}}
-  {{ $vendor = "apple" -}}
-  {{ $osFlavor = "darwin" -}}
+  {{- $vendor = "apple" -}}
+  {{- $osFlavor = "darwin" -}}
   {{- if (eq .chezmoi.arch "arm64") -}}
   {{-   $arch = "aarch64" -}}
   {{- end -}}
