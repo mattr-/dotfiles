@@ -12,9 +12,9 @@ tool_versions.each do |entry|
   language = entry.shift
   if !installed_plugins.include?(language)
     puts "Installing mise plugin for #{language}"
-    `$HOME/.local/bin/mise plugin add #{language}`
+    `$HOME/.local/bin/mise -y plugin add #{language}`
   else
     puts "Updating mise plugin for #{language}"
-    `$HOME/.local/bin/mise plugin update #{language}`
+    `$HOME/.local/bin/mise -y plugin update #{language}`
   end
 end
