@@ -1,8 +1,8 @@
 elixir 1.16.1
 erlang 26.2.2
 elm 0.19.1
-ruby 3.3.0
 go 1.22.0
 node 20.11.0
+ruby 3.3.0
 rust 1.76.0
 shellcheck 0.8.0
