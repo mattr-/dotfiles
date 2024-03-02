@@ -1,0 +1,21 @@
+# This file is for doing specific things on macOS, like dealing with their dumb `path_helper` bullshit
+if [[ "$OSTYPE" =~ "darwin*" ]] ; then
+  # skip global configuration files. I don't want them messing with shit. In
+  # particular, I don't want `path_helper` from macOS coming in here and
+  # mangling my PATH.
+  setopt no_global_rcs
+
+
+  # To quote Thanos: "Fine, I'll do it myself"
+  # Append paths from /etc/paths and /etc/paths.d/ to the path
+  for path_file in /etc/paths /etc/paths.d/*(.N) ; do
+    path+=( $(<$path_file) )
+  done
+
+  # Append paths from /etc/manpaths and /etc/manpaths.d/ to the manpath
+  for path_file in /etc/manpaths /etc/manpaths.d/*(.N) ; do
+    manpath+=( $(<$path_file) )
+  done
+fi
+
+# vim:ft=sh
