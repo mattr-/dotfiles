@@ -28,7 +28,7 @@ alias vim="nvim"
 alias hs="homeshick"
 
 #mise initialization
-eval "$($HOME/mattr-/.local/bin/mise activate bash)"
+eval "$($HOME/.local/bin/mise activate bash)"
 
 # Optional aliases if commands are present
 if which bat &>/dev/null; then
