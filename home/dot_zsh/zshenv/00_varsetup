@@ -12,4 +12,7 @@ path=($HOME/bin $path)
 #don't print errors about matching globs
 setopt nonomatch
 
+# better utf-8
+setopt combining_chars
+
 # vim:ft=sh
