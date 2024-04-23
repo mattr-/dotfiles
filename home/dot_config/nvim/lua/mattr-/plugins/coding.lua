@@ -96,6 +96,11 @@ return {
           },
         },
         sorting = defaults.sorting,
+        view = {
+          entries = {
+            follow_cursor = true,
+          },
+        },
       }
     end,
   },
