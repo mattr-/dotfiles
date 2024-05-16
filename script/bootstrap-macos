@@ -7,6 +7,12 @@ then
   exit 1
 fi
 
+# Transitioning to nix. Let's install some shit.
+# Can't say I'm a super fan of the curl | sh pattern
+# but I've got enough trust in this after looking at the script.
+curl -L https://nixos.org/nix/install | sh
+
+
 # I'm stubbornly refusing to put a Brewfile at the root of this repo, so we're streaming one in to `brew bundle` from standard output
 brew bundle --file=- <<EOF
 tap "homebrew/cask"
