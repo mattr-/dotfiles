@@ -81,7 +81,7 @@ return {
       vim.lsp.handlers["client/registerCapability"] = function(err, res, ctx)
         local ret = register_capability(err, res, ctx)
         local client_id = ctx.client_id
-        ---@type lsp.Client|nil
+        ---@type vim.lsp.Client|nil
         local client = vim.lsp.get_client_by_id(client_id)
         local buffer = vim.api.nvim_get_current_buf()
         require("mattr-.lsp.keymaps").on_attach(client, buffer)
@@ -102,7 +102,7 @@ return {
       if inlay_hint then
         Util.on_attach(function(client, buffer)
           if client.server_capabilities.inlayHintProvider then
-            inlay_hint.enable(buffer, true)
+            inlay_hint.enable(true, { bufnr = buffer })
           end
         end)
       end
