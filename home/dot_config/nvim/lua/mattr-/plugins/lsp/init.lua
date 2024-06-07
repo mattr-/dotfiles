@@ -4,7 +4,6 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
-      { "folke/neodev.nvim", opts = {} },
       { "mason.nvim" },
       { "williamboman/mason-lspconfig.nvim" },
     },
@@ -29,24 +28,14 @@ return {
       },
       -- LSP Server Settings
       servers = {
+        -- example config
+        -- {
+        --   mason = false, -- set to false if you don't want this server to be installed with mason
+        --   ---@type LazyKeys[]
+        --   keys = {}, -- extra keymaps for specific lsp servers
+        --   settings = {} -- custom LSP server settings table
+        -- }
         jsonls = {},
-        lua_ls = {
-          -- mason = false, -- set to false if you don't want this server to be installed with mason
-          -- Use this to add any additional keymaps
-          -- for specific lsp servers
-          ---@type LazyKeys[]
-          -- keys = {},
-          settings = {
-            Lua = {
-              workspace = {
-                checkThirdParty = false,
-              },
-              completion = {
-                callSnippet = "Replace",
-              },
-            },
-          },
-        },
       },
       -- add a hook for extra server setup
       -- return true if you don't want this server to be setup with lspconfig
