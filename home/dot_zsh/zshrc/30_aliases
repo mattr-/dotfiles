@@ -24,7 +24,6 @@ alias sk9="sudo kill -9"
 alias pp0i="patch -p0 -i "
 alias pp1i="patch -p1 -i "
 
-alias vim="nvim"
 alias cz="chezmoi"
 
 # Optional aliases if commands are present

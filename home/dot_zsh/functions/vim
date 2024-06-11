@@ -1,0 +1,7 @@
+vim() {
+  if [ -n "$NVIM" ] ; then
+    echo "Cowardly refusing to run vim from itself"
+  else
+    command nvim "$@"
+  fi
+}
