@@ -25,6 +25,9 @@ return {
               completion = {
                 callSnippet = "Replace",
               },
+              doc = {
+                privateName = { "^_" },
+              },
             },
           },
         },
