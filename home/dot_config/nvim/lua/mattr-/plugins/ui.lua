@@ -20,6 +20,9 @@ return {
       max_width = function()
         return math.floor(vim.o.columns * 0.75)
       end,
+      on_open = function(window)
+        vim.api.nvim_win_set_config(window, { zindex = 100 })
+      end,
     },
   },
 
