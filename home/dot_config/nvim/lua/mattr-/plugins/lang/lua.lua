@@ -28,6 +28,14 @@ return {
               doc = {
                 privateName = { "^_" },
               },
+              hint = {
+                enable = true,
+                setType = true,
+                paramType = true,
+                paramName = "Disable",
+                semicolon = "Disable",
+                arrayIndex = "Disable",
+              },
             },
           },
         },
