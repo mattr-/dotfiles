@@ -3,8 +3,8 @@ local M = {}
 --- @type LazyKeysLspSpec[]|nil
 M._keys = nil
 
---- @alias LazyKeysLspSpec LazyKeysSpec|{has?:string}
---- @alias LazyKeysLsp LazyKeysSpec|{has?:string}
+--- @alias LazyKeysLspSpec LazyKeysSpec|{has?:string|string[], cond?:fun():boolean}
+--- @alias LazyKeysLsp LazyKeys|{has?:string|string[], cond?:fun():boolean}
 
 ---@return LazyKeysLspSpec[]
 function M.get()

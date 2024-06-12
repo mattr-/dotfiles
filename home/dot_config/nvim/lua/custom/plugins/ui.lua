@@ -48,6 +48,9 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
+    dependencies = {
+      "arkav/lualine-lsp-progress",
+    },
     opts = function()
       return {
         options = {
@@ -66,6 +69,7 @@ return {
           lualine_c = {
             { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
             { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
+            { "lsp_progress" },
           },
           lualine_x = {
             -- stylua: ignore
@@ -187,7 +191,8 @@ return {
         dashboard.button("f", "󱡴 " .. " Find file", ":Telescope find_files <CR>"),
         dashboard.button("n", " " .. " New file", ":ene<CR>"),
         dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-        dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
+        dashboard.button("/", " " .. " Find text", ":Telescope live_grep <CR>"),
+        dashboard.button("c", " " .. " Edit config", ":Telescope live_grep <CR>"),
         dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
         dashboard.button("q", " " .. " Quit", ":qa<CR>"),
       }
