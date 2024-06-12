@@ -25,6 +25,20 @@ return {
           end,
         },
         severity_sort = true,
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = require("mattr-.config").icons.diagnostics.Error,
+            [vim.diagnostic.severity.WARN] = require("mattr-.config").icons.diagnostics.Warn,
+            [vim.diagnostic.severity.HINT] = require("mattr-.config").icons.diagnostics.Hint,
+            [vim.diagnostic.severity.INFO] = require("mattr-.config").icons.diagnostics.Info,
+          },
+          numhl = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.HINT] = "",
+            [vim.diagnostic.severity.INFO] = "",
+          },
+        },
       },
       -- LSP Server Settings
       servers = {
@@ -75,12 +89,6 @@ return {
         local buffer = vim.api.nvim_get_current_buf()
         require("mattr-.lsp.keymaps").on_attach(client, buffer)
         return ret
-      end
-
-      -- define signs for use on the sidebar
-      for name, icon in pairs(require("mattr-.config").icons.diagnostics) do
-        name = "DiagnosticSign" .. name
-        vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
       end
 
       -- configure neovim's diagnostics

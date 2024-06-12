@@ -148,14 +148,14 @@ return {
     end,
     keys = {
       { "<leader>ctt", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run File" },
-      { "<leader>ctT", function() require("neotest").run.run(vim.loop.cwd()) end, desc = "Run All Test Files" },
+      { "<leader>ctT", function() require("neotest").run.run(vim.uv.cwd()) end, desc = "Run All Test Files" },
       { "<leader>ctr", function() require("neotest").run.run() end, desc = "Run Nearest" },
       { "<leader>cts", function() require("neotest").summary.toggle() end, desc = "Toggle Summary" },
       { "<leader>cto", function() require("neotest").output.open({ enter = true, auto_close = true }) end, desc = "Show Output" },
       { "<leader>ctO", function() require("neotest").output_panel.toggle() end, desc = "Toggle Output Panel" },
       { "<leader>ctS", function() require("neotest").run.stop() end, desc = "Stop" },
       { "<localleader>tt", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run File" },
-      { "<localleader>tT", function() require("neotest").run.run(vim.loop.cwd()) end, desc = "Run All Test Files" },
+      { "<localleader>tT", function() require("neotest").run.run(vim.uv.cwd()) end, desc = "Run All Test Files" },
       { "<localleader>tn", function() require("neotest").run.run() end, desc = "Run Nearest" },
     },
   }
