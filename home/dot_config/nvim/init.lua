@@ -4,6 +4,7 @@ local lazy = require("mattr-.util.lazy")
 lazy.ensure_installed()
 
 -- Do stuff before loading lazy
+-- The DashVim global is now available
 require("mattr-.config").init()
 
 -- plugins 🎉
