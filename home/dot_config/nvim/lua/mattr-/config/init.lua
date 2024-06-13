@@ -56,8 +56,8 @@ local defaults = {
       TypeParameter = " ",
       Unit = " ",
       Value = " ",
-        Variable = " ",
-      },
+      Variable = " ",
+    },
   },
 }
 
