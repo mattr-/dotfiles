@@ -39,4 +39,4 @@ require("lazy").setup({
 })
 
 -- post plugin install initialization
-require("mattr-.config").setup()
+DashVim.config.setup()

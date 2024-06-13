@@ -1,4 +1,21 @@
+local LazyUtil = require("lazy.core.util")
+
+--- @class dashvim.util: LazyUtilCore
+--- @field config DashVimConfig
 local M = {}
+
+setmetatable(M, {
+  __index = function(table, key)
+    -- Delegate to lazy's core utilities if a key matches a name in that class
+    if LazyUtil[key] then
+      return LazyUtil[key]
+    end
+
+    -- Otherwise, load a module from our util namespace
+    table[key] = require("mattr-.util." .. key)
+    return table[key]
+  end,
+})
 
 -- delay notifications till vim.notify was replaced or after 500ms
 function M.lazy_notify()

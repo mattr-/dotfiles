@@ -1,5 +1,11 @@
+_G.DashVim = require("mattr-.util")
+
+--- @class DashVimConfig : DashVimOptions
 local M = {}
 
+DashVim.config = M
+
+--- @class DashVimOptions
 local defaults = {
   colorscheme = "tokyonight",
   icons = {
@@ -66,12 +72,12 @@ function M.init()
   if not M.did_init then
     M.did_init = true
     -- delay notifications till vim.notify was replaced or after 500ms
-    require("mattr-.util").lazy_notify()
+    DashVim.lazy_notify()
 
     -- load options here, before lazy init while sourcing plugin modules
     -- this is needed to make sure options will be correctly applied
     -- after installing missing plugins
-    require("mattr-.config").load("options")
+    M.load("options")
   end
 end
 
@@ -136,16 +142,15 @@ function M.load(name)
   end
 end
 
-
 setmetatable(M, {
   __index = function(_, key)
     if options == nil then
       return vim.deepcopy(defaults)[key]
     end
 
+    ---@cast options DashVimConfig
     return options[key]
   end,
 })
 
 return M
-
