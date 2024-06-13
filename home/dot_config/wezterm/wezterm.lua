@@ -13,6 +13,8 @@ config.enable_scroll_bar = true
 
 config.font = wezterm.font("Iosevka")
 config.font_size = 14
+--disable ligatures
+-- config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
 config.window_padding = {
   left = "0.5cell",
