@@ -2,6 +2,7 @@ local LazyUtil = require("lazy.core.util")
 
 --- @class dashvim.util: LazyUtilCore
 --- @field config DashVimConfig
+--- @field ui mattr-.util.ui
 local M = {}
 
 setmetatable(M, {

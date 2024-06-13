@@ -49,7 +49,6 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     opts = function()
-      local Color = require("mattr-.colors")
       return {
         options = {
           theme = "auto",
@@ -73,19 +72,19 @@ return {
             {
               function() return require("noice").api.status.command.get() end,
               cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-              color = Color.fg("Special")
+              color = DashVim.ui.fg("Special")
             },
             -- stylua: ignore
             {
               function() return require("noice").api.status.mode.get() end,
               cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-              color = Color.fg("Constant")
+              color = DashVim.ui.fg("Constant")
             },
             -- stylua: ignore
             {
               function() return "  " .. require("dap").status() end,
               cond = function () return package.loaded["dap"] and require("dap").status() ~= "" end,
-              color = Color.fg("Debug"),
+              color = DashVim.ui.fg("Debug"),
             },
             { require("lazy.status").updates, cond = require("lazy.status").has_updates, }, -- color = Util.fg("Special") },
             -- {

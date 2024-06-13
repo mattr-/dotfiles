@@ -1,4 +1,4 @@
----@class mattr-.colors
+---@class mattr-.util.ui
 local M = {
 }
 
