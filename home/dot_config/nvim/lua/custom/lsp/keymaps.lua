@@ -12,7 +12,6 @@ function M.get()
     return M._keys
   end
 
-  local Util = require("custom.lsp.util")
   -- stylua: ignore
   M._keys = {
     -- { "<leader>cd", vim.diagnostic.open_float, desc = "Line Diagnostics" },
@@ -25,12 +24,12 @@ function M.get()
     { "K", vim.lsp.buf.hover, desc = "Hover" },
     { "gK", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
     { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
-    { "]d", Util.diagnostic_goto("next"), desc = "Next Diagnostic" },
-    { "[d", Util.diagnostic_goto("previous"), desc = "Prev Diagnostic" },
-    { "]e", Util.diagnostic_goto("next", "ERROR"), desc = "Next Error" },
-    { "[e", Util.diagnostic_goto("previous", "ERROR"), desc = "Prev Error" },
-    { "]w", Util.diagnostic_goto("next", "WARN"), desc = "Next Warning" },
-    { "[w", Util.diagnostic_goto("previous", "WARN"), desc = "Prev Warning" },
+    { "]d", Custom.lsp.diagnostic_goto("next"), desc = "Next Diagnostic" },
+    { "[d", Custom.lsp.diagnostic_goto("previous"), desc = "Prev Diagnostic" },
+    { "]e", Custom.lsp.diagnostic_goto("next", "ERROR"), desc = "Next Error" },
+    { "[e", Custom.lsp.diagnostic_goto("previous", "ERROR"), desc = "Prev Error" },
+    { "]w", Custom.lsp.diagnostic_goto("next", "WARN"), desc = "Next Warning" },
+    { "[w", Custom.lsp.diagnostic_goto("previous", "WARN"), desc = "Prev Warning" },
     { "<localleader>f", vim.lsp.buf.format, desc = "Format Document", has = "formatting" },
     { "<localleader>f", vim.lsp.buf.format, desc = "Format Range", mode = "v", has = "rangeFormatting" },
     { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
