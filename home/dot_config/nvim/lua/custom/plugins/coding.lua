@@ -3,8 +3,8 @@ return {
   {
     "L3MON4D3/LuaSnip",
     build = (not jit.os:find("Windows"))
-      and "echo 'NOTE: jsregexp is optional, so not a big deal if it fails to build'; make install_jsregexp"
-      or nil,
+        and "echo 'NOTE: jsregexp is optional, so not a big deal if it fails to build'; make install_jsregexp"
+        or nil,
     opts = function()
       local types = require("luasnip.util.types")
       return {
@@ -12,7 +12,7 @@ return {
         delete_check_events = "TextChanged",
         ext_opts = {
           [types.choiceNode] = {
-            active = { virt_text = {{ "●", require("catppuccin.palettes").get_palette("mocha")["pink"] }} }
+            active = { virt_text = { { "●", require("catppuccin.palettes").get_palette("mocha")["pink"] } } }
           },
         },
       }
@@ -24,9 +24,11 @@ return {
         function()
           return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
         end,
-        expr = true, silent = true, mode = "i",
+        expr = true,
+        silent = true,
+        mode = "i",
       },
-      { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
+      { "<tab>",   function() require("luasnip").jump(1) end,  mode = "s" },
       { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
     },
     config = function(_, opts)
@@ -45,8 +47,8 @@ return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
-      "hrsh7th/cmp-buffer", -- Completion from other buffers
-      "hrsh7th/cmp-path", -- Completion for filesystem paths
+      "hrsh7th/cmp-buffer",       -- Completion from other buffers
+      "hrsh7th/cmp-path",         -- Completion for filesystem paths
       "saadparwaiz1/cmp_luasnip", -- Completion from LuaSnip snippets
       "hrsh7th/cmp-cmdline",
     },
@@ -209,16 +211,16 @@ return {
       require("neotest").setup(opts)
     end,
     keys = {
-      { "<leader>ctt", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run File" },
-      { "<leader>ctT", function() require("neotest").run.run(vim.uv.cwd()) end, desc = "Run All Test Files" },
-      { "<leader>ctr", function() require("neotest").run.run() end, desc = "Run Nearest" },
-      { "<leader>cts", function() require("neotest").summary.toggle() end, desc = "Toggle Summary" },
-      { "<leader>cto", function() require("neotest").output.open({ enter = true, auto_close = true }) end, desc = "Show Output" },
-      { "<leader>ctO", function() require("neotest").output_panel.toggle() end, desc = "Toggle Output Panel" },
-      { "<leader>ctS", function() require("neotest").run.stop() end, desc = "Stop" },
-      { "<localleader>tt", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run File" },
-      { "<localleader>tT", function() require("neotest").run.run(vim.uv.cwd()) end, desc = "Run All Test Files" },
-      { "<localleader>tn", function() require("neotest").run.run() end, desc = "Run Nearest" },
+      { "<leader>ctt",     function() require("neotest").run.run(vim.fn.expand("%")) end,                      desc = "Run File" },
+      { "<leader>ctT",     function() require("neotest").run.run(vim.uv.cwd()) end,                            desc = "Run All Test Files" },
+      { "<leader>ctr",     function() require("neotest").run.run() end,                                        desc = "Run Nearest" },
+      { "<leader>cts",     function() require("neotest").summary.toggle() end,                                 desc = "Toggle Summary" },
+      { "<leader>cto",     function() require("neotest").output.open({ enter = true, auto_close = true }) end, desc = "Show Output" },
+      { "<leader>ctO",     function() require("neotest").output_panel.toggle() end,                            desc = "Toggle Output Panel" },
+      { "<leader>ctS",     function() require("neotest").run.stop() end,                                       desc = "Stop" },
+      { "<localleader>tt", function() require("neotest").run.run(vim.fn.expand("%")) end,                      desc = "Run File" },
+      { "<localleader>tT", function() require("neotest").run.run(vim.uv.cwd()) end,                            desc = "Run All Test Files" },
+      { "<localleader>tn", function() require("neotest").run.run() end,                                        desc = "Run Nearest" },
     },
   }
 }
