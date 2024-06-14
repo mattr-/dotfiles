@@ -85,6 +85,7 @@
     protocol = https
 [push]
     default = current
+    autoSetupRemote = true
 [pull]
     rebase = true
 
