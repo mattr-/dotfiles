@@ -16,7 +16,7 @@ return {
           spacing = 4,
           source = "if_many",
           prefix = function(diagnostic) -- uses new nvim 0.10 functionality
-            local icons = require("mattr-.config").icons.diagnostics
+            local icons = require("custom.config").icons.diagnostics
             for d, icon in pairs(icons) do
               if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
                 return icon
@@ -27,10 +27,10 @@ return {
         severity_sort = true,
         signs = {
           text = {
-            [vim.diagnostic.severity.ERROR] = require("mattr-.config").icons.diagnostics.Error,
-            [vim.diagnostic.severity.WARN] = require("mattr-.config").icons.diagnostics.Warn,
-            [vim.diagnostic.severity.HINT] = require("mattr-.config").icons.diagnostics.Hint,
-            [vim.diagnostic.severity.INFO] = require("mattr-.config").icons.diagnostics.Info,
+            [vim.diagnostic.severity.ERROR] = require("custom.config").icons.diagnostics.Error,
+            [vim.diagnostic.severity.WARN] = require("custom.config").icons.diagnostics.Warn,
+            [vim.diagnostic.severity.HINT] = require("custom.config").icons.diagnostics.Hint,
+            [vim.diagnostic.severity.INFO] = require("custom.config").icons.diagnostics.Info,
           },
           numhl = {
             [vim.diagnostic.severity.ERROR] = "",
@@ -68,12 +68,12 @@ return {
 
       -- TODO keymaps and autoformatting?
       --
-      local Util = require("mattr-.lsp.util")
+      local Util = require("custom.lsp.util")
       ---- setup autoformat
       --require("lazyvim.plugins.lsp.format").setup(opts)
       ---- setup formatting and keymaps
       Util.on_attach(function(client, buffer)
-       require("mattr-.lsp.keymaps").on_attach(client, buffer)
+       require("custom.lsp.keymaps").on_attach(client, buffer)
       end)
 
       -- LSP (both the spec and neovim) supports dynamic registrations of
@@ -87,7 +87,7 @@ return {
         ---@type vim.lsp.Client|nil
         local client = vim.lsp.get_client_by_id(client_id)
         local buffer = vim.api.nvim_get_current_buf()
-        require("mattr-.lsp.keymaps").on_attach(client, buffer)
+        require("custom.lsp.keymaps").on_attach(client, buffer)
         return ret
       end
 
@@ -119,7 +119,7 @@ return {
 
       -- configure reference highlights when the cursor stops
       Util.on_attach(function(client, buffer)
-        require("mattr-.lsp.util").setup_highlight_local_references(client, buffer)
+        require("custom.lsp.util").setup_highlight_local_references(client, buffer)
       end)
 
       -- Merge nvim-cmp's capabilities with neovim's built in capabilities

@@ -17,7 +17,7 @@ local Features = setmetatable({}, {
   end,
 })
 
-local path = Path:new({ vim.fn.stdpath("config"), "lua", "mattr-", "features", "tools" })
+local path = Path:new({ vim.fn.stdpath("config"), "lua", "custom", "features", "tools" })
 local tools = scan.scan_dir(tostring(path), {
   respect_gitignore = false,
   hidden = false,

@@ -34,7 +34,7 @@ return {
       ls.setup(opts)
 
       -- Dynamically load any custom snippets I've put in place
-      for _, snippet_path in ipairs(vim.api.nvim_get_runtime_file("lua/mattr-/snippets/*.lua", true)) do
+      for _, snippet_path in ipairs(vim.api.nvim_get_runtime_file("lua/custom/snippets/*.lua", true)) do
         loadfile(snippet_path)()
       end
     end,
@@ -83,7 +83,7 @@ return {
         }),
         formatting = {
           format = function(_, item)
-            local icons = require("mattr-.config").icons.kinds
+            local icons = require("custom.config").icons.kinds
             if icons[item.kind] then
               item.kind = icons[item.kind] .. item.kind
             end

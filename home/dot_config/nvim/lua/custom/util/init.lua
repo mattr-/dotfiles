@@ -1,8 +1,8 @@
 local LazyUtil = require("lazy.core.util")
 
---- @class dashvim.util: LazyUtilCore
---- @field config DashVimConfig
---- @field ui mattr-.util.ui
+--- @class custom.util: LazyUtilCore
+--- @field config CustomConfig
+--- @field ui custom.util.ui
 local M = {}
 
 setmetatable(M, {
@@ -13,7 +13,7 @@ setmetatable(M, {
     end
 
     -- Otherwise, load a module from our util namespace
-    table[key] = require("mattr-.util." .. key)
+    table[key] = require("custom.util." .. key)
     return table[key]
   end,
 })

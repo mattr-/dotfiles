@@ -14,7 +14,7 @@ return {
       ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
       setup = {
         sorbet = function(_, opts)
-          local features = require("mattr-.features")
+          local features = require("custom.features")
           local lspconfig = require("lspconfig")
           if features.sorbet.available() then
             opts.cmd = features.sorbet.command()
@@ -23,7 +23,7 @@ return {
           return true
         end,
         rubocop = function(_, opts)
-          local features = require("mattr-.features")
+          local features = require("custom.features")
           local lspconfig = require("lspconfig")
           if features.rubocop.available() then
             opts.cmd = features.rubocop.command()
@@ -39,7 +39,7 @@ return {
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
-      local features = require("mattr-.features")
+      local features = require("custom.features")
       opts.ensure_installed = opts.ensure_installed or {}
 
       if features.sorbet.available() then

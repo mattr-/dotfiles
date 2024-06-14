@@ -72,19 +72,19 @@ return {
             {
               function() return require("noice").api.status.command.get() end,
               cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-              color = DashVim.ui.fg("Special")
+              color = Custom.ui.fg("Special")
             },
             -- stylua: ignore
             {
               function() return require("noice").api.status.mode.get() end,
               cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-              color = DashVim.ui.fg("Constant")
+              color = Custom.ui.fg("Constant")
             },
             -- stylua: ignore
             {
               function() return "  " .. require("dap").status() end,
               cond = function () return package.loaded["dap"] and require("dap").status() ~= "" end,
-              color = DashVim.ui.fg("Debug"),
+              color = Custom.ui.fg("Debug"),
             },
             { require("lazy.status").updates, cond = require("lazy.status").has_updates, }, -- color = Util.fg("Special") },
             -- {

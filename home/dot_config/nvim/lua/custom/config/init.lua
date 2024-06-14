@@ -1,11 +1,11 @@
-_G.DashVim = require("mattr-.util")
+_G.Custom = require("custom.util")
 
---- @class DashVimConfig : DashVimOptions
+--- @class CustomConfig : CustomOptions
 local M = {}
 
-DashVim.config = M
+Custom.config = M
 
---- @class DashVimOptions
+--- @class CustomOptions
 local defaults = {
   colorscheme = "tokyonight",
   icons = {
@@ -72,7 +72,7 @@ function M.init()
   if not M.did_init then
     M.did_init = true
     -- delay notifications till vim.notify was replaced or after 500ms
-    DashVim.lazy_notify()
+    Custom.lazy_notify()
 
     -- load options here, before lazy init while sourcing plugin modules
     -- this is needed to make sure options will be correctly applied
@@ -101,7 +101,7 @@ function M.setup(opts)
     M.load("keymaps")
   end
 
-  require("lazy.core.util").try(function()
+  Custom.try(function()
     if type(M.colorscheme) == "function" then
       M.colorscheme()
     else
@@ -118,9 +118,8 @@ end
 
 ---@param name "autocmds" | "options" | "keymaps"
 function M.load(name)
-  local Util = require("lazy.core.util")
   local function _load(mod)
-    Util.try(function()
+    Custom.try(function()
       require(mod)
     end, {
       msg = "Failed loading " .. mod,
@@ -129,12 +128,12 @@ function M.load(name)
         if info == nil or (type(info) == "table" and #info == 0) then
           return
         end
-        Util.error(msg)
+        Custom.error(msg)
       end,
     })
   end
 
-  _load("mattr-.config." .. name)
+  _load("custom.config." .. name)
 
   if vim.bo.filetype == "lazy" then
     -- HACK: LazyVim may have overwritten options of the Lazy ui, so reset this here
@@ -148,7 +147,7 @@ setmetatable(M, {
       return vim.deepcopy(defaults)[key]
     end
 
-    ---@cast options DashVimConfig
+    ---@cast options CustomConfig
     return options[key]
   end,
 })

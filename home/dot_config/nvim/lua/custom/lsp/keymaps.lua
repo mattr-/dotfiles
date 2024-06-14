@@ -12,7 +12,7 @@ function M.get()
     return M._keys
   end
 
-  local Util = require("mattr-.lsp.util")
+  local Util = require("custom.lsp.util")
   -- stylua: ignore
   M._keys = {
     -- { "<leader>cd", vim.diagnostic.open_float, desc = "Line Diagnostics" },
@@ -53,7 +53,7 @@ function M.get()
   }
 
   -- TODO: Check out the inc-rename.nvim plugin
-  -- if require("mattr-.util.lazy").has("inc-rename.nvim") then
+  -- if require("custom.util.lazy").has("inc-rename.nvim") then
   --   M._keys[#M._keys + 1] = {
   --     "<leader>cr",
   --     function()
@@ -94,7 +94,7 @@ function M.resolve(buffer)
 
   -- check if server config has been attached to the nvim-lspconfig
   -- options and if there are keymaps specific to that server, add them here
-  local opts = require("mattr-.util.lazy").opts("nvim-lspconfig")
+  local opts = require("custom.util.lazy").opts("nvim-lspconfig")
   local clients = vim.lsp.get_clients({ bufnr = buffer })
   for _, client in ipairs(clients) do
     local maps = opts.servers[client.name] and opts.servers[client.name].keys or {}

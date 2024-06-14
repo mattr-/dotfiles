@@ -1,17 +1,17 @@
-local lazy = require("mattr-.util.lazy")
+local lazy = require("custom.util.lazy")
 
 -- Make sure lazy.nvim is installed
 lazy.ensure_installed()
 
 -- Do stuff before loading lazy
--- The DashVim global is now available
-require("mattr-.config").init()
+-- The `Custom` global is now available
+require("custom.config").init()
 
 -- plugins 🎉
 require("lazy").setup({
   spec = {
-    { import = "mattr-.plugins" }, -- the base set of plugins
-    { import = "mattr-.plugins.lang" }, -- language specific extensions
+    { import = "custom.plugins" }, -- the base set of plugins
+    { import = "custom.plugins.lang" }, -- language specific extensions
   },
   defaults = {
     -- Explicitly require plugins to be lazy loaded
@@ -40,4 +40,4 @@ require("lazy").setup({
 })
 
 -- post plugin install initialization
-DashVim.config.setup()
+Custom.config.setup()
