@@ -105,6 +105,31 @@ return {
     end,
   },
 
+  {
+    "echasnovski/mini.pairs",
+    event = "VeryLazy",
+    opts = {
+      mappings = {
+        -- disable the backtick mapping. Didn't care for it in my testing
+        ["`"] = false
+      },
+    },
+    keys = {
+      {
+        "<leader>vp",
+        function()
+          vim.g.minipairs_disable = not vim.g.minipairs_disable
+          if vim.g.minipairs_disable then
+            Custom.ui.warn("Auto Pairs", "Disabled", { render = "compact" })
+          else
+            Custom.ui.info("Auto Pairs", "Enabled", { render = "compact" })
+          end
+        end,
+        desc = "Toggle Auto Pairs",
+      },
+    },
+  },
+
   -- testing core support
   {
     "nvim-neotest/neotest",
