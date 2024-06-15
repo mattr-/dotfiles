@@ -130,6 +130,43 @@ return {
     },
   },
 
+  {
+    "echasnovski/mini.ai",
+    event = "VeryLazy",
+    opts = function()
+      -- TODO hook up which key bindings
+      local ai = require("mini.ai")
+      return {
+        n_lines = 100,
+        custom_textobjects = {
+          -- code block
+          o = ai.gen_spec.treesitter({
+            a = { "@block.outer", "@conditional.outer", "@loop.outer" },
+            i = { "@block.inner", "@conditional.inner", "@loop.inner" },
+          }),
+          -- function/method
+          f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }),
+          -- class
+          c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }),
+        },
+      }
+    end,
+    keys = {
+      {
+        "<leader>va",
+        function()
+          vim.g.miniai_disable = not vim.g.miniai_disable
+          if vim.g.miniai_disable then
+            Custom.ui.warn("Mini TextObjects", "Disabled", { render = "compact" })
+          else
+            Custom.ui.info("Mini TextObjects", "Enabled", { render = "compact" })
+          end
+        end,
+        desc = "Toggle Mini TextObjects",
+      },
+    },
+  },
+
   -- testing core support
   {
     "nvim-neotest/neotest",
