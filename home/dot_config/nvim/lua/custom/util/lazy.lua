@@ -34,4 +34,10 @@ function M.opts(name)
   return Plugin.values(plugin, "opts", false)
 end
 
+---@param plugin_name string
+function M.is_loaded(plugin_name)
+  local Config = require("lazy.core.config")
+  return Config.plugins[plugin_name] and Config.plugins[plugin_name]._.loaded
+end
+
 return M
