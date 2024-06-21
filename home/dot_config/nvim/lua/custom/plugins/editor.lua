@@ -10,6 +10,7 @@ return {
       { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
       { "<leader>fc", Custom.telescope.config_files, desc = "Find Config File" },
       { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files (root dir)" },
+      { "<leader>fp", Custom.telescope.plugin_files, desc = "Find Plugin File" },
       { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "status" },
     },
     opts = {
