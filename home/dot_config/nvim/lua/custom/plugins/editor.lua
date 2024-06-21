@@ -8,6 +8,7 @@ return {
       { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
       { "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Grep (root dir)" },
       { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+      { "<leader>fc", Custom.telescope.config_files, desc = "Find Config File" },
       { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files (root dir)" },
       { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "status" },
     },

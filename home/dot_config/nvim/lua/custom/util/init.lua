@@ -3,8 +3,9 @@ local LazyUtil = require("lazy.core.util")
 --- @class custom.util: LazyUtilCore
 --- @field config CustomConfig
 --- @field ui custom.util.ui
---- @field tools custom.util.tools
 --- @field lsp custom.util.lsp
+--- @field telescope custom.util.telescope
+--- @field tools custom.util.tools
 local M = {}
 
 setmetatable(M, {
