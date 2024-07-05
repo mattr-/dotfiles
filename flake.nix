@@ -60,6 +60,12 @@
           ./hosts/prodnose
         ];
       };
+      slugworth = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [
+          ./hosts/slugworth
+        ];
+      };
     };
 
     # Standalone home-manager configuration entrypoint
