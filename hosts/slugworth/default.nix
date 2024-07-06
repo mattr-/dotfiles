@@ -6,6 +6,7 @@
     ./hardware-configuration.nix
     ../_global/linux
     ../_global/linux/silentboot.nix
+    ../_global/linux/sound.nix
     ../_global/linux/steam.nix
     ../_global/linux/systemd-boot.nix
     ../_global/users/mattr-.nix
