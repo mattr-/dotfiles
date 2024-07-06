@@ -3,7 +3,6 @@
   imports = [
     inputs.hardware.nixosModules.common-cpu-intel
     inputs.hardware.nixosModules.common-pc-ssd
-    inputs.hardware.nixosModules.common-gpu-nvidia-nonprime
     ./hardware-configuration.nix
     ../_global/linux
     ../_global/linux/silentboot.nix
