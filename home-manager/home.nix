@@ -21,6 +21,7 @@
     ./_common/linux/nixpkgs.nix
     ./_common/linux/cli
     ./_common/linux/dev
+    ./_common/linux/gui
   ];
 
   home = {
