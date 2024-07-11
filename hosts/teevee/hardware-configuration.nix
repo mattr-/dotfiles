@@ -6,6 +6,7 @@
   lib,
   pkgs,
   modulesPath,
+  inputs,
   ...
 }: {
   imports = [
