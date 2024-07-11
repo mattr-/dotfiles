@@ -70,6 +70,12 @@
           ./hosts/slugworth
         ];
       };
+      teevee = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [
+          ./hosts/teevee
+        ];
+      };
     };
 
     # Standalone home-manager configuration entrypoint
