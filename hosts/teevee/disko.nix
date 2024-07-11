@@ -24,7 +24,7 @@
                 type = "btrfs";
                 extraArgs = [ "-f" ]; # Override existing partitions
                 subvolumes = {
-                  "/root" = { mountOptions = [ "compress=zstd"] ; mountpount = "/"; };
+                  "/root" = { mountOptions = [ "compress=zstd"] ; mountpoint = "/"; };
                   "/home" = { mountOptions = [ "compress=zstd"] ; mountpoint = "/home"; };
                   "/nix" = { mountOptions = [ "compress=zstd" "noatime" ]; mountpoint = "/nix"; };
                   "/mc-po3mythic" = { mountOptions = [ "noatime"]; mountpoint = "/var/lib/mc-po3mythic"; };
