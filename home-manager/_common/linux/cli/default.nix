@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     unstable.neovim
     unstable.gitui
@@ -24,12 +23,12 @@
 
   programs.ripgrep = {
     enable = true;
-    package = pkgs.unstable.ripgrep; 
+    package = pkgs.unstable.ripgrep;
   };
 
   programs.fd = {
     enable = true;
-    package = pkgs.unstable.fd; 
+    package = pkgs.unstable.fd;
   };
 
   programs.git = {
@@ -44,5 +43,4 @@
       enable = true;
     };
   };
-
 }

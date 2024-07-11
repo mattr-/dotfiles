@@ -1,7 +1,13 @@
-{ inputs, outputs, pkgs, lib, config, ...}:
 {
+  inputs,
+  outputs,
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   nix = let
-    flakeInputs = lib.filterAttrs (_:  lib.isType "flake") inputs;
+    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
     settings = {
       trusted-users = [

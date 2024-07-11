@@ -3,8 +3,7 @@
   outputs,
   pkgs,
   ...
-}:
-{
+}: {
   imports = [
     ./nix.nix
     ./openssh.nix
