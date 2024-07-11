@@ -5,6 +5,7 @@
   users.users.mattr- = {
     isNormalUser = true;
     shell = pkgs.zsh;
+    initialPassword = "1";
     extraGroups = [
       "wheel"
       "networkmanager"
