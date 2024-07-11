@@ -6,8 +6,13 @@
 
     # Pull in Linux OS defaults
     ../_global/linux
+
     # Use systemd-boot for booting
     ../_global/linux/systemd-boot.nix
+
+    # This is the modded minecraft server
+    ../_global/linux/modded-minecraft.nix
+
     # Set up my user
     ../_global/users/mattr-.nix
   ];
