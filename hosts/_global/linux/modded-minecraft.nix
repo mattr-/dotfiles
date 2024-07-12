@@ -53,6 +53,7 @@ in {
           // {
             server-port = 25567;
             rcon-port = 25568;
+            allow-flight = true;
             motd = "Project Ozone 3: Mythic Mode";
             extra-options.level-type = "botania-skyblock";
           };
@@ -70,6 +71,13 @@ in {
             server-port = 25565;
             rcon-port = 25566;
             motd = "Welcome to ATM 9 - To The Sky!";
+            allow-flight = true;
+            extra-options.level-type = "skyblockbuilder:skyblock";
+            extra-options.simulation-distance = 8;
+            extra-options.view-distance = 10;
+            extra-options.difficulty = "hard";
+            extra-options.gamemode = "survival";
+            level-seed = "-5782666497127736930";
           };
       };
     };
