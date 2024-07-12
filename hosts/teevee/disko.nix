@@ -47,6 +47,18 @@
                     mountOptions = ["noatime"];
                     mountpoint = "/var/lib/mc-atm9";
                   };
+                  "/mc-stoneblock" = {
+                    mountOptions = ["noatime"];
+                    mountpoint = "/var/lib/mc-stoneblock";
+                  };
+                  "/mc-stoneblock2" = {
+                    mountOptions = ["noatime"];
+                    mountpoint = "/var/lib/mc-stoneblock2";
+                  };
+                  "/mc-stoneblock3" = {
+                    mountOptions = ["noatime"];
+                    mountpoint = "/var/lib/mc-stoneblock3";
+                  };
                 };
               };
             };
