@@ -80,6 +80,57 @@ in {
             level-seed = "-5782666497127736930";
           };
       };
+      stoneblock = {
+        enable = true;
+        inherit rsyncSSHKeys jvmOpts;
+        jvmMaxAllocation = "6G";
+        jvmInitialAllocation = "1G";
+        jvmPackage = jre8;
+        serverConfig =
+          serverDefaults
+          // {
+            server-port = 25569;
+            rcon-port = 25570;
+            allow-flight = true;
+            difficulty = 3;
+            motd = "This is StoneBlock!";
+            extra-options.level-type = "voidworld";
+          };
+      };
+      stoneblock2 = {
+        enable = true;
+        inherit rsyncSSHKeys jvmOpts;
+        jvmMaxAllocation = "6G";
+        jvmInitialAllocation = "1G";
+        jvmPackage = jre8;
+        serverConfig =
+          serverDefaults
+          // {
+            server-port = 25571;
+            rcon-port = 25572;
+            allow-flight = true;
+            difficulty = 3;
+            motd = "Welcome to StoneBlock 2!";
+            extra-options.level-type = "voidworld";
+          };
+      };
+      stoneblock3 = {
+        enable = false;
+        inherit rsyncSSHKeys jvmOpts;
+        jvmMaxAllocation = "8G";
+        jvmInitialAllocation = "1G";
+        jvmPackage = jre17;
+        serverConfig =
+          serverDefaults
+          // {
+            server-port = 25573;
+            rcon-port = 25574;
+            allow-flight = true;
+            motd = "Welcome to StoneBlock 3!";
+            extra-options.difficulty = "hard";
+            extra-options.gamemode = "survival";
+          };
+      };
     };
   };
 }
