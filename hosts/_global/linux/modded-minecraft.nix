@@ -43,7 +43,7 @@ in {
     eula = true;
     instances = {
       po3mythic = {
-        enable = false;
+        enable = true;
         inherit rsyncSSHKeys jvmOpts;
         jvmMaxAllocation = "10G";
         jvmInitialAllocation = "4G";
@@ -59,7 +59,7 @@ in {
       };
 
       atm9sky = {
-        enable = false;
+        enable = true;
         inherit rsyncSSHKeys jvmOpts;
         jvmMaxAllocation = "8G";
         jvmInitialAllocation = "1G";
