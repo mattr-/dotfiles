@@ -14,7 +14,7 @@
     ../_global/linux/modded-minecraft.nix
 
     # Set up my user
-    ../_global/users/mattr-.nix
+    ../../users/mattr-/nixos.nix
   ];
 
   networking = {

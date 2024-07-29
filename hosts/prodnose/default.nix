@@ -8,7 +8,7 @@
     # Use systemd-boot for booting
     ../_global/linux/systemd-boot.nix
     # Set up my user
-    ../_global/users/mattr-.nix
+    ../../users/mattr-/nixos.nix
   ];
 
   networking = {

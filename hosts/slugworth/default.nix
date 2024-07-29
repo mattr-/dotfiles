@@ -8,7 +8,7 @@
     ../_global/linux/sound.nix
     ../_global/linux/steam.nix
     ../_global/linux/systemd-boot.nix
-    ../_global/users/mattr-.nix
+    ../../users/mattr-/nixos.nix
   ];
 
   networking = {
