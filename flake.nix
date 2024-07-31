@@ -13,6 +13,11 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Darwin (macOS)
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
+    darwin.url  = "github:LnL7/nix-darwin";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
+
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -27,6 +32,8 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-darwin,
+    darwin,
     home-manager,
     ...
   } @ inputs: let
@@ -79,6 +86,17 @@
           ./hosts/teevee
         ];
       };
+    };
+
+    # Darwin configuration entrypoint
+    # Available through 'darwin-rebuild --flake .#hostname'
+    darwinConfigurations = {
+      gloop = darwin.lib.darwinSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/gloop
+        ];
+      } ;
     };
 
     # Standalone home-manager configuration entrypoint

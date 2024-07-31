@@ -10,10 +10,10 @@
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
     settings = {
-      trusted-users = [
-        "root"
-        "@wheel"
-      ];
+      # trusted-users = [
+      #   "root"
+      #   "@wheel"
+      # ];
       auto-optimise-store = lib.mkDefault true;
       experimental-features = [
         "nix-command"
