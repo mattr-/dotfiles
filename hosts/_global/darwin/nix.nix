@@ -34,7 +34,13 @@
     # Automatic garbage collection
     gc = {
       automatic = true;
-      dates = "weekly";
+      # Emulate crontab's `weekly` setting, equivalent to `0 0 * * 0`
+      # https://crontab.guru/#0_0_*_*_0
+      interval = {
+        Minute = 0;
+        Hour = 0;
+        Weekday = 0;
+      };
       options = "--delete-older-than 30d";
     };
   };
