@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{inputs, outputs, ...}: {
   imports = [
     ../_global/darwin/nix.nix
 
@@ -12,7 +12,7 @@
 
   system = {
     # Set Git commit hash for darwin-version
-    configurationRevision = self.rev or self.dirtyRev or null;
+    configurationRevision = outputs.self.rev or outputs.self.dirtyRev or null;
 
     # Used for backwards compat. Read the changelog
     # $ darwin-rebuild changelog
