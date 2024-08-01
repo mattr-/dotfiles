@@ -1,6 +1,10 @@
 {inputs, outputs, ...}: {
   imports = [
+    # Configure nix for darwin
     ../_global/darwin/nix.nix
+
+    # Configure Homebrew
+    ../_global/darwin/homebrew.nix
 
     # Set up my user
     ../../users/mattr-/darwin.nix
