@@ -26,7 +26,7 @@
         NSWindowShouldDragOnGesture = true;
         PMPrintingExpandedStateForPrint = true;
         PMPrintingExpandedStateForPrint2 = true;
-        "com.apple.mouse.tapBehavior" = 1
+        "com.apple.mouse.tapBehavior" = 1;
         "com.apple.springing.delay" = 0;
         "com.apple.springing.enabled" = true;
         "com.apple.swipescrolldirection" = false;
@@ -63,7 +63,7 @@
       screencapture = {
         disable-shadow = true;
         location = "/Users/mattr-/Desktop/Screenshots";
-        type = "png"
+        type = "png";
       };
       screensaver = {
         askForPassword = true;
@@ -80,7 +80,7 @@
       keyboard = {
         enableKeyMapping = true;
         remapCapsLockToControl = true;
-      }
+      };
     };
   };
 }
