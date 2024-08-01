@@ -3,7 +3,6 @@
   homebrew = {
     enable = true;
     casks = [
-      "1password"
       "1password-cli"
       "alfred"
       "bambu-studio"
@@ -18,7 +17,6 @@
       "obsidian"
       "prismlauncher"
       "raycast"
-      "slack"
       "spotify"
       "steam"
       "temurin@17"
@@ -28,7 +26,6 @@
       "visual-studio-code"
       "vivaldi"
       "vlc"
-      "zoom"
     ];
   };
 }
