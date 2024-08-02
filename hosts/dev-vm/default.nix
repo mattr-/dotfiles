@@ -8,7 +8,7 @@
   ];
 
   networking = {
-    hostname = "violet";
+    hostName = "violet";
   };
 
   system.stateVersion = "24.05";
