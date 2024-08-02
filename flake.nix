@@ -86,6 +86,12 @@
           ./hosts/teevee
         ];
       };
+      dev-vm = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/dev-vm
+        ];
+      };
     };
 
     # Darwin configuration entrypoint
