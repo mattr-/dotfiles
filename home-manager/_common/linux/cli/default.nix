@@ -1,7 +1,10 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    unstable.neovim
+    unstable.chezmoi
     unstable.gitui
+    unstable.gitFull
+    unstable.gh
+    unstable.neovim
   ];
 
   programs.bat = {
@@ -29,18 +32,5 @@
   programs.fd = {
     enable = true;
     package = pkgs.unstable.fd;
-  };
-
-  programs.git = {
-    enable = true;
-    package = pkgs.unstable.gitFull;
-  };
-
-  programs.gh = {
-    enable = true;
-    package = pkgs.unstable.gh;
-    gitCredentialHelper = {
-      enable = true;
-    };
   };
 }
