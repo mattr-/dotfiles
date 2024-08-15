@@ -19,4 +19,14 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJoNNZg/ZDdwjVukEuSjFsehBSlBXPqRKTlrDYGxUyZw"
     ];
   };
+
+  # Enable 1password
+  # TODO: Move this to a common directory. It's not
+  # really specific to my user other than the policy kit owners thing.
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    # enable PolicyKit integration
+    polkitPolicyOwners = [ "mattr-" ];
+  };
 }
