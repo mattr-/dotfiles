@@ -27,14 +27,14 @@
         PMPrintingExpandedStateForPrint = true;
         PMPrintingExpandedStateForPrint2 = true;
         "com.apple.mouse.tapBehavior" = 1;
-        "com.apple.springing.delay" = 0;
+        "com.apple.springing.delay" = 0.0;
         "com.apple.springing.enabled" = true;
         "com.apple.swipescrolldirection" = false;
       };
       dock = {
         autohide = true;
-        autohide-delay = 0;
-        autohide-time-modifier = 0;
+        autohide-delay = 0.0;
+        autohide-time-modifier = 0.0;
         dashboard-in-overlay = true;
         expose-animation-duration = 0.1;
         expose-group-by-app = false;
@@ -72,15 +72,10 @@
       trackpad = {
         Clicking = true;
       };
-      universalaccess = {
-        closeViewScrollWheelToggle = true;
-        closeViewZoomFollowsFocus = true;
-        reduceTransparency = true;
-      };
-      keyboard = {
-        enableKeyMapping = true;
-        remapCapsLockToControl = true;
-      };
+    };
+    keyboard = {
+      enableKeyMapping = true;
+      remapCapsLockToControl = true;
     };
   };
 }
