@@ -107,7 +107,13 @@
         modules = [
           ./hosts/gloop
         ];
-      } ;
+      };
+      knid = darwin.lib.darwinSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/knid
+        ];
+      };
     };
 
     # Standalone home-manager configuration entrypoint
