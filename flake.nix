@@ -90,6 +90,11 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/dev-vm
+          home-manager.nixosModules.home-manager {
+            home-manager.useUserPackages = true;
+            home-manager.users.mattr- = import ./home-manager/home.nix;
+            home-manager.extraSpecialArgs = {inherit inputs outputs;};
+          }
         ];
       };
     };
