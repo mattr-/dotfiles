@@ -1,8 +1,9 @@
+{ lib, ... }:
 {
   boot.loader = {
     systemd-boot = {
       enable = true;
-      consoleMode = "max";
+      consoleMode = lib.mkDefault "max";
       configurationLimit = 5;
     };
     efi.canTouchEfiVariables = true;
