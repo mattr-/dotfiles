@@ -22,6 +22,7 @@
     ./_common/linux/cli
     ./_common/linux/dev
     ./_common/linux/gui
+    ./_common/linux/security
   ];
 
   home = {
