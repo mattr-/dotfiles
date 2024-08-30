@@ -92,7 +92,7 @@
           ./hosts/dev-vm
           home-manager.nixosModules.home-manager {
             home-manager.useUserPackages = true;
-            home-manager.users.mattr- = import ./home-manager/home.nix;
+            home-manager.users.mattr- = import ./home-manager/linux/home.nix;
             home-manager.extraSpecialArgs = {inherit inputs outputs;};
           }
         ];
@@ -125,7 +125,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main home-manager configuration file <
-          ./home-manager/home.nix
+          ./home-manager/linux/home.nix
         ];
       };
     };

@@ -18,11 +18,12 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-    ./_common/linux/nixpkgs.nix
-    ./_common/linux/cli
-    ./_common/linux/dev
-    ./_common/linux/gui
-    ./_common/linux/security
+
+    ./nixpkgs.nix
+    ./cli
+    ./dev
+    ./gui
+    ./security
   ];
 
   home = {
