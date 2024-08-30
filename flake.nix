@@ -106,6 +106,11 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/gloop
+          home-manager.darwinModules.home-manager {
+            home-manager.useUserPackages = true;
+            home-manager.users.mattr- = import ./home-manager/macos/home.nix;
+            home-manager.extraSpecialArgs = {inherit inputs outputs;};
+          }
         ];
       };
       knid = darwin.lib.darwinSystem {
