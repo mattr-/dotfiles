@@ -20,7 +20,7 @@
     # ./nvim.nix
 
     ./nixpkgs.nix
-    ./cli
+    ../common/cli
     ./dev
     ./gui
     ./security
