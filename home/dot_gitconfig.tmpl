@@ -1,10 +1,9 @@
 [user]
     email = codemattr@gmail.com
     name = Matt Rogers
-{{ if eq .chezmoi.os "darwin" }}
+{{- if eq .chezmoi.os "darwin" }}
     signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJoNNZg/ZDdwjVukEuSjFsehBSlBXPqRKTlrDYGxUyZw
 {{ end }}
-
 [url "git://anongit.kde.org/"]
     insteadOf = kde:
 
@@ -33,10 +32,9 @@
 
 [commit]
     verbose = true
-{{ if eq .chezmoi.os "darwin" }}
+{{- if eq .chezmoi.os "darwin" }}
     gpgSign = true
 {{ end }}
-
 [diff]
 [color]
     ui = auto
@@ -110,11 +108,10 @@
     path = ~/Code/github/.gitconfig
 [init]
     defaultBranch = main
-
 {{ if eq .chezmoi.os "darwin" }}
 [gpg]
   format = ssh
 
 [gpg "ssh"]
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-{{ end }}
+{{ end -}}
