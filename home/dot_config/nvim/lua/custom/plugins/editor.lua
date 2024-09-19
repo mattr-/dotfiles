@@ -93,44 +93,32 @@ return {
       plugins = { spelling = true },
       defaults = {
         normal_mode = {
-          c = {
-            name = "code",
-            t = { name = "test", }
-          },
-          f = {
-            name = "+files",
-            n = { name = "new", }
-          },
-          g = {
-            name = "git",
-            h = {
-              name = "github",
-              i = { name = "issues", },
-              p = { name = "pull requests" }
-            },
-            s = { name = "stage", },
-            u = { name = "unstage", },
-          },
-          t = { name = "toggle" },
-          v = {
-            name = "vim",
-            n = { name = "noice", }
-          },
-          w = { name = "window" },
+          { "<leader>c", group = "code" },
+          { "<leader>ct", group = "test" },
+          { "<leader>f", group = "+files" },
+          { "<leader>fn", group = "new" },
+          { "<leader>g", group = "git" },
+          { "<leader>gh", group = "github" },
+          { "<leader>ghi", group = "issues" },
+          { "<leader>ghp", group = "pull requests" },
+          { "<leader>gs", group = "stage", },
+          { "<leader>gu", group = "unstage", },
+          { "<leader>t", group = "toggle" },
+          { "<leader>v", group = "vim" },
+          { "<leader>vn", group = "noice" },
+          { "<leader>w", group = "window" },
         },
         visual_mode = {
-          g = {
-            name = "git",
-            s = { name = "stage", },
-          },
+          { "<leader>g", group = "git" },
+          { "<leader>gs", group = "stage" },
         },
       },
     },
     config = function(_, opts)
       local wk = require("which-key")
       wk.setup(opts)
-      wk.register(opts.defaults.normal_mode, { prefix = vim.g.mapleader })
-      wk.register(opts.defaults.visual_mode, { prefix = "<leader>", mode = "v" })
+      wk.add(opts.defaults.normal_mode, { prefix = vim.g.mapleader, mode = "n" })
+      wk.add(opts.defaults.visual_mode, { prefix = "<leader>", mode = "v" })
     end,
   },
 }
