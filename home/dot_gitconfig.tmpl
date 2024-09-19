@@ -5,6 +5,7 @@
 
 [url "git://anongit.kde.org/"]
     insteadOf = kde:
+
 [url "git@git.kde.org:"]
     pushInsteadOf = kde:
 
@@ -81,24 +82,27 @@
 
 [core]
     editor = nvim
+
 [hub]
     protocol = https
+
 [push]
     default = current
     autoSetupRemote = true
+
 [pull]
     rebase = true
 
 [github]
-	user = mattr-
+    user = mattr-
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 
 [includeIf "gitdir:~/Code/github"]
-	path = ~/Code/github/.gitconfig
+    path = ~/Code/github/.gitconfig
 [init]
-	defaultBranch = main
+    defaultBranch = main
