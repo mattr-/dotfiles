@@ -10,23 +10,16 @@
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
     settings = {
-      auto-optimise-store = lib.mkDefault true;
+      auto-optimise-store = lib.mkDefault false;
       experimental-features = [
         "nix-command"
         "flakes"
       ];
       warn-dirty = false;
 
-      # Disable the global registry
-      flake-registry = "";
-
       # Workaround for https://github.com/NixOS/nix/issues/9574
       nix-path = config.nix.nixPath;
     };
-
-    # Opinionated: Make flake registry and nix path match flake inputs
-    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
-    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
 
     # Use the latest version we can get
     package = pkgs.nixVersions.latest;
