@@ -107,7 +107,7 @@
         modules = [
           ./hosts/gloop
           home-manager.darwinModules.home-manager {
-            home-manager.useGlobalPkgs = true;
+            home-manager.useGlobalPkgs = false;
             home-manager.useUserPackages = true;
             home-manager.users.mattr- = import ./home-manager/macos/home.nix;
             home-manager.extraSpecialArgs = {inherit inputs outputs;};
