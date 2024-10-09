@@ -6,9 +6,7 @@
   config,
   ...
 }: {
-  nix = let
-    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-  in {
+  nix = {
     settings = {
       auto-optimise-store = lib.mkDefault false;
       experimental-features = [
@@ -16,9 +14,6 @@
         "flakes"
       ];
       warn-dirty = false;
-
-      # Workaround for https://github.com/NixOS/nix/issues/9574
-      nix-path = config.nix.nixPath;
     };
 
     # Use the latest version we can get
@@ -50,6 +45,7 @@
     # Allow unfree packages
     config = {
       allowUnfree = true;
+      allowUnsupportedSystem = true;
     };
   };
 

@@ -15,8 +15,8 @@
 
     # Darwin (macOS)
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
-    darwin.url  = "github:LnL7/nix-darwin";
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-darwin.url  = "github:LnL7/nix-darwin";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-24.05";
@@ -33,7 +33,7 @@
     self,
     nixpkgs,
     nixpkgs-darwin,
-    darwin,
+    nix-darwin,
     home-manager,
     ...
   } @ inputs: let
@@ -102,19 +102,13 @@
     # Darwin configuration entrypoint
     # Available through 'darwin-rebuild --flake .#hostname'
     darwinConfigurations = {
-      gloop = darwin.lib.darwinSystem {
+      gloop = nix-darwin.lib.darwinSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/gloop
-          home-manager.darwinModules.home-manager {
-            home-manager.useGlobalPkgs = false;
-            home-manager.useUserPackages = true;
-            home-manager.users.mattr- = import ./home-manager/macos/home.nix;
-            home-manager.extraSpecialArgs = {inherit inputs outputs;};
-          }
         ];
       };
-      knid = darwin.lib.darwinSystem {
+      knid = nix-darwin.lib.darwinSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/knid

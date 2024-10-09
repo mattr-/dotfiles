@@ -17,7 +17,7 @@
 
     # Used for backwards compat. Read the changelog
     # $ darwin-rebuild changelog
-    stateVersion = 4;
+    stateVersion = 5;
   };
 
   nixpkgs.hostPlatform = "aarch64-darwin";
