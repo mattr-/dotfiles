@@ -21,6 +21,7 @@
       "steam"
       "temurin@17"
       "temurin@8"
+      "todoist"
       "utm"
       "viscosity"
       "visual-studio-code"
