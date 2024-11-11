@@ -106,6 +106,7 @@
 
 [includeIf "gitdir:~/Code/github"]
     path = ~/Code/github/.gitconfig
+
 [init]
     defaultBranch = main
 {{ if eq .chezmoi.os "darwin" }}
@@ -114,4 +115,5 @@
 
 [gpg "ssh"]
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+  allowedSignersFile = "~/.ssh/allowed_signers"
 {{ end -}}
