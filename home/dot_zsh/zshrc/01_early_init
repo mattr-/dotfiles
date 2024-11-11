@@ -1,0 +1,10 @@
+#Use the p10k instant prompt if it's available
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Setup zinit
+ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit"
+source "${ZINIT_HOME}/zinit.zsh"
+
+# vim:ft=sh
