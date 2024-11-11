@@ -55,3 +55,8 @@ end)
 
 -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
 hs.loadSpoon("ControlEscape"):start()
+AutoClick = hs.loadSpoon("AutoClick")
+AutoClick:init()
+AutoClick.clicksPerSecond = 25
+AutoClick:bindHotkeys({triggerAutoClick = {hyper, "0"}})
+

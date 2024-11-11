@@ -1,0 +1,37 @@
+[
+  {
+    "desc": "Autoclicker tool, configurable with clicks per seconds",
+    "name": "AutoClick",
+    "type": "Module"
+  },
+  {
+    "desc": "Clicks per second. May not work properly if set too high (above ~50). Defaults to 10.",
+    "module": "AutoClick",
+    "name": "clicksPerSecond",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for AutoClick",
+    "module": "AutoClick",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Initializes AutoClick",
+    "module": "AutoClick",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Checks if this spoon is enabled and running",
+    "module": "AutoClick",
+    "name": "isRunning",
+    "type": "Method"
+  },
+  {
+    "desc": "Start/Stop AutoClick",
+    "module": "AutoClick",
+    "name": "trigger",
+    "type": "Method"
+  }
+]
