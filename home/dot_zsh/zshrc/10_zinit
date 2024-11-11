@@ -1,6 +1,6 @@
 # Install powerlevel10k according to their README
 zinit ice depth=1
-zinit light romkat/powerlevel10k
+zinit light romkatv/powerlevel10k
 
 zinit wait lucid for \
   atinit"zicompinit; zicdreplay" zdharma-continuum/fast-syntax-highlighting\
