@@ -1,4 +1,7 @@
-autoload -U promptinit; promptinit
-prompt mattr
+#autoload -U promptinit; promptinit
+#prompt mattr
+
+# powerlevel10k
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # vim:ft=sh
