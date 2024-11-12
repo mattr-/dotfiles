@@ -114,20 +114,9 @@ return {
         ["`"] = false
       },
     },
-    keys = {
-      {
-        "<leader>vp",
-        function()
-          vim.g.minipairs_disable = not vim.g.minipairs_disable
-          if vim.g.minipairs_disable then
-            Custom.ui.warn("Auto Pairs", "Disabled", { render = "compact" })
-          else
-            Custom.ui.info("Auto Pairs", "Enabled", { render = "compact" })
-          end
-        end,
-        desc = "Toggle Auto Pairs",
-      },
-    },
+    config = function(_, opts)
+      Custom.mini.pairs(opts)
+    end
   },
 
   {

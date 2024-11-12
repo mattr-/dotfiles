@@ -50,15 +50,16 @@ return {
         -- Load luvit types when the `vim.uv` word is found
         { path = "luvit-meta/library", words = { "vim%.uv" } },
         { path = "wezterm-types", mods = { "wezterm" } },
+        { path = "snacks.nvim", words = { "Snacks" } },
       },
     },
   },
-  { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
-  { "justinsgithub/wezterm-types", lazy = true }, -- wezterm typings
+  { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings. never loaded
+  { "justinsgithub/wezterm-types", lazy = true }, -- wezterm typings. never loaded
   {
     "hrsh7th/nvim-cmp",
+    optional = true,
     opts = function(_, opts)
-      opts.sources = opts.sources or {}
       table.insert(opts.sources, {
         name = "lazydev",
         group_index = 0, --a group_index of zero skips loading LuaLS completions

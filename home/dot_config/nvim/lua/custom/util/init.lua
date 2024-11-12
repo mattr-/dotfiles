@@ -4,6 +4,7 @@ local LazyUtil = require("lazy.core.util")
 --- @field config CustomConfig
 --- @field ui custom.util.ui
 --- @field lsp custom.util.lsp
+--- @field mini custom.util.mini
 --- @field telescope custom.util.telescope
 --- @field tools custom.util.tools
 local M = {}
