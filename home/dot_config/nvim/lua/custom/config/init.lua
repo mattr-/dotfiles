@@ -75,4 +75,18 @@ setmetatable(M, {
   end,
 })
 
+local config = {}
+
+function M.get(library, ldefaults, ...)
+  local merge = { vim.deepcopy(ldefaults), vim.deepcopy(config[library] or {}) }
+  for i = 1, select("#", ...) do
+    local value = select(i, ...)
+    if value then
+      table.insert(merge, vim.deepcopy(value))
+    end
+  end
+
+  return vim.tbl_deep_extend("force", unpack(merge))
+end
+
 return M
