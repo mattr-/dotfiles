@@ -114,6 +114,9 @@ return {
         ["`"] = false
       },
     },
+    config = function(_, opts)
+      Custom.util.mini.pairs(opts)
+    end,
     keys = {
       {
         "<leader>vp",
