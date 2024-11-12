@@ -1,9 +1,9 @@
-function precmd() {
-  title "zsh" "$USER@%m" "%55<...<%~"
-}
+# function precmd() {
+#   title "zsh" "$USER@%m" "%55<...<%~"
+# }
 
-function preexec() {
-  title "$1" "$USER@%m" "%35<...<%~"
-}
+# function preexec() {
+#   title "$1" "$USER@%m" "%35<...<%~"
+# }
 
 # vim:ft=sh
