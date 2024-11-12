@@ -83,7 +83,7 @@ return {
         }),
         formatting = {
           format = function(_, item)
-            local icons = require("custom.config").icons.kinds
+            local icons = Custom.config.icons.kinds
             if icons[item.kind] then
               item.kind = icons[item.kind] .. item.kind
             end

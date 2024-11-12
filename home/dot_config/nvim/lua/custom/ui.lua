@@ -1,4 +1,4 @@
----@class custom.util.ui
+---@class custom.ui
 local M = {
 }
 

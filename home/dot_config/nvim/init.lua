@@ -1,11 +1,10 @@
-local lazy = require("custom.util.lazy")
-
+require("custom")
+-- The `Custom` global is now available
 -- Make sure lazy.nvim is installed
-lazy.ensure_installed()
+Custom.lazy.ensure_installed()
 
 -- Do stuff before loading lazy
--- The `Custom` global is now available
-require("custom.config").init()
+Custom.lazy.pre_init()
 
 -- plugins 🎉
 require("lazy").setup({
@@ -40,4 +39,4 @@ require("lazy").setup({
 })
 
 -- post plugin install initialization
-Custom.config.setup()
+Custom.lazy.post_install()
