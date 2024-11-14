@@ -72,19 +72,21 @@ function M.post_install()
     load("keymaps")
   end
 
-  -- Custom.try(function()
-  --   if type(M.colorscheme) == "function" then
-  --     M.colorscheme()
-  --   else
-  --     vim.cmd.colorscheme(M.colorscheme)
-  --   end
-  -- end, {
-  --   msg = "Could not load your colorscheme",
-  --   on_error = function(msg)
-  --     require("lazy.core.util").error(msg)
-  --     vim.cmd.colorscheme("habamax")
-  --   end,
-  -- })
+  Custom.util.track("colorscheme")
+  Custom.util.try(function()
+    if type(Custom.config.colorscheme) == "function" then
+      Custom.config.colorscheme()
+    else
+      vim.cmd.colorscheme(Custom.config.colorscheme)
+    end
+  end, {
+    msg = "Could not load your colorscheme",
+    on_error = function(msg)
+      require("lazy.core.util").error(msg)
+      vim.cmd.colorscheme("habamax")
+    end,
+  })
+  Custom.util.track()
 end
 
 
