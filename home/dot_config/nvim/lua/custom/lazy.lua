@@ -17,7 +17,7 @@ function M.ensure_installed()
 end
 
 ---@param name "autocmds" | "options" | "keymaps"
-local function load(name)
+function M.load(name)
   local function _load(mod)
     require("lazy.core.util").try(function()
       require(mod)
@@ -51,7 +51,7 @@ function M.pre_init()
     -- load options here, before lazy init while sourcing plugin modules
     -- this is needed to make sure options will be correctly applied
     -- after installing missing plugins
-    load("options")
+    M.load("options")
   end
 end
 
@@ -62,14 +62,14 @@ function M.post_install()
       group = vim.api.nvim_create_augroup("Custom", { clear = true }),
       pattern = "VeryLazy",
       callback = function()
-        load("autocmds")
-        load("keymaps")
+        M.load("autocmds")
+        M.load("keymaps")
       end,
     })
   else
     -- load them now so they affect the opened buffers
-    load("autocmds")
-    load("keymaps")
+    M.load("autocmds")
+    M.load("keymaps")
   end
 
   Custom.util.track("colorscheme")
