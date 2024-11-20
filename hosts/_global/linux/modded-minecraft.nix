@@ -11,6 +11,7 @@
   rsyncSSHKeys = config.users.users.mattr-.openssh.authorizedKeys.keys;
   jre8 = pkgs.temurin-bin-8;
   jre17 = pkgs.temurin-bin-17;
+  jre21 = pkgs.temurin-bin;
 
   jvmOpts = concatStringsSep " " [
     "-XX:+UseG1GC"
@@ -47,7 +48,7 @@ in {
         inherit rsyncSSHKeys jvmOpts;
         jvmMaxAllocation = "16G";
         jvmInitialAllocation = "4G";
-        jvmPackage = jre17;
+        jvmPackage = jre21;
         serverConfig =
           serverDefaults
           // {
