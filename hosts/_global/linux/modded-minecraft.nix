@@ -42,8 +42,26 @@ in {
   services.modded-minecraft-servers = {
     eula = true;
     instances = {
+      atm10 = {
+        enable = false;
+        inherit rsyncSSHKeys jvmOpts;
+        jvmMaxAllocation = "16G";
+        jvmInitialAllocation = "4G";
+        jvmPackage = jre17;
+        serverConfig =
+          serverDefaults
+          // {
+            server-port = 25565;
+            rcon-port = 25566;
+            motd = "Welcome to ATM 10!";
+            allow-flight = true;
+            extra-options.difficulty = "hard";
+            extra-options.gamemode = "survival";
+          };
+      };
+
       po3mythic = {
-        enable = true;
+        enable = false;
         inherit rsyncSSHKeys jvmOpts;
         jvmMaxAllocation = "10G";
         jvmInitialAllocation = "4G";
@@ -59,29 +77,8 @@ in {
           };
       };
 
-      atm9sky = {
-        enable = true;
-        inherit rsyncSSHKeys jvmOpts;
-        jvmMaxAllocation = "8G";
-        jvmInitialAllocation = "1G";
-        jvmPackage = jre17;
-        serverConfig =
-          serverDefaults
-          // {
-            server-port = 25565;
-            rcon-port = 25566;
-            motd = "Welcome to ATM 9 - To The Sky!";
-            allow-flight = true;
-            extra-options.level-type = "skyblockbuilder:skyblock";
-            extra-options.simulation-distance = 8;
-            extra-options.view-distance = 10;
-            extra-options.difficulty = "hard";
-            extra-options.gamemode = "survival";
-            level-seed = "-5782666497127736930";
-          };
-      };
       stoneblock = {
-        enable = true;
+        enable = false;
         inherit rsyncSSHKeys jvmOpts;
         jvmMaxAllocation = "6G";
         jvmInitialAllocation = "1G";
@@ -97,8 +94,9 @@ in {
             extra-options.level-type = "voidworld";
           };
       };
+
       stoneblock2 = {
-        enable = true;
+        enable = false;
         inherit rsyncSSHKeys jvmOpts;
         jvmMaxAllocation = "6G";
         jvmInitialAllocation = "1G";
@@ -114,6 +112,7 @@ in {
             extra-options.level-type = "voidworld";
           };
       };
+
       stoneblock3 = {
         enable = false;
         inherit rsyncSSHKeys jvmOpts;
@@ -129,6 +128,28 @@ in {
             motd = "Welcome to StoneBlock 3!";
             extra-options.difficulty = "hard";
             extra-options.gamemode = "survival";
+          };
+      };
+
+      atm9sky = {
+        enable = false;
+        inherit rsyncSSHKeys jvmOpts;
+        jvmMaxAllocation = "8G";
+        jvmInitialAllocation = "1G";
+        jvmPackage = jre17;
+        serverConfig =
+          serverDefaults
+          // {
+            server-port = 25575;
+            rcon-port = 25576;
+            motd = "Welcome to ATM 9 - To The Sky!";
+            allow-flight = true;
+            extra-options.level-type = "skyblockbuilder:skyblock";
+            extra-options.simulation-distance = 8;
+            extra-options.view-distance = 10;
+            extra-options.difficulty = "hard";
+            extra-options.gamemode = "survival";
+            level-seed = "-5782666497127736930";
           };
       };
     };
