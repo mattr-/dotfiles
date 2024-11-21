@@ -62,7 +62,7 @@ in {
       };
 
       po3mythic = {
-        enable = true;
+        enable = false;
         inherit rsyncSSHKeys jvmOpts;
         jvmMaxAllocation = "10G";
         jvmInitialAllocation = "4G";
@@ -79,7 +79,7 @@ in {
       };
 
       stoneblock = {
-        enable = true;
+        enable = false;
         inherit rsyncSSHKeys jvmOpts;
         jvmMaxAllocation = "6G";
         jvmInitialAllocation = "1G";
@@ -97,7 +97,7 @@ in {
       };
 
       stoneblock2 = {
-        enable = true;
+        enable = false;
         inherit rsyncSSHKeys jvmOpts;
         jvmMaxAllocation = "6G";
         jvmInitialAllocation = "1G";
@@ -133,7 +133,7 @@ in {
       };
 
       atm9sky = {
-        enable = true;
+        enable = false;
         inherit rsyncSSHKeys jvmOpts;
         jvmMaxAllocation = "8G";
         jvmInitialAllocation = "1G";
