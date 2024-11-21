@@ -44,7 +44,7 @@ in {
     eula = true;
     instances = {
       atm10 = {
-        enable = false;
+        enable = true;
         inherit rsyncSSHKeys jvmOpts;
         jvmMaxAllocation = "16G";
         jvmInitialAllocation = "4G";
