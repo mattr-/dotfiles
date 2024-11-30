@@ -2,6 +2,7 @@
 ---@field config custom.config
 ---@field toggle custom.toggle
 ---@field lazy custom.lazy
+---@field lualine custom.lualine
 ---@field ui custom.ui
 ---@field util custom.util
 
