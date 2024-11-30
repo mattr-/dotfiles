@@ -70,10 +70,7 @@ return {
           theme = "auto",
           globalstatus = true,
           disabled_filetypes = {
-            statusline = {
-              "dashboard",
-              "alpha",
-            }
+            statusline = { "dashboard", "alpha", "snacks_dashboard" }
           },
         },
         sections = {
