@@ -16,6 +16,12 @@ M.fg = function(group_name)
   return hl_group and { fg = string.format("#%06x", hl_group.fg) } or nil
 end
 
+---@param group_name string # The name of the highlight group to get the gui info for
+---@return vim.api.keyset.hl_info|nil
+M.gui = function(group_name)
+  
+end
+
 -- Display an error in the UI. Uses vim.notify under the hood
 --
 ---@param title string The title for the notification

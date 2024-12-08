@@ -18,6 +18,7 @@ return {
       { "<localleader>p", "<cmd>MarkdownPreviewToggle<cr>", desc = "Preview Markdown" },
     },
     build = function()
+      require("lazy").load({ plugins = { "markdown-preview.nvim" } })
       vim.fn["mkdp#util#install"]()
     end,
   },
@@ -28,5 +29,28 @@ return {
         "marksman",
       },
     },
+  },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {
+      code = {
+        sign = false,
+        width = "block",
+        right_pad = 1,
+      },
+      heading = {
+        sign = false,
+        icons = {},
+      },
+    },
+    ft = { "markdown", "norg", "rmd", "org" },
+    config = function(_, opts)
+      require("render-markdown").setup(opts)
+    end,
+  },
+
+  {
+    "OXY2DEV/markview.nvim",
+    ft = { "markdown", "norg", "rmd", "org" },
   },
 }

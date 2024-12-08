@@ -1,15 +1,19 @@
 ---@class custom.lualine
 local M = {}
 
+-- Escape text so vim doesn't think it's a statusline substitution
 ---@param str string
 function M.statusline_escape(str)
   if type(str) ~= "string" then
     return str
+  else
+    return str:gsub("%%", "%%%%")
   end
-
-  return str:gsub("%%", "%%%%")
 end
 
+---@param component any
+---@param text string the text to format
+---@param highlight_group string the highlight group to use to formatting
 function M.format(component, text, highlight_group)
   text = M.statusline_escape(text)
   if not highlight_group or highlight_group == "" then
@@ -21,7 +25,7 @@ function M.format(component, text, highlight_group)
   local gui = vim.tbl_filter(function(x)
     return x
   end, {
-    utils.extract_highlight_colors(highlight_group, "bold") and "bold",
+    utils.extract_highlight_colors(highlight_group,"bold") and "bold",
     utils.extract_highlight_colors(highlight_group, "italic") and "italic",
   })
   ---@type table<string, string>
@@ -29,7 +33,7 @@ function M.format(component, text, highlight_group)
   local lualine_highlight_group = component.highlight_cache[highlight_group]
   if not lualine_highlight_group then
     lualine_highlight_group = component:create_hl({
-      fg = utils.extract_highlight_colors(highlight_group, "fg"),
+      fg = Custom.ui.fg(highlight_group),
       gui = #gui > 0 and table.concat(gui, ",") or nil,
     }, "Custom_" .. highlight_group) --[[@as string]]
     component.highlight_cache[highlight_group] = lualine_highlight_group
@@ -51,6 +55,9 @@ function M.fancy_path(opts)
   return function(self)
     local path = vim.fn.expand('%:~:.')
     path = Custom.util.norm(path)
+    if path == "" then
+      return ""
+    end
     local path_parts = vim.split(path, "[\\/]")
     local sep = package.config:sub(1,1)
 

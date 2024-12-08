@@ -22,13 +22,13 @@ function M.load(name)
     require("lazy.core.util").try(function()
       require(mod)
     end, {
-        msg = "Failed loading " .. mod,
+        message = "Failed loading " .. mod,
         on_error = function(msg)
           local info = require("lazy.core.cache").find(mod)
           if info == nil or (type(info) == "table" and #info == 0) then
             return
           end
-          Custom.error(msg)
+          vim.notify(message, vim.log.levels.ERROR, {})
         end,
 
       })
