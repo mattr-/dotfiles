@@ -27,7 +27,7 @@ function M.load(opts)
       -- add LazyVim and import its plugins
       { "mattr-/DashVim", import = "dashvim.plugins" },
       -- import/override with your plugins
-      -- { import = "plugins" },
+      { import = "plugins" },
     },
     defaults = {
       lazy = true,
