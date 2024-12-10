@@ -3,7 +3,7 @@ local M = {}
 function M.ensure_lazy_installed()
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
   if not (vim.uv or vim.loop).fs_stat(lazypath) then
-    vim.api.nvim_echo({{"Installing lazy.nvim 💤", MoreMsg}}, false, {})
+    vim.api.nvim_echo({{"Installing lazy.nvim 💤", "MoreMsg"}}, false, {})
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
     local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
     if vim.v.shell_error ~= 0 then
@@ -15,7 +15,7 @@ function M.ensure_lazy_installed()
       vim.fn.getchar()
       os.exit(1)
     end
-    vim.api.nvim_echo({{"", MoreMsg}}, false, {})
+    vim.api.nvim_echo({{"", "MoreMsg"}}, false, {})
   end
 
   vim.opt.rtp:prepend(lazypath)
