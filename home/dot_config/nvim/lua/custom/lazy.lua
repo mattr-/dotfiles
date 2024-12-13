@@ -1,6 +1,8 @@
 ---@class custom.lazy
 local M = {}
 
+M.lazy_file_events = { "BufReadPost", "BufNewFile", "BufWritePre" }
+
 function M.ensure_installed()
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
   if not vim.uv.fs_stat(lazypath) then
@@ -52,6 +54,9 @@ function M.pre_init()
     -- this is needed to make sure options will be correctly applied
     -- after installing missing plugins
     M.load("options")
+
+    -- add our LazyFile event
+    M.add_lazy_file()
   end
 end
 
@@ -173,6 +178,13 @@ function M.integrated_map(mode, lhs, rhs, opts)
     end
     vim.keymap.set(modes, lhs, rhs, opts)
   end
+end
+
+function M.add_lazy_file()
+  local Event = require("lazy.core.handler.event")
+
+  Event.mappings.LazyFile = { id = "LazyFile", event = M.lazy_file_events }
+  Event.mappings["User LazyFile"] = Event.mappings.LazyFile
 end
 
 return M
