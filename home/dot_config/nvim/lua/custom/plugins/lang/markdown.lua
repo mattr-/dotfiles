@@ -15,7 +15,7 @@ return {
     cmd = { "MarkdownPreview", "MarkdownPreviewToggle" },
     ft = { "markdown" },
     keys = {
-      { "<localleader>p", "<cmd>MarkdownPreviewToggle<cr>", desc = "Preview Markdown" },
+      { "<localleader>p", "<cmd>MarkdownPreviewToggle<cr>", ft = "markdown", desc = "Preview Markdown" },
     },
     build = function()
       vim.fn["mkdp#util#install"]()
