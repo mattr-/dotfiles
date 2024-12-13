@@ -18,6 +18,7 @@ return {
       { "<localleader>p", "<cmd>MarkdownPreviewToggle<cr>", ft = "markdown", desc = "Preview Markdown" },
     },
     build = function()
+      require("lazy").load({ plugins = { "markdown-preview.nvim" } })
       vim.fn["mkdp#util#install"]()
     end,
   },
