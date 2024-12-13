@@ -2,6 +2,19 @@ return {
   -- lazy.nvim and other common libraries are going here
   { "folke/lazy.nvim", version = "*" },
 
+  -- Snacks
+  {
+    "folke/snacks.nvim",
+    lazy = false,
+    --use semver. snacks gets released often, thankfully.
+    version = "*",
+    opts = {
+      toggle = {
+        map = Custom.lazy.integrated_map, -- make Snacks aware of lazy.nvim's key handlers
+      },
+    },
+  },
+
   -- library used by other plugins
   { "nvim-lua/plenary.nvim", lazy = true },
 
@@ -10,7 +23,6 @@ return {
   {
     "echasnovski/mini.icons",
     lazy = true,
-    opts = {},
     init = function()
       package.preload["nvim-web-devicons"] = function()
         require("mini.icons").mock_nvim_web_devicons()

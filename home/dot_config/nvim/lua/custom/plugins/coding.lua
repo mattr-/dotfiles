@@ -117,20 +117,6 @@ return {
     config = function(_, opts)
       Custom.util.mini.pairs(opts)
     end,
-    keys = {
-      {
-        "<leader>vp",
-        function()
-          vim.g.minipairs_disable = not vim.g.minipairs_disable
-          if vim.g.minipairs_disable then
-            Custom.ui.warn("Auto Pairs", "Disabled", { render = "compact" })
-          else
-            Custom.ui.info("Auto Pairs", "Enabled", { render = "compact" })
-          end
-        end,
-        desc = "Toggle Auto Pairs",
-      },
-    },
   },
 
   {
@@ -154,20 +140,9 @@ return {
         },
       }
     end,
-    keys = {
-      {
-        "<leader>va",
-        function()
-          vim.g.miniai_disable = not vim.g.miniai_disable
-          if vim.g.miniai_disable then
-            Custom.ui.warn("Mini TextObjects", "Disabled", { render = "compact" })
-          else
-            Custom.ui.info("Mini TextObjects", "Enabled", { render = "compact" })
-          end
-        end,
-        desc = "Toggle Mini TextObjects",
-      },
-    },
+    config = function (_, opts)
+      Custom.util.mini.ai(opts)
+    end
   },
 
   -- testing core support
