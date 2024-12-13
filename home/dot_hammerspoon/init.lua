@@ -6,7 +6,7 @@ hs.screen.strictScreenInDirection = false -- Don't care about axes
 -- }}}
 
 hyper = { "cmd", "shift", "ctrl", "alt" }
-reload_keys = { hyper, "R" }
+reload_keys = { hyper, "H" }
 hs.hotkey.bind(reload_keys[1], reload_keys[2], "Reload Configuration", function()
   hs.reload()
 end)
