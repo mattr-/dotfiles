@@ -1,0 +1,15 @@
+# Colors
+theme = Wez
+
+# Fonts
+font-family = "Symbols Nerd Font Mono"
+font-family = "Iosevka"
+adjust-underline-position = 1
+
+mouse-hide-while-typing = true
+
+keybind = ctrl+shift+option+super+g=reload_config
+
+# Shell
+shell-integration = zsh
+shell-integration-features = false
