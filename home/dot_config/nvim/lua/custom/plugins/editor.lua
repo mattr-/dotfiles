@@ -34,7 +34,7 @@ return {
       })
     end,
     opts = {
-      sources = { "filesystem", "buffers", "git_status", "document_symbols" },
+      sources = { "filesystem", "buffers" },
       open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "toggleterm", "edgy" },
       filesystem = {
         bind_to_cwd = false,
