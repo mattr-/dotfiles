@@ -12,4 +12,4 @@ keybind = ctrl+shift+option+super+g=reload_config
 
 # Shell
 shell-integration = zsh
-shell-integration-features = false
+shell-integration-features = no-title
