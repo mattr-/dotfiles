@@ -2,6 +2,6 @@ cf() {
   if [ "$#" -eq 1 ] ; then
     cd $(find ~/Code -mindepth 2 -maxdepth 2 -type d -name $1)
   else
-    cd $(find ~/Code -mindepth 2 -maxdepth 2 -type d | fzy)
+    cd $(find ~/Code -mindepth 2 -maxdepth 2 -type d | fzf --layout=reverse --height=10 --no-separator --info=hidden)
   fi
 }
