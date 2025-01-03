@@ -5,6 +5,7 @@
     unstable.gitui
     unstable.gitFull
     unstable.gh
+    unstable.luajitPackages.luarocks
     unstable.neovim
   ];
 
