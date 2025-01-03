@@ -137,6 +137,7 @@ return {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
+      preset = "helix",
       plugins = { spelling = true },
       defaults = {
         normal_mode = {
