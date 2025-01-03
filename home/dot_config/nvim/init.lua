@@ -10,13 +10,12 @@ Custom.lazy.pre_init()
 require("lazy").setup({
   spec = {
     { import = "custom.plugins" }, -- the base set of plugins
-    { import = "custom.plugins.lang" }, -- language specific extensions
+    { import = "custom.plugins.lang" }, -- language plugins
   },
   defaults = {
-    -- Explicitly require plugins to be lazy loaded
-    lazy = false,
-    version = false, -- always use the latest git commit
-    -- version = "*", -- try installing the latest stable version for plugins that support semver
+    -- Explicitly require plugins to be non-lazy loaded
+    lazy = true,
+    version = false, -- always use the latest git commit.
   },
   install = { colorscheme = { "tokyonight", "habamax" } },
   checker = { enabled = true }, -- automatically check for plugin updates
