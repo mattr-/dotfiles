@@ -20,6 +20,7 @@
     # ./nvim.nix
     ./nixpkgs.nix
     ../common/cli
+    ../common/cli/utils.nix
     ./dev
   ];
 
