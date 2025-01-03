@@ -151,7 +151,6 @@ return {
           { "<leader>ghp", group = "pull requests" },
           { "<leader>gs", group = "stage", },
           { "<leader>gu", group = "unstage", },
-          { "<leader>t", group = "toggle" },
           { "<leader>v", group = "vim" },
           { "<leader>vn", group = "noice" },
           { "<leader>w", group = "window" },
