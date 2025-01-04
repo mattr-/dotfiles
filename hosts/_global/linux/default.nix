@@ -22,5 +22,6 @@
     vim
     curl
     git
+    unstable.ghostty.terminfo
   ];
 }

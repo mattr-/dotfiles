@@ -12,6 +12,7 @@
       "elgato-control-center"
       "elgato-stream-deck"
       "fantastical"
+      "ghostty"
       "hammerspoon"
       "istat-menus"
       "obs"
