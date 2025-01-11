@@ -32,6 +32,7 @@
     "-XX:SurvivorRatio=32"
     "-XX:+PerfDisableSharedMem"
     "-XX:MaxTenuringThreshold=1"
+    "-Dfml.readTimeout=120"
   ];
 
   serverDefaults = {
