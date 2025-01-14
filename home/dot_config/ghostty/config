@@ -2,14 +2,19 @@
 theme = Wez
 
 # Fonts
-font-family = "Symbols Nerd Font Mono"
 font-family = "Iosevka"
 adjust-underline-position = 1
 
-mouse-hide-while-typing = true
-
+# Keybinds
 keybind = ctrl+shift+option+super+g=reload_config
 
 # Shell
 shell-integration = zsh
-shell-integration-features = no-title
+shell-integration-features = no-cursor,no-title
+working-directory = home
+
+# Other UI Customization
+cursor-style = block
+cursor-style-blink = false
+mouse-hide-while-typing = true
+scrollback-limit = 1000000
