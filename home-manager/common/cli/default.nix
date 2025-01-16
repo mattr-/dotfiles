@@ -4,6 +4,7 @@
     unstable.fzy
     unstable.gitui
     unstable.gitFull
+    unstable.git-lfs
     unstable.gh
     unstable.luajitPackages.luarocks
     unstable.neovim
