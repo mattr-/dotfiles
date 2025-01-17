@@ -66,3 +66,7 @@ vm/bootstrap:
 	ssh $(MAKE_SSH_OPTIONS) -p$(NIXPORT) root@$(NIXADDR) " \
 		sudo nixos-rebuild switch --flake \"/root/nix-config#$(NIXNAME)\" \
 	"
+
+macos/bootstrap:
+	curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | \
+		sh -s -- install
