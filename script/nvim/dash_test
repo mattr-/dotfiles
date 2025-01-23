@@ -1,0 +1,37 @@
+#!/bin/bash
+set -e
+
+while getopts "cd" opt; do
+  case $opt in
+  c)
+    clean=true
+    ;;
+  d)
+    dev=true
+    ;;
+  esac
+done
+
+if [ -n "$clean" ]; then
+  docker container stop $(docker container ls -qa --filter 'name=dashvim_test')
+  docker container rm $(docker container ls -qa --filter 'name=dashvim_test')
+fi
+
+if [ -n "$dev" ]; then
+  # mount the local plugin directory in the right place and start the container
+  echo
+fi
+
+if [ "$(docker container ls -aq --filter 'name=dashvim_test')" != "" ]; then
+  docker container start -ai $(docker container ls -qa --filter 'name=dashvim_test')
+else
+  docker run -w /root -it --name dashvim_test alpine:edge sh -uelic '
+    apk add git lazygit fd neovim neovim-doc ripgrep alpine-sdk --update
+    if [ ! -e ~/.config/nvim ]
+    then
+      git clone https://github.com/DashVim/starter ~/.config/nvim
+    fi
+    cd ~/.config/nvim
+    nvim
+  '
+fi

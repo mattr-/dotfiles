@@ -1,0 +1,10 @@
+#!/bin/bash
+rm -rf ~/.config/nvim
+rm -rf ~/.local/share/nvim/site/pack/*
+rm -rf ~/.local/share/nvim/mason
+rm -rf ~/.local/share/nvim/lsp_servers
+rm -rf ~/.local/share/nvim/lazy
+rm -rf ~/.local/state/nvim/lazy
+
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+rm -rf ~/.config/nvim/.git
