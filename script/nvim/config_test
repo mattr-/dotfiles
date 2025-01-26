@@ -30,8 +30,8 @@ fi
 if [ "$(docker container ls -aq --filter 'name=nvim_config_test')" != "" ]; then
   docker container start -ai $(docker container ls -qa --filter 'name=nvim_config_test')
 else
-  docker run -w /root $DOCKER_OPTIONS -it --name nvim_config_test alpine:edge sh -uelic '
-    apk add git lazygit fd neovim neovim-doc ripgrep alpine-sdk chezmoi ruby --update
+  docker run -w /root $DOCKER_OPTIONS -it --name $DOCKER_CONTAINER_NAME alpine:edge sh -uelic '
+    apk add bash curl git lazygit fd neovim neovim-doc ripgrep alpine-sdk chezmoi ruby --update
     if [ ! -e ~/.config/nvim ]
     then
       chezmoi init mattr- --apply
