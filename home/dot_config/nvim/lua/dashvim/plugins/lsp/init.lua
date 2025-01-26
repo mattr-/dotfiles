@@ -16,7 +16,7 @@ return {
           spacing = 4,
           source = "if_many",
           prefix = function(diagnostic) -- uses new nvim 0.10 functionality
-            local icons = Custom.config.icons.diagnostics
+            local icons = DashVim.config.icons.diagnostics
             for d, icon in pairs(icons) do
               if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
                 return icon
@@ -27,10 +27,10 @@ return {
         severity_sort = true,
         signs = {
           text = {
-            [vim.diagnostic.severity.ERROR] = Custom.config.icons.diagnostics.Error,
-            [vim.diagnostic.severity.WARN] = Custom.config.icons.diagnostics.Warn,
-            [vim.diagnostic.severity.HINT] = Custom.config.icons.diagnostics.Hint,
-            [vim.diagnostic.severity.INFO] = Custom.config.icons.diagnostics.Info,
+            [vim.diagnostic.severity.ERROR] = DashVim.config.icons.diagnostics.Error,
+            [vim.diagnostic.severity.WARN] = DashVim.config.icons.diagnostics.Warn,
+            [vim.diagnostic.severity.HINT] = DashVim.config.icons.diagnostics.Hint,
+            [vim.diagnostic.severity.INFO] = DashVim.config.icons.diagnostics.Info,
           },
           numhl = {
             [vim.diagnostic.severity.ERROR] = "",
@@ -67,8 +67,8 @@ return {
     config = function(_, opts)
 
       -- TODO autoformatting?
-      Custom.util.lsp.on_attach(function(client, buffer)
-       require("custom.lsp.keymaps").on_attach(client, buffer)
+      DashVim.util.lsp.on_attach(function(client, buffer)
+       require("dashvim.lsp.keymaps").on_attach(client, buffer)
       end)
 
       -- LSP (both the spec and neovim) supports dynamic registrations of
@@ -82,7 +82,7 @@ return {
         ---@type vim.lsp.Client|nil
         local client = vim.lsp.get_client_by_id(client_id)
         local buffer = vim.api.nvim_get_current_buf()
-        require("custom.lsp.keymaps").on_attach(client, buffer)
+        require("dashvim.lsp.keymaps").on_attach(client, buffer)
         return ret
       end
 
@@ -92,7 +92,7 @@ return {
       -- configure inlay_hint (which requires neovim 0.10 or later)
       local inlay_hint = vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint
       if inlay_hint then
-        Custom.util.lsp.on_attach(function(client, buffer)
+        DashVim.util.lsp.on_attach(function(client, buffer)
           if client.server_capabilities.inlayHintProvider then
             inlay_hint.enable(true, { bufnr = buffer })
           end
@@ -101,7 +101,7 @@ return {
 
       -- configure code lens support (also new in neovim 0.10 or later)
       if vim.lsp.codelens then
-        Custom.util.lsp.on_attach(function(client, buffer)
+        DashVim.util.lsp.on_attach(function(client, buffer)
           if client.supports_method("textDocument/codeLens") then
             vim.lsp.codelens.refresh()
             vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
@@ -113,8 +113,8 @@ return {
       end
 
       -- configure reference highlights when the cursor stops
-      Custom.util.lsp.on_attach(function(client, buffer)
-        Custom.util.lsp.setup_highlight_local_references(client, buffer)
+      DashVim.util.lsp.on_attach(function(client, buffer)
+        DashVim.util.lsp.setup_highlight_local_references(client, buffer)
       end)
 
       -- Merge nvim-cmp's capabilities with neovim's built in capabilities

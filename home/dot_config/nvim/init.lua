@@ -1,16 +1,16 @@
-require("custom")
--- The `Custom` global is now available
+require("dashvim")
+-- The `DashVim` global is now available
 -- Make sure lazy.nvim is installed
-Custom.lazy.ensure_installed()
+DashVim.lazy.ensure_installed()
 
 -- Do stuff before loading lazy
-Custom.lazy.pre_init()
+DashVim.lazy.pre_init()
 
 -- plugins 🎉
 require("lazy").setup({
   spec = {
-    { import = "custom.plugins" }, -- the base set of plugins
-    { import = "custom.plugins.lang" }, -- language plugins
+    { import = "dashvim.plugins" }, -- the base set of plugins
+    { import = "dashvim.plugins.lang" }, -- language plugins
   },
   defaults = {
     -- Explicitly require plugins to be non-lazy loaded
@@ -35,4 +35,4 @@ require("lazy").setup({
 })
 
 -- post plugin install initialization
-Custom.lazy.post_install()
+DashVim.lazy.post_install()

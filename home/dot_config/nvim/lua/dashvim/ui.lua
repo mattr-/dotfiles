@@ -1,4 +1,4 @@
----@class custom.ui
+---@class dashvim.ui
 local M = {
 }
 
@@ -25,7 +25,7 @@ end
 M.error = function(title, message, opts)
   opts = vim.tbl_extend("force", {
     title = title,
-    icon = Custom.config.icons.diagnostics.Error
+    icon = DashVim.config.icons.diagnostics.Error
   }, opts or {})
 
   vim.notify(message, vim.log.levels.ERROR, opts)
@@ -40,7 +40,7 @@ end
 M.warn = function(title, message, opts)
   opts = vim.tbl_extend("force", {
     title = title,
-    icon = Custom.config.icons.diagnostics.Warn
+    icon = DashVim.config.icons.diagnostics.Warn
   }, opts or {})
 
   vim.notify(message, vim.log.levels.WARN, opts)
@@ -55,7 +55,7 @@ end
 M.info = function(title, message, opts)
   opts = vim.tbl_extend("force", {
     title = title,
-    icon = Custom.config.icons.diagnostics.Info
+    icon = DashVim.config.icons.diagnostics.Info
   }, opts or {})
 
   vim.notify(message, vim.log.levels.INFO, opts)

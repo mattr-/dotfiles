@@ -1,4 +1,4 @@
----@class custom.util.tools
+---@class dashvim.util.tools
 local M = {
 }
 

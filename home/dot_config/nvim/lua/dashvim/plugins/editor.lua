@@ -55,10 +55,10 @@ return {
       { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
       { "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Grep (root dir)" },
       { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-      { "<leader>fc", Custom.util.telescope.config_files, desc = "Find Config File" },
+      { "<leader>fc", DashVim.util.telescope.config_files, desc = "Find Config File" },
       { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files (root dir)" },
       { "<leader>fF", "<cmd>Telescope git_files<cr>", desc = "Find Files (git)" },
-      { "<leader>fp", Custom.util.telescope.plugin_files, desc = "Find Plugin File" },
+      { "<leader>fp", DashVim.util.telescope.plugin_files, desc = "Find Plugin File" },
       { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "status" },
     },
     opts = {
@@ -103,7 +103,7 @@ return {
     "echasnovski/mini.surround",
     keys = function(_, keys)
       -- Populate the keys based on the options
-      local opts = Custom.lazy.opts("mini.surround")
+      local opts = DashVim.lazy.opts("mini.surround")
       local mappings = {
         { opts.mappings.add, desc = "Add surrounding", mode = { "n", "v" } },
         { opts.mappings.delete, desc = "Delete surrounding" },

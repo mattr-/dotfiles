@@ -24,12 +24,12 @@ function M.get()
     { "K", vim.lsp.buf.hover, desc = "Hover" },
     { "gK", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
     { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
-    { "]d", Custom.util.lsp.diagnostic_goto("next"), desc = "Next Diagnostic" },
-    { "[d", Custom.util.lsp.diagnostic_goto("previous"), desc = "Prev Diagnostic" },
-    { "]e", Custom.util.lsp.diagnostic_goto("next", "ERROR"), desc = "Next Error" },
-    { "[e", Custom.util.lsp.diagnostic_goto("previous", "ERROR"), desc = "Prev Error" },
-    { "]w", Custom.util.lsp.diagnostic_goto("next", "WARN"), desc = "Next Warning" },
-    { "[w", Custom.util.lsp.diagnostic_goto("previous", "WARN"), desc = "Prev Warning" },
+    { "]d", DashVim.util.lsp.diagnostic_goto("next"), desc = "Next Diagnostic" },
+    { "[d", DashVim.util.lsp.diagnostic_goto("previous"), desc = "Prev Diagnostic" },
+    { "]e", DashVim.util.lsp.diagnostic_goto("next", "ERROR"), desc = "Next Error" },
+    { "[e", DashVim.util.lsp.diagnostic_goto("previous", "ERROR"), desc = "Prev Error" },
+    { "]w", DashVim.util.lsp.diagnostic_goto("next", "WARN"), desc = "Next Warning" },
+    { "[w", DashVim.util.lsp.diagnostic_goto("previous", "WARN"), desc = "Prev Warning" },
     { "<localleader>f", vim.lsp.buf.format, desc = "Format Document", has = "formatting" },
     { "<localleader>f", vim.lsp.buf.format, desc = "Format Range", mode = "v", has = "rangeFormatting" },
     { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
@@ -52,7 +52,7 @@ function M.get()
   }
 
   -- TODO: Check out the inc-rename.nvim plugin
-  -- if require("custom.util.lazy").has("inc-rename.nvim") then
+  -- if require("dashvim.util.lazy").has("inc-rename.nvim") then
   --   M._keys[#M._keys + 1] = {
   --     "<leader>cr",
   --     function()
@@ -93,7 +93,7 @@ function M.resolve(buffer)
 
   -- check if server config has been attached to the nvim-lspconfig
   -- options and if there are keymaps specific to that server, add them here
-  local opts = Custom.lazy.opts("nvim-lspconfig")
+  local opts = DashVim.lazy.opts("nvim-lspconfig")
   local clients = vim.lsp.get_clients({ bufnr = buffer })
   for _, client in ipairs(clients) do
     local maps = opts.servers[client.name] and opts.servers[client.name].keys or {}

@@ -1,4 +1,4 @@
----@class custom.lazy
+---@class dashvim.lazy
 local M = {}
 
 M.lazy_file_events = { "BufReadPost", "BufNewFile", "BufWritePre" }
@@ -30,13 +30,13 @@ function M.load(name)
           if info == nil or (type(info) == "table" and #info == 0) then
             return
           end
-          Custom.error(msg)
+          DashVim.error(msg)
         end,
 
       })
   end
 
-  _load("custom.config." .. name)
+  _load("dashvim.config." .. name)
   if vim.bo.filetype == "lazy" then
     -- HACK: LazyVim may have overwritten options of the Lazy ui, so reset this here
     vim.cmd([[do VimResized]])
@@ -48,7 +48,7 @@ function M.pre_init()
   if not M.did_init then
     M.did_init = true
     -- delay notifications till vim.notify was replaced or after 500ms
-    Custom.lazy.delayed_notify()
+    DashVim.lazy.delayed_notify()
 
     -- load options here, before lazy init while sourcing plugin modules
     -- this is needed to make sure options will be correctly applied
@@ -64,7 +64,7 @@ function M.post_install()
   if vim.fn.argc(-1) == 0 then
     -- autocmds and keymaps can wait to load
     vim.api.nvim_create_autocmd("User", {
-      group = vim.api.nvim_create_augroup("Custom", { clear = true }),
+      group = vim.api.nvim_create_augroup("DashVim", { clear = true }),
       pattern = "VeryLazy",
       callback = function()
         M.load("autocmds")
@@ -77,12 +77,12 @@ function M.post_install()
     M.load("keymaps")
   end
 
-  Custom.util.track("colorscheme")
-  Custom.util.try(function()
-    if type(Custom.config.colorscheme) == "function" then
-      Custom.config.colorscheme()
+  DashVim.util.track("colorscheme")
+  DashVim.util.try(function()
+    if type(DashVim.config.colorscheme) == "function" then
+      DashVim.config.colorscheme()
     else
-      vim.cmd.colorscheme(Custom.config.colorscheme)
+      vim.cmd.colorscheme(DashVim.config.colorscheme)
     end
   end, {
     msg = "Could not load your colorscheme",
@@ -91,7 +91,7 @@ function M.post_install()
       vim.cmd.colorscheme("habamax")
     end,
   })
-  Custom.util.track()
+  DashVim.util.track()
 end
 
 

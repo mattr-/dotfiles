@@ -34,7 +34,7 @@ return {
       ls.setup(opts)
 
       -- Dynamically load any custom snippets I've put in place
-      for _, snippet_path in ipairs(vim.api.nvim_get_runtime_file("lua/custom/snippets/*.lua", true)) do
+      for _, snippet_path in ipairs(vim.api.nvim_get_runtime_file("lua/dashvim/snippets/*.lua", true)) do
         loadfile(snippet_path)()
       end
     end,
@@ -83,7 +83,7 @@ return {
         }),
         formatting = {
           format = function(_, item)
-            local icons = Custom.config.icons.kinds
+            local icons = DashVim.config.icons.kinds
             if icons[item.kind] then
               item.kind = icons[item.kind] .. item.kind
             end
@@ -115,7 +115,7 @@ return {
       },
     },
     config = function(_, opts)
-      Custom.util.mini.pairs(opts)
+      DashVim.util.mini.pairs(opts)
     end,
   },
 
@@ -141,7 +141,7 @@ return {
       }
     end,
     config = function (_, opts)
-      Custom.util.mini.ai(opts)
+      DashVim.util.mini.ai(opts)
     end
   },
 

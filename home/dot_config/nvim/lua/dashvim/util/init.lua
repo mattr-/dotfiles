@@ -1,9 +1,9 @@
 local LazyUtil = require("lazy.core.util")
 
---- @class custom.util: LazyUtilCore
---- @field lsp custom.util.lsp
---- @field telescope custom.util.telescope
---- @field tools custom.util.tools
+--- @class dashvim.util: LazyUtilCore
+--- @field lsp dashvim.util.lsp
+--- @field telescope dashvim.util.telescope
+--- @field tools dashvim.util.tools
 local M = {}
 
 setmetatable(M, {
@@ -14,7 +14,7 @@ setmetatable(M, {
     end
 
     -- Otherwise, load a module from our util namespace
-    table[key] = require("custom.util." .. key)
+    table[key] = require("dashvim.util." .. key)
     return table[key]
   end,
 })

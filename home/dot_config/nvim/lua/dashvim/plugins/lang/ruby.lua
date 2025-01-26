@@ -15,14 +15,14 @@ return {
       setup = {
         sorbet = function(_, opts)
           local lspconfig = require("lspconfig")
-          if Custom.util.tools.sorbet_configured() then
+          if DashVim.util.tools.sorbet_configured() then
             lspconfig.sorbet.setup(opts)
           end
           return true
         end,
         rubocop = function(_, opts)
           local lspconfig = require("lspconfig")
-          if Custom.util.tools.rubocop_configured() then
+          if DashVim.util.tools.rubocop_configured() then
             lspconfig.rubocop.setup(opts)
           end
           return true
@@ -37,11 +37,11 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = opts.ensure_installed or {}
 
-      if Custom.util.tools.sorbet_configured() then
+      if DashVim.util.tools.sorbet_configured() then
         vim.list_extend(opts.ensure_installed, { "sorbet" })
       end
 
-      if Custom.util.tools.rubocop_configured() then
+      if DashVim.util.tools.rubocop_configured() then
         vim.list_extend(opts.ensure_installed, { "rubocop" })
       end
     end,

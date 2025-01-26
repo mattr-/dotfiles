@@ -1,4 +1,4 @@
----@class custom.lualine
+---@class dashvim.lualine
 local M = {}
 
 ---@param str string
@@ -31,7 +31,7 @@ function M.format(component, text, highlight_group)
     lualine_highlight_group = component:create_hl({
       fg = utils.extract_highlight_colors(highlight_group, "fg"),
       gui = #gui > 0 and table.concat(gui, ",") or nil,
-    }, "Custom_" .. highlight_group) --[[@as string]]
+    }, "DashVim_" .. highlight_group) --[[@as string]]
     component.highlight_cache[highlight_group] = lualine_highlight_group
   end
 
@@ -50,7 +50,7 @@ function M.fancy_path(opts)
 
   return function(self)
     local path = vim.fn.expand('%:~:.')
-    path = Custom.util.norm(path)
+    path = DashVim.util.norm(path)
     local path_parts = vim.split(path, "[\\/]")
     local sep = package.config:sub(1,1)
 

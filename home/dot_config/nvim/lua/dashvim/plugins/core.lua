@@ -10,7 +10,7 @@ return {
     version = "*",
     opts = {
       toggle = {
-        map = Custom.lazy.integrated_map, -- make Snacks aware of lazy.nvim's key handlers
+        map = DashVim.lazy.integrated_map, -- make Snacks aware of lazy.nvim's key handlers
       },
     },
   },

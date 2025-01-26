@@ -1,4 +1,4 @@
----@class custom.util.lsp
+---@class dashvim.util.lsp
 local M = {}
 
 -- on_attach is a function that takes a client and a buffer

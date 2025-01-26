@@ -1,4 +1,4 @@
----@class custom.util.telescope
+---@class dashvim.util.telescope
 local M = {}
 M.config_files = function()
   local Telescope = require("telescope.builtin")

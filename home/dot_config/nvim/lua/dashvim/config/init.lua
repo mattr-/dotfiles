@@ -1,7 +1,7 @@
---- @class custom.config
+--- @class dashvim.config
 local M = {}
 
---- @class CustomOptions
+--- @class DashVimOptions
 local defaults = {
   colorscheme = "tokyonight",
   icons = {
@@ -70,7 +70,7 @@ setmetatable(M, {
       return vim.deepcopy(defaults)[key]
     end
 
-    ---@cast options custom.config
+    ---@cast options dashvim.config
     return options[key]
   end,
 })
