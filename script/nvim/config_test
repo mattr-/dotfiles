@@ -1,0 +1,43 @@
+#!/bin/bash
+set -e
+
+CONTAINER_NAME=nvim_config_test
+
+while getopts "cd" opt; do
+  case $opt in
+  c)
+    clean=true
+    ;;
+  d)
+    dev=true
+    ;;
+  esac
+done
+
+if [ -n "$clean" ]; then
+  docker container stop $(docker container ls -qa --filter 'name=nvim_config_test')
+  docker container rm $(docker container ls -qa --filter 'name=nvim_config_test')
+fi
+
+DOCKER_OPTIONS=""
+
+if [ -n "$dev" ]; then
+  # mount the local plugin directory in the right place and start the container
+  LOCAL_SOURCE_DIR="$(chezmoi dump-config | jq -r .sourceDir)/home/dot_config/nvim"
+  DOCKER_OPTIONS="--mount type=bind,src=$LOCAL_SOURCE_DIR,dst=/root/.config/nvim"
+fi
+
+if [ "$(docker container ls -aq --filter 'name=nvim_config_test')" != "" ]; then
+  docker container start -ai $(docker container ls -qa --filter 'name=nvim_config_test')
+else
+  docker run -w /root $DOCKER_OPTIONS -it --name nvim_config_test alpine:edge sh -uelic '
+    apk add git lazygit fd neovim neovim-doc ripgrep alpine-sdk chezmoi ruby --update
+    if [ ! -e ~/.config/nvim ]
+    then
+      chezmoi init mattr- --apply
+    fi
+    cd ~/.config/nvim
+    nvim
+  '
+
+fi
