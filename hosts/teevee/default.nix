@@ -10,8 +10,8 @@
     # Use systemd-boot for booting
     ../_global/linux/systemd-boot.nix
 
-    # This is the modded minecraft server
-    ../_global/linux/modded-minecraft.nix
+    # This is the server for ATM10
+    ../_global/linux/minecraft/atm10.nix
 
     # Set up my user
     ../../users/mattr-/nixos.nix
