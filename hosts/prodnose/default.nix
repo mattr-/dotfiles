@@ -9,6 +9,9 @@
     ../_global/linux/systemd-boot.nix
     # Set up my user
     ../../users/mattr-/nixos.nix
+
+    # Run ATM9 on this box
+    ../_global/linux/minecraft/atm9.nix
   ];
 
   networking = {
