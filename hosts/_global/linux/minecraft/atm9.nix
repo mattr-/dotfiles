@@ -36,7 +36,7 @@
   ];
 
   serverDefaults = {
-    white-list = true;
+    white-list = false;
     max-tick-time = 5 * 60 * 1000;
   };
 in {
