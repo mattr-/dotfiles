@@ -3,8 +3,7 @@ local M = {}
 function M.ensure_lazy_installed()
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
   if not (vim.uv or vim.loop).fs_stat(lazypath) then
-    vim.api.nvim_echo({{"Installing lazy.nvim 💤", "MoreMsg"}}, false, {})
-    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+    local lazyrepo = "https://github.com/folke/lazy.nvim"
     local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
     if vim.v.shell_error ~= 0 then
       vim.api.nvim_echo({
@@ -24,20 +23,16 @@ end
 function M.load(opts)
   opts = vim.tbl_deep_extend("force", {
     spec = {
-      -- add LazyVim and import its plugins
+      -- add DashVim and import its plugins
       { "mattr-/DashVim", import = "dashvim.plugins" },
       -- import/override with your plugins
       { import = "plugins" },
     },
     defaults = {
-      lazy = true,
+      lazy = false,
       version = false, -- always use the latest git commit
     },
-    dev = {
-      path = "~/Code/mattr-",
-      patterns = { "mattr-" },
-    },
-    install = { colorscheme = { "tokyonight", "habamax" } },
+    install = { colorscheme = { "catppuccin", "default" } },
     checker = {
       enabled = true, -- check for plugin updates periodically
       notify = false, -- notify on update
