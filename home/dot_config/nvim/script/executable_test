@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+nvim -l tests/runner_init.lua --minitest
