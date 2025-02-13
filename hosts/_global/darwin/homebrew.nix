@@ -12,6 +12,7 @@
       "elgato-control-center"
       "elgato-stream-deck"
       "fantastical"
+      "firefox"
       "ghostty"
       "hammerspoon"
       "istat-menus"
