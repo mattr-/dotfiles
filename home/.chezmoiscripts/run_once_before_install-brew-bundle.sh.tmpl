@@ -1,0 +1,45 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+brew bundle --no-lock --file=/dev/stdin <<EOF
+tap "homebrew/bundle"
+
+cask "1password"
+cask "1password-cli"
+cask "alfred"
+cask "bambu-studio"
+cask "dash"
+cask "discord"
+cask "elgato-control-center"
+cask "elgato-stream-deck"
+cask "fantastical"
+cask "firefox"
+cask "ghostty"
+cask "hammerspoon"
+cask "obs"
+cask "obsidian"
+cask "raycast"
+cask "spotify"
+cask "steam"
+cask "todoist"
+cask "vivaldi"
+cask "vlc"
+cask "wezterm"
+
+cask "font-iosevka"
+
+brew "bat"
+brew "eza"
+brew "fd"
+brew "fzf"
+brew "gh"
+brew "git"
+brew "jq"
+brew "lazygit"
+brew "mise"
+brew "mr"
+brew "neovim"
+brew "ripgrep"
+brew "tmux"
+brew "zsh"
+
+{{- end -}}
