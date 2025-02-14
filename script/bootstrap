@@ -17,6 +17,12 @@ else
   chezmoi=chezmoi
 fi
 
+# If we're on macOS, install homebrew before exec'ing chezmoi if it doesn't already exist
+if [[ "$(uname -s)" == "Darwin" && \!(-x /opt/homebrew/bin/brew) ]]
+then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
 # Since the repo will be checked out already, let's use `git` to set the source dir
 script_dir="$(git rev-parse --show-toplevel)"
 # exec: replace current process with chezmoi init
