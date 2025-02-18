@@ -17,4 +17,5 @@ working-directory = home
 cursor-style = block
 cursor-style-blink = false
 mouse-hide-while-typing = true
-scrollback-limit = 1000000
+scrollback-limit = 100000000
+confirm-close-surface = false
