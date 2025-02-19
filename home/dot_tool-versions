@@ -2,7 +2,7 @@ elixir 1.16.1
 erlang 26.2.2
 elm 0.19.1
 go 1.22.0
-node 20.11.0
+node 22.13.1
 ruby 3.4.1
 rust 1.84.0
 shellcheck 0.8.0
