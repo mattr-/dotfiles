@@ -21,9 +21,14 @@ return
   },
 
   {
-    "folke/tokyonight.nvim",
-    lazy = true
+    "folke/snacks.nvim",
+    lazy = false,
+    priority = 1001,
+    opts = {
+      image = { enabled = true }
+    },
   },
+
   -- quick and dirty file search with fzf
   {
     "ibhagwan/fzf-lua",
@@ -76,6 +81,8 @@ return
         "luap",
         "markdown",
         "markdown_inline",
+        "query",
+        "regex",
         "vim",
         "vimdoc",
       },
