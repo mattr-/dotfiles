@@ -2,14 +2,19 @@
 #
 # We want to run this anytime .tool-versions changes so that the tools update automatically
 # .tool-versions hash: {{ include "dot_tool-versions" | sha256sum }}
+require "set"
+
 tool_versions_file = File.join(Dir.home, ".tool-versions")
 tool_versions = File.read(tool_versions_file).split("\n").map { |entry| entry.split(" ") }
 
+mise_core_plugins = Set.new(%w[elixir erlang go node ruby rust])
+
 installed_plugins = `$HOME/.local/bin/mise plugin list`
-installed_plugins = installed_plugins.chomp.split("\n")
+installed_plugins = installed_plugins.chomp.split("\n").to_set
 
 tool_versions.each do |entry|
   language = entry.shift
+  next if mise_core_plugins.include?(language)
   if !installed_plugins.include?(language)
     puts "Installing mise plugin for #{language}"
     `$HOME/.local/bin/mise -y plugin add #{language}`
