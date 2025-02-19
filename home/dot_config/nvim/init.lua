@@ -15,3 +15,5 @@ vim.cmd([[:nnoremap j gj]])
 vim.cmd([[:nnoremap k gk]])
 
 -- vim.opt.statusline = "%#MiniIconsAzure#%-02{v:lua.MiniIcons.get('filetype','lua')}%#NormalFloat#%f"
+
+vim.keymap.set("n", "<Space>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
