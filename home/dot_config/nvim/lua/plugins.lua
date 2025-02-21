@@ -1,32 +1,9 @@
-local function already_loaded(plugin)
-  local lcc = require("lazy.core.config")
-  return lcc.plugins[name] and lcc.plugins[name]._.loaded
-end
-
-local function plugin_opts(name)
-  local plugin = require("lazy.core.config").spec.plugins[name]
-  if not plugin then
-    return {}
-  end
-  local lcp = require("lazy.core.plugin")
-  return lcp.values(plugin, "opts", false)
-end
-
 return
 {
   {
     "mattr-/DashVim",
     import = "dashvim.plugins",
     dir = "~/Code/mattr-/DashVim",
-  },
-
-  {
-    "folke/snacks.nvim",
-    lazy = false,
-    priority = 1001,
-    opts = {
-      image = { enabled = true }
-    },
   },
 
   -- quick and dirty file search with fzf
@@ -82,7 +59,7 @@ return
     },
   },
 
-    {
+  {
     "neovim/nvim-lspconfig",
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     dependencies = {
