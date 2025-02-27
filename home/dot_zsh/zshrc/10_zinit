@@ -4,7 +4,6 @@ zinit light romkatv/powerlevel10k
 
 zinit wait lucid for \
   atinit"zicompinit; zicdreplay" zdharma-continuum/fast-syntax-highlighting\
-  atload"!_zsh_autosuggest_start" zsh-users/zsh-autosuggestions \
   Aloxaf/fzf-tab
 
 # vim: ft=zsh
