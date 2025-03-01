@@ -78,6 +78,11 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/slugworth
+          home-manager.nixosModules.home-manager {
+            home-manager.useUserPackages = true;
+            home-manager.users.mattr- = import ./home-manager/linux/home.nix;
+            home-manager.extraSpecialArgs = {inherit inputs outputs;};
+          }
         ];
       };
       teevee = nixpkgs.lib.nixosSystem {
