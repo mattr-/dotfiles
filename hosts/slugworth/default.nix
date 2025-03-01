@@ -1,7 +1,9 @@
 {inputs, ...}: {
   imports = [
-    inputs.hardware.nixosModules.common-cpu-intel
+    inputs.hardware.nixosModules.common-cpu-intel-cpu-only
     inputs.hardware.nixosModules.common-pc-ssd
+    inputs.hardware.nixosModules.common-gpu-nvidia-nonprime
+    inputs.hardware.nixosModules.common-gpu-intel-disable
     ./hardware-configuration.nix
     ../_global/linux
     ../_global/linux/systemd-boot.nix
@@ -11,6 +13,10 @@
   networking = {
     hostName = "slugworth";
   };
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.open = true;
+  hardware.nvidia.modesetting.enable = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
