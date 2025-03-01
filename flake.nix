@@ -30,6 +30,7 @@
 
     # Steam Deck like?
     jovian.url = "github:Jovian-Experiments/Jovian-NixOS";
+    jovian.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
   outputs = {
@@ -87,16 +88,16 @@
             home-manager.users.mattr- = import ./home-manager/linux/home.nix;
             home-manager.extraSpecialArgs = {inherit inputs outputs;};
           }
-          # jovian.nixosModules.jovian {
-          #   jovian = {
-          #     steam = {
-          #       enable = true;
-          #       autoStart = true;
-          #       desktopSession = "plasmawayland";
-          #       user = "mattr-";
-          #     };
-          #   };
-          # }
+          jovian.nixosModules.jovian {
+            jovian = {
+              steam = {
+                enable = true;
+                autoStart = true;
+                desktopSession = "plasmawayland";
+                user = "mattr-";
+              };
+            };
+          }
         ];
       };
       teevee = nixpkgs.lib.nixosSystem {
