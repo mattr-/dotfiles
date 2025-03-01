@@ -27,6 +27,9 @@
 
     # Hardware support
     hardware.url = "github:NixOS/nixos-hardware";
+
+    # Steam Deck like?
+    jovian.url = "github:Jovian-Experiments/Jovian-NixOS";
   };
 
   outputs = {
@@ -35,6 +38,7 @@
     nixpkgs-darwin,
     nix-darwin,
     home-manager,
+    jovian,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -82,6 +86,16 @@
             home-manager.useUserPackages = true;
             home-manager.users.mattr- = import ./home-manager/linux/home.nix;
             home-manager.extraSpecialArgs = {inherit inputs outputs;};
+          }
+          jovian.nixosModules.jovian {
+            jovian = {
+              steam = {
+                enable = true;
+                autoStart = true;
+                desktopSession = "plasmawayland";
+                user = "mattr-";
+              };
+            };
           }
         ];
       };
