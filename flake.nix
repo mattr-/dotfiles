@@ -87,16 +87,16 @@
             home-manager.users.mattr- = import ./home-manager/linux/home.nix;
             home-manager.extraSpecialArgs = {inherit inputs outputs;};
           }
-          jovian.nixosModules.jovian {
-            jovian = {
-              steam = {
-                enable = true;
-                autoStart = true;
-                desktopSession = "plasmawayland";
-                user = "mattr-";
-              };
-            };
-          }
+          # jovian.nixosModules.jovian {
+          #   jovian = {
+          #     steam = {
+          #       enable = true;
+          #       autoStart = true;
+          #       desktopSession = "plasmawayland";
+          #       user = "mattr-";
+          #     };
+          #   };
+          # }
         ];
       };
       teevee = nixpkgs.lib.nixosSystem {
