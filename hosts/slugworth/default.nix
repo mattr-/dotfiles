@@ -4,9 +4,6 @@
     inputs.hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
     ../_global/linux
-    ../_global/linux/silentboot.nix
-    ../_global/linux/sound.nix
-    ../_global/linux/steam.nix
     ../_global/linux/systemd-boot.nix
     ../../users/mattr-/nixos.nix
   ];
@@ -33,5 +30,5 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 }
