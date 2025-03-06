@@ -10,8 +10,6 @@
   ...
 }: {
   imports = [
-    inputs.disko.nixosModules.disko
-    ./disko.nix
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
