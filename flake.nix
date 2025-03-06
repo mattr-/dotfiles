@@ -19,7 +19,7 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs-darwin";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Modded minecraft server management
@@ -92,7 +92,7 @@
             jovian = {
               steam = {
                 enable = true;
-                autoStart = true;
+                autoStart = false;
                 desktopSession = "gamescope-wayland";
                 user = "mattr-";
               };
