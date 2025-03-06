@@ -91,10 +91,10 @@
           ./hosts/teevee
         ];
       };
-      dev-vm = nixpkgs.lib.nixosSystem {
+      violet = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./hosts/dev-vm
+          ./hosts/violet
           home-manager.nixosModules.home-manager {
             home-manager.useUserPackages = true;
             home-manager.users.mattr- = import ./home-manager/linux/home.nix;
