@@ -93,7 +93,7 @@
               steam = {
                 enable = true;
                 autoStart = true;
-                desktopSession = "plasmawayland";
+                desktopSession = "gamescope-wayland";
                 user = "mattr-";
               };
             };
