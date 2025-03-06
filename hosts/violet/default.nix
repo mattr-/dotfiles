@@ -37,7 +37,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.greetd}/bin/agreety --cmd /run/wrappers/bin/fbterm"
+        command = "${pkgs.greetd.greetd}/bin/agreety --cmd /run/wrappers/bin/fbterm";
       };
     };
   };
