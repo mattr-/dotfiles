@@ -8,6 +8,7 @@
     ./nix.nix
     ./openssh.nix
     ./time-and-locale.nix
+    ./sudo.nix
   ];
 
   # Allow microcode updates for CPUs

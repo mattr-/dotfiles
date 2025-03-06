@@ -14,9 +14,6 @@
   # Too many things are marked as broken on aarch64. :(
   nixpkgs.config.allowUnsupportedSystem = true;
 
-  # Don't require password for sudo
-  security.sudo.wheelNeedsPassword = false;
-
   # Allow docker containers inside the dev vm
   virtualisation.docker.enable = true;
 
