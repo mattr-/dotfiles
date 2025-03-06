@@ -24,32 +24,23 @@
   # VMWare and Parallels both only support this being 0
   boot.loader.systemd-boot.consoleMode = "0";
 
-  # Hack in some graphics
-  # services.xserver = {
-  #   enable = true;
-  #   xkb.layout = "us";
-  #   dpi = 110;
-  #
-  #   desktopManager = {
-  #     xterm.enable = false;
-  #     wallpaper.mode = "fill";
-  #   };
-  #
-  #   displayManager = {
-  #     lightdm.enable = true;
-  #
-  #     sessionCommands = ''
-  #       ${pkgs.xorg.xset}/bin/xset r rate 200 40
-  #       '';
-  #   };
-  #
-  #   windowManager = {
-  #     i3.enable = true;
-  #   };
-  # };
-  # services.displayManager.defaultSession = "none+i3";
-
   programs.sway.enable = true;
+
+  security.wrappers.fbterm = {
+    owner = "root";
+    group = "video";
+    capabilities = "cap_sys_tty_config+ep";
+    source = "${pkgs.fbterm}/bin/fbterm";
+  };
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.greetd}/bin/agreety --cmd /run/wrappers/bin/fbterm"
+      };
+    };
+  };
 
   system.stateVersion = "24.05";
 }
