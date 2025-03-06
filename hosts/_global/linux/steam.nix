@@ -1,3 +1,4 @@
+# Set up steam as a boot into steam deck style thing
 {
   programs = {
     gamescope = {
