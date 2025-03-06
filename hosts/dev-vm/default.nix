@@ -5,7 +5,6 @@
     ../_global/linux
     ../_global/linux/systemd-boot.nix
     ../../users/mattr-/nixos.nix
-    ../../modules/nixos/vmware-guest-aarch64-compat.nix
   ];
 
   networking = {
@@ -24,35 +23,33 @@
   # Set up vmware guest tools
   # VMWare and Parallels both only support this being 0
   boot.loader.systemd-boot.consoleMode = "0";
-  virtualisation.vmware.guest.enable = true;
-  virtualisation.vmware.guest.headless = true;
 
   # Hack in some graphics
-  services.xserver = {
-    enable = true;
-    xkb.layout = "us";
-    dpi = 110;
+  # services.xserver = {
+  #   enable = true;
+  #   xkb.layout = "us";
+  #   dpi = 110;
+  #
+  #   desktopManager = {
+  #     xterm.enable = false;
+  #     wallpaper.mode = "fill";
+  #   };
+  #
+  #   displayManager = {
+  #     lightdm.enable = true;
+  #
+  #     sessionCommands = ''
+  #       ${pkgs.xorg.xset}/bin/xset r rate 200 40
+  #       '';
+  #   };
+  #
+  #   windowManager = {
+  #     i3.enable = true;
+  #   };
+  # };
+  # services.displayManager.defaultSession = "none+i3";
 
-    desktopManager = {
-      xterm.enable = false;
-      wallpaper.mode = "fill";
-    };
-
-    displayManager = {
-      lightdm.enable = true;
-
-      sessionCommands = ''
-        ${pkgs.xorg.xset}/bin/xset r rate 200 40
-        '';
-    };
-
-    windowManager = {
-      i3.enable = true;
-    };
-  };
-
-  services.displayManager.defaultSession = "none+i3";
-
+  programs.sway.enable = true;
 
   system.stateVersion = "24.05";
 }
