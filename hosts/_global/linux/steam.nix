@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   programs = {
     gamescope = {
@@ -10,4 +11,8 @@
       remotePlay.openFirewall = true;
     };
   };
+
+  environment.systemPackages = [
+    pkgs.mangohud
+  ];
 }
