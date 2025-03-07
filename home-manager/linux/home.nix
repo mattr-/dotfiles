@@ -24,6 +24,7 @@
     ./dev
     ./gui
     ./security
+    ./hyprland.nix
   ];
 
   home = {

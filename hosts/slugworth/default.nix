@@ -6,6 +6,7 @@
     ./hardware-configuration.nix
     ../_global/linux
     ../_global/linux/systemd-boot.nix
+    ../_global/linux/hyprland.nix
     ../_global/linux/steam.nix
     ../../users/mattr-/nixos.nix
   ];
