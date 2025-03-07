@@ -4,5 +4,5 @@
     keepTerminfo = true;
     execWheelOnly = true;
     wheelNeedsPassword = false;
-  }
+  };
 }
