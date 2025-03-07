@@ -1,4 +1,4 @@
-# Set up steam as a boot into steam deck style thing
+{ pkgs, ... }: # Set up steam as a boot into steam deck style thing
 {
   programs = {
     gamescope = {
@@ -11,4 +11,8 @@
       remotePlay.openFirewall = true;
     };
   };
+
+  environment.systemPackages = [
+    pkgs.mangohud
+  ];
 }
