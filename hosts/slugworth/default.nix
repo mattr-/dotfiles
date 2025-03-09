@@ -8,6 +8,7 @@
     ../_global/linux/graphical/greetd.nix
     ../_global/linux/graphical/hyprland.nix
     ../_global/linux/steam.nix
+    ../_global/linux/sysctl.nix
     ../_global/linux/systemd-boot.nix
     ../../users/mattr-/nixos.nix
   ];
