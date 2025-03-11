@@ -6,6 +6,21 @@ return
     dir = "~/Code/mattr-/DashVim",
   },
 
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      { "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Local Keymap",
+      },
+    },
+  },
+
+
   -- quick and dirty file search with fzf
   {
     "ibhagwan/fzf-lua",
@@ -20,6 +35,18 @@ return
   {
     "2KAbhishek/nerdy.nvim",
     cmd = "Nerdy",
+  },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = function()
+      require("lazy").load({ plugins = { "markdown-preview.nvim" } })
+      vim.fn["mkdp#util#install"]()
+    end,
+    config = function()
+      vim.cmd([[do FileType]])
+    end,
   },
 
   {
