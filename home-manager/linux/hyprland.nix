@@ -6,7 +6,7 @@
 }: let
   windows_space_gap = 15;
 in {
-  programs.rofi.enable = true;
+  programs.wofi.enable = true;
   home.packages = with pkgs; [
     hyprshot
     brightnessctl
@@ -43,7 +43,7 @@ in {
     ];
     settings = {
       "$terminal" = "ghostty";
-      "$menu" = "rofi -show drun";
+      "$menu" = "wofi -G --show drun";
       "monitor" = [
         "DP-2, 3840x2160@160, 0x0, 2"
         "DP-3, 3840x2160@160, -1920x0, 2"
@@ -58,6 +58,7 @@ in {
       ];
 
       "env" = [
+        "GDK_SCALE,2"
         "XCURSOR_SIZE,24"
         "HYPRCURSOR_SIZE,24"
         "QT_AUTO_SCREEN_SCALE_FACTOR,1"
@@ -225,7 +226,6 @@ in {
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
       ];
-
     };
   };
 
@@ -285,12 +285,12 @@ in {
           "hyprland/window"
         ];
         modules-center = [
-          "clock"
         ];
         modules-right = [
           "idle_inhibitor"
           "wireplumber"
-          "network"
+          "temperature"
+          "clock"
           "tray"
         ];
 
@@ -320,7 +320,8 @@ in {
           format-muted = "Muted ";
         };
 
-        clock = {
+        "clock#time" = {
+          tooltip = false;
           format = "  {:%H:%M}";
         };
 
