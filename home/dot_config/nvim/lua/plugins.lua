@@ -20,6 +20,11 @@ return
     },
   },
 
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^5', -- Recommended
+    lazy = false, -- This plugin is already lazy
+  },
 
   -- quick and dirty file search with fzf
   {
@@ -39,6 +44,7 @@ return
 
   {
     "iamcco/markdown-preview.nvim",
+    ft = { "markdown" },
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = function()
       require("lazy").load({ plugins = { "markdown-preview.nvim" } })
@@ -282,6 +288,18 @@ return
         end
       end)
     end,
+  },
+
+  -- play with snacks
+  {
+    "folke/snacks.nvim",
+    opts = {
+      explorer = { replace_netrw = true, },
+    },
+    keys = {
+      { "<leader>fr", function() Snacks.explorer.reveal() end, desc = "Reveal file in Explorer" },
+      { "<leader>fe", function() Snacks.explorer.open() end, desc = "Open the File Explorer" },
+    },
   },
 
 }
