@@ -55,6 +55,7 @@ in {
           // {
             server-port = 25565;
             rcon-port = 25566;
+            pvp = false;
             motd = "Welcome to ATM 10!";
             allow-flight = true;
             extra-options.difficulty = "hard";
