@@ -57,6 +57,7 @@ in {
             rcon-port = 25566;
             motd = "Welcome to ATM 10!";
             allow-flight = true;
+            pvp = false;
             extra-options.difficulty = "hard";
             extra-options.gamemode = "survival";
         };
