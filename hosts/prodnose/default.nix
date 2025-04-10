@@ -5,8 +5,13 @@
     ./hardware-configuration.nix
     # Pull in Linux OS defaults
     ../_global/linux
+
     # Use systemd-boot for booting
     ../_global/linux/systemd-boot.nix
+
+    # Setup tailscale for fancy networking bit
+    ../_global/linux/tailscale.nix
+
     # Set up my user
     ../../users/mattr-/nixos.nix
 

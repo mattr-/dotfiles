@@ -10,11 +10,15 @@
     # Use systemd-boot for booting
     ../_global/linux/systemd-boot.nix
 
+    # Setup tailscale for fancy networking bit
+    ../_global/linux/tailscale.nix
+
     # This is the server for ATM10
     ../_global/linux/minecraft/atm10.nix
 
     # Set up my user
     ../../users/mattr-/nixos.nix
+
   ];
 
   networking = {
