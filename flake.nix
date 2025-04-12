@@ -103,34 +103,5 @@
         ];
       };
     };
-
-    # Darwin configuration entrypoint
-    # Available through 'darwin-rebuild --flake .#hostname'
-    darwinConfigurations = {
-      gloop = nix-darwin.lib.darwinSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          ./hosts/gloop
-          home-manager.darwinModules.home-manager {
-            home-manager.useGlobalPkgs = false; # we config nixpkgs ourselves
-            home-manager.useUserPackages = false; # not using `users.users.<name>.packages` for installs
-            home-manager.extraSpecialArgs = {inherit inputs outputs;};
-            home-manager.users.mattr- = import ./home-manager/macos/home.nix;
-          }
-        ];
-      };
-      knid = nix-darwin.lib.darwinSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          ./hosts/knid
-          home-manager.darwinModules.home-manager {
-            home-manager.useGlobalPkgs = false; # we config nixpkgs ourselves
-            home-manager.useUserPackages = false; # not using `users.users.<name>.packages` for installs
-            home-manager.extraSpecialArgs = {inherit inputs outputs;};
-            home-manager.users.mattr- = import ./home-manager/macos/home.nix;
-          }
-        ];
-      };
-    };
   };
 }
