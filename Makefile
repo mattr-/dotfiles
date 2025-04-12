@@ -11,7 +11,7 @@ MAKE_SSH_OPTIONS=-o PubkeyAuthentication=no -o UserKnownHostsFile=/dev/null -o S
 
 define SSH_SCRIPT_BODY
 nix --experimental-features 'nix-command flakes' run github:nix-community/disko/latest \
- -- --yes-wipe-all-disks --mode destroy,format,mount ./system/hosts/violet/disko.nix; \
+ -- --yes-wipe-all-disks --mode destroy,format,mount ./system/hosts/$(NIXNAME)/disko.nix; \
 echo 'Disk configuration complete. Installing NixOS'; \
 sleep 1; \
 sudo nixos-install --no-channel-copy --flake './system#$(NIXNAME)'; \
