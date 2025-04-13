@@ -44,11 +44,6 @@ in {
     settings = {
       "$terminal" = "ghostty";
       "$menu" = "rofi -show drun";
-      "monitor" = [
-        "DP-2, 3840x2160@160, 0x0, 2"
-        "DP-3, 3840x2160@160, -1920x0, 2"
-        "HDMI-A-1, 3840x2160@60, -3840x0, 2"
-      ];
       "exec-once" = [
         "1password --silent"
         "$terminal"
@@ -64,6 +59,9 @@ in {
         "QT_QPA_PLATFORM,wayland;xcb"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       ];
+      debug = {
+        disable_logs = false;
+      };
 
       general = {
         gaps_in = 5;
