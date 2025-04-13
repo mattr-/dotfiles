@@ -33,7 +33,7 @@ if [ "$(docker container ls -aq --filter name=$DOCKER_CONTAINER_NAME)" != "" ]; 
   docker container start -ai $(docker container ls -qa --filter name=$DOCKER_CONTAINER_NAME)
 else
   docker run -w /root $DOCKER_OPTIONS -it --name $DOCKER_CONTAINER_NAME alpine:edge sh -uelic '
-    apk add bash curl git lazygit fd neovim neovim-doc ripgrep alpine-sdk chezmoi ruby --update
+    apk add bash curl git lazygit fd fzf neovim neovim-doc ripgrep alpine-sdk chezmoi ruby --update
     if [ ! -e ~/.config/nvim ]
     then
       git clone https://github.com/DashVim/starter ~/.config/nvim
