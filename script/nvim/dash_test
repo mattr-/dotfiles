@@ -12,21 +12,28 @@ while getopts "cd" opt; do
   esac
 done
 
-if [ -n "$clean" ]; then
-  docker container stop $(docker container ls -qa --filter 'name=dashvim_test')
-  docker container rm $(docker container ls -qa --filter 'name=dashvim_test')
-fi
+DOCKER_OPTIONS=""
+DOCKER_CONTAINER_NAME="dashvim_test"
 
 if [ -n "$dev" ]; then
-  # mount the local plugin directory in the right place and start the container
-  echo
+  LOCAL_SOURCE_DIR=$HOME/Code/mattr-/DashVim
+  LOCAL_CONFIG_DIR=$HOME/.config/nvim
+  DASHVIM_DOCKER_OPTIONS="--mount type=bind,src=$LOCAL_SOURCE_DIR,dst=/root/Code/mattr-/DashVim"
+  LOCAL_CONFIG_OPTIONS="--mount type=bind,src=$LOCAL_CONFIG_DIR,dst=/root/.config/nvim"
+  DOCKER_OPTIONS="$DASHVIM_DOCKER_OPTIONS $LOCAL_CONFIG_OPTIONS"
+  DOCKER_CONTAINER_NAME="dashvim_test_dev"
 fi
 
-if [ "$(docker container ls -aq --filter 'name=dashvim_test')" != "" ]; then
-  docker container start -ai $(docker container ls -qa --filter 'name=dashvim_test')
+if [ -n "$clean" ]; then
+  docker container stop $(docker container ls -qa --filter name=$DOCKER_CONTAINER_NAME)
+  docker container rm $(docker container ls -qa --filter name=$DOCKER_CONTAINER_NAME)
+fi
+
+if [ "$(docker container ls -aq --filter name=$DOCKER_CONTAINER_NAME)" != "" ]; then
+  docker container start -ai $(docker container ls -qa --filter name=$DOCKER_CONTAINER_NAME)
 else
-  docker run -w /root -it --name dashvim_test alpine:edge sh -uelic '
-    apk add git lazygit fd neovim neovim-doc ripgrep alpine-sdk --update
+  docker run -w /root $DOCKER_OPTIONS -it --name $DOCKER_CONTAINER_NAME alpine:edge sh -uelic '
+    apk add bash curl git lazygit fd neovim neovim-doc ripgrep alpine-sdk chezmoi ruby --update
     if [ ! -e ~/.config/nvim ]
     then
       git clone https://github.com/DashVim/starter ~/.config/nvim
