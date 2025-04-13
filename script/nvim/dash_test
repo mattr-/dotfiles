@@ -9,6 +9,9 @@ while getopts "cd" opt; do
   d)
     dev=true
     ;;
+  s)
+    use_starter=true
+    ;;
   esac
 done
 
@@ -19,7 +22,11 @@ if [ -n "$dev" ]; then
   LOCAL_SOURCE_DIR=$HOME/Code/mattr-/DashVim
   LOCAL_CONFIG_DIR=$HOME/.config/nvim
   DASHVIM_DOCKER_OPTIONS="--mount type=bind,src=$LOCAL_SOURCE_DIR,dst=/root/Code/mattr-/DashVim"
-  LOCAL_CONFIG_OPTIONS="--mount type=bind,src=$LOCAL_CONFIG_DIR,dst=/root/.config/nvim"
+  if [ -n "$use_starter" ]; then
+    LOCAL_CONFIG_OPTIONS="--mount type=bind,src=$LOCAL_CONFIG_DIR,dst=/root/.config/nvim"
+  else
+    LOCAL_CONFIG_OPTIONS=""
+  fi
   DOCKER_OPTIONS="$DASHVIM_DOCKER_OPTIONS $LOCAL_CONFIG_OPTIONS"
   DOCKER_CONTAINER_NAME="dashvim_test_dev"
 fi
