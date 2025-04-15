@@ -101,7 +101,7 @@
             home-manager.extraSpecialArgs = {inherit inputs outputs;};
           }
         ];
-      }
+      };
       violet = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
