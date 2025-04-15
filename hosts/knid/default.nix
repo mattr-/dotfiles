@@ -15,7 +15,7 @@
     hostName = "knid";
   };
 
-  programs.sway.enable = true;
+  programs.niri.enable = true;
 
   system = {
     stateVersion = "24.11";

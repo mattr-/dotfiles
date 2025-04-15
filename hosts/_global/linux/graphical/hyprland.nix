@@ -2,7 +2,7 @@
   programs.hyprland = {
     enable = true;
     withUWSM = true; # recommended for most users
-    xwayland.enable = true; # Xwayland can be disabled.
+    xwayland.enable = false; # Xwayland can be disabled.
   };
 
   # Electron apps should use Wayland
