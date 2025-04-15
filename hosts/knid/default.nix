@@ -1,6 +1,6 @@
 {inputs, outputs, ...}: {
   imports = [
-    inputs.hardware.nixosModules.framework.13-inch.7040-amd
+    inputs.hardware.nixosModules.framework-13-7040-amd
     ./hardware-configuration.nix
     ../_global/linux
     ../_global/linux/graphical/greetd.nix
