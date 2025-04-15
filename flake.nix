@@ -91,6 +91,17 @@
           ./hosts/teevee
         ];
       };
+      knid = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/knid
+          home-manager.nixosModules.home-manager {
+            home-manager.useUserPackages = true;
+            home-manager.users.mattr- = import ./home-manager/linux/home.nix;
+            home-manager.extraSpecialArgs = {inherit inputs outputs;};
+          }
+        ];
+      }
       violet = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [

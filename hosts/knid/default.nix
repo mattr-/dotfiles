@@ -1,24 +1,23 @@
 {inputs, outputs, ...}: {
   imports = [
-    # Set up Darwin defaults
-    ../_global/darwin
-
-    # Set up my user
-    ../../users/mattr-/darwin.nix
+    inputs.hardware.nixosModules.framework.13-inch.7040-amd
+    ./hardware-configuration.nix
+    ../_global/linux
+    ../_global/linux/graphical/greetd.nix
+    ../_global/linux/graphical/hyprland.nix
+    # ../_global/linux/steam.nix
+    # ../_global/linux/sysctl.nix
+    ../_global/linux/systemd-boot.nix
+    ../../users/mattr-/nixos.nix
   ];
 
   networking = {
     hostName = "knid";
   };
 
+  programs.sway.enable = true;
+
   system = {
-    # Set Git commit hash for darwin-version
-    configurationRevision = outputs.self.rev or outputs.self.dirtyRev or null;
-
-    # Used for backwards compat. Read the changelog
-    # $ darwin-rebuild changelog
-    stateVersion = 4;
+    stateVersion = "24.11";
   };
-
-  nixpkgs.hostPlatform = "aarch64-darwin";
 }
