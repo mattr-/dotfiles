@@ -27,7 +27,6 @@
       "todoist"
       "utm"
       "viscosity"
-      "vivaldi"
       "vlc"
       "wezterm"
     ];
