@@ -289,6 +289,9 @@ in {
           "idle_inhibitor"
           "wireplumber"
           "network"
+          "bluetooth"
+          "battery"
+          "power-profiles-daemon"
           "tray"
         ];
 
