@@ -13,6 +13,7 @@ in {
     wl-clipboard
     wlsunset
     swww
+    swayosd
   ];
 
   services = {
