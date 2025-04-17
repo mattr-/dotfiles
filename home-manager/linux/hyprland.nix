@@ -305,9 +305,9 @@ in {
     style = ''
       * {
         color: #eeeeee;
-        font-family: "Iosevka";
+        font-family: "SF Pro Ultralight";
         font-weight: bold;
-        font-size: 14px;
+        font-size: 12px;
       }
 
       window#waybar {
