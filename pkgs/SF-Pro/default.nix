@@ -6,13 +6,13 @@
 }:
 stdenv.mkDerivation rec {
   pname = "SF-Pro";
-  version = "v3.0.0";
+  version = "v4.0.0";
 
   src = fetchFromGitHub {
-    owner = "sahibjotsaggu";
-    repo = "San-Francisco-Pro-Fonts";
-    rev = "master";
-    sha256 = "sha256-mAXExj8n8gFHq19HfGy4UOJYKVGPYgarGd/04kUIqX4=";
+    owner = "mattr-";
+    repo = "apple-sf-pro-fonts";
+    rev = "main";
+    sha256 = "sha256-qdz1Y9YXZxy/PuB5ZrnGLexZQ+G1L5DJYFj9lwrU6M4=";
   };
 
   nativeBuildInputs = [unzip];
@@ -26,8 +26,8 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     description = "San Francisco Pro Fonts";
-    homepage = "https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts";
+    homepage = "https://github.com/mattr-/apple-sf-pro-fonts";
     license = licenses.mit;
-    maintainers = [maintainers.sahibjotsaggu];
+    maintainers = [maintainers.mattr-];
   };
 }
