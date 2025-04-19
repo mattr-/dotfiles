@@ -5,6 +5,7 @@
 
 {
   imports = [
+    inputs.hardware.nixosModules.framework-13-7040-amd
     inputs.disko.nixosModules.disko
     ./disko.nix
     (modulesPath + "/installer/scan/not-detected.nix")
