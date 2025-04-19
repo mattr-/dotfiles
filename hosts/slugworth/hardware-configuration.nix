@@ -5,6 +5,9 @@
 
 {
   imports = [
+    inputs.hardware.nixosModules.common-cpu-intel-cpu-only
+    inputs.hardware.nixosModules.common-pc-ssd
+    inputs.hardware.nixosModules.common-gpu-amd
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 

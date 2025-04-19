@@ -9,6 +9,8 @@
   ...
 }: {
   imports = [
+    inputs.hardware.nixosModules.common-cpu-intel
+    inputs.hardware.nixosModules.common-pc-ssd
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 

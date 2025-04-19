@@ -10,6 +10,8 @@
   ...
 }: {
   imports = [
+    inputs.hardware.nixosModules.common-cpu-intel
+    inputs.hardware.nixosModules.common-pc-ssd
     inputs.disko.nixosModules.disko
     ./disko.nix
     (modulesPath + "/installer/scan/not-detected.nix")
