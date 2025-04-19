@@ -1,12 +1,12 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    unstable.figlet
-    unstable.lolcat
+    figlet
+    lolcat
   ];
 
   programs.htop = {
     enable = true;
-    package = pkgs.unstable.htop;
+    package = pkgs.htop;
   };
 
 }

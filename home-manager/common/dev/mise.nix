@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.mise = {
     enable = true;
-    package = pkgs.unstable.mise;
+    package = pkgs.mise;
     globalConfig = {
       tools = {
         elixir = "1.16.1";

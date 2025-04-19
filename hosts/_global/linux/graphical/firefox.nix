@@ -7,7 +7,7 @@ let
 in {
   programs.firefox = {
     enable = true;
-    package = unstable.firefox;
+    package = firefox;
     policies = {
       DisableTelemetry = true;
       DisableFirefoxStudies = true;

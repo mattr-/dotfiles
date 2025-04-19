@@ -99,9 +99,9 @@
       inputs.self.packages.${pkgs.system}.SF-Mono
 
       # nerdfonts
-      unstable.nerd-fonts.symbols-only
-      unstable.nerd-fonts.departure-mono
-      unstable.departure-mono
+      nerd-fonts.symbols-only
+      nerd-fonts.departure-mono
+      departure-mono
     ];
 
     # causes more issues than it solves

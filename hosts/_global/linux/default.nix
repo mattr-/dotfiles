@@ -23,6 +23,6 @@
     vim
     curl
     git
-    unstable.ghostty.terminfo
+    ghostty.terminfo
   ];
 }

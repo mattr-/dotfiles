@@ -50,7 +50,7 @@
       # Add overlays from our own flake exports
       outputs.overlays.additions
       outputs.overlays.modifications
-      outputs.overlays.unstable-packages
+      # outputs.overlays.unstable-packages
     ];
 
     # Allow unfree packages

@@ -1,47 +1,47 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    unstable.chezmoi
-    unstable.fzy
-    unstable.gitui
-    unstable.gitFull
-    unstable.git-lfs
-    unstable.gh
-    unstable.luajitPackages.luarocks
-    unstable.neovim
+    chezmoi
+    fzy
+    gitui
+    gitFull
+    git-lfs
+    gh
+    luajitPackages.luarocks
+    neovim
   ];
 
   programs.bat = {
     enable = true;
-    package = pkgs.unstable.bat;
+    package = pkgs.bat;
   };
 
   programs.eza = {
     enable = true;
-    package = pkgs.unstable.eza;
+    package = pkgs.eza;
   };
 
   programs.fzf = {
     enable = true;
-    package = pkgs.unstable.fzf;
+    package = pkgs.fzf;
   };
 
   programs.jq = {
     enable = true;
-    package = pkgs.unstable.jq;
+    package = pkgs.jq;
   };
 
   programs.ripgrep = {
     enable = true;
-    package = pkgs.unstable.ripgrep;
+    package = pkgs.ripgrep;
   };
 
   programs.fd = {
     enable = true;
-    package = pkgs.unstable.fd;
+    package = pkgs.fd;
   };
 
   programs.lazygit = {
     enable = true;
-    package = pkgs.unstable.lazygit;
+    package = pkgs.lazygit;
   };
 }
