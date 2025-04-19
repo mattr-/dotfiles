@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  windows_space_gap = 15;
+  windows_space_gap = 10;
 in {
   programs.rofi.enable = true;
   home.packages = with pkgs; [
@@ -90,7 +90,7 @@ in {
             cmd[update:1000] echo "<span font-weight='light' >$(date +'%H %M %S')</span>"
           '';
           font_size = 300;
-          font_family = "SF Pro Ultralight";
+          font_family = "SF Pro Display Medium";
 
           color = "rgb(8a9e6b)";
 
@@ -315,7 +315,7 @@ in {
       }
 
       #waybar > box {
-        margin: 10px ${builtins.toString windows_space_gap}px 0px;
+        margin: 5px ${builtins.toString windows_space_gap}px 0px;
         background-color: rgb(100,100,100);
         border: 2px solid rgb(150,150,150);
       }

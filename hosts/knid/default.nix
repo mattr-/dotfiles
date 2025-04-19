@@ -96,7 +96,7 @@
       noto-fonts-emoji
 
       inputs.self.packages.${pkgs.system}.SF-Pro
-      inputs.self.packages.${pkgs.system}.SF-Pro-mono
+      inputs.self.packages.${pkgs.system}.SF-Mono
 
       # nerdfonts
       unstable.nerd-fonts.symbols-only
@@ -125,7 +125,7 @@
         addAll {
           serif = ["Noto Sans Serif"];
           sansSerif = ["SF Pro"];
-          monospace = ["SF Pro Mono"];
+          monospace = ["SF Mono"];
           emoji = ["Noto Color Emoji"];
         };
     };
