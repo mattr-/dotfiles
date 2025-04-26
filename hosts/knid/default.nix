@@ -19,9 +19,7 @@
     ../../system/nixos/users/mattr-.nix
   ];
 
-  networking = {
-    hostName = "knid";
-  };
+  networking.hostName = "knid";
 
   hardware.brillo.enable = true;
 
