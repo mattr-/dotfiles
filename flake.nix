@@ -31,6 +31,9 @@
 
   outputs = inputs @ { self, nixpkgs, flake-parts, flake-utils, ...}:
     flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        ./hosts
+      ];
       # Define the systems you want to support
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
 
@@ -59,52 +62,52 @@
 
         # NixOS configurations
         nixosConfigurations = {
-          prodnose = nixpkgs.lib.nixosSystem {
-            specialArgs = { inherit inputs; } // { outputs = self; }; # Pass self as outputs if needed
-            modules = [
-              ./hosts/prodnose
-            ];
-          };
-          slugworth = nixpkgs.lib.nixosSystem {
-             specialArgs = { inherit inputs; } // { outputs = self; };
-             modules = [
-               ./hosts/slugworth
-               inputs.home-manager.nixosModules.home-manager {
-                 home-manager.useUserPackages = true;
-                 home-manager.users.mattr- = import ./home-manager/linux/home.nix;
-                 # Pass self as outputs if needed by home.nix
-                 home-manager.extraSpecialArgs = { inherit inputs; } // { outputs = self; };
-               }
-             ];
-           };
-          teevee = nixpkgs.lib.nixosSystem {
-            specialArgs = { inherit inputs; } // { outputs = self; };
-            modules = [
-              ./hosts/teevee
-            ];
-          };
-          knid = nixpkgs.lib.nixosSystem {
-             specialArgs = { inherit inputs; } // { outputs = self; };
-             modules = [
-               ./hosts/knid
-               inputs.home-manager.nixosModules.home-manager {
-                 home-manager.useUserPackages = true;
-                 home-manager.users.mattr- = import ./home-manager/linux/home.nix;
-                 home-manager.extraSpecialArgs = { inherit inputs; } // { outputs = self; };
-               }
-             ];
-           };
-          violet = nixpkgs.lib.nixosSystem {
-             specialArgs = { inherit inputs; } // { outputs = self; };
-             modules = [
-               ./hosts/violet
-               inputs.home-manager.nixosModules.home-manager {
-                 home-manager.useUserPackages = true;
-                 home-manager.users.mattr- = import ./home-manager/linux/home.nix;
-                 home-manager.extraSpecialArgs = { inherit inputs; } // { outputs = self; };
-               }
-             ];
-           };
+          # prodnose = nixpkgs.lib.nixosSystem {
+          #   specialArgs = { inherit inputs; } // { outputs = self; }; # Pass self as outputs if needed
+          #   modules = [
+          #     ./hosts/prodnose
+          #   ];
+          # };
+          # slugworth = nixpkgs.lib.nixosSystem {
+          #    specialArgs = { inherit inputs; } // { outputs = self; };
+          #    modules = [
+          #      ./hosts/slugworth
+          #      inputs.home-manager.nixosModules.home-manager {
+          #        home-manager.useUserPackages = true;
+          #        home-manager.users.mattr- = import ./home-manager/linux/home.nix;
+          #        # Pass self as outputs if needed by home.nix
+          #        home-manager.extraSpecialArgs = { inherit inputs; } // { outputs = self; };
+          #      }
+          #    ];
+          #  };
+          # teevee = nixpkgs.lib.nixosSystem {
+          #   specialArgs = { inherit inputs; } // { outputs = self; };
+          #   modules = [
+          #     ./hosts/teevee
+          #   ];
+          # };
+          # knid = nixpkgs.lib.nixosSystem {
+          #    specialArgs = { inherit inputs; } // { outputs = self; };
+          #    modules = [
+          #      ./hosts/knid
+          #      inputs.home-manager.nixosModules.home-manager {
+          #        home-manager.useUserPackages = true;
+          #        home-manager.users.mattr- = import ./home-manager/linux/home.nix;
+          #        home-manager.extraSpecialArgs = { inherit inputs; } // { outputs = self; };
+          #      }
+          #    ];
+          #  };
+          # violet = nixpkgs.lib.nixosSystem {
+          #    specialArgs = { inherit inputs; } // { outputs = self; };
+          #    modules = [
+          #      ./hosts/violet
+          #      inputs.home-manager.nixosModules.home-manager {
+          #        home-manager.useUserPackages = true;
+          #        home-manager.users.mattr- = import ./home-manager/linux/home.nix;
+          #        home-manager.extraSpecialArgs = { inherit inputs; } // { outputs = self; };
+          #      }
+          #    ];
+          #  };
         };
         # Potentially add home-manager configurations if not managed through NixOS
         # homeConfigurations = { ... };
