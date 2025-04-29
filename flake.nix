@@ -54,12 +54,6 @@
         # Your custom packages and modifications, exported as overlays
         overlays = import ./overlays {inherit inputs;}; # Pass inputs if overlays need them
 
-        # Reusable nixos modules
-        nixosModules = import ./modules/nixos; # Pass inputs if modules need them
-
-        # Reusable home-manager modules
-        homeManagerModules = import ./modules/home-manager; # Pass inputs if modules need them
-
         # NixOS configurations
         nixosConfigurations = {
           # prodnose = nixpkgs.lib.nixosSystem {
