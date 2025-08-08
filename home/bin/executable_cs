@@ -1,20 +1,6 @@
 #!/usr/bin/env bash
 
 set -e
-function git_branch() {
-  \git rev-parse --inside-work-tree >/dev/null 2>&1 || return
-
-  local branch
-  if branch="$(\git symbolic-ref -q HEAD)"; then
-    printf "%q" "${branch#refs/heads/}"
-  fi
-}
-
-function git_repo() {
-  \git rev-parse --inside-work-tree >/dev/null 2>&1 || return
-
-  git nwo
-}
 
 # GitHub CLI Codespaces helpers
 if [[ $# > 0 ]]; then
@@ -28,24 +14,15 @@ if [[ $# > 0 ]]; then
       [[ -n "$cs_id" ]] && gh cs ssh -c $cs_id -- -R 127.0.0.1:7391:$(rdm socket)
       ;;
     create)
-      repo=$(git_repo)
-      branch=$(git_branch)
-      if [ -z $repo -o -z $branch ]; then
-        echo "It doesn't seem like we're in a git repo"
-      else
-        gh cs create \
-          -R "$repo" \
-          -b "$branch" \
-          --devcontainer-path .devcontainer/devcontainer.json \
-          --idle-timeout 2h
-      fi
-      ;;
-    me)
-      gh cs ssh -c $(gh cs create \
-        -R $(gh repo view --json nameWithOwner --jq .nameWithOwner) \
-        -b $(gh repo view --json defaultBranchRef --jq .defaultBranchRef.name) \
-        -m largePremiumLinux \
-        --default-permissions | tail -1) -- -R 127.0.0.1:7391:$(rdm socket)
+      shift
+      repo="$(gh repo view --json nameWithOwner --jq .nameWithOwner)"
+      branch="$(gh repo view --json defaultBranchRef --jq .defaultBranchRef.name)"
+      gh cs create \
+        -R "$repo" \
+        -b "$branch" \
+        --devcontainer-path .devcontainer/devcontainer.json \
+        --idle-timeout 4h
+        "$@"
       ;;
     *)
       gh cs "$@"
