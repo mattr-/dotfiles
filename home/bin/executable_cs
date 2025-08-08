@@ -19,11 +19,11 @@ function git_repo() {
 if [[ $# > 0 ]]; then
   case "$1" in
     delete)
-      cs_id=$(gh cs list | fzy | cut -f1)
+      cs_id=$(gh cs list | fzf | cut -f1)
       [[ -n "$cs_id" ]] && gh cs delete -c $cs_id
       ;;
     ssh)
-      cs_id=$(gh cs list | fzy | cut -f1)
+      cs_id=$(gh cs list | fzf | cut -f1)
       [[ -n "$cs_id" ]] && gh cs ssh -c $cs_id -- -R 127.0.0.1:7391:$(rdm socket)
       ;;
     create)
