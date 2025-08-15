@@ -63,6 +63,10 @@
                     mountOptions = ["noatime"];
                     mountpoint = "/var/lib/mc-atm10";
                   };
+                  "/mc-atm10tts" = {
+                    mountOptions = ["noatime"];
+                    mountpoint = "/var/lib/mc-atm10tts";
+                  };
                 };
               };
             };

@@ -14,6 +14,9 @@
     # This is the server for ATM10
     ../_global/linux/minecraft/atm10.nix
 
+    # and ATM10 : TTS
+    ../_global/linux/minecraft/atm10tts.nix
+
     # Set up my user
     ../../users/mattr-/nixos.nix
 
