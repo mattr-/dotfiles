@@ -46,56 +46,66 @@ return {
       },
     }
   },
-  -- telescope for all the searching
+  -- fzf based searching
   {
-    "nvim-telescope/telescope.nvim",
-    version = false, -- telescope doesn't do releases
-    cmd = "Telescope",
+    "ibhagwan/fzf-lua",
+    lazy = true,
     keys = {
-      { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
-      { "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Grep (root dir)" },
-      { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-      { "<leader>fc", DashVim.util.telescope.config_files, desc = "Find Config File" },
-      { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files (root dir)" },
-      { "<leader>fF", "<cmd>Telescope git_files<cr>", desc = "Find Files (git)" },
-      { "<leader>fp", DashVim.util.telescope.plugin_files, desc = "Find Plugin File" },
-      { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "status" },
-    },
-    opts = {
-      defaults = {
-        prompt_prefix = " ",
-        selection_caret = " ",
-        pickers = {
-          find_files = {
-            -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-            find_command = { "rg", "--files", "--hidden", "--glob", "!.git" },
-          },
-        },
-        mappings = {
-          i = {
-            ["<C-f>"] = function(...)
-              return require("telescope.actions").preview_scrolling_down(...)
-            end,
-            ["<C-b>"] = function(...)
-              return require("telescope.actions").preview_scrolling_up(...)
-            end,
-          },
-          n = {
-            ["q"] = function(...)
-              return require("telescope.actions").close(...)
-            end,
-          },
-        },
-      },
-    },
-    dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-      config = function()
-        require("telescope").load_extension("fzf")
-      end,
+      { "<space>ff", "<cmd>FzfLua files<cr>", desc = "Find Files", },
+      { "<space>/", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep", },
+      { "<space>sh", "<cmd>FzfLua highlights<cr>", desc = "Search Highlight Groups", },
     },
   },
+  -- telescope for all the searching
+  -- {
+  --   "nvim-telescope/telescope.nvim",
+  --   version = false, -- telescope doesn't do releases
+  --   cmd = "Telescope",
+  --   keys = {
+  --     { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
+  --     { "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Grep (root dir)" },
+  --     { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+  --     { "<leader>fc", DashVim.util.telescope.config_files, desc = "Find Config File" },
+  --     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files (root dir)" },
+  --     { "<leader>fF", "<cmd>Telescope git_files<cr>", desc = "Find Files (git)" },
+  --     { "<leader>fp", DashVim.util.telescope.plugin_files, desc = "Find Plugin File" },
+  --     { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "status" },
+  --   },
+  --   opts = {
+  --     defaults = {
+  --       prompt_prefix = " ",
+  --       selection_caret = " ",
+  --       pickers = {
+  --         find_files = {
+  --           -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+  --           find_command = { "rg", "--files", "--hidden", "--glob", "!.git" },
+  --         },
+  --       },
+  --       mappings = {
+  --         i = {
+  --           ["<C-f>"] = function(...)
+  --             return require("telescope.actions").preview_scrolling_down(...)
+  --           end,
+  --           ["<C-b>"] = function(...)
+  --             return require("telescope.actions").preview_scrolling_up(...)
+  --           end,
+  --         },
+  --         n = {
+  --           ["q"] = function(...)
+  --             return require("telescope.actions").close(...)
+  --           end,
+  --         },
+  --       },
+  --     },
+  --   },
+  --   dependencies = {
+  --     "nvim-telescope/telescope-fzf-native.nvim",
+  --     build = "make",
+  --     config = function()
+  --       require("telescope").load_extension("fzf")
+  --     end,
+  --   },
+  -- },
 
   -- replace vim-surround with mini.surround
   -- and emulate mini.surround
