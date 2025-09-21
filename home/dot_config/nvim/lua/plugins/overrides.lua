@@ -6,8 +6,10 @@ return {
   },
   --disable indentline
   {
-    "lukas-reineke/indent-blankline.nvim",
-    enabled = false,
+    "snacks.nvim",
+    opts = {
+      indent = { enabled = false },
+    },
   },
   --reconfig noice
   {
