@@ -25,6 +25,9 @@ map("n", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result
 map("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 
+-- https://github.com/mhinz/vim-galore#dont-lose-selection-when-shifting-sidewards
+map({"x"}, "<", "<gv", { desc = "Shift Left" })
+map({"x"}, ">", ">gv", { desc = "Shift Right" })
 
 -- lazy
 map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
