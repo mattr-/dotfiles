@@ -108,6 +108,10 @@ return {
   {
     "echasnovski/mini.pairs",
     event = "VeryLazy",
+    init = function(_)
+      -- disable mini pairs by default but leave it togglable in case I want to use it
+      vim.g.minipairs_disable = true
+    end,
     opts = {
       mappings = {
         -- disable the backtick mapping. Didn't care for it in my testing
