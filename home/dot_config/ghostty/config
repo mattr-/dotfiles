@@ -5,6 +5,11 @@ theme = Wez
 font-family = "Iosevka"
 adjust-underline-position = 1
 
+# Clipboard
+clipboard-read = allow
+clipboard-write = allow
+clipboard-paste-protection = false
+
 # Keybinds
 keybind = ctrl+shift+option+super+g=reload_config
 
