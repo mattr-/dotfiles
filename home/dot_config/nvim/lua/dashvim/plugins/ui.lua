@@ -206,10 +206,10 @@ return {
 
       dashboard.section.header.val = vim.split(logo, "\n")
       dashboard.section.buttons.val = {
-        dashboard.button("f", "󱡴 " .. " Find file", ":Telescope find_files <CR>"),
+        dashboard.button("f", "󱡴 " .. " Find file", ":FzfLua files <CR>"),
         dashboard.button("n", " " .. " New file", ":ene<CR>"),
-        dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-        dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
+        dashboard.button("r", " " .. " Recent files", ":FzfLua oldfiles <CR>"),
+        dashboard.button("g", " " .. " Find text", ":FzfLua live_grep <CR>"),
         dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
         dashboard.button("q", " " .. " Quit", ":qa<CR>"),
       }
