@@ -17,6 +17,7 @@ keybind = ctrl+shift+option+super+g=reload_config
 shell-integration = zsh
 shell-integration-features = no-cursor,no-title
 working-directory = home
+window-inherit-working-directory = false
 
 # Other UI Customization
 cursor-style = block
