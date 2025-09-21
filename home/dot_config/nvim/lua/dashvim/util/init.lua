@@ -2,6 +2,7 @@ local LazyUtil = require("lazy.core.util")
 
 --- @class dashvim.util: LazyUtilCore
 --- @field lsp dashvim.util.lsp
+--- @field mini dashvim.util.mini
 --- @field telescope dashvim.util.telescope
 --- @field tools dashvim.util.tools
 local M = {}

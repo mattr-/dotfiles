@@ -1,4 +1,4 @@
----@class custom.util.mini
+---@class dashvim.util.mini
 
 local M = {}
 
