@@ -5,6 +5,7 @@ return {
   -- Snacks
   {
     "folke/snacks.nvim",
+    priority = 1000,
     lazy = false,
     --use semver. snacks gets released often, thankfully.
     version = "*",
