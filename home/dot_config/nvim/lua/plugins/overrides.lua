@@ -1,4 +1,9 @@
 return {
+  {
+    "LazyVim/LazyVim",
+    url = "https://github.com/mattr-/LazyVim",
+    branch = "fix-lualine-pretty-path-nerd-font-width",
+  },
   --disable bufferline
   {
     "akinsho/bufferline.nvim",
