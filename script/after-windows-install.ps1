@@ -1,1 +1,20 @@
-winget install --id=Microsoft.VisualStudioCode -e  ; winget install --id=Spotify.Spotify -v "1.2.74.471.g95134d25" -e  ; winget install --id=Mozilla.Firefox -e  ; winget install --id=OBSProject.OBSStudio -e  ; winget install --id=Microsoft.WindowsTerminal -e  ; winget install --id=ShareX.ShareX -e  ; winget install --id=Valve.Steam -e  ; winget install --id=NexusMods.Vortex -e  ; winget install --id=Obsidian.Obsidian -e  ; winget install --id=Git.Git -e 
+winget install --id=Microsoft.VisualStudioCode -e
+winget install --id=Spotify.Spotify -v "1.2.74.471.g95134d25" -e
+winget install --id=Mozilla.Firefox -e
+winget install --id=OBSProject.OBSStudio -e
+winget install --id=Microsoft.WindowsTerminal -e
+winget install --id=ShareX.ShareX -e
+winget install --id=Valve.Steam -e
+winget install --id=NexusMods.Vortex -e
+winget install --id=Obsidian.Obsidian -e
+winget install --id=Git.Git -e
+winget install --id=PrismLauncher.PrismLauncher -e
+winget install --id=GitHub.cli -e
+winget install --id=Microsoft.PowerToys -e
+winget install --id=Microsoft.Sysinternals.Suite -e
+winget install --id=AgileBits.1Password -e
+winget install --id=AgileBits.1Password.CLI -e
+winget install --id=LizardByte.Sunshine -e
+winget install --id=Discord.Discord -e
+winget install --id=Tailscale.Tailscale -e
+winget install --id=7zip.7zip -e
