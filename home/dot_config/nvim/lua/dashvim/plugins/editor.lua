@@ -116,7 +116,7 @@ return {
         normal_mode = {
           { "<leader>c", group = "code" },
           { "<leader>ct", group = "test" },
-          { "<leader>f", group = "+files" },
+          { "<leader>f", group = "files" },
           { "<leader>fn", group = "new" },
           { "<leader>g", group = "git" },
           { "<leader>gh", group = "github" },
@@ -127,6 +127,9 @@ return {
           { "<leader>v", group = "vim" },
           { "<leader>vn", group = "noice" },
           { "<leader>w", group = "window" },
+          { "[", group = "prev" },
+          { "]", group = "next" },
+          { "g", group = "goto" },
         },
         visual_mode = {
           { "<leader>g", group = "git" },
