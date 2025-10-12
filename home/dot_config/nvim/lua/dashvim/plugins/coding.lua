@@ -12,7 +12,7 @@ return {
         delete_check_events = "TextChanged",
         ext_opts = {
           [types.choiceNode] = {
-            active = { virt_text = {{ "●", require("catppuccin.palettes").get_palette("mocha")["pink"] }} }
+            active = { virt_text = {{ "󱊅 ", "Special" }} }
           },
         },
       }
