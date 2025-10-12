@@ -9,9 +9,9 @@ map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true
 map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
 
--- Need to try these out
---map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
---map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+-- switch to other buffers
+map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 
 -- Search clearing
 map({ "i" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
