@@ -1,6 +1,6 @@
 -- This file is automatically loaded
 
-local map = DashVim.lazy_integrated_map
+local map = DashVim.lazy.integrated_map
 
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
