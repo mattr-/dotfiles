@@ -8,8 +8,12 @@ return {
     opts = function()
       local types = require("luasnip.util.types")
       return {
-        history = true,
-        delete_check_events = "TextChanged",
+        keep_roots = true,
+        link_roots = true,
+        link_children = true,
+        exit_roots = false,
+        update_events = { "TextChanged", "TextChangedI", "InsertLeave" },
+        delete_check_events = { "TextChanged", "InsertLeave" },
         ext_opts = {
           [types.choiceNode] = {
             active = { virt_text = {{ "󱊅 ", "Special" }} }
