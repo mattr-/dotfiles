@@ -28,6 +28,28 @@ return {
       },
       { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
       { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+      {
+        "<C-j>",
+        function()
+          local ls = require("luasnip")
+          if ls.choice_active() then
+            ls.change_choice(1)
+          end
+        end,
+        mode = { "i", "s" },
+        desc = "Next LuaSnip Choice",
+      },
+      {
+        "<C-k>",
+        function()
+          local ls = require("luasnip")
+          if ls.choice_active() then
+            ls.change_choice(-1)
+          end
+        end,
+        mode = { "i", "s" },
+        desc = "Next LuaSnip Choice",
+      },
     },
     config = function(_, opts)
       local ls = require("luasnip")
