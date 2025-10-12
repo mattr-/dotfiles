@@ -3,7 +3,8 @@ theme = Wez
 
 # Fonts
 font-family = "Iosevka"
-adjust-underline-position = 1
+adjust-underline-position = 4
+adjust-underline-thickness = 3
 
 # Clipboard
 clipboard-read = allow
