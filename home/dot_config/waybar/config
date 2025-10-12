@@ -52,14 +52,6 @@
     "exclusive": true,
     "gtk-layer-shell": true,
     "height": 0,
-    "hyprland/window": {
-      "format": " {}"
-    },
-    "hyprland/workspaces": {
-      "all-outputs": true,
-      "disable-scroll": true,
-      "on-click": "activate"
-    },
     "idle_inhibitor": {
       "format": "Idle: {icon} ",
       "format-icons": {}
@@ -70,8 +62,6 @@
       "clock"
     ],
     "modules-left": [
-      "hyprland/window",
-      "hyprland/workspaces"
     ],
     "modules-right": [
       "network",
@@ -107,8 +97,8 @@
     },
     "spacing": 0,
     "tray": {
-      "icon-size": 13,
-      "spacing": 10
+      "icon-size": 20,
+      "spacing": 14,
     },
     "wireplumber": {
       "format": "{icon} {volume}% ",

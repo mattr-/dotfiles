@@ -1,22 +1,28 @@
 * {
     border: none;
-    border-radius: 0;
+    border-radius: 5px;
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 14px;
     min-height: 0;
-    margin: 1px 0px;
+    margin-top: 0px;
+    margin-bottom: 1px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 window#waybar {
     background: rgba(21, 18, 27, 0);
     color: #cdd6f4;
+    transition-property: background-color;
+    transition-duration: .5s;
+    padding-top: 1px;
+    padding-bottom: 1px;
 }
 
 #workspaces button {
     padding: 5px;
     color: #555869;
-    margin-right: 5px;
 }
 
 #workspaces button.active {
@@ -52,64 +58,63 @@ window#waybar {
 #tray,
 #backlight {
     background: #1e1e2e;
-    padding: 0px 10px;
-    margin: 3px 0px;
-    margin-top: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 0px;
+}
+
+#network {
+    border-radius: 0px 0px 0px 8px;
 }
 
 #tray {
-    border-radius: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
+    border-radius: 0px 0px 8px 0px;
 }
 
 #workspaces {
     background: #1e1e2e;
     border-radius: 10px;
-    margin-left: 10px;
     padding-right: 0px;
     padding-left: 5px;
 }
 
 #window {
     border-radius: 10px;
-    margin-left: 10px;
 }
 
 #clock {
     color: #a6adc8;
-    border-radius: 10px 10px 10px 10px;
-    margin-left: 5px;
-    border-right: 0px;
+    border-radius: 0px 0px 10px 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 #network {
     color: #a6adc8;
-    border-radius: 10px 0px 0px 10px;
 }
 
 #wireplumber {
     color: #a6adc8;
     border-left: 0px;
     border-right: 0px;
+    border: none;
+    border-radius: 0px;
 }
 
 #wireplumber.microphone {
     color: #a6adc8;
-    border-radius: 0px 10px 10px 0px;
     border-left: 0px;
     border-right: 0px;
-    margin-right: 5px;
 }
 
 #power-profiles-daemon {
     color:#a6adc8;
-    margin-left: 0px;
-    margin-right: 0px;
+    border: none;
+    border-radius: 0px;
 }
 
 #battery {
-    border-radius: 0px 10px 10px 0px;
-    margin-left: 0px;
+  border: none;
+  border-radius: 0px;
 }
 
