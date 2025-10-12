@@ -263,5 +263,28 @@ return {
         desc = "Next trouble/quickfix item",
       },
     },
-  }
+  },
+
+  -- better tabs
+  {
+    "akinsho/bufferline.nvim",
+    event = "VeryLazy",
+    opts = {
+      options = {
+        mode = "tabs",
+        separator_style = "slant",
+        indicator = {
+          style = "underline",
+        },
+        -- stylua: ignore
+        close_command = function(n) Snacks.bufdelete(n) end,
+        -- stylua: ignore
+        right_mouse_command = function(n) Snacks.bufdelete(n) end,
+        diagnostics = "nvim_lsp",
+        always_show_bufferline = false,
+        show_close_icon = false,
+        show_buffer_close_icons = false,
+      },
+    },
+  },
 }
