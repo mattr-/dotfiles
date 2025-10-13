@@ -36,6 +36,9 @@ map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result
 map({"x"}, "<", "<gv", { desc = "Shift Left" })
 map({"x"}, ">", ">gv", { desc = "Shift Right" })
 
+-- Restore keywordprg
+map("n", "<leader>K", "<cmd>norm! K<cr>", { desc = "Keywordprg" })
+
 -- lazy
 map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
