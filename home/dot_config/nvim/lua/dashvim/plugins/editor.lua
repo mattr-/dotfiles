@@ -50,7 +50,7 @@ return {
   {
     "ibhagwan/fzf-lua",
     lazy = true,
-    opts = function(_, opts)
+    opts = function(_, _)
       local fzf = require("fzf-lua")
       local config = fzf.config
 
