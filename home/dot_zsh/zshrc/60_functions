@@ -43,4 +43,30 @@ function title() {
   esac
 }
 
+# Pick a neovim distribution to use with fzf
+nvpick() {
+  local configs=(
+    "default:nvim"
+    "lazyvim:lazyvim"
+    "nvchad:nvchad"
+    "dashvim:dashvim"
+  )
+
+  local selected=$(printf "%s\n" "${configs[@]}" | \
+    awk -F: '{print $1}' | \
+    fzf --prompt="Select Neovim config: " --height=~40% --border --reverse)
+
+  if [[ -z "$selected" ]]; then
+    return 0
+  fi
+
+  local appname=$(printf "%s\n" "${configs[@]}" | grep "^${selected}:" | cut -d: -f2)
+
+  if [[ "$appname" == "nvim" ]]; then
+    nvim "$@"
+  else
+    NVIM_APPNAME="$appname" nvim "$@"
+  fi
+}
+
 # vim:ft=sh

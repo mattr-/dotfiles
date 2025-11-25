@@ -35,4 +35,9 @@ if which eza &>/dev/null; then
   alias ls='eza'
 fi
 
+# neovim distribution aliases
+alias nvlazy='NVIM_APPNAME=lazyvim nvim'
+alias nvchad='NVIM_APPNAME=nvchad nvim'
+alias nvdash='NVIM_APPNAME=dashvim nvim'
+
 # vim:ft=sh
