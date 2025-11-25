@@ -1,10 +1,9 @@
 #!/bin/bash
-rm -rf ~/.config/nvim
-rm -rf ~/.local/share/nvim/site/pack/*
-rm -rf ~/.local/share/nvim/mason
-rm -rf ~/.local/share/nvim/lsp_servers
-rm -rf ~/.local/share/nvim/lazy
-rm -rf ~/.local/state/nvim/lazy
+export NVIM_APPNAME="nvchad"
 
-git clone https://github.com/NvChad/starter ~/.config/nvim
-rm -rf ~/.config/nvim/.git
+rm -rf ~/.config/$NVIM_APPNAME
+rm -rf ~/.local/share/$NVIM_APPNAME
+rm -rf ~/.local/state/$NVIM_APPNAME
+
+git clone https://github.com/NvChad/starter ~/.config/$NVIM_APPNAME
+rm -rf ~/.config/$NVIM_APPNAME/.git

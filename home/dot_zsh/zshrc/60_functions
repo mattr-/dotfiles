@@ -43,4 +43,12 @@ function title() {
   esac
 }
 
+# Pick a neovim config to use
+vv() {
+  local config=$(fd --max-depth 1 --glob 'nvim*' ~/.config | fzf --prompt="Neovim Flavor >" --height=~25% --layout=reverse --border --exit-0)
+  [[ -z $config ]] && echo "No config selected" && return
+
+  NVIM_APPNAME=$(basename "$config") nvim $@
+}
+
 # vim:ft=sh

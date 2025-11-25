@@ -35,4 +35,10 @@ if which eza &>/dev/null; then
   alias ls='eza'
 fi
 
+# neovim config aliases
+alias vl='NVIM_APPNAME=lazyvim nvim'
+alias vc='NVIM_APPNAME=nvchad nvim'
+alias vd='NVIM_APPNAME=dashvim nvim'
+alias v="nvim"
+
 # vim:ft=sh
