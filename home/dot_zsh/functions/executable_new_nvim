@@ -1,0 +1,11 @@
+new_nvim() {
+  local nvim_appname="nvim"
+  if [ "$1" != "" ]
+  then 
+    nvim_appname="$1"
+  fi
+
+  rm -rf "$HOME/.config/$nvim_appname"
+  rm -rf "$HOME/.local/share/$nvim_appname"
+  rm -rf "$HOME/.local/state/$nvim_appname"
+}
