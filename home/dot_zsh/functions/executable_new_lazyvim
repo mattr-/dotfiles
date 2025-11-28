@@ -1,0 +1,5 @@
+new_lazyvim() {
+  local appname=$(nvim_appname "lazyvim")
+  new_nvim $appname
+  clone_starter_repo "LazyVim" "$appname"
+}

@@ -1,0 +1,20 @@
+vv() {
+  # Pick a neovim config to use
+ config=$(fd -t d --glob 'nvim*' ~/.config |\
+          sed 's|/$||' |\
+          awk -v home="$HOME" '{
+  display = $0
+  if ($0 == home "/.config/nvim") {
+    display = "default"
+  } else {
+    sub(/.*\.config\/nvim-?/, "", display)
+  }
+  print display "\t" $0
+}' |\
+  fzf --prompt='Neovim Flavor >' --height=~25% --layout=reverse --border --exit-0 --with-nth 1 -d '\t' | cut -f2)
+  [[ -z $config ]] && echo "No config selected" && return
+
+  NVIM_APPNAME=$(basename "$config") nvim $@
+}
+
+# vim:ft=sh

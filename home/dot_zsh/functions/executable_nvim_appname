@@ -1,0 +1,8 @@
+nvim_appname() {
+  if [ "$1" != "" ]
+  then 
+    echo "nvim-$1"
+  else
+    echo "nvim"
+  fi
+}

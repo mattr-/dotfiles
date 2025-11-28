@@ -1,0 +1,6 @@
+clone_starter_repo() {
+  local org=$1
+  local appname=$2
+  git clone "https://github.com/$org/starter" "$HOME/.config/$appname"
+  rm -rf "$HOME/.config/$appname/.git"
+}

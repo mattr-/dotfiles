@@ -1,0 +1,5 @@
+new_dashvim() {
+  local appname=$(nvim_appname "dashvim")
+  new_nvim $appname
+  clone_starter_repo "DashVim" $appname
+}

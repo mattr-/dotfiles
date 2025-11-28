@@ -1,0 +1,5 @@
+new_nvchad() {
+  local appname=$(nvim_appname "nvchad")
+  new_nvim $appname
+  clone_starter_repo "NvChad" $appname
+}
