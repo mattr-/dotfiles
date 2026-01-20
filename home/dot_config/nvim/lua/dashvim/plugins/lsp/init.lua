@@ -102,7 +102,7 @@ return {
       -- configure code lens support (also new in neovim 0.10 or later)
       if vim.lsp.codelens then
         DashVim.util.lsp.on_attach(function(client, buffer)
-          if client.supports_method("textDocument/codeLens") then
+          if client:supports_method("textDocument/codeLens") then
             vim.lsp.codelens.refresh()
             vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
               buffer = buffer,
