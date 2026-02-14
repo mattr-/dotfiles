@@ -1,4 +1,4 @@
-# Nix / Lix configuration — multi-context aspect (nixos + darwin)
+# Nix / Lix configuration — multi-context feature aspect (nixos + darwin)
 #
 # Configures Lix as the Nix implementation, enables flakes and the nix command,
 # and sets up common nix daemon settings. This module defines both NixOS and
