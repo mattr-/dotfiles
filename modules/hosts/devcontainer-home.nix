@@ -1,4 +1,4 @@
-# Devcontainer — impure collector aspect
+# Devcontainer — impure home-manager collector aspect
 #
 # Builds a standalone home-manager configuration for devcontainers (GitHub
 # Codespaces, VS Code devcontainers, Docker containers). Uses --impure

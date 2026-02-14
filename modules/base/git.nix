@@ -1,4 +1,4 @@
-# Git configuration — home-manager aspect
+# Git configuration — home-manager feature aspect
 #
 # Manages git via home-manager. Provides a baseline git configuration that
 # can be composed into any host or standalone home-manager configuration.

@@ -1,4 +1,4 @@
-# Neovim — home-manager aspect
+# Neovim — home-manager feature aspect
 #
 # Installs neovim via home-manager. Configuration is managed externally
 # (e.g., via chezmoi or XDG config files), so this module only ensures
