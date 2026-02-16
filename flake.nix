@@ -2,7 +2,7 @@
   description = "mattr-'s dotfiles — dendritic nix configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -20,6 +20,28 @@
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    flatpaks.url = "github:gmodena/nix-flatpak?ref=latest";
+
+    hardware.url = "github:NixOS/nixos-hardware";
+
+    llm-agents.url = "github:numtide/llm-agents.nix";
+
+    minecraft-servers.url = "github:mkaito/nixos-modded-minecraft-servers";
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    quickshell.url = "github:quickshell-mirror/quickshell";
+
+    vicinae.url = "github:vicinaehq/vicinae?ref=v0.16.14";
   };
 
   outputs = inputs:
