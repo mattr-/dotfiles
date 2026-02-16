@@ -1,7 +1,3 @@
-# Shell configuration — home-manager feature aspect
-#
-# Configures ZSH and common CLI tools. This is a home-manager deferred module
-# that can be composed into any host or standalone home-manager configuration.
 { ... }:
 {
   flake.modules.homeManager.shell = { pkgs, ... }: {

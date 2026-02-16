@@ -1,15 +1,3 @@
-# Devcontainer — impure home-manager collector aspect
-#
-# Builds a standalone home-manager configuration for devcontainers (GitHub
-# Codespaces, VS Code devcontainers, Docker containers). Uses --impure
-# evaluation to detect the runtime environment dynamically:
-#
-#   - Username:       builtins.getEnv "USER"
-#   - Home directory: builtins.getEnv "HOME"
-#   - Architecture:   builtins.currentSystem
-#
-# Usage:
-#   nix run home-manager -- switch --flake .#devcontainer --impure
 { inputs, config, ... }:
 let
   username = builtins.getEnv "USER";
