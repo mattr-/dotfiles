@@ -23,18 +23,7 @@
   };
 
   outputs = inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } (
-      { ... }: {
-        # Define supported systems first - required by flake-parts before perSystem
-        systems = [
-          "x86_64-linux"
-          "aarch64-linux"
-          "x86_64-darwin"
-          "aarch64-darwin"
-        ];
-
-        # Import all modules discovered by import-tree
-        inherit (inputs.import-tree ./modules);
-      }
-    );
+    inputs.flake-parts.lib.mkFlake { inherit inputs; }
+      # Import all of the top-level modules under ./modules
+      (inputs.import-tree ./modules);
 }
