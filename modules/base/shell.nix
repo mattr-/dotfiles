@@ -20,6 +20,7 @@
       jq
       lazygit
       ripgrep
+      shellcheck
       tmux
     ];
   };
