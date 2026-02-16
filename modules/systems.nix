@@ -1,7 +1,3 @@
-# Formatter configuration — perSystem aspect
-#
-# Configures nixpkgs-fmt as the formatter for all systems.
-# This is a flake-parts perSystem configuration.
 { ... }:
 {
   systems = [
