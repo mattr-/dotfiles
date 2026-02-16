@@ -1,11 +1,3 @@
-# Example NixOS host — collector aspect
-#
-# Composes feature modules into a NixOS system configuration.
-# Rename this file to match your hostname and update the attribute name
-# in nixosConfigurations accordingly.
-#
-# Usage:
-#   sudo nixos-rebuild switch --flake .#example-nixos
 { inputs, config, ... }:
 let
   # Collect all NixOS feature modules (e.g., nix.nix contributes flake.modules.nixos.nix)
