@@ -9,6 +9,7 @@ in
 {
   flake.darwinConfigurations."example-darwin" = inputs.nix-darwin.lib.darwinSystem {
     system = "aarch64-darwin";
+    specialArgs = { inherit inputs; };
     modules = darwinModules ++ [
       inputs.home-manager.darwinModules.home-manager
       {
@@ -27,6 +28,7 @@ in
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
+          extraSpecialArgs = { inherit inputs; };
           users."mattr-" = { ... }: {
             imports = hmModules;
             home.stateVersion = "24.11";

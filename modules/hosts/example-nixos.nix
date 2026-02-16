@@ -9,6 +9,7 @@ in
 {
   flake.nixosConfigurations."example-nixos" = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
+    specialArgs = { inherit inputs; };
     modules = nixosModules ++ [
       inputs.home-manager.nixosModules.home-manager
       {
@@ -16,6 +17,17 @@ in
 
         # Set the system state version
         system.stateVersion = "24.11";
+
+        # Basic boot configuration (required for NixOS)
+        boot.loader.systemd-boot.enable = false;
+        boot.loader.grub.enable = true;
+        boot.loader.grub.device = "/dev/sda";
+
+        # Basic filesystem (required for NixOS)
+        fileSystems."/" = {
+          device = "/dev/sda1";
+          fsType = "ext4";
+        };
 
         # User account
         users.users."mattr-" = {
@@ -28,6 +40,7 @@ in
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
+          extraSpecialArgs = { inherit inputs; };
           users."mattr-" = { ... }: {
             imports = hmModules;
             home.stateVersion = "24.11";
