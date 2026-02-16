@@ -1,11 +1,3 @@
-# Example macOS host — collector aspect
-#
-# Composes feature modules into a nix-darwin system configuration.
-# Rename this file to match your hostname (e.g., macbook-pro.nix) and
-# update the attribute name in darwinConfigurations accordingly.
-#
-# Usage:
-#   darwin-rebuild switch --flake .#example-darwin
 { inputs, config, ... }:
 let
   # Collect all darwin feature modules (e.g., nix.nix contributes flake.modules.darwin.nix)
