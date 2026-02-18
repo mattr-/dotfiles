@@ -25,7 +25,6 @@ alias sk="sudo kill"
 alias sk9="sudo kill -9"
 
 alias vim="nvim"
-alias hs="homeshick"
 
 #mise initialization
 eval "$($HOME/.local/bin/mise activate bash)"
@@ -35,6 +34,6 @@ if which bat &>/dev/null; then
   alias cat='bat -n'
 fi
 
-if which exa &>/dev/null; then
-  alias ls='exa'
+if which eza &>/dev/null; then
+  alias ls='eza'
 fi

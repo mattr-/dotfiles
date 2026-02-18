@@ -1,7 +1,4 @@
-
-# PATH shenanigans
-export PATH="$PATH:$HOME/.homeshick/repos/homeshick/bin"
-
+export EDITOR=vim
 
 #ls aliases
 alias ls="ls -G"
@@ -28,19 +25,18 @@ alias sk9="sudo kill -9"
 
 alias vim="nvim"
 
-#asdf initialization
-[[ -f /usr/local/opt/asdf/asdf.sh ]] && ASDF_DIR=/usr/local/opt/asdf
-[[ -f /opt/asdf-vm/asdf.sh ]] && ASDF_DIR=/opt/asdf-vm
-[[ -f $HOME/.asdf/asdf.sh ]] && ASDF_DIR=$HOME/.asdf
+#mise initialization
+if [ -f "$HOME/.local/bin/mise" ]
+then
+  eval "$($HOME/.local/bin/mise activate bash)"
+fi
 
-# Pull in ASDF from various places
-[[ -f $ASDF_DIR/asdf.sh ]] && . $ASDF_DIR/asdf.sh
 
 # Optional aliases if commands are present
-if which -s bat &>/dev/null; then
+if which bat &>/dev/null; then
   alias cat='bat -n'
 fi
 
-if which -s exa &>/dev/null; then
-  alias ls='exa'
+if which eza &>/dev/null; then
+  alias ls='eza'
 fi
