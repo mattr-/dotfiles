@@ -1,0 +1,131 @@
+# Rebase all git worktrees against the default branch of the remote
+#
+# Usage: git-rebase-worktrees
+#
+# Fetches from origin, determines the default branch, then rebases every
+# worktree against origin/<default-branch>. Dirty worktrees are automatically
+# stashed before rebasing and unstashed afterward.
+
+local default_branch worktree_path worktree_branch line
+local -i success_count=0 fail_count=0 skip_count=0
+local had_stash=0
+
+# Validate we're inside a git repository
+command git rev-parse --git-dir &>/dev/null || {
+  echo "error: not a git repository" >&2
+  return 1
+}
+
+# Fetch latest from origin
+echo "Fetching from origin..."
+command git fetch -q origin || {
+  echo "error: failed to fetch from origin" >&2
+  return 1
+}
+
+# Determine the default branch
+default_branch=$(command git remote show origin 2>/dev/null | sed -n 's/.*HEAD branch: //p')
+if [[ -z "$default_branch" ]]; then
+  echo "error: could not determine default branch from origin" >&2
+  return 1
+fi
+
+# Parse worktree list (porcelain format)
+local -a worktree_paths worktree_branches
+local current_path current_branch is_first_entry=1
+local repo_root=""
+
+while IFS= read -r line; do
+  if [[ "$line" = worktree\ * ]]; then
+    current_path="${line#worktree }"
+    current_branch=""
+  elif [[ "$line" = branch\ * ]]; then
+    current_branch="${${line#branch }#refs/heads/}"
+  elif [[ -z "$line" && -n "$current_path" ]]; then
+    # End of a worktree block
+    if (( is_first_entry )); then
+      repo_root="$current_path"
+      is_first_entry=0
+    elif [[ -z "$current_branch" ]]; then
+      rel_path="${current_path#$repo_root/}"
+      [[ "$rel_path" == "$current_path" ]] && rel_path="${current_path:t}"
+      echo "(detached HEAD) ($rel_path) ⏭ skipped" >&2
+      (( skip_count++ ))
+    elif [[ -n "$current_path" ]]; then
+      worktree_paths+=("$current_path")
+      worktree_branches+=("$current_branch")
+    fi
+    current_path=""
+    current_branch=""
+  fi
+done < <(command git worktree list --porcelain; echo "")
+
+if (( ${#worktree_paths[@]} == 0 )); then
+  echo "No worktrees found to rebase."
+  return 0
+fi
+
+# Rebase each worktree
+local i glyphs rel_path error_msg
+for (( i = 1; i <= ${#worktree_paths[@]}; i++ )); do
+  worktree_path="${worktree_paths[$i]}"
+  worktree_branch="${worktree_branches[$i]}"
+  had_stash=0
+  glyphs=""
+  error_msg=""
+
+  # Relative path
+  rel_path="${worktree_path#$repo_root/}"
+  [[ "$rel_path" == "$worktree_path" ]] && rel_path="${worktree_path:t}"
+
+  # Check for uncommitted changes
+  if [[ -n "$(command git -C "$worktree_path" status --porcelain 2>/dev/null)" ]]; then
+    if ! command git -C "$worktree_path" stash push -m "git-rebase-worktrees: auto-stash" &>/dev/null; then
+      glyphs+="\U000F03D3 \U000F0157"
+      error_msg="stash failed"
+      echo "$worktree_branch ($rel_path) $glyphs $error_msg" >&2
+      (( fail_count++ ))
+      continue
+    fi
+    glyphs+="\U000F03D3 "
+    had_stash=1
+  fi
+
+  # Rebase against origin/<default-branch>
+  if command git -C "$worktree_path" rebase "origin/$default_branch" &>/dev/null; then
+    glyphs+="\U000F062C "
+  else
+    glyphs+="\U000F062C \U000F0157"
+    error_msg="rebase conflict"
+    command git -C "$worktree_path" rebase --abort &>/dev/null
+    if (( had_stash )); then
+      error_msg+=", stash preserved"
+    fi
+    echo "$worktree_branch ($rel_path) $glyphs $error_msg" >&2
+    (( fail_count++ ))
+    continue
+  fi
+
+  # Restore stashed changes
+  if (( had_stash )); then
+    if command git -C "$worktree_path" stash pop &>/dev/null; then
+      glyphs+="\U000F03D4 "
+    else
+      glyphs+="\U000F03D4 \U000F0157"
+      error_msg="unstash conflict"
+      echo "$worktree_branch ($rel_path) $glyphs $error_msg" >&2
+      (( fail_count++ ))
+      continue
+    fi
+  fi
+
+  glyphs+="\U000F012C"
+  echo "$worktree_branch ($rel_path) $glyphs"
+  (( success_count++ ))
+done
+
+# Summary
+echo ""
+echo "\U000F012C $success_count succeeded  \U000F0157 $fail_count failed  ⏭ $skip_count skipped"
+
+# vim:set ft=zsh:
