@@ -1,12 +1,11 @@
 { ... }:
 {
-  flake.modules.homeManager.git = { pkgs, ... }: {
+  flake.modules.homeManager.git = {
     programs.git = {
       enable = true;
-      userName = "Matt Rogers";
-      userEmail = "mattr-@users.noreply.github.com";
-
-      extraConfig = {
+      settings = {
+        user.name = "Matt Rogers";
+        user.email = "mattr-@users.noreply.github.com";
         init.defaultBranch = "main";
         push.autoSetupRemote = true;
         pull.rebase = true;
