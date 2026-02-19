@@ -215,7 +215,7 @@ Example skeleton for a new module:
 | `locale.nix` | en_US.UTF-8 default locale | nixos |
 | `moonlight.nix` | Moonlight game streaming client | nixos |
 | `network.nix` | NetworkManager + systemd-resolved with DNS-over-TLS | nixos |
-| `steam.nix` | Steam, gamescope, MangoHud, PrismLauncher, gaming sysctl tuning | nixos |
+| `gaming.nix` | Steam, gamescope, MangoHud, PrismLauncher, gaming sysctl tuning | nixos |
 | `sunshine.nix` | Sunshine game streaming server | nixos |
 | `users.nix` | User account, zsh shell, SSH keys, 1Password; uses `config.username` | nixos |
 | `utils.nix` | Basic system utilities (file, unzip, zip) | nixos |
