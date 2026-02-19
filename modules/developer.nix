@@ -12,7 +12,6 @@
       # Applications
       ghostty
       wezterm
-      prismlauncher
 
       # Fonts
       iosevka
