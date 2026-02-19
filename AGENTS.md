@@ -134,16 +134,15 @@ in
 
 - **Underscore prefix** (`_hardware-configuration.nix`, `_disko.nix`): Files prefixed with `_` are excluded from `import-tree` auto-import. They are manually imported by their parent host file. Used for machine-specific hardware configs that should not be treated as standalone flake-parts modules.
 - **Subdirectory grouping**: Subdirectories organize related modules but have no semantic meaning to the system. Current groups:
-  - `base/` -- foundational cross-platform modules (git, nix, shell)
   - `editors/` -- editor-specific modules (neovim)
   - `hosts/` -- host/profile definitions with per-host subdirectories for hardware configs
 - **Feature naming**: Files are named after the feature/concern they configure (e.g., `bluetooth.nix`, `wayland.nix`), not the platform they target.
-- **Shared config via `let` bindings**: When multiple tiers need the same configuration, extract it into a `let` binding at the top of the file (see `modules/base/nix.nix` for an example with `sharedNixConfig`).
+- **Shared config via `let` bindings**: When multiple tiers need the same configuration, extract it into a `let` binding at the top of the file (see `modules/nix.nix` for an example with `sharedNixConfig`).
 - **`mkDefault` for overridable defaults**: Use `lib.mkDefault` for settings that hosts may need to override (boot loader, locale, state version, etc.).
 
 ### How to Add a New Module
 
-1. Create a new `.nix` file in `modules/` (or an appropriate subdirectory like `base/`, `editors/`)
+1. Create a new `.nix` file in `modules/` (or an appropriate subdirectory like `editors/`)
 2. Name the file after the feature it configures
 3. Write a flake-parts module that sets one or more `flake.modules.<tier>.<name>` attributes
 4. The file is automatically discovered by `import-tree` -- no registration needed
@@ -185,20 +184,6 @@ Example skeleton for a new module:
 | `state-version.nix` | Default `stateVersion` for NixOS (24.05) and home-manager (24.05) | nixos, homeManager |
 | `nixpkgs.nix` | `allowUnfree = true` for NixOS and Darwin | nixos, darwin |
 
-#### Base Modules (`base/`)
-
-| File | Description | Tiers |
-|---|---|---|
-| `base/git.nix` | Git config: delta, rebase, autoSetupRemote, user identity | homeManager |
-| `base/nix.nix` | Lix package manager, flakes, binary caches, GC, registry, nh | nixos, darwin, homeManager |
-| `base/shell.nix` | Zsh enable + core CLI tools (bat, eza, fd, fzf, gh, jq, lazygit, ripgrep, shellcheck, tmux) | homeManager |
-
-#### Editor Modules (`editors/`)
-
-| File | Description | Tiers |
-|---|---|---|
-| `editors/neovim.nix` | Neovim with vi/vim aliases, set as default editor | homeManager |
-
 #### Feature Modules (top-level)
 
 | File | Description | Tiers |
@@ -207,7 +192,10 @@ Example skeleton for a new module:
 | `boot.nix` | systemd-boot + EFI defaults | nixos |
 | `cli.nix` | Dev tools (chezmoi, direnv, devenv, mise, nodejs, ruby, etc.) + program enables | homeManager |
 | `developer.nix` | Build tools, GUI apps (ghostty, wezterm), fonts, screenshots, document tools | homeManager |
+| `editors/neovim.nix` | Neovim with vi/vim aliases, set as default editor | homeManager |
 | `flatpak.nix` | Flatpak via nix-flatpak (Signal) | nixos |
+| `gaming.nix` | Steam, gamescope, MangoHud, PrismLauncher, gaming sysctl tuning | nixos |
+| `git.nix` | Git config: delta, rebase, autoSetupRemote, user identity | homeManager |
 | `gnome.nix` | GNOME desktop + GDM + extensions (system) and dconf dark mode (user) | nixos, homeManager |
 | `go.nix` | Go language support | homeManager |
 | `graphics.nix` | GPU-conditional graphics drivers (Intel/AMD/NVIDIA) using `config.hardware.gpu` | nixos |
@@ -215,7 +203,8 @@ Example skeleton for a new module:
 | `locale.nix` | en_US.UTF-8 default locale | nixos |
 | `moonlight.nix` | Moonlight game streaming client | nixos |
 | `network.nix` | NetworkManager + systemd-resolved with DNS-over-TLS | nixos |
-| `gaming.nix` | Steam, gamescope, MangoHud, PrismLauncher, gaming sysctl tuning | nixos |
+| `nix.nix` | Lix package manager, flakes, binary caches, GC, registry, nh | nixos, darwin, homeManager |
+| `shell.nix` | Zsh enable + core CLI tools (bat, eza, fd, fzf, gh, jq, lazygit, ripgrep, shellcheck, tmux) | homeManager |
 | `sunshine.nix` | Sunshine game streaming server | nixos |
 | `users.nix` | User account, zsh shell, SSH keys, 1Password; uses `config.username` | nixos |
 | `utils.nix` | Basic system utilities (file, unzip, zip) | nixos |
