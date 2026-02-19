@@ -12,14 +12,6 @@
         rebase.autoStash = true;
         rerere.enabled = true;
       };
-
-      delta = {
-        enable = true;
-        options = {
-          navigate = true;
-          side-by-side = true;
-        };
-      };
     };
   };
 }
