@@ -202,10 +202,12 @@ Example skeleton for a new module:
 | `gtk.nix` | GTK theming, Bibata cursor, WhiteSur icons and theme | homeManager |
 | `locale.nix` | en_US.UTF-8 default locale | nixos |
 | `moonlight.nix` | Moonlight game streaming client | nixos |
-| `network.nix` | NetworkManager + systemd-resolved with DNS-over-TLS | nixos |
+| `network.nix` | NetworkManager, systemd-resolved with DNS-over-TLS, Avahi/mDNS, TCP hardening and optimization sysctls | nixos |
 | `nix.nix` | Lix package manager, flakes, binary caches, GC, registry, nh | nixos, darwin, homeManager |
 | `shell.nix` | Zsh enable + core CLI tools (bat, eza, fd, fzf, gh, jq, lazygit, ripgrep, shellcheck, tmux) | homeManager |
+| `ssh.nix` | OpenSSH server (key-only, no root login) + SSH agent | nixos |
 | `sunshine.nix` | Sunshine game streaming server | nixos |
+| `tailscale.nix` | Tailscale VPN | nixos |
 | `users.nix` | User account, zsh shell, SSH keys, 1Password; uses `config.username` | nixos |
 | `utils.nix` | Basic system utilities (file, unzip, zip) | nixos |
 | `vm.nix` | VM variant config (8GB RAM, 4 cores) | nixos |
