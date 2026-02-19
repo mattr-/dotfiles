@@ -6,8 +6,18 @@ cf() {
   fi
   count=$(echo "$results" | grep -c .)
   if [ "$count" -eq 1 ] ; then
-    cd "$results"
+    target="$results"
   elif [ "$count" -gt 1 ] ; then
-    cd $(echo "$results" | fzf --layout=reverse --height=10 --no-separator --info=hidden --delimiter / --nth -1 --exact --query "$1")
+    target=$(echo "$results" | fzf --layout=reverse --height=10 --no-separator --info=hidden --delimiter / --nth -1 --exact --query "$1")
   fi
+
+  [ -z "$target" ] && return
+
+  # worktree picker for enabled repos
+  if [ -d "$target/.bare" ]; then
+    chosen=$(print -l "$target"/*(/) | fzf --layout=reverse --height=10 --no-separator --info=hidden --delimiter / --nth -1 --with-nth -1 --exact --prompt="worktree> ")
+    [ -n "$chosen" ] && target="$chosen"
+  fi
+
+  cd "$target"
 }
