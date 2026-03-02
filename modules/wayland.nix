@@ -1,22 +1,26 @@
 { inputs, ... }:
 {
-  flake.modules.nixos.wayland = { config, lib, pkgs, ... }: lib.mkIf config.dots.wayland.enable {
-    programs.hyprland = {
-      enable = true;
-      withUWSM = true;
-      xwayland.enable = true;
+  flake.modules.nixos.wayland = { config, lib, pkgs, ... }: {
+    options.dots.wayland.enable = lib.mkEnableOption "Wayland compositor support";
+
+    config = lib.mkIf config.dots.wayland.enable {
+      programs.hyprland = {
+        enable = true;
+        withUWSM = true;
+        xwayland.enable = true;
+      };
+
+      programs.hyprlock.enable = true;
+      services.hypridle.enable = true;
+
+      environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+      environment.systemPackages = with pkgs; [
+        xwayland-satellite
+      ];
+
+      security.pam.services.hyprlock.text = "auth include login";
     };
-
-    programs.hyprlock.enable = true;
-    services.hypridle.enable = true;
-
-    environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-    environment.systemPackages = with pkgs; [
-      xwayland-satellite
-    ];
-
-    security.pam.services.hyprlock.text = "auth include login";
   };
 
   flake.modules.homeManager.wayland = { pkgs, ... }: {

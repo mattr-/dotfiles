@@ -1,29 +1,40 @@
 { ... }:
 {
-  flake.modules.nixos.gaming = { config, lib, pkgs, ... }: lib.mkIf config.dots.gaming.enable {
-    programs.steam = {
-      enable = true;
-      gamescopeSession.enable = true;
-      remotePlay.openFirewall = true;
-      localNetworkGameTransfers.openFirewall = true;
-    };
+  flake.modules.nixos.gaming = { config, lib, pkgs, ... }: {
+    options.dots.gaming.enable = lib.mkEnableOption "Gaming support (Steam, gamescope, etc.)";
 
-    programs.gamescope = {
-      enable = true;
-      capSysNice = true;
-    };
+    config = lib.mkIf config.dots.gaming.enable {
+      assertions = [
+        {
+          assertion = config.dots.graphical.available;
+          message = "dots.gaming.enable requires a graphical session";
+        }
+      ];
 
-    environment.systemPackages = with pkgs; [
-      mangohud
-      prismlauncher
-      steam-devices-udev-rules
-    ];
+      programs.steam = {
+        enable = true;
+        gamescopeSession.enable = true;
+        remotePlay.openFirewall = true;
+        localNetworkGameTransfers.openFirewall = true;
+      };
 
-    boot.kernel.sysctl = {
-      "kernel.sched_cfs_bandwidth_slice_us" = 3000;
-      "net.ipv4.tcp_fin_timeout" = 5;
-      "kernel.split_lock_mitigate" = 0;
-      "vm.max_map_count" = 2147483642;
+      programs.gamescope = {
+        enable = true;
+        capSysNice = true;
+      };
+
+      environment.systemPackages = with pkgs; [
+        mangohud
+        prismlauncher
+        steam-devices-udev-rules
+      ];
+
+      boot.kernel.sysctl = {
+        "kernel.sched_cfs_bandwidth_slice_us" = 3000;
+        "net.ipv4.tcp_fin_timeout" = 5;
+        "kernel.split_lock_mitigate" = 0;
+        "vm.max_map_count" = 2147483642;
+      };
     };
   };
 }

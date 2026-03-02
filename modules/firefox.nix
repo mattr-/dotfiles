@@ -1,9 +1,13 @@
 { ... }:
 {
-  flake.modules.nixos.firefox = { config, lib, pkgs, ... }: lib.mkIf config.dots.firefox.enable {
-    programs.firefox = {
-      enable = true;
-      package = pkgs.firefox;
+  flake.modules.nixos.firefox = { config, lib, pkgs, ... }: {
+    options.dots.firefox.enable = lib.mkEnableOption "Firefox browser";
+
+    config = lib.mkIf config.dots.firefox.enable {
+      programs.firefox = {
+        enable = true;
+        package = pkgs.firefox;
+      };
     };
   };
 

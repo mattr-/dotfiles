@@ -179,7 +179,7 @@ Example skeleton for a new module:
 | File | Description | Tiers |
 |---|---|---|
 | `flake-parts.nix` | Imports flake-parts modules flakeModule and home-manager flakeModule | (flake-parts infrastructure) |
-| `options.nix` | Custom option declarations: `username`, `hardware.gpu`, `dots.*.enable` opt-in flags | nixos, darwin |
+| `options.nix` | Shared options: `username`, `hardware.gpu`, derived `dots.graphical.available` | nixos, darwin |
 | `systems.nix` | Supported systems list (incl. x86_64-darwin) + per-system formatter (`nixfmt-tree`) | (flake-parts infrastructure) |
 | `state-version.nix` | Default `stateVersion` for NixOS (24.05) and home-manager (24.05) | nixos, homeManager |
 | `nixpkgs.nix` | `allowUnfree = true`, plannotator overlay for NixOS and Darwin | nixos, darwin |

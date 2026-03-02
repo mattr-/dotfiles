@@ -1,9 +1,6 @@
 { lib, ... }:
-let
-  mkDotEnable = description: lib.mkEnableOption description;
-in
 {
-  flake.modules.nixos.options = {
+  flake.modules.nixos.options = { config, ... }: {
     options = {
       username = lib.mkOption {
         type = lib.types.str;
@@ -17,21 +14,12 @@ in
         description = "GPU type for graphics configuration";
       };
 
-      dots = {
-        audio.enable = mkDotEnable "PipeWire audio stack";
-        bluetooth.enable = mkDotEnable "Bluetooth support";
-        flatpak.enable = mkDotEnable "Flatpak package management";
-        fonts.enable = mkDotEnable "System font configuration";
-        firefox.enable = mkDotEnable "Firefox browser";
-        gaming.enable = mkDotEnable "Gaming support (Steam, gamescope, etc.)";
-        gnome.enable = mkDotEnable "GNOME desktop environment";
-        graphics.enable = mkDotEnable "GPU graphics drivers";
-        keyd.enable = mkDotEnable "Keyboard remapping with keyd";
-        moonlight.enable = mkDotEnable "Moonlight game streaming client";
-        power.enable = mkDotEnable "Power management";
-        sunshine.enable = mkDotEnable "Sunshine game streaming server";
-        wayland.enable = mkDotEnable "Wayland compositor support";
-        xdg.enable = mkDotEnable "XDG portal and user directory configuration";
+      dots.graphical.available = lib.mkOption {
+        type = lib.types.bool;
+        default = config.dots.wayland.enable || config.dots.gnome.enable;
+        readOnly = true;
+        internal = true;
+        description = "Whether a graphical session is available";
       };
     };
   };

@@ -1,20 +1,24 @@
 { ... }:
 {
-  flake.modules.nixos.bluetooth = { config, lib, pkgs, ... }: lib.mkIf config.dots.bluetooth.enable {
-    hardware.bluetooth = {
-      enable = true;
-      package = pkgs.bluez5-experimental;
-      settings = {
-        General = {
-          RefreshDiscovery = true;
-          KernelExperimental = true;
-          Experimental = true;
-          FastConnectable = true;
-          JustWorksRepairing = "always";
-          Privacy = "device";
+  flake.modules.nixos.bluetooth = { config, lib, pkgs, ... }: {
+    options.dots.bluetooth.enable = lib.mkEnableOption "Bluetooth support";
+
+    config = lib.mkIf config.dots.bluetooth.enable {
+      hardware.bluetooth = {
+        enable = true;
+        package = pkgs.bluez5-experimental;
+        settings = {
+          General = {
+            RefreshDiscovery = true;
+            KernelExperimental = true;
+            Experimental = true;
+            FastConnectable = true;
+            JustWorksRepairing = "always";
+            Privacy = "device";
+          };
         };
       };
+      boot.extraModprobeConfig = "options bluetooth disable_ertm=1";
     };
-    boot.extraModprobeConfig = "options bluetooth disable_ertm=1";
   };
 }

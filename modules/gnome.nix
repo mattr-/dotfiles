@@ -1,17 +1,21 @@
 { ... }:
 {
-  flake.modules.nixos.gnome = { config, lib, pkgs, ... }: lib.mkIf config.dots.gnome.enable {
-    services.desktopManager.gnome.enable = true;
-    services.displayManager.gdm.enable = true;
+  flake.modules.nixos.gnome = { config, lib, pkgs, ... }: {
+    options.dots.gnome.enable = lib.mkEnableOption "GNOME desktop environment";
 
-    environment.systemPackages = with pkgs; [
-      gnomeExtensions.appindicator
-      gnomeExtensions.paperwm
-    ];
+    config = lib.mkIf config.dots.gnome.enable {
+      services.desktopManager.gnome.enable = true;
+      services.displayManager.gdm.enable = true;
 
-    services.udev.packages = [ pkgs.gnome-settings-daemon ];
-    services.gnome.gcr-ssh-agent.enable = false;
-    services.orca.enable = false;
+      environment.systemPackages = with pkgs; [
+        gnomeExtensions.appindicator
+        gnomeExtensions.paperwm
+      ];
+
+      services.udev.packages = [ pkgs.gnome-settings-daemon ];
+      services.gnome.gcr-ssh-agent.enable = false;
+      services.orca.enable = false;
+    };
   };
 
   flake.modules.homeManager.gnome = {

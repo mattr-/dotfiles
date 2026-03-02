@@ -1,22 +1,26 @@
 { ... }:
 {
-  flake.modules.nixos.power = { config, lib, ... }: lib.mkIf config.dots.power.enable {
-    powerManagement.enable = true;
+  flake.modules.nixos.power = { config, lib, ... }: {
+    options.dots.power.enable = lib.mkEnableOption "Power management";
 
-    services.logind.settings.Login = {
-      HandleLidSwitchExternalPower = "suspend";
-      HandlePowerKey = "suspend";
-      HandleLidSwitch = "suspend";
-    };
+    config = lib.mkIf config.dots.power.enable {
+      powerManagement.enable = true;
 
-    services.power-profiles-daemon.enable = true;
+      services.logind.settings.Login = {
+        HandleLidSwitchExternalPower = "suspend";
+        HandlePowerKey = "suspend";
+        HandleLidSwitch = "suspend";
+      };
 
-    services.upower = {
-      enable = true;
-      percentageLow = 20;
-      percentageCritical = 10;
-      percentageAction = 5;
-      criticalPowerAction = "Hibernate";
+      services.power-profiles-daemon.enable = true;
+
+      services.upower = {
+        enable = true;
+        percentageLow = 20;
+        percentageCritical = 10;
+        percentageAction = 5;
+        criticalPowerAction = "Hibernate";
+      };
     };
   };
 }
