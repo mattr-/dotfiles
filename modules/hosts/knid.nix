@@ -12,27 +12,38 @@ in
       inputs.hardware.nixosModules.framework-13-7040-amd
       inputs.disko.nixosModules.disko
 
-      # Machine-specific hardware/disko (manually imported from subdirectory)
       ./knid/_hardware-configuration.nix
       ./knid/_disko.nix
 
-      # Host-specific configuration
       ({ pkgs, ... }: {
         nixpkgs.hostPlatform = "x86_64-linux";
 
-        # Meta options (no prefix)
         hardware.gpu = "amd";
 
-        # Hostname
         networking.hostName = "knid";
 
-        # Enable additional features
+        dots = {
+          audio.enable = true;
+          bluetooth.enable = true;
+          flatpak.enable = true;
+          fonts.enable = true;
+          firefox.enable = true;
+          gaming.enable = true;
+          gnome.enable = true;
+          graphics.enable = true;
+          keyd.enable = true;
+          moonlight.enable = true;
+          power.enable = true;
+          sunshine.enable = true;
+          wayland.enable = true;
+          xdg.enable = true;
+        };
+
         hardware.brillo.enable = true;
         hardware.enableRedistributableFirmware = true;
         virtualisation.waydroid.enable = true;
         programs.niri.enable = true;
 
-        # Host-specific packages
         environment.systemPackages = with pkgs; [
           quickshell
           matugen
@@ -43,7 +54,6 @@ in
           inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode
         ];
 
-        # Home-manager integration
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;

@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.modules.nixos.wayland = { pkgs, ... }: {
+  flake.modules.nixos.wayland = { config, lib, pkgs, ... }: lib.mkIf config.dots.wayland.enable {
     programs.hyprland = {
       enable = true;
       withUWSM = true;
@@ -40,4 +40,3 @@
     };
   };
 }
-

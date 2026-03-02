@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.nixos.bluetooth = { pkgs, ... }: {
+  flake.modules.nixos.bluetooth = { config, lib, pkgs, ... }: lib.mkIf config.dots.bluetooth.enable {
     hardware.bluetooth = {
       enable = true;
       package = pkgs.bluez5-experimental;

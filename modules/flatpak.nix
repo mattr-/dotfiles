@@ -1,11 +1,13 @@
 { inputs, ... }:
 {
-  flake.modules.nixos.flatpak = {
+  flake.modules.nixos.flatpak = { config, lib, ... }: {
     imports = [ inputs.flatpaks.nixosModules.nix-flatpak ];
 
-    services.flatpak = {
-      enable = true;
-      packages = [ "org.signal.Signal" ];
+    config = lib.mkIf config.dots.flatpak.enable {
+      services.flatpak = {
+        enable = true;
+        packages = [ "org.signal.Signal" ];
+      };
     };
   };
 }

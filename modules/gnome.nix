@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.nixos.gnome = { pkgs, ... }: {
+  flake.modules.nixos.gnome = { config, lib, pkgs, ... }: lib.mkIf config.dots.gnome.enable {
     services.desktopManager.gnome.enable = true;
     services.displayManager.gdm.enable = true;
 
@@ -22,4 +22,3 @@
     };
   };
 }
-
