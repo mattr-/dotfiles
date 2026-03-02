@@ -179,39 +179,49 @@ Example skeleton for a new module:
 | File | Description | Tiers |
 |---|---|---|
 | `flake-parts.nix` | Imports flake-parts modules flakeModule and home-manager flakeModule | (flake-parts infrastructure) |
-| `options.nix` | Custom option declarations: `username`, `hardware.gpu` | nixos, darwin |
-| `systems.nix` | Supported systems list + per-system formatter (`nixpkgs-fmt`) | (flake-parts infrastructure) |
+| `options.nix` | Custom option declarations: `username`, `hardware.gpu`, `dots.*.enable` opt-in flags | nixos, darwin |
+| `systems.nix` | Supported systems list (incl. x86_64-darwin) + per-system formatter (`nixfmt-tree`) | (flake-parts infrastructure) |
 | `state-version.nix` | Default `stateVersion` for NixOS (24.05) and home-manager (24.05) | nixos, homeManager |
-| `nixpkgs.nix` | `allowUnfree = true` for NixOS and Darwin | nixos, darwin |
+| `nixpkgs.nix` | `allowUnfree = true`, plannotator overlay for NixOS and Darwin | nixos, darwin |
 
 #### Feature Modules (top-level)
 
 | File | Description | Tiers |
 |---|---|---|
-| `bluetooth.nix` | Bluetooth with bluez5-experimental and enhanced settings | nixos |
+| `audio.nix` | PipeWire + WirePlumber with Bluetooth audio quality config (opt-in) | nixos |
+| `bluetooth.nix` | Bluetooth with bluez5-experimental and enhanced settings (opt-in) | nixos |
 | `boot.nix` | systemd-boot + EFI defaults | nixos |
 | `cli.nix` | Dev tools (chezmoi, direnv, devenv, mise, nodejs, ruby, etc.) + program enables | homeManager |
-| `developer.nix` | Build tools, GUI apps (ghostty, wezterm), fonts, screenshots, document tools | homeManager |
+| `developer.nix` | Build tools, GUI apps, home-manager.enable, systemd.user.startServices, XDG_ICON_DIR | homeManager |
 | `editors/neovim.nix` | Neovim with vi/vim aliases, set as default editor | homeManager |
-| `flatpak.nix` | Flatpak via nix-flatpak (Signal) | nixos |
-| `gaming.nix` | Steam, gamescope, MangoHud, PrismLauncher, gaming sysctl tuning | nixos |
+| `firefox.nix` | Firefox browser with NixOS native messaging + HM profile settings (opt-in) | nixos, homeManager |
+| `flatpak.nix` | Flatpak via nix-flatpak (Signal) (opt-in) | nixos |
+| `fonts.nix` | System fonts + fontconfig fallback chains (opt-in) | nixos |
+| `gaming.nix` | Steam, gamescope, MangoHud, PrismLauncher, vm.max_map_count, steam-devices-udev-rules (opt-in) | nixos |
 | `git.nix` | Git config: delta, rebase, autoSetupRemote, user identity | homeManager |
-| `gnome.nix` | GNOME desktop + GDM + extensions (system) and dconf dark mode (user) | nixos, homeManager |
+| `gnome.nix` | GNOME desktop + GDM + extensions (system) and dconf dark mode (user) (opt-in) | nixos, homeManager |
 | `go.nix` | Go language support | homeManager |
-| `graphics.nix` | GPU-conditional graphics drivers (Intel/AMD/NVIDIA) using `config.hardware.gpu` | nixos |
-| `gtk.nix` | GTK theming, Bibata cursor, WhiteSur icons and theme | homeManager |
-| `locale.nix` | en_US.UTF-8 default locale | nixos |
-| `moonlight.nix` | Moonlight game streaming client | nixos |
-| `network.nix` | NetworkManager, systemd-resolved with DNS-over-TLS, Avahi/mDNS, TCP hardening and optimization sysctls | nixos |
-| `nix.nix` | Lix package manager, flakes, binary caches, GC, registry, nh | nixos, darwin, homeManager |
+| `gpg.nix` | GPG + gpg-agent (always-on) | homeManager |
+| `graphics.nix` | GPU drivers, VA-API/VDPAU, videoDrivers, AMD kernel params, NVIDIA config (opt-in) | nixos |
+| `gtk.nix` | GTK theming, Bibata cursor, WhiteSur icons and theme, dark mode for gtk3/gtk4 | homeManager |
+| `home-ssh.nix` | SSH client config (always-on) | homeManager |
+| `keyd.nix` | Capslock to ctrl/esc remapping with keyd (opt-in) | nixos |
+| `locale.nix` | en_US.UTF-8 default locale + America/Chicago timezone | nixos |
+| `moonlight.nix` | Moonlight game streaming client (opt-in) | nixos |
+| `network.nix` | NetworkManager, systemd-resolved, Avahi/mDNS, fwupd, TCP hardening/optimization | nixos |
+| `nix.nix` | Lix package manager, flakes, binary caches, GC, registry, nh, NVD system-report-changes | nixos, darwin, homeManager |
+| `nix-ld.nix` | nix-ld for running unpatched binaries (always-on) | nixos |
+| `power.nix` | logind, upower, power-profiles-daemon (opt-in) | nixos |
+| `security.nix` | sudo, redistributable firmware, sysrq disable (always-on) | nixos |
 | `shell.nix` | Zsh enable + core CLI tools (bat, eza, fd, fzf, gh, jq, lazygit, ripgrep, shellcheck, tmux) | homeManager |
 | `ssh.nix` | OpenSSH server (key-only, no root login) + SSH agent | nixos |
-| `sunshine.nix` | Sunshine game streaming server | nixos |
+| `sunshine.nix` | Sunshine game streaming server (opt-in) | nixos |
 | `tailscale.nix` | Tailscale VPN | nixos |
 | `users.nix` | User account, zsh shell, SSH keys, 1Password; uses `config.username` | nixos |
 | `utils.nix` | Basic system utilities (file, unzip, zip) | nixos |
 | `vm.nix` | VM variant config (8GB RAM, 4 cores) | nixos |
-| `wayland.nix` | Hyprland + hyprlock + hypridle (system) and Wayland user tools + vicinae (user) | nixos, homeManager |
+| `wayland.nix` | Hyprland + hyprlock + hypridle (system) and Wayland user tools + vicinae (user) (opt-in) | nixos, homeManager |
+| `xdg.nix` | XDG portals (NixOS) + user dirs (HM) (opt-in) | nixos, homeManager |
 
 #### Host/Profile Definitions (`hosts/`)
 
@@ -220,6 +230,14 @@ Example skeleton for a new module:
 | `hosts/knid.nix` | Framework 13 7040 AMD laptop (real machine) | `nixosConfigurations.knid` |
 | `hosts/knid/_hardware-configuration.nix` | Hardware scan: NVMe, Thunderbolt, KVM-AMD (manually imported by knid.nix) | (not auto-imported) |
 | `hosts/knid/_disko.nix` | Disk partitioning: GPT, ESP, btrfs subvolumes (manually imported by knid.nix) | (not auto-imported) |
+| `hosts/slugworth.nix` | Intel CPU + AMD GPU desktop (sway, niri, all desktop modules) | `nixosConfigurations.slugworth` |
+| `hosts/slugworth/_hardware-configuration.nix` | Hardware scan: NVMe, AHCI, KVM-Intel (manually imported by slugworth.nix) | (not auto-imported) |
+| `hosts/slugworth/_disko.nix` | Disk partitioning: GPT, ESP, btrfs subvolumes (manually imported by slugworth.nix) | (not auto-imported) |
+| `hosts/prodnose.nix` | Intel Minecraft server (ATM9, no desktop modules) | `nixosConfigurations.prodnose` |
+| `hosts/prodnose/_hardware-configuration.nix` | Hardware scan: AHCI, ext4 root, swap (manually imported by prodnose.nix) | (not auto-imported) |
+| `hosts/teevee.nix` | Intel Minecraft server (ATM10 + ATM10TTS, btrfs with MC subvolumes) | `nixosConfigurations.teevee` |
+| `hosts/teevee/_hardware-configuration.nix` | Hardware scan: NVMe, AHCI, dm-snapshot (manually imported by teevee.nix) | (not auto-imported) |
+| `hosts/teevee/_disko.nix` | Disk partitioning: GPT, ESP, btrfs with MC-specific subvolumes (manually imported by teevee.nix) | (not auto-imported) |
 | `hosts/example-nixos.nix` | Template NixOS host with GRUB + ext4 | `nixosConfigurations.example-nixos` |
 | `hosts/example-darwin.nix` | Template nix-darwin host for Apple Silicon | `darwinConfigurations.example-darwin` |
 | `hosts/mattr-home.nix` | Standalone home-manager profile for Linux user mattr- | `homeConfigurations.mattr-` |
@@ -228,7 +246,9 @@ Example skeleton for a new module:
 ### Host Planning
 
 - **`knid`**: Framework 13 7040 AMD laptop -- current test host for all module development
-- **Four additional hosts are planned** but not yet defined. We anticipate per-host module selection when these hosts are added.
+- **`slugworth`**: Intel CPU + AMD GPU desktop -- sway/niri compositor, all desktop modules enabled
+- **`prodnose`**: Intel Minecraft server -- ATM9, no desktop modules
+- **`teevee`**: Intel Minecraft server -- ATM10 + ATM10TTS, btrfs with MC-specific subvolumes
 
 ### Flake Inputs Reference
 
@@ -250,7 +270,7 @@ Example skeleton for a new module:
 
 ### Nix Code Style
 
-- **Formatter**: `nixpkgs-fmt` (run via `nix fmt`)
+- **Formatter**: `nixfmt-tree` (run via `nix fmt`)
 - **No comments**: Follow the repository-wide comment policy -- do not add comments unless explicitly requested
 - **`mkDefault`**: Use for values that hosts should be able to override
 - **`let` bindings**: Extract shared configuration used across tiers into `let` bindings at the module level
