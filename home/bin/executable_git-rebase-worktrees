@@ -1,6 +1,7 @@
+#!/bin/zsh
 # Rebase all git worktrees against the default branch of the remote
 #
-# Usage: git-rebase-worktrees
+# Usage: git rebase-worktrees
 #
 # Fetches from origin, determines the default branch, then rebases every
 # worktree against origin/<default-branch>. Dirty worktrees are automatically
@@ -13,21 +14,21 @@ local had_stash=0
 # Validate we're inside a git repository
 command git rev-parse --git-dir &>/dev/null || {
   echo "error: not a git repository" >&2
-  return 1
+  exit 1
 }
 
 # Fetch latest from origin
 echo "Fetching from origin..."
 command git fetch -q origin || {
   echo "error: failed to fetch from origin" >&2
-  return 1
+  exit 1
 }
 
 # Determine the default branch
 default_branch=$(command git remote show origin 2>/dev/null | sed -n 's/.*HEAD branch: //p')
 if [[ -z "$default_branch" ]]; then
   echo "error: could not determine default branch from origin" >&2
-  return 1
+  exit 1
 fi
 
 # Parse worktree list (porcelain format)
@@ -62,7 +63,7 @@ done < <(command git worktree list --porcelain; echo "")
 
 if (( ${#worktree_paths[@]} == 0 )); then
   echo "No worktrees found to rebase."
-  return 0
+  exit 0
 fi
 
 # Rebase each worktree
