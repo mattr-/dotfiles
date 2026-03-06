@@ -13,8 +13,7 @@ require("lazy").setup({
     { import = "dashvim.plugins.lang" }, -- language plugins
   },
   defaults = {
-    -- Explicitly require plugins to be non-lazy loaded
-    lazy = true,
+    lazy = false, -- Require plugins to be lazy loaded explicitly
     version = false, -- always use the latest git commit.
   },
   rocks = { enabled = false },
