@@ -1,27 +1,32 @@
 { ... }:
 {
+  flake.modules.nixos.cli = { pkgs, ... }: {
+    environment.systemPackages = [ pkgs.vim ];
+  };
+
+  flake.modules.darwin.cli = { pkgs, ... }: {
+    environment.systemPackages = [ pkgs.vim ];
+  };
+
   flake.modules.homeManager.cli = { pkgs, ... }: {
+    programs.zsh.enable = true;
+
     home.packages = with pkgs; [
-      # Version control
       chezmoi
+      fzy
       gitui
       git-lfs
+      gh
       jujutsu
       mr
-
-      # Development tools
+      luajitPackages.luarocks
       direnv
       devenv
       mise
       nodejs
       ruby
-      luajitPackages.luarocks
-
-      # CLI utilities
-      fzy
     ];
 
-    # Program configurations
     programs.bat.enable = true;
     programs.eza.enable = true;
     programs.fzf.enable = true;
