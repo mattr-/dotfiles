@@ -314,9 +314,10 @@ nixos-rebuild switch --flake .
 
 **Safe approach for testing Nix modules**:
 1. Review module changes: `git diff modules/`
-2. Validate flake syntax: `nix flake check`
-3. Inspect packages (read-only): `nix eval .#homeConfigurations.mattr-.config.home.packages --apply builtins.length`
-4. **Never apply changes** without explicit user approval
+2. Build without applying: `nh os build .`
+3. Validate flake syntax: `nix flake check`
+4. Inspect packages (read-only): `nix eval .#homeConfigurations.mattr-.config.home.packages --apply builtins.length`
+5. **Never apply changes** without explicit user approval
 
 **Safe approach for chezmoi**:
 ```bash
@@ -354,6 +355,15 @@ script/nvim/lazy_test -c
 
 # Test DashVim configuration
 script/nvim/dash_test
+```
+
+### Nix Build
+```bash
+# Build NixOS configuration (does NOT apply it)
+nh os build .
+
+# Format Nix files
+nix fmt
 ```
 
 ### Linting/Formatting
@@ -586,6 +596,6 @@ Use Go templates in `.tmpl` files:
 - Git helpers are custom scripts, not standard git commands
 - **Repository is in transition from chezmoi to Nix** - do not remove existing chezmoi configs
 - **NEVER run `nix run home-manager -- switch` or similar commands without explicit user permission** - they will replace the current configuration
-- When working with Nix modules, use `nix flake check` for validation instead of applying changes
+- When working with Nix modules, build with `nh os build .` and validate with `nix flake check` instead of applying changes
 - **Do not add code comments unless explicitly requested by the user**
 - **All comments must use standard ASCII characters only** - no Unicode, emoji, or special symbols
