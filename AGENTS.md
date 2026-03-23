@@ -194,6 +194,7 @@ Example skeleton for a new module:
 | `developer.nix` | Build tools, GUI apps (ghostty, wezterm), fonts, screenshots, document tools | homeManager |
 | `editors/neovim.nix` | Neovim with vi/vim aliases, set as default editor | homeManager |
 | `flatpak.nix` | Flatpak via nix-flatpak (Signal) | nixos |
+| `fonts.nix` | System fonts (Noto, Nerd Fonts, Inter, Fira Code) + fontconfig defaults | nixos |
 | `gaming.nix` | Steam, gamescope, MangoHud, PrismLauncher, gaming sysctl tuning | nixos |
 | `git.nix` | Git config: delta, rebase, autoSetupRemote, user identity | homeManager |
 | `gnome.nix` | GNOME desktop + GDM + extensions (system) and dconf dark mode (user) | nixos, homeManager |
