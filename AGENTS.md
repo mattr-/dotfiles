@@ -203,6 +203,7 @@ Example skeleton for a new module:
 | `locale.nix` | en_US.UTF-8 default locale | nixos |
 | `moonlight.nix` | Moonlight game streaming client | nixos |
 | `network.nix` | NetworkManager, systemd-resolved with DNS-over-TLS, Avahi/mDNS, TCP hardening and optimization sysctls | nixos |
+| `nix-ld.nix` | nix-ld for running unpatched dynamic binaries | nixos |
 | `nix.nix` | Lix package manager, flakes, binary caches, GC, registry, nh | nixos, darwin, homeManager |
 | `shell.nix` | Zsh enable + core CLI tools (bat, eza, fd, fzf, gh, jq, lazygit, ripgrep, shellcheck, tmux) | homeManager |
 | `ssh.nix` | OpenSSH server (key-only, no root login) + SSH agent | nixos |
