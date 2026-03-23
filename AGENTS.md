@@ -190,7 +190,7 @@ Example skeleton for a new module:
 |---|---|---|
 | `bluetooth.nix` | Bluetooth with bluez5-experimental and enhanced settings | nixos |
 | `boot.nix` | systemd-boot + EFI defaults | nixos |
-| `cli.nix` | Dev tools (chezmoi, direnv, devenv, mise, nodejs, ruby, etc.) + program enables | homeManager |
+| `cli.nix` | Zsh, vim (system), CLI tools + program enables | nixos, darwin, homeManager |
 | `developer.nix` | Build tools, GUI apps (ghostty, wezterm), fonts, screenshots, document tools | homeManager |
 | `editors/neovim.nix` | Neovim with vi/vim aliases, set as default editor | homeManager |
 | `flatpak.nix` | Flatpak via nix-flatpak (Signal) | nixos |
@@ -206,7 +206,6 @@ Example skeleton for a new module:
 | `network.nix` | NetworkManager, systemd-resolved with DNS-over-TLS, Avahi/mDNS, TCP hardening and optimization sysctls | nixos |
 | `nix-ld.nix` | nix-ld for running unpatched dynamic binaries | nixos |
 | `nix.nix` | Lix package manager, flakes, binary caches, GC, registry, nh | nixos, darwin, homeManager |
-| `shell.nix` | Zsh enable + core CLI tools (bat, eza, fd, fzf, gh, jq, lazygit, ripgrep, shellcheck, tmux) | homeManager |
 | `ssh.nix` | OpenSSH server (key-only, no root login) + SSH agent | nixos |
 | `sunshine.nix` | Sunshine game streaming server | nixos |
 | `tailscale.nix` | Tailscale VPN | nixos |

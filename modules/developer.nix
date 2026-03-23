@@ -9,6 +9,9 @@
       gcc
       libgcc
 
+      # Linting tools
+      shellcheck
+
       # Applications
       ghostty
       wezterm
