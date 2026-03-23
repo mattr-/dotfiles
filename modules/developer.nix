@@ -13,10 +13,6 @@
       ghostty
       wezterm
 
-      # Fonts
-      iosevka
-      nerd-fonts.symbols-only
-
       # Utilities
       hyprshot
       brightnessctl
