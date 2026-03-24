@@ -12,6 +12,7 @@ in
       pkgs = inputs.nixpkgs.legacyPackages."x86_64-linux";
       modules = hmModules ++ [
         {
+          gui.enable = false;
           home = {
             inherit username homeDirectory;
             stateVersion = "24.11";
