@@ -172,14 +172,14 @@ Example skeleton for a new module:
 
 ### Module Inventory
 
-**IMPORTANT**: This inventory must be kept current. When creating a new module or discovering that a module was added manually, update this table. When exploring the `modules/` tree for any reason and noticing a discrepancy, fix the inventory immediately.
+**IMPORTANT**: This inventory must be kept current. When creating a new module or discovering that a module was added manually, update this table. When exploring the `modules/` tree for any reason and noticing a discrepancy, fix the inventory immediately. Keep descriptions brief -- no need to enumerate every detail.
 
 #### Infrastructure Modules
 
 | File | Description | Tiers |
 |---|---|---|
 | `flake-parts.nix` | Imports flake-parts modules flakeModule and home-manager flakeModule | (flake-parts infrastructure) |
-| `options.nix` | Custom option declarations: `username`, `hardware.gpu` | nixos, darwin |
+| `options.nix` | Custom options | nixos, darwin, homeManager |
 | `systems.nix` | Supported systems list + per-system formatter (`nixpkgs-fmt`) | (flake-parts infrastructure) |
 | `state-version.nix` | Default `stateVersion` for NixOS (24.05) and home-manager (24.05) | nixos, homeManager |
 | `nixpkgs.nix` | `allowUnfree = true` for NixOS and Darwin | nixos, darwin |
@@ -199,6 +199,7 @@ Example skeleton for a new module:
 | `git.nix` | Git config: delta, rebase, autoSetupRemote, user identity | homeManager |
 | `gnome.nix` | GNOME desktop + GDM + extensions (system) and dconf dark mode (user) | nixos, homeManager |
 | `go.nix` | Go language support | homeManager |
+| `keyd.nix` | Key remapping (capslock as ctrl/esc), opt-in via `keyd.enable` | nixos |
 | `graphics.nix` | GPU-conditional graphics drivers (Intel/AMD/NVIDIA) using `config.hardware.gpu` | nixos |
 | `gtk.nix` | GTK theming, Bibata cursor, WhiteSur icons and theme | homeManager |
 | `locale.nix` | en_US.UTF-8 default locale | nixos |
