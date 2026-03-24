@@ -14,10 +14,12 @@
     services.orca.enable = false;
   };
 
-  flake.modules.homeManager.gnome = {
-    dconf.settings = {
-      "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
+  flake.modules.homeManager.gnome = { config, lib, ... }: {
+    config = lib.mkIf config.gui.enable {
+      dconf.settings = {
+        "org/gnome/desktop/interface" = {
+          color-scheme = "prefer-dark";
+        };
       };
     };
   };
