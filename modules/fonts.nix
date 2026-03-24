@@ -12,6 +12,7 @@
         material-symbols
         inter
         fira-code
+        iosevka
       ];
 
       enableDefaultPackages = false;
