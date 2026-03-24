@@ -22,6 +22,7 @@ in
 
         # Meta options (no prefix)
         hardware.gpu = "amd";
+        keyd.enable = true;
 
         # Hostname
         networking.hostName = "knid";
