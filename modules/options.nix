@@ -13,6 +13,12 @@
         default = "intel";
         description = "GPU type for graphics configuration";
       };
+
+      keyd.enable = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+        description = "Whether to enable keyd key remapping";
+      };
     };
   };
 
