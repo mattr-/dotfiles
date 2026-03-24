@@ -31,4 +31,14 @@
       };
     };
   };
+
+  flake.modules.homeManager.options = {
+    options = {
+      gui.enable = lib.mkOption {
+        type = lib.types.bool;
+        default = true;
+        description = "Whether to include GUI applications and configuration";
+      };
+    };
+  };
 }

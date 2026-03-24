@@ -1,33 +1,26 @@
 { ... }:
 {
-  flake.modules.homeManager.developer = { pkgs, ... }: {
+  flake.modules.homeManager.developer = { config, pkgs, lib, ... }: {
     home.packages = with pkgs; [
-      # Build tools
       gnumake
       automake
       autoconf
       gcc
       libgcc
 
-      # Linting tools
       shellcheck
 
-      # Applications
-      ghostty
-      wezterm
-
-      # Utilities
-      hyprshot
-      brightnessctl
       imagemagick
       ghostscript
 
-      # Document tools
       tectonic
       mermaid-cli
+    ] ++ lib.optionals config.gui.enable [
+      ghostty
+      wezterm
+      hyprshot
+      brightnessctl
       anki
-
-      # Compositor
       quickshell
     ];
   };
