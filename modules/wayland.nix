@@ -19,24 +19,26 @@
     security.pam.services.hyprlock.text = "auth include login";
   };
 
-  flake.modules.homeManager.wayland = { pkgs, ... }: {
+  flake.modules.homeManager.wayland = { config, lib, pkgs, ... }: {
     imports = [ inputs.vicinae.homeManagerModules.default ];
 
-    home.packages = with pkgs; [
-      cliphist
-      dunst
-      swayosd
-      swww
-      waybar
-      wev
-      wofi
-      wl-clipboard
-      wlsunset
-    ];
+    config = lib.mkIf config.gui.enable {
+      home.packages = with pkgs; [
+        cliphist
+        dunst
+        swayosd
+        swww
+        waybar
+        wev
+        wofi
+        wl-clipboard
+        wlsunset
+      ];
 
-    services.vicinae = {
-      enable = true;
-      autoStart = true;
+      services.vicinae = {
+        enable = true;
+        autoStart = true;
+      };
     };
   };
 }
