@@ -192,7 +192,7 @@ Example skeleton for a new module:
 | `boot.nix` | systemd-boot + EFI defaults | nixos |
 | `cli.nix` | Zsh, vim (system), CLI tools + program enables | nixos, darwin, homeManager |
 | `developer.nix` | Build tools, GUI apps (ghostty, wezterm), fonts, screenshots, document tools | homeManager |
-| `editors/neovim.nix` | Neovim with vi/vim aliases, set as default editor | homeManager |
+| `neovim.nix` | Neovim with vi/vim aliases, set as default editor | homeManager |
 | `flatpak.nix` | Flatpak via nix-flatpak (Signal) | nixos |
 | `fonts.nix` | System fonts (Noto, Nerd Fonts, Inter, Fira Code) + fontconfig defaults | nixos |
 | `gaming.nix` | Steam, gamescope, MangoHud, PrismLauncher, gaming sysctl tuning | nixos |
