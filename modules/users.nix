@@ -1,5 +1,15 @@
 { ... }:
 {
+  flake.modules.homeManager.users = {
+    programs.home-manager.enable = true;
+    systemd.user.startServices = "sd-switch";
+
+    xdg.userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
+  };
+
   flake.modules.nixos.users = { pkgs, config, ... }: {
     programs.zsh.enable = true;
 
