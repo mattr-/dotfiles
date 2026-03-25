@@ -188,30 +188,33 @@ Example skeleton for a new module:
 
 | File | Description | Tiers |
 |---|---|---|
+| `audio.nix` | PipeWire with ALSA, PulseAudio compat, JACK; WirePlumber Bluetooth config; rtkit | nixos |
 | `bluetooth.nix` | Bluetooth with bluez5-experimental and enhanced settings | nixos |
 | `boot.nix` | systemd-boot + EFI defaults | nixos |
-| `cli.nix` | Zsh, vim (system), CLI tools + program enables | nixos, darwin, homeManager |
+| `cli.nix` | vim (system), CLI tools + program enables | nixos, darwin, homeManager |
+| `desktop-apps.nix` | Discord, Obsidian, Spotify; gated behind `gui.enable` | homeManager |
 | `developer.nix` | Build tools, GUI apps (ghostty, wezterm), fonts, screenshots, document tools | homeManager |
 | `neovim.nix` | Neovim with vi/vim aliases, set as default editor | homeManager |
 | `flatpak.nix` | Flatpak via nix-flatpak (Signal) | nixos |
 | `firefox.nix` | Firefox | nixos, homeManager |
-| `fonts.nix` | System fonts (Noto, Nerd Fonts, Inter, Fira Code) + fontconfig defaults | nixos |
+| `fonts.nix` | System fonts (Noto, Nerd Fonts, Inter, Fira Code, Iosevka) + fontconfig defaults | nixos |
 | `gaming.nix` | Steam, gamescope, MangoHud, PrismLauncher, gaming sysctl tuning | nixos |
-| `git.nix` | Git config: delta, rebase, autoSetupRemote, user identity | homeManager |
 | `gnome.nix` | GNOME desktop + GDM + extensions (system) and dconf dark mode (user) | nixos, homeManager |
 | `go.nix` | Go language support | homeManager |
+| `gpg.nix` | GPG with mutable keys/trust, gpg-agent with SSH support and pinentry-tty | homeManager |
 | `keyd.nix` | Key remapping (capslock as ctrl/esc), opt-in via `keyd.enable` | nixos |
-| `graphics.nix` | GPU-conditional graphics drivers (Intel/AMD/NVIDIA) using `config.hardware.gpu` | nixos |
+| `graphics.nix` | GPU-conditional graphics drivers + video acceleration libs (libva, mesa, VDPAU) | nixos |
 | `gtk.nix` | GTK theming, Bibata cursor, WhiteSur icons and theme | homeManager |
 | `locale.nix` | en_US.UTF-8 default locale | nixos |
 | `moonlight.nix` | Moonlight game streaming client | nixos |
 | `network.nix` | NetworkManager, systemd-resolved with DNS-over-TLS, Avahi/mDNS, TCP hardening and optimization sysctls | nixos |
 | `nix-ld.nix` | nix-ld for running unpatched dynamic binaries | nixos |
 | `nix.nix` | Lix package manager, flakes, binary caches, GC, registry, nh | nixos, darwin, homeManager |
-| `ssh.nix` | OpenSSH server (key-only, no root login) + SSH agent | nixos |
+| `overlays.nix` | Nixpkgs overlay for custom packages (plannotator) | nixos |
+| `ssh.nix` | OpenSSH server (key-only, no root login) + SSH agent (system); SSH client config with 1Password include (user) | nixos, homeManager |
 | `sunshine.nix` | Sunshine game streaming server | nixos |
 | `tailscale.nix` | Tailscale VPN | nixos |
-| `users.nix` | User account, zsh shell, SSH keys, 1Password; uses `config.username` | nixos |
+| `users.nix` | User account, zsh shell, SSH keys, 1Password (system); home-manager base settings, sd-switch, XDG user dirs (user) | nixos, homeManager |
 | `utils.nix` | Basic system utilities (file, unzip, zip) | nixos |
 | `vm.nix` | VM variant config (8GB RAM, 4 cores) | nixos |
 | `wayland.nix` | Hyprland + hyprlock + hypridle (system) and Wayland user tools + vicinae (user) | nixos, homeManager |
