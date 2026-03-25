@@ -9,14 +9,14 @@
   };
 
   flake.modules.homeManager.cli = { pkgs, ... }: {
-    programs.zsh.enable = true;
-
     home.packages = with pkgs; [
       chezmoi
       fzy
+      gitFull
       gitui
       git-lfs
       gh
+      zsh
       jujutsu
       mr
       luajitPackages.luarocks
