@@ -26,6 +26,8 @@
           package = pkgs.whitesur-gtk-theme;
           name = "WhiteSur-Dark";
         };
+
+        gtk4.theme = config.gtk.theme;
       };
     };
   };
