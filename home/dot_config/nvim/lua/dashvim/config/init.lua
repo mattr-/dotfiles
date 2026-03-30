@@ -17,6 +17,8 @@ local defaults = {
       Warn = " ",
       Hint = " ",
       Info = " ",
+      Debug = " ",
+      Trace = " ",
     },
     git = {
       added = " ",
