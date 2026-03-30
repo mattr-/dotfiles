@@ -125,7 +125,6 @@ return {
           { "<leader>gs", group = "stage", },
           { "<leader>gu", group = "unstage", },
           { "<leader>v", group = "vim" },
-          { "<leader>vn", group = "noice" },
           { "<leader>w", group = "window" },
           { "[", group = "prev" },
           { "]", group = "next" },

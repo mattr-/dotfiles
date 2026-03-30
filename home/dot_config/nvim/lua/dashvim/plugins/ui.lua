@@ -1,31 +1,4 @@
 return {
-  -- Better `vim.notify()`
-  {
-    "rcarriga/nvim-notify",
-    keys = {
-      {
-        "<leader>vn",
-        function()
-          require("notify").dismiss({ silent = true, pending = true })
-        end,
-        desc = "Dismiss all Notifications",
-      },
-    },
-    opts = {
-      stages = "static",
-      timeout = 3000,
-      max_height = function()
-        return math.floor(vim.o.lines * 0.75)
-      end,
-      max_width = function()
-        return math.floor(vim.o.columns * 0.75)
-      end,
-      on_open = function(window)
-        vim.api.nvim_win_set_config(window, { zindex = 100 })
-      end,
-    },
-  },
-
   -- better vim.ui
   {
     "stevearc/dressing.nvim",
@@ -111,7 +84,36 @@ return {
   -- dashboard
   {
     "snacks.nvim",
+    keys = {
+      {
+        "<leader>vn",
+        function()
+          Snacks.notifier.hide()
+        end,
+        desc = "Dismiss Notifications",
+      },
+      {
+        "<leader>vh",
+        function()
+          Snacks.notifier.show_history()
+        end,
+        desc = "Notification History",
+      },
+    },
     opts = {
+      notifier = {
+        enabled = true,
+        timeout = 3000,
+        style = "compact",
+        margin = { top = 0, right = 1, bottom = 0 },
+        icons = {
+          error = DashVim.config.icons.diagnostics.Error,
+          warn = DashVim.config.icons.diagnostics.Warn,
+          info = DashVim.config.icons.diagnostics.Info,
+          debug = DashVim.config.icons.diagnostics.Debug,
+          trace = DashVim.config.icons.diagnostics.Trace,
+        },
+      },
       dashboard = {
         preset = {
           pick = function(cmd, opts)
@@ -161,7 +163,7 @@ return {
           else
             local ok, err = pcall(vim.cmd.cprev)
             if not ok then
-              vim.notify(err, vim.log.levels.ERROR)
+              DashVim.ui.error("Quickfix", err, { id = "quickfix-navigation-error" })
             end
           end
         end,
@@ -175,7 +177,7 @@ return {
           else
             local ok, err = pcall(vim.cmd.cnext)
             if not ok then
-              vim.notify(err, vim.log.levels.ERROR)
+              DashVim.ui.error("Quickfix", err, { id = "quickfix-navigation-error" })
             end
           end
         end,
