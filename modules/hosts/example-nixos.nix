@@ -1,9 +1,6 @@
 { inputs, config, ... }:
 let
-  # Collect all NixOS feature modules (e.g., nix.nix contributes flake.modules.nixos.nix)
   nixosModules = builtins.attrValues (config.flake.modules.nixos or { });
-
-  # Collect all home-manager feature modules for the user
   hmModules = builtins.attrValues (config.flake.modules.homeManager or { });
 in
 {
@@ -11,40 +8,29 @@ in
     system = "x86_64-linux";
     specialArgs = { inherit inputs; };
     modules = nixosModules ++ [
-      inputs.home-manager.nixosModules.home-manager
       {
         nixpkgs.hostPlatform = "x86_64-linux";
 
-        # Set the system state version
         system.stateVersion = "24.11";
 
-        # Basic boot configuration (required for NixOS)
         boot.loader.systemd-boot.enable = false;
         boot.loader.grub.enable = true;
         boot.loader.grub.device = "/dev/sda";
 
-        # Basic filesystem (required for NixOS)
         fileSystems."/" = {
           device = "/dev/sda1";
           fsType = "ext4";
         };
 
-        # User account
         users.users."mattr-" = {
           isNormalUser = true;
           extraGroups = [ "wheel" "networkmanager" ];
           home = "/home/mattr-";
         };
 
-        # Home-manager integration as a NixOS module
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          extraSpecialArgs = { inherit inputs; };
-          users."mattr-" = { ... }: {
-            imports = hmModules;
-            home.stateVersion = "24.11";
-          };
+        hm = { ... }: {
+          imports = hmModules;
+          home.stateVersion = "24.11";
         };
       }
     ];
