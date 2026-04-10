@@ -27,7 +27,7 @@
         cliphist
         dunst
         swayosd
-        swww
+        awww
         waybar
         wev
         wofi
