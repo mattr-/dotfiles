@@ -14,6 +14,13 @@ in
       ./knid/_hardware-configuration.nix
       ./knid/_disko.nix
 
+      ({ config, ... }: {
+        sops.defaultSopsFile = ./knid/_secrets.yaml;
+
+        sops.secrets.user-password = { neededForUsers = true; };
+        users.users.${config.username}.hashedPasswordFile = config.sops.secrets.user-password.path;
+      })
+
       ({ pkgs, ... }: {
         nixpkgs.hostPlatform = "x86_64-linux";
 

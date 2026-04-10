@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [ $# -lt 2 ]; then
+  echo "Usage: $0 <hostname> <target-host>" >&2
+  echo "Example: $0 knid root@192.168.1.100" >&2
+  exit 1
+fi
+
+HOST="$1"
+TARGET="$2"
+REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+
+if ! command -v sops &>/dev/null; then
+  echo "Error: sops not found" >&2
+  exit 1
+fi
+
+if ! command -v nixos-anywhere &>/dev/null; then
+  echo "Error: nixos-anywhere not found" >&2
+  exit 1
+fi
+
+HOST_KEYS_FILE="${REPO_ROOT}/modules/hosts/_host-keys.yaml"
+if [ ! -f "$HOST_KEYS_FILE" ]; then
+  echo "Error: ${HOST_KEYS_FILE} not found" >&2
+  exit 1
+fi
+
+temp=$(mktemp -d)
+trap "rm -rf $temp" EXIT
+
+install -d -m755 "$temp/etc/ssh"
+
+sops -d --extract "[\"${HOST}\"]" "$HOST_KEYS_FILE" \
+  > "$temp/etc/ssh/ssh_host_ed25519_key"
+chmod 600 "$temp/etc/ssh/ssh_host_ed25519_key"
+
+ssh-keygen -y -f "$temp/etc/ssh/ssh_host_ed25519_key" \
+  > "$temp/etc/ssh/ssh_host_ed25519_key.pub"
+
+nixos-anywhere \
+  --extra-files "$temp" \
+  --flake "${REPO_ROOT}#${HOST}" \
+  --target-host "$TARGET"

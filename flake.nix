@@ -41,6 +41,11 @@
 
     quickshell.url = "github:quickshell-mirror/quickshell";
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     vicinae.url = "github:vicinaehq/vicinae?ref=v0.16.14";
   };
 

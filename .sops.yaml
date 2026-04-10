@@ -1,0 +1,15 @@
+keys:
+  - &admin REPLACE_WITH_ADMIN_AGE_PUBLIC_KEY
+  - &knid REPLACE_WITH_KNID_AGE_PUBLIC_KEY
+
+creation_rules:
+  - path_regex: ^modules/hosts/_host-keys\.yaml$
+    key_groups:
+      - age:
+          - *admin
+
+  - path_regex: ^modules/hosts/knid/_secrets\.yaml$
+    key_groups:
+      - age:
+          - *admin
+          - *knid

@@ -170,6 +170,59 @@ Example skeleton for a new module:
 6. If the host needs hardware-specific files, create a subdirectory (e.g., `hosts/myhost/`) and prefix the files with `_`
 7. **Update the Module Inventory table below** with the new host entry
 
+### Secrets Management (sops-nix)
+
+Secrets are managed via **sops-nix** with **age** encryption. The system uses SSH host keys as age decryption identities -- each NixOS host can only decrypt secrets encrypted to its own host key.
+
+#### Architecture
+
+Per-host secrets do not violate the dendritic pattern. Like `_hardware-configuration.nix` and `_disko.nix`, secrets are inherently per-machine and belong in host definition files.
+
+- **Shared infrastructure** (`modules/sops.nix`): Imports the sops-nix NixOS and home-manager modules, sets the default age key path. Applies to all hosts via tier system.
+- **Per-host secrets**: Declared in host files (e.g., `modules/hosts/knid.nix`). Each host sets `sops.defaultSopsFile` pointing to its `_secrets.yaml` and declares its `sops.secrets.*` entries.
+- **Encrypted files**: Stored at `modules/hosts/<hostname>/_secrets.yaml` (underscore prefix excludes from import-tree). Encrypted to the host's age public key + an admin age key.
+- **Creation rules**: `.sops.yaml` at repo root maps file paths to encryption keys via `path_regex`.
+
+#### Key Management
+
+- **Host decryption keys**: SSH ed25519 host keys at `/etc/ssh/ssh_host_ed25519_key`, converted to age keys internally by sops-nix at decryption time.
+- **Admin key**: A personal age key at `~/.config/sops/age/keys.txt` on the dev machine. Used for encrypting/editing secrets and as a backup decryption identity.
+- **Pre-generated host keys**: For new hosts, SSH keypairs are generated ahead of time and stored age-encrypted in `modules/hosts/_host-keys.yaml` (encrypted to admin key only). The provisioning script (`script/provision-host`) extracts them during deployment.
+
+#### User-level Secrets on NixOS
+
+The NixOS sops module handles both system-level and user-level secrets. Use `owner` and `mode` to make secrets readable by a specific user:
+
+```nix
+sops.secrets."user/some-token" = {
+  owner = config.users.users.mattr-.name;
+  mode = "0400";
+};
+```
+
+This avoids needing a separate user age key. The home-manager sops module is available for standalone home-manager profiles (without NixOS) that need their own decryption identity.
+
+#### Where to Put Secrets Config
+
+- **DO NOT** put `sops.secrets` declarations in tier/feature modules -- they belong in host files
+- **DO NOT** create a single secrets module that uses `mkIf` on hostname to route secrets
+- **DO** declare secrets and their service wiring in the host file alongside other host-specific config
+- **DO** use `sops.defaultSopsFile` in the host file so bare `sops.secrets.foo = {}` entries inherit the host's file
+
+#### Adding Secrets to a New Host
+
+1. Pre-generate an SSH ed25519 keypair: `ssh-keygen -t ed25519 -f /tmp/newhost-key -N "" -C ""`
+2. Convert public key to age: `cat /tmp/newhost-key.pub | ssh-to-age`
+3. Add the age public key to `.sops.yaml` with a new anchor and creation rule
+4. Store the private key in `modules/hosts/_host-keys.yaml`
+5. Create `modules/hosts/newhost/_secrets.yaml` with the host's secrets
+6. In the host `.nix` file, set `sops.defaultSopsFile` and declare `sops.secrets.*`
+7. Provision with `script/provision-host newhost root@<ip>`
+
+#### Coexistence with 1Password
+
+sops-nix handles declarative system/service secrets (decrypted at NixOS activation time). 1Password remains the interactive credential store (SSH agent, git signing, CLI access). The two systems serve different purposes and do not conflict.
+
 ### Module Inventory
 
 **IMPORTANT**: This inventory must be kept current. When creating a new module or discovering that a module was added manually, update this table. When exploring the `modules/` tree for any reason and noticing a discrepancy, fix the inventory immediately. Keep descriptions brief -- no need to enumerate every detail.
@@ -183,6 +236,7 @@ Example skeleton for a new module:
 | `systems.nix` | Supported systems list + per-system formatter (`nixpkgs-fmt`) | (flake-parts infrastructure) |
 | `state-version.nix` | Default `stateVersion` for NixOS (24.05) and home-manager (24.05) | nixos, homeManager |
 | `nixpkgs.nix` | `allowUnfree = true` for NixOS and Darwin | nixos, darwin |
+| `sops.nix` | sops-nix integration: imports sops modules, sets age decryption via SSH host key | nixos, homeManager |
 
 #### Feature Modules (top-level)
 
@@ -226,6 +280,8 @@ Example skeleton for a new module:
 | `hosts/knid.nix` | Framework 13 7040 AMD laptop (real machine) | `nixosConfigurations.knid` |
 | `hosts/knid/_hardware-configuration.nix` | Hardware scan: NVMe, Thunderbolt, KVM-AMD (manually imported by knid.nix) | (not auto-imported) |
 | `hosts/knid/_disko.nix` | Disk partitioning: GPT, ESP, btrfs subvolumes (manually imported by knid.nix) | (not auto-imported) |
+| `hosts/knid/_secrets.yaml` | Encrypted per-host secrets for knid (sops + age) | (not auto-imported) |
+| `hosts/_host-keys.yaml` | Pre-generated SSH host keys for provisioning (encrypted to admin key only) | (not auto-imported) |
 | `hosts/example-nixos.nix` | Template NixOS host with GRUB + ext4 | `nixosConfigurations.example-nixos` |
 | `hosts/example-darwin.nix` | Template nix-darwin host for Apple Silicon | `darwinConfigurations.example-darwin` |
 | `hosts/mattr-home.nix` | Standalone home-manager profile for Linux user mattr- | `homeConfigurations.mattr-` |
@@ -252,6 +308,7 @@ Example skeleton for a new module:
 | `minecraft-servers` | Modded Minecraft server support | -- |
 | `noctalia` | Noctalia shell | yes |
 | `quickshell` | Quickshell compositor widget toolkit | -- |
+| `sops-nix` | Secrets management via sops + age encryption | yes |
 | `vicinae` | Vicinae home-manager module (Wayland tool) | -- |
 
 ### Nix Code Style
