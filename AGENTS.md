@@ -212,6 +212,7 @@ Example skeleton for a new module:
 | `nix.nix` | Lix package manager, flakes, binary caches, GC, registry, nh | nixos, darwin, homeManager |
 | `overlays.nix` | Nixpkgs overlay for custom packages (plannotator) | nixos |
 | `ssh.nix` | OpenSSH server (key-only, no root login) + SSH agent (system); SSH client config with 1Password include (user) | nixos, homeManager |
+| `sudo.nix` | sudo with TERM info preserved and passwordless wheel group | nixos |
 | `sunshine.nix` | Sunshine game streaming server | nixos |
 | `tailscale.nix` | Tailscale VPN | nixos |
 | `users.nix` | User account, zsh shell, SSH keys, 1Password (system); home-manager base settings, sd-switch, XDG user dirs (user) | nixos, homeManager |
