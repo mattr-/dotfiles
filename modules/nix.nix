@@ -2,18 +2,10 @@
 let
   # Shared nix settings used by both NixOS and nix-darwin
   sharedNixConfig = { pkgs, lib, ... }: {
-    # Use Lix as the Nix implementation
-    nix.package = pkgs.lixPackageSets.stable.lix;
+    nix.package = pkgs.nixVersions.latest;
 
     nix.settings = {
-      # Enable flakes and the nix command
       experimental-features = [ "nix-command" "flakes" ];
-
-      # Lix binary cache
-      extra-substituters = [ "https://cache.lix.systems" ];
-      extra-trusted-public-keys = [
-        "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
-      ];
 
       # Allow the primary user to manage the nix store
       trusted-users = [ "root" "@wheel" "mattr-" ];
