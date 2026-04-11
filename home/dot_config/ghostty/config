@@ -3,7 +3,7 @@ theme = Wez
 
 # Fonts
 font-family = "Iosevka"
-adjust-underline-position = 2
+adjust-underline-position = 3
 adjust-underline-thickness = 1
 
 # Clipboard
@@ -13,6 +13,8 @@ clipboard-paste-protection = false
 
 # Keybinds
 keybind = ctrl+shift+option+super+g=reload_config
+keybind = alt+backspace=text:\x1b\x7f
+keybind = shift+enter=text:\n
 
 # Shell
 shell-integration = zsh
