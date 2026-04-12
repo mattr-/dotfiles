@@ -428,22 +428,6 @@
         "type": "indirect"
       }
     },
-    "nixpkgs_6": {
-      "locked": {
-        "lastModified": 1762111121,
-        "narHash": "sha256-4vhDuZ7OZaZmKKrnDpxLZZpGIJvAeMtK6FKLJYUtAdw=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "b3d51a0365f6695e7dd5cdf3e180604530ed33b4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "noctalia": {
       "inputs": {
         "nixpkgs": [
@@ -613,20 +597,22 @@
     },
     "vicinae": {
       "inputs": {
-        "nixpkgs": "nixpkgs_6",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1765271704,
-        "narHash": "sha256-G9zuw0IuzOxCeAcLE+IXcsdp0vAGMXBBdlfjBISnL90=",
+        "lastModified": 1775500602,
+        "narHash": "sha256-esnDXLMXJz+Nw4VF8Dk/FX4M+eVNe3vJSq06IoJ/NwA=",
         "owner": "vicinaehq",
         "repo": "vicinae",
-        "rev": "04608039dda3da97ccb2e89f22f4943eb1df9a03",
+        "rev": "8401bab2cf0e45ea07d9d9f6e013f7ffd320d947",
         "type": "github"
       },
       "original": {
         "owner": "vicinaehq",
-        "ref": "v0.16.14",
+        "ref": "v0.20.12",
         "repo": "vicinae",
         "type": "github"
       }
