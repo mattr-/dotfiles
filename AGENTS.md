@@ -195,6 +195,7 @@ Example skeleton for a new module:
 | `desktop-apps.nix` | Discord, Obsidian, Spotify; gated behind `gui.enable` | homeManager |
 | `developer.nix` | Build tools, GUI apps (ghostty, wezterm), fonts, screenshots, document tools | homeManager |
 | `neovim.nix` | Neovim with vi/vim aliases, set as default editor | homeManager |
+| `firewall.nix` | nftables firewall; default deny input, allow established + SSH (port 22) | nixos |
 | `flatpak.nix` | Flatpak via nix-flatpak (Signal) | nixos |
 | `firefox.nix` | Firefox | nixos, homeManager |
 | `fonts.nix` | System fonts (Noto, Nerd Fonts, Inter, Fira Code, Iosevka) + fontconfig defaults | nixos |
