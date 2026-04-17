@@ -504,8 +504,7 @@
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs_4",
         "noctalia": "noctalia",
-        "quickshell": "quickshell",
-        "vicinae": "vicinae"
+        "quickshell": "quickshell"
       }
     },
     "systems": {
@@ -535,21 +534,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default-linux",
-        "type": "github"
-      }
-    },
-    "systems_3": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
         "type": "github"
       }
     },
@@ -593,28 +577,6 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "type": "github"
-      }
-    },
-    "vicinae": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "systems": "systems_3"
-      },
-      "locked": {
-        "lastModified": 1775500602,
-        "narHash": "sha256-esnDXLMXJz+Nw4VF8Dk/FX4M+eVNe3vJSq06IoJ/NwA=",
-        "owner": "vicinaehq",
-        "repo": "vicinae",
-        "rev": "8401bab2cf0e45ea07d9d9f6e013f7ffd320d947",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vicinaehq",
-        "ref": "v0.20.12",
-        "repo": "vicinae",
         "type": "github"
       }
     }

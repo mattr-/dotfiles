@@ -40,11 +40,6 @@
     };
 
     quickshell.url = "github:quickshell-mirror/quickshell";
-
-    vicinae = {
-      url = "github:vicinaehq/vicinae?ref=v0.20.12";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs:

@@ -219,7 +219,7 @@ Example skeleton for a new module:
 | `users.nix` | User account, zsh shell, SSH keys, 1Password (system); home-manager base settings, sd-switch, XDG user dirs (user) | nixos, homeManager |
 | `utils.nix` | Basic system utilities (file, unzip, zip) | nixos |
 | `vm.nix` | VM variant config (8GB RAM, 4 cores) | nixos |
-| `wayland.nix` | Hyprland + hyprlock + hypridle (system) and Wayland user tools + vicinae (user) | nixos, homeManager |
+| `wayland.nix` | Hyprland + hyprlock + hypridle (system) and Wayland user tools (user) | nixos, homeManager |
 
 #### Host/Profile Definitions (`hosts/`)
 
@@ -254,7 +254,6 @@ Example skeleton for a new module:
 | `minecraft-servers` | Modded Minecraft server support | -- |
 | `noctalia` | Noctalia shell | yes |
 | `quickshell` | Quickshell compositor widget toolkit | -- |
-| `vicinae` | Vicinae home-manager module (Wayland tool) | -- |
 
 ### Nix Code Style
 
