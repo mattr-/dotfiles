@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ ... }:
 {
   flake.modules.nixos.wayland = { pkgs, ... }: {
     programs.hyprland = {
@@ -20,8 +20,6 @@
   };
 
   flake.modules.homeManager.wayland = { config, lib, pkgs, ... }: {
-    imports = [ inputs.vicinae.homeManagerModules.default ];
-
     config = lib.mkIf config.gui.enable {
       home.packages = with pkgs; [
         cliphist
@@ -35,13 +33,6 @@
         wlsunset
       ];
 
-      services.vicinae = {
-        enable = true;
-        systemd = {
-          enable = true;
-          autoStart = true;
-        };
-      };
     };
   };
 }
