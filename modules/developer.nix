@@ -15,6 +15,8 @@
 
       tectonic
       mermaid-cli
+      ast-grep
+      tree-sitter
     ] ++ lib.optionals config.gui.enable [
       ghostty
       wezterm
