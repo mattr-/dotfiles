@@ -991,6 +991,11 @@
   # Tip: Remove the next line to always show context.
   typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_{CONTENT,VISUAL_IDENTIFIER}_EXPANSION=
 
+  # In a Codespace, show the friendly name (sans random suffix, dashes as spaces).
+  # Otherwise fall back to the default user@hostname.
+  typeset -g POWERLEVEL9K_CONTEXT_REMOTE_CONTENT_EXPANSION='${${${CODESPACE_NAME%-*}//-/ }:-${P9K_CONTENT}}'
+  typeset -g POWERLEVEL9K_CONTEXT_REMOTE_SUDO_CONTENT_EXPANSION='${${${CODESPACE_NAME%-*}//-/ }:-${P9K_CONTENT}}'
+
   # Custom icon.
   # typeset -g POWERLEVEL9K_CONTEXT_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
