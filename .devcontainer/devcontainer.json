@@ -1,0 +1,23 @@
+{
+  "name": "Ubuntu Focal (20.04)",
+  "build": {
+    "context": ".",
+    "dockerfile": "./Dockerfile",
+    "args": {
+      "UBUNTU_VERSION": "focal"
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/sshd:1": {},
+    "ghcr.io/devcontainers/features/nix:1": {
+      "extraNixConfig": "experimental-features = nix-command flakes\nwarn-dirty = false"
+    }
+  },
+  "remoteUser": "vscode",
+  "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+  "customizations": {
+    "vscode": {
+      "extensions": ["jnoortheen.nix-ide"]
+    }
+  }
+}
