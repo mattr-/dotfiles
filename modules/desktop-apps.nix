@@ -6,6 +6,7 @@
         discord
         obsidian
         spotify
+        yt-dlp
       ];
     };
   };
