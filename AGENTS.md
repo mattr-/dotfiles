@@ -217,7 +217,7 @@ Example skeleton for a new module:
 | `sunshine.nix` | Sunshine game streaming server | nixos |
 | `tailscale.nix` | Tailscale VPN | nixos |
 | `users.nix` | User account, zsh shell, SSH keys, 1Password (system); home-manager base settings, sd-switch, XDG user dirs (user) | nixos, homeManager |
-| `utils.nix` | Basic system utilities (file, unzip, zip) | nixos |
+| `utils.nix` | Basic system utilities | nixos, homeManager |
 | `vm.nix` | VM variant config (8GB RAM, 4 cores) | nixos |
 | `wayland.nix` | Hyprland + hyprlock + hypridle (system) and Wayland user tools (user) | nixos, homeManager |
 
