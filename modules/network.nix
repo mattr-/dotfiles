@@ -1,6 +1,10 @@
 { ... }:
 {
-  flake.modules.nixos.network = {
+  flake.modules.nixos.network = { pkgs, ... }: {
+    environment.systemPackages = with pkgs; [
+      iw
+    ];
+
     networking.networkmanager = {
       enable = true;
       dns = "systemd-resolved";
