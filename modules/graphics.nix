@@ -3,8 +3,13 @@
   flake.modules.nixos.graphics = { lib, config, pkgs, ... }:
     let
       gpu = config.hardware.gpu;
+      btop = if gpu == "amd" then pkgs.btop-rocm
+        else if gpu == "nvidia" then pkgs.btop-cuda
+        else pkgs.btop;
     in
     {
+      environment.systemPackages = [ btop ];
+
       hardware.graphics = {
         enable = true;
         enable32Bit = true;
