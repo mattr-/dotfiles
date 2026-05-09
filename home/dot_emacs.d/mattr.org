@@ -18,7 +18,7 @@ symlink that to =init.el=
 ** Faster startup tweaks
 
 Now, let's get some startup optimizations in place. Like reducing garbage collection at startup
-#+BEGIN_SRC emacs-lisp :tangle yes 
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq gc-cons-threshold 128000000)
 (add-hook 'after-init-hook #'(lambda ()
 			       ;; restore after startup
@@ -29,10 +29,6 @@ Now, let's get some startup optimizations in place. Like reducing garbage collec
 ;; All the package set up goes here
 (require 'package)
 
-(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
-
 (setq package-enable-at-startup nil)
 (package-initialize)
 
@@ -42,7 +38,6 @@ Now, let's get some startup optimizations in place. Like reducing garbage collec
 
 ;; Set up use-package
 (eval-when-compile (require 'use-package))
-(require 'diminish)
 (require 'bind-key)
 
 (setq use-package-verbose t)
@@ -81,17 +76,9 @@ strips it all out. No toolbars, menu bars, scroll bars, nothing.
   (tooltip-mode -1))
 #+END_SRC
 
-Let's set a nice font for when we're using a GUI
-#+BEGIN_SRC emacs-lisp :tangle yes
-(when (display-graphic-p)
-  (set-face-attribute 'default nil :font "Hack 12")
-  (set-frame-font "Hack 12" nil t))
-
-#+END_SRC
-
 
 Let's customize the message in the scratch buffer and not show the startup screen.
-#+BEGIN_SRC emacs-lisp :tangle yes 
+#+BEGIN_SRC emacs-lisp :tangle yes
 (setq inhibit-startup-screen t
       initial-scratch-message ";; ready\n\n")
 #+END_SRC
@@ -124,7 +111,6 @@ from my old config yet.
 ;; Don't wrap long lines
 (setq-default truncate-lines nil)
 
-
 ;; Only use spaces
 (setq-default indent-tabs-mode nil)
 
@@ -155,80 +141,6 @@ will be used frequently throughout the rest of the file
   :evil-states (normal))
 #+END_SRC
 
-*** Line numbers
-Using =linum= for this since I'm not aware of anything better coming
-along. Set up relative line numbering similar to vim's relative line
-mode
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package linum-relative
-  :commands (linum-relative-toggle linum-relative-on))
-(require 'linum)
-#+END_SRC
-
-Disable line numbering for certain modes where the line numbers being
-present. Pull in some code from emacswiki.org to selectively disable
-linum mode for certain major modes, special buffers (ones that start
-with `*`), extremely large buffers (> 30mb), and the minibuffer. The
-formatting bits come from https://www.emacswiki.org/emacs/LineNumbers#toc8
-
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(defcustom linum-disabled-modes-list
-  '(eshell-mode
-    wl-summary-mode
-    compilation-mode
-    org-mode
-    dired-mode
-    doc-view-mode
-    image-mode)
-  "* List of modes disabled when global linum mode is no"
-  :type '(repeat (sexp :tag "Major mode"))
-  :tag " Major modes where linum is disabled:"
-  :group 'linum
-  )
-
-(defun linum-on ()
-  "* When linum is running globally, disable line number in modes defined in `linum-disabled-modes-list'. Changed by linum-off. Also turns off numbering in starred modes like *scratch*"
-
-  (unless (or (minibufferp)
-	      (member major-mode linum-disabled-modes-list)
-	      (string-match "*" (buffer-name))
-	      (> (buffer-size) 3000000)) ;; disable for buffers bigger than 3MB
-    (linum-mode 1)))
-
-
-(unless window-system
-  (add-hook 'linum-before-numbering-hook
-  (lambda ()
-    (setq-local linum-format-fmt
-		(let ((w (length (number-to-string
-				  (count-lines (point-min) (point-max))))))
-		  (concat "%" (number-to-string w) "d"))))))
-
-(defun linum-format-func (line)
-  (concat
-   (propertize (format linum-format-fmt line) 'face 'linum)
-   (propertize " " 'face 'mode-line)))
-
-(unless window-system
-  (setq linum-format 'linum-format-func))
-#+END_SRC
-
-Enable =linum= globally. So far this has turned out to work great with
-the configuration above. I could add a text-mode hook but that feels
-like a global thing anyways.
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(global-linum-mode 1)
-#+END_SRC
-
-And finally, add a binding to toggle relative numbering
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(bind-map-set-keys my-normal-base-leader-map
-  "nr" 'linum-relative-toggle)
-#+END_SRC
 *** Whitespace
 Show empty lines, trailing whitespace, and tabs
 #+BEGIN_SRC emacs-lisp :tangle yes
@@ -239,14 +151,6 @@ Enable whitespace detection for text modes and prog modes
 (add-hook 'prog-mode-hook 'whitespace-mode)
 #+END_SRC
 Please don't clutter my mode line
-#+BEGIN_SRC emacs-lisp :tangle yes
-(eval-after-load "diminish"
-'(progn
-   (eval-after-load "whitespace"
-     '(diminish 'global-whitespace-mode))
-   (eval-after-load "whitespace"
-     '(diminish 'whitespace-mode))))
-#+END_SRC
 
 Trigger whitespace cleanup whenever I want
 #+BEGIN_SRC emacs-lisp :tangle yes
@@ -267,6 +171,7 @@ Support =.editorconfig=
   (progn
     (editorconfig-mode 1)))
 #+END_SRC
+
 ** Evil Mode Setup
 I've trained myself to think in vim, so evil mode is a necessity for
 me. And the more like vim we can make emacs, the better
@@ -317,83 +222,13 @@ me. And the more like vim we can make emacs, the better
 
 
 ** Popup Windows!
-#+BEGIN_SRC emacs-lisp :tangle yes 
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package popwin
   :config
   (popwin-mode 1)
   (bind-map-set-keys my-normal-base-leader-map
       "wpm" 'popwin:messages
       "wpp" 'popwin:close-popup-window))
-#+END_SRC
-** Automatic syntax checking
-Currently, we'll be using Flycheck for this. Seems pretty handy
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package flycheck
-  :defer t
-  :init
-    (add-hook 'after-init-hook #'global-flycheck-mode)
-  :config
-    (diminish 'flycheck-mode " ⓢ"))
-#+END_SRC
-** Automatic completion
-I took a lot of the company config from spacemacs because I liked how
-they did it and could understand how it was set up. I need to learn
-way more about company though as I'm finding more things I dislike
-about this the more I use it.
-
-Setup the default company backends, add a macro to append to the
-default backends with a mode specific backend, and also a macro to add
-company hooks so we can do the configuration per mode
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(defvar mattr-default-company-backends
-  '((company-dabbrev-code company-gtags company-etags company-keywords)
-    company-files company-dabbrev)
-  "The list of default company backends.
-This variable is used to configure mode-specific company backends.
-Backends in this list will always be active in these modes, as well as any
-backends added by individual language support setups.")
-
-(defmacro mattr|defvar-company-backends (mode)
-  "Define a MODE specific company backend variable with default backends.
-The variable name format is company-backends-MODE."
-  `(defvar ,(intern (format "company-backends-%S" mode))
-     ',mattr-default-company-backends
-     ,(format "Company backend list for %S" mode)))
-
-(defmacro mattr|add-company-hook (mode)
-  "Enable company for the given MODE.
-MODE must match the symbol passed in `mattr|defvar-company-backends'.
-The initialization function is hooked to `MODE-hook'."
-  (let ((mode-hook (intern (format "%S-hook" mode)))
-	(func (intern (format "mattr//init-company-%S" mode)))
-	(backend-list (intern (format "company-backends-%S" mode))))
-    `(defun ,func ()
-       ,(format "Initialize company for %S" mode)
-       (set (make-variable-buffer-local 'auto-completion-front-end)
-	    'company)
-       (set (make-variable-buffer-local 'company-backends)
-	    ,backend-list))
-    `(add-hook ',mode-hook ',func t)
-    `(add-hook ',mode-hook 'company-mode t)))
-#+END_SRC
-
-Setup company itself
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package company
-  :defer t
-  :init
-    (setq company-idle-delay 0.2
-	  company-minimum-prefix-length 2
-	  company-require-match nil
-	  company-dabbrev-ignore-case nil
-	  company-dabbrev-downcase nil)
-  :config
-    (diminish company-mode)
-    (let ((map company-active-map))
-      (define-key map (kbd "C-j") 'company-select-next)
-      (define-key map (kbd "C-k") 'company-select-previous)
-      (define-key map (kbd "C-l") 'company-complete-selection)))
 #+END_SRC
 
 ** Version Control
@@ -412,272 +247,6 @@ bunch of tweaking out of the box. magit is good stuff
 #+END_SRC
 
 
-** Project support
-I need emacs to recognize projects. Ideally, this would be similar to
-how I can just open vim from the terminal and hit =,f= to get a fuzzy
-file finder search but I'm not sure that's going to happen. In the
-mean time, let's set up =projectile= for project stuff
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package projectile
-  :config
-  (setq projectile-cache-file (concat user-emacs-directory "projectile.cache")
-        projectile-known-projects-file (concat user-emacs-directory "projectile.project")))
-#+END_SRC
-
-** Language Support
-*** Ruby
-
-#+BEGIN_SRC emacs-lisp :tangle yes 
-;; From spacemacs
-(defun spacemacs//enable-rbenv ()
-  (require 'rbenv)
-   (let ((version-file-path (rbenv--locate-file ".ruby-version")))
-    (global-rbenv-mode)
-    ;; try to use the ruby defined in .ruby-version
-    (if version-file-path
-        (progn
-          (rbenv-use (rbenv--read-version-from-file version-file-path))
-          (message (concat "[rbenv] Using ruby version "
-                           "from .ruby-version file.")))
-      (message "[rbenv] Using the currently activated ruby."))))
-
-;; Setup the default backends
-(mattr|defvar-company-backends enh-ruby-mode)
-
-(use-package bundler
-  :defer t
-  :init
-  (bind-map-set-keys my-normal-base-leader-map
-    "bc" 'bundle-check
-    "bi" 'bundle-install
-    "bs" 'bundle-console
-    "bu" 'bundle-update
-    "bx" 'bundle-exec
-    "bo" 'bundle-open))
-
-(use-package rbenv
-  :defer t
-  :init
-  (add-hook 'spacemacs//enable-rbenv 'enh-ruby-mode-hook))
-
-(use-package enh-ruby-mode
-  :defer t
-  :mode (("Appraisals\\'" . enh-ruby-mode)
-	 ("\\(Rake\\|Thor\\|Guard\\|Gem\\|Cap\\|Vagrant\\|Berks\\|Pod\\|Puppet\\)file\\'" . enh-ruby-mode)
-	 ("\\.\\(rb\\|rabl\\|ru\\|builder\\|rake\\|thor\\|gemspec\\|jbuilder\\)\\'" . enh-ruby-mode))
-  :interpreter "ruby"
-  :init
-  (progn
-    (setq enh-ruby-deep-indent-paren nil
-	  enh-ruby-hanging-paren-deep-indent-level 2)))
-
-(use-package robe
-  :defer t
-  :init
-  (progn
-    (add-hook 'enh-ruby-mode-hook 'robe-mode)
-    (push 'company-robe company-backends-enh-ruby-mode))
-  :config
-  (with-eval-after-load 'diminish
-    (diminish 'robe-mode)))
-
-(use-package ruby-test-mode
-  :defer t
-  :config
-  (progn
-    (bind-map-set-keys my-normal-base-leader-map
-      "tt" 'ruby-test-run
-      "tn" 'ruby-test-run-at-point)))
-
-(use-package rubocop
-  :defer t
-  :init
-  (progn
-    (add-hook 'enh-ruby-mode-hook 'rubocop-mode))
-  :config
-  (progn
-    (with-eval-after-load 'rubocop
-      (diminish 'rubocop-mode))
-    (bind-map-set-keys my-normal-base-leader-map
-      "rcp" 'rubocop-check-project
-      "rcd" 'rubocop-check-directory
-      "rcf" 'rubocop-check-current-file
-      "rcP" 'rubocop-autocorrect-project
-      "rcF" 'rubocop-autocorrect-current-file
-      "rcD" 'rubocop-autocorrect-directory)))
-
-(use-package ruby-refactor
-  :defer t
-  :init
-  (progn
-    (add-hook 'enh-ruby-mode-hook 'ruby-refactor-mode-launch))
-  :config
-  (progn
-    (bind-map-set-keys my-normal-base-leader-map
-      "rll" 'ruby-refactor-extract-to-let)))
-
-
-(mattr|add-company-hook enh-ruby-mode)
-(with-eval-after-load 'company-dabbrev-code
-  (push 'enh-ruby-mode company-dabbrev-code-modes))
-#+END_SRC
-
-
-*** Elixir
-
-#+BEGIN_SRC emacs-lisp :tangle yes 
-(mattr|defvar-company-backends elixir-mode)
-
-(use-package alchemist
-  :defer t
-  :init
-  (progn
-    (add-hook 'elixir-mode-hook 'alchemist-mode)
-    (setq alchemist-compile-project-when-needed t)
-    (push 'alchemist-company company-backends-elixir-mode)
-    )
-  :config
-  (progn
-    (dolist (mode (list alchemist-compile-mode-map
-			alchemist-eval-mode-map
-			alchemist-execute-mode-map
-			alchemist-message-mode-map
-			alchemist-help-minor-mode-map
-			alchemist-mix-mode-map
-			alchemist-macroexpand-mode-map
-			alchemist-refcard-mode-map
-			alchemist-test-report-mode-map))
-    (evil-define-key 'normal mode
-	(kbd "q") 'quit-window))))
-
-; pull in spacemacs' elixir config but comment it out so that we can see it here for reference
-;;;    (spacemacs/set-leader-keys-for-major-mode 'elixir-mode
-;;;      "el" 'alchemist-eval-current-line
-;;;      "eL" 'alchemist-eval-print-current-line
-;;;      "er" 'alchemist-eval-region
-;;;      "eR" 'alchemist-eval-print-region
-;;;      "eb" 'alchemist-eval-buffer
-;;;      "eB" 'alchemist-eval-print-buffer
-;;;      "ej" 'alchemist-eval-quoted-current-line
-;;;      "eJ" 'alchemist-eval-print-quoted-current-line
-;;;      "eu" 'alchemist-eval-quoted-region
-;;;      "eU" 'alchemist-eval-print-quoted-region
-;;;      "ev" 'alchemist-eval-quoted-buffer
-;;;      "eV" 'alchemist-eval-print-quoted-buffer
-;;;
-;;;      "pt" 'alchemist-project-find-test
-;;;      "gt" 'alchemist-project-toggle-file-and-tests
-;;;      "gT" 'alchemist-project-toggle-file-and-tests-other-window
-;;;
-;;;      "h:" 'alchemist-help
-;;;      "hH" 'alchemist-help-history
-;;;      "hh" 'alchemist-help-search-at-point
-;;;      "hr" 'alchemist-help-search-marked-region
-;;;
-;;;      "m:" 'alchemist-mix
-;;;      "mc" 'alchemist-mix-compile
-;;;      "mx" 'alchemist-mix-run
-;;;      "mh" 'alchemist-mix-help
-;;;
-;;;      "'"  'alchemist-iex-run
-;;;      "sc" 'alchemist-iex-compile-this-buffer
-;;;      "si" 'alchemist-iex-run
-;;;      "sI" 'alchemist-iex-project-run
-;;;      "sl" 'alchemist-iex-send-current-line
-;;;      "sL" 'alchemist-iex-send-current-line-and-go
-;;;      "sm" 'alchemist-iex-reload-module
-;;;      "sr" 'alchemist-iex-send-region
-;;;      "sR" 'alchemist-iex-send-region-and-go
-;;;
-;;;      "ta" 'alchemist-mix-test
-;;;      "tb" 'alchemist-mix-test-this-buffer
-;;;      "tt" 'alchemist-mix-test-at-point
-;;;      "tf" 'alchemist-test-file
-;;;      "tn" 'alchemist-test-jump-to-next-test
-;;;      "tp" 'alchemist-test-jump-to-previous-test
-;;;      "tr" 'alchemist-mix-rerun-last-test
-;;;
-;;;      "xb" 'alchemist-execute-this-buffer
-;;;      "xf" 'alchemist-execute-file
-;;;      "x:" 'alchemist-execute
-;;;
-;;;      "cb" 'alchemist-compile-this-buffer
-;;;      "cf" 'alchemist-compile-file
-;;;      "c:" 'alchemist-compile
-;;;
-;;;      "," 'alchemist-goto-jump-back)
-;;;
-
-(push '("*alchemist test report*" :noselect t) popwin:special-display-config)
-(push '("*alchemist mix*" :noselect t) popwin:special-display-config)
-
-
-(use-package elixir-mode
-  :defer t)
-
-(use-package flycheck-credo
-  :defer t
-  :init (add-hook 'flycheck-mode-hook #'flycheck-credo-setup))
-
-(mattr|add-company-hook elixir-mode)
-#+END_SRC
-
-*** Lua
-#+BEGIN_SRC emacs-lisp :tangle yes 
-(use-package lua-mode
-  :defer t
-  :mode (("\\.lua$" . lua-mode))
-  :interpreter "lua"
-)
-#+END_SRC
-
-(use-package markdown-mode)
-
-
-*** Org Mode
-This is going to be fairly customized as I work through org mode
-tutorials and the like. Going to start first with good keybindings and
-then go from there.
-
-**** TODO Figure out how doom loads a newer version of org so I can use the latest and greatest
-**** TODO Remember that =M-shift-RET= inserts additional headings
-**** TODO =C-c C-o= does =org-open-at-point= which is handy for links in docs. How to map this?
-**** TODO =C-c l= does =org-store-link=. Can be used to store a link to the current location in the file being looked at.
-**** TODO =C-c C-l= does =org-insert-link= which adds the stored link to the current file.
-**** TODO =shift-TAB= for cycling headings. top-level, then all headings, then normal.
-**** TODO =C-c a t= for the org-agenda todo list.
-a
-
-Pull in org
-#+BEGIN_SRC emacs-lisp :tangle yes
-(require 'org)
-#+END_SRC
-
-Log when I finish TODO tasks
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(setq org-log-done t)
-
-#+END_SRC
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(bind-map-set-keys my-normal-base-leader-map
-  "obt" 'org-babel-tangle
-  "ot" 'org-todo)
-#+END_SR
-*** Miscellaneous language support
-Stuff that I use and want support for but don't have enough functionality for to give it its own heading
-
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package toml-mode :mode "\\.toml$")
-(use-package yaml-mode :mode "\\.ya?ml$")
-(use-package dockerfile-mode :mode "/Dockerfile$")
-(use-package vimrc-mode
-  :mode "/\\.?g?vimrc$"
-  :mode "\\.vim$")
-
-#+END_SRC
 
 ** Themeing
 I'm still trying to decide if I'm going to stick with terminal emacs
@@ -686,7 +255,7 @@ enough with everything so I'm going to try that. But we need a nice
 theme for it first...
 
 Let's go with doom-themes for now
-#+BEGIN_SRC emacs-lisp :tangle yes 
+#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package doom-themes
   :init
     (setq doom-themes-enable-bold t
@@ -697,7 +266,3 @@ Let's go with doom-themes for now
     (doom-themes-org-config) ; improve org-mode native fontification
 )
 #+END_SRC
-
-
-
-** Miscellaneous stuff that I don't know where to put yet
