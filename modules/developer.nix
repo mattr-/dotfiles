@@ -17,6 +17,7 @@
       mermaid-cli
       ast-grep
       tree-sitter
+      emacs
     ] ++ lib.optionals config.gui.enable [
       ghostty
       wezterm
