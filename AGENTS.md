@@ -210,7 +210,7 @@ Example skeleton for a new module:
 | `moonlight.nix` | Moonlight game streaming client | nixos |
 | `network.nix` | NetworkManager, systemd-resolved with DNS-over-TLS, Avahi/mDNS, TCP hardening and optimization sysctls | nixos |
 | `nix-ld.nix` | nix-ld for running unpatched dynamic binaries | nixos |
-| `nix.nix` | Lix package manager, flakes, binary caches, GC, registry, nh | nixos, darwin, homeManager |
+| `nix.nix` | Nix (latest), flakes, trusted users, GC, registry, nh | nixos, darwin, homeManager |
 | `overlays.nix` | Nixpkgs overlay for custom packages (plannotator) | nixos |
 | `ssh.nix` | OpenSSH server (key-only, no root login) + SSH agent (system); SSH client config with 1Password include (user) | nixos, homeManager |
 | `sudo.nix` | sudo with TERM info preserved and passwordless wheel group | nixos |
@@ -409,7 +409,7 @@ When comments ARE requested:
 - Use standard ASCII alternatives: hyphen (-), straight quotes (" '), asterisk (*), etc.
 - Keep comments concise and focused on "why" not "what"
 
-Exception: None. Module-level documentation comments should NOT be present in this codebase.
+Exception: Linter/tool directive comments (e.g., `# shellcheck source=/dev/null`, `# shellcheck disable=SC2034`, `# noinspection`, `# type: ignore`) are allowed without explicit request when they are the standard mechanism required to satisfy a linter or static analysis tool.
 
 ### Indentation and Formatting
 
