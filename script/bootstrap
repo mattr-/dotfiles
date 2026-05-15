@@ -1,50 +1,27 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e
 
-# ---------------------------------------------------------------------------
-# Platform detection
-# ---------------------------------------------------------------------------
-is_darwin() { [ "$(uname -s)" = "Darwin" ]; }
 is_linux() { [ "$(uname -s)" = "Linux" ]; }
 is_devcontainer() {
   [ -n "${CODESPACES:-}" ] || [ -n "${REMOTE_CONTAINERS:-}" ] || [ -f /.dockerenv ]
 }
 
-# ---------------------------------------------------------------------------
-# Gate: Linux is only supported inside devcontainers
-# ---------------------------------------------------------------------------
-if is_linux && ! is_devcontainer; then
-  echo "Error: bootstrap on Linux is only supported inside a devcontainer." >&2
+if ! is_linux || ! is_devcontainer; then
+  echo "Error: bootstrap is only supported inside a Linux devcontainer." >&2
   echo "Supported environments: GitHub Codespaces, VS Code devcontainers, Docker." >&2
   exit 1
 fi
 
-# ---------------------------------------------------------------------------
-# Determine the repository root
-# ---------------------------------------------------------------------------
 script_dir="$(cd "$(dirname "$0")" && pwd)"
 repo_dir="$(cd "$script_dir/.." && pwd)"
 
-# ---------------------------------------------------------------------------
-# Install Lix (https://lix.systems) if nix is not already available
-# ---------------------------------------------------------------------------
 if ! command -v nix &>/dev/null; then
-  echo "Installing Lix..."
-  curl -sSf -L https://install.lix.systems/lix | sh -s -- install --no-confirm
-  # Source nix-daemon.sh so the nix command is available in this session
+  curl -sSf -L https://nixos.org/nix/install | sh -s -- --no-daemon
   if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
+    # shellcheck source=/dev/null
     . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
   fi
 fi
 
-# ---------------------------------------------------------------------------
-# Bootstrap the Nix configuration
-# ---------------------------------------------------------------------------
-if is_darwin; then
-  echo "Bootstrapping nix-darwin..."
-  nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake "$repo_dir"
-else
-  echo "Bootstrapping home-manager (devcontainer)..."
-  nix run home-manager --extra-experimental-features "nix-command flakes" -- switch --flake "$repo_dir#devcontainer" --impure
-fi
+nix run home-manager --extra-experimental-features "nix-command flakes" -- switch --flake "$repo_dir#devcontainer" --impure
