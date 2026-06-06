@@ -193,6 +193,7 @@ Example skeleton for a new module:
 | `boot.nix` | systemd-boot + EFI defaults | nixos |
 | `cli.nix` | vim (system), CLI tools + program enables | nixos, darwin, homeManager |
 | `desktop-apps.nix` | Discord, Obsidian, Spotify; gated behind `gui.enable` | homeManager |
+| `docker.nix` | Docker daemon + adds primary user to `docker` group | nixos |
 | `developer.nix` | Build tools, GUI apps (ghostty, wezterm), fonts, screenshots, document tools | homeManager |
 | `neovim.nix` | Neovim with vi/vim aliases, set as default editor | homeManager |
 | `firewall.nix` | nftables firewall; default deny input, allow established + SSH (port 22) | nixos |
