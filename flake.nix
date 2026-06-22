@@ -1,5 +1,5 @@
 {
-  description = "mattr-'s dotfiles — dendritic nix configuration";
+  description = "mattr-'s dotfiles";
 
   inputs = {
     nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
