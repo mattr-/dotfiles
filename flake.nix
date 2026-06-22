@@ -2,7 +2,7 @@
   description = "mattr-'s dotfiles";
 
   inputs = {
-    nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
