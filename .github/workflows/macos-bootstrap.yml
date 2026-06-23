@@ -1,0 +1,26 @@
+name: macOS bootstrap test
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - script/bootstrap
+  pull_request:
+    paths:
+      - script/bootstrap
+
+jobs:
+  bootstrap:
+    name: macOS bootstrap
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Run bootstrap
+        run: script/bootstrap
+      - name: Naive nix verification
+        run: |
+          nix --version
+      - name: More robust nix verification
+        run: |
+          . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+          nix --version
