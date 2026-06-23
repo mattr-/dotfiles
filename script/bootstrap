@@ -1,27 +1,33 @@
 #!/usr/bin/env bash
 
-set -e
+set -eo pipefail
 
 is_linux() { [ "$(uname -s)" = "Linux" ]; }
+is_macos() { [ "$(uname -s)" = "Darwin" ]; }
+
 is_devcontainer() {
   [ -n "${CODESPACES:-}" ] || [ -n "${REMOTE_CONTAINERS:-}" ] || [ -f /.dockerenv ]
 }
-
-if ! is_linux || ! is_devcontainer; then
-  echo "Error: bootstrap is only supported inside a Linux devcontainer." >&2
-  echo "Supported environments: GitHub Codespaces, VS Code devcontainers, Docker." >&2
-  exit 1
-fi
 
 script_dir="$(cd "$(dirname "$0")" && pwd)"
 repo_dir="$(cd "$script_dir/.." && pwd)"
 
 if ! command -v nix &>/dev/null; then
-  curl -sSf -L https://nixos.org/nix/install | sh -s -- --no-daemon
-  if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
-    # shellcheck source=/dev/null
-    . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+  LIX_INSTALL_OPTIONS="--no-confirm --enable-flakes"
+
+  echo "==> Installing Lix"
+  LIX_INSTALL_TMP=$(mktemp) || exit 1
+  curl -sSf -L https://install.lix.systems/lix -o "$LIX_INSTALL_TMP"
+  chmod u+x "$LIX_INSTALL_TMP"
+  if is_macos; then
+    LIX_INSTALL_PLATFORM="macos"
+  else
+    LIX_INSTALL_PLATFORM="linux"
   fi
+
+  echo "$LIX_INSTALL_TMP" install "$LIX_INSTALL_PLATFORM" "$LIX_INSTALL_OPTIONS"
 fi
 
-nix run home-manager --extra-experimental-features "nix-command flakes" -- switch --flake "$repo_dir#devcontainer" --impure
+if is_devcontainer; then
+  nix run home-manager --extra-experimental-features "nix-command flakes" -- switch --flake "$repo_dir#devcontainer" --impure
+fi
