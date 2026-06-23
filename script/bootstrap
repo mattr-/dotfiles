@@ -25,7 +25,7 @@ if ! command -v nix &>/dev/null; then
     LIX_INSTALL_PLATFORM="linux"
   fi
 
-  "$LIX_INSTALL_TMP" install "$LIX_INSTALL_PLATFORM" "$LIX_INSTALL_OPTIONS"
+  $("$LIX_INSTALL_TMP" install "$LIX_INSTALL_PLATFORM" "$LIX_INSTALL_OPTIONS")
 fi
 
 if is_devcontainer; then
