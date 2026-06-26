@@ -32,8 +32,12 @@ if is_devcontainer; then
   echo "==> Applying home manager config"
   nix run home-manager --extra-experimental-features "nix-command flakes" -- switch --flake "$repo_dir#devcontainer" --impure
 elif is_macos; then
+
+  . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+
   echo "==> Building the config"
   nix build .#darwinConfigurations.gloop.system
+
   echo "==> Activating the config"
   ./result/activate
 fi
