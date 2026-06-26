@@ -16,4 +16,20 @@
       (lib.mkAliasOptionModule [ "hm" ] [ "home-manager" "users" "mattr-" ])
     ];
   };
+
+  flake.modules.darwin.home-manager-integration = { lib, ... }: {
+    imports = [
+      inputs.home-manager.darwinModules.home-manager
+
+      {
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          extraSpecialArgs = { inherit inputs; };
+        };
+      }
+
+      (lib.mkAliasOptionModule [ "hm" ] [ "home-manager" "users" "mattr-" ])
+    ];
+  };
 }
