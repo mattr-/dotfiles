@@ -36,7 +36,7 @@ elif is_macos; then
   . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 
   echo "==> Building the config"
-  nix build .#darwinConfigurations.gloop.system
+  nix --extra-experimental-features "nix-command flakes" build .#darwinConfigurations.gloop.system
 
   echo "==> Activating the config"
   ./result/activate
