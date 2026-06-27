@@ -49,7 +49,7 @@ in
     };
   };
 
-  flake.modules.homeManager.options = {
+  flake.modules.homeManager.options = { pkgs, ... }: {
     options = {
       gui.enable = guiEnableOption;
 
@@ -57,6 +57,20 @@ in
         type = lib.types.bool;
         default = true;
         description = "Whether to include LLM applications and agent harnesses";
+      };
+
+      user.name = lib.mkOption {
+        type = lib.types.str;
+        default = "mattr-";
+        description = "Primary username for this configuration";
+      };
+
+      user.home = lib.mkOption {
+        type = lib.types.str;
+        default = (if pkgs.stdenv.isDarwin
+          then "/Users/mattr-"
+          else "/home/mattr-");
+        description = "The home directory for the user";
       };
     };
   };

@@ -1,6 +1,13 @@
 { ... }:
 {
-  flake.modules.homeManager.users = {
+  flake.modules.homeManager.users = { config, ... }: {
+
+    home = {
+      username = ${config.user.name};
+      homeDirectory = ${config.user.home};
+      stateVersion = "24.11";
+    }
+
     programs.home-manager.enable = true;
     systemd.user.startServices = "sd-switch";
 
