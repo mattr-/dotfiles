@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  flake.modules.nixos.options = {
+  flake.modules.nixos.options = {}: {
     options = {
       username = lib.mkOption {
         type = lib.types.str;
@@ -22,7 +22,7 @@
     };
   };
 
-  flake.modules.darwin.options = {
+  flake.modules.darwin.options = {}: {
     options = {
       username = lib.mkOption {
         type = lib.types.str;
