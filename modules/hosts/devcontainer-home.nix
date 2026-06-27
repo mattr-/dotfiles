@@ -13,10 +13,8 @@ in
       modules = hmModules ++ [
         {
           gui.enable = false;
-          home = {
-            inherit username homeDirectory;
-            stateVersion = "24.11";
-          };
+          user.name = username;
+          user.home = homeDirectory;
         }
       ];
     };
