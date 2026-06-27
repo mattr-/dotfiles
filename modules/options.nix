@@ -1,20 +1,27 @@
 { lib, ... }:
+let
+  inherit (lib)
+    mkOption
+  ;
+  usernameOption = mkOption {
+    type = lib.types.str;
+    default = "mattr-";
+    description = "Primary username for this configuration";
+  };
+in
+
 {
   flake.modules.nixos.options = {
     options = {
-      username = lib.mkOption {
-        type = lib.types.str;
-        default = "mattr-";
-        description = "Primary username for this configuration";
-      };
+      username = usernameOption;
 
-      hardware.gpu = lib.mkOption {
+      hardware.gpu = mkOption {
         type = lib.types.enum [ "intel" "nvidia" "amd" ];
         default = "intel";
         description = "GPU type for graphics configuration";
       };
 
-      keyd.enable = lib.mkOption {
+      keyd.enable = mkOption {
         type = lib.types.bool;
         default = false;
         description = "Whether to enable keyd key remapping";
@@ -24,17 +31,13 @@
 
   flake.modules.darwin.options = {
     options = {
-      username = lib.mkOption {
-        type = lib.types.str;
-        default = "mattr-";
-        description = "Primary username for this configuration";
-      };
+      username = usernameOption;
     };
   };
 
   flake.modules.homeManager.options = {
     options = {
-      gui.enable = lib.mkOption {
+      gui.enable = mkOption {
         type = lib.types.bool;
         default = true;
         description = "Whether to include GUI applications and configuration";
