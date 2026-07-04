@@ -39,6 +39,7 @@ in
           inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code
           inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode
           inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.pi
+          bambu-studio
         ];
 
         hm.imports = hmModules;
