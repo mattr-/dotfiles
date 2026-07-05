@@ -243,13 +243,8 @@ layout {
 
 spawn-at-startup "ghostty"
 // spawn-at-startup "waybar"
-spawn-at-startup "noctalia-shell"
-// spawn-at-startup "dunst"
-// spawn-at-startup "swayosd-server"
-// spawn-at-startup "swww-daemon"
-// spawn-at-startup "swww" "img" "~/Downloads/wallhaven-gpe92e.png"
+spawn-at-startup "noctalia"
 spawn-at-startup "1password" "--silent"
-spawn-at-startup "systemctl" "--user" "start" "sunshine.service"
 
 // Required for clipboard history integration
 spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
