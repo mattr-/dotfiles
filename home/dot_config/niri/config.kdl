@@ -300,10 +300,42 @@ overview {
   zoom 0.75
 }
 
-// window-rule {
-//   geometry-corner-radius 8
-//   clip-to-geometry true
-// }
+// Always display the Steam Friends List as floating
+window-rule {
+  match app-id="steam" title="Friend's List"
+  open-floating true
+}
+
+window-rule {
+  match app-id="org.prismlauncher.PrismLauncher"
+  default-window-height { proportion 0.60; }
+}
+
+// Previewers should float by default
+window-rule {
+  match app-id="org.gnome.NautilusPreviewer"
+  match app-id="org.gnome.Loupe"
+  open-floating true
+}
+
+// Maximize the minecraft window by default
+window-rule {
+  match app-id=r#"^Minecraft"#
+  match app-id=r#"^electron"# title=r#"Obsidian"#
+  open-maximized true
+}
+
+window-rule {
+  match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+  default-floating-position x=5 y=5 relative-to="bottom-right"
+}
+
+// Fullscreen apps
+window-rule {
+  match app-id=r#"^Minecraft"#
+  match app-id="steam_app_3489700"
+  open-fullscreen true
+}
 
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
