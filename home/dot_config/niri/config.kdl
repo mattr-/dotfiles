@@ -296,9 +296,9 @@ animations {
     }
 }
 
-// overview {
-//   zoom 0.5
-// }
+overview {
+  zoom 0.75
+}
 
 // window-rule {
 //   geometry-corner-radius 8
