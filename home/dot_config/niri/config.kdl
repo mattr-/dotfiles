@@ -123,7 +123,7 @@ output "Acer Technologies XV275K P3 14040084D4HA1" {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 4
+    gaps 2
     background-color "transparent"
 
     // When to center a column when changing focus, options are:
