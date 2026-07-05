@@ -347,6 +347,11 @@ window-rule {
     clip-to-geometry true
 }
 
+hotkey-overlay {
+  skip-at-startup
+  hide-not-bound
+}
+
 binds {
 
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
