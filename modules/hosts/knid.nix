@@ -32,7 +32,6 @@ in
           quickshell
           matugen
           ddcutil
-          khal
           plannotator
           inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
           inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code
