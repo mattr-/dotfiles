@@ -15,6 +15,9 @@
             "/run/udev:ro"
           ];
         };
+        "org.signal.Signal".Environment = {
+          TZ = config.time.timeZone;
+        };
       };
     };
   };
