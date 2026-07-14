@@ -1,13 +1,15 @@
 { ... }:
 {
-  flake.modules.nixos.wayland = { pkgs, ... }: {
-    environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  flake.modules.nixos.wayland = { config, lib, pkgs, ... }: {
+    config = lib.mkIf config.gui.enable {
+      environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-    environment.systemPackages = with pkgs; [
-      xwayland-satellite
-    ];
+      environment.systemPackages = with pkgs; [
+        xwayland-satellite
+      ];
 
-    security.pam.services.hyprlock.text = "auth include login";
+      security.pam.services.hyprlock.text = "auth include login";
+    };
   };
 
   flake.modules.homeManager.wayland = { config, lib, pkgs, ... }: {

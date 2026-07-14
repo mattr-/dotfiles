@@ -12,7 +12,7 @@
 
       hardware.graphics = {
         enable = true;
-        enable32Bit = true;
+        enable32Bit = config.gui.enable;
         extraPackages = with pkgs;
           [
             libva
@@ -27,17 +27,21 @@
           ++ lib.optionals (gpu == "amd") [
             rocmPackages.clr.icd
           ];
-        extraPackages32 = with pkgs.pkgsi686Linux; [
-          libva-vdpau-driver
-          libvdpau-va-gl
-        ];
+        extraPackages32 = lib.optionals config.gui.enable (
+          with pkgs.pkgsi686Linux; [
+            libva-vdpau-driver
+            libvdpau-va-gl
+          ]
+        );
       };
 
-      services.xserver.videoDrivers = lib.mkDefault (
-        if gpu == "intel" then [ "intel" ]
-        else if gpu == "nvidia" then [ "nvidia" ]
-        else if gpu == "amd" then [ "amdgpu" ]
-        else [ ]
+      services.xserver.videoDrivers = lib.mkIf config.gui.enable (
+        lib.mkDefault (
+          if gpu == "intel" then [ "intel" ]
+          else if gpu == "nvidia" && config.gui.enable then [ "nvidia" ]
+          else if gpu == "amd" then [ "amdgpu" ]
+          else [ ]
+        )
       );
 
       boot.kernelParams = lib.mkIf (gpu == "amd") [
@@ -51,7 +55,7 @@
         modesetting.enable = lib.mkDefault true;
         powerManagement.enable = lib.mkDefault true;
         open = lib.mkDefault false;
-        nvidiaSettings = lib.mkDefault true;
+        nvidiaSettings = lib.mkDefault config.gui.enable;
       };
     };
 }
