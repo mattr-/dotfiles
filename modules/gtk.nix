@@ -3,6 +3,7 @@
   flake.modules.homeManager.gtk = { config, lib, pkgs, ... }: {
     config = lib.mkIf config.gui.enable {
       home.pointerCursor = {
+        enable = config.gui.enable;
         package = pkgs.bibata-cursors;
         name = "Bibata-Original-Ice";
         size = 20;
