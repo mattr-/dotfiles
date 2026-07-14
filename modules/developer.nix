@@ -2,9 +2,9 @@
 {
   flake.modules.homeManager.developer = { config, pkgs, lib, ... }:
     let 
-      ghostscript = if config.gui.enable then [ pkgs.ghostscript ]
+      ghostscript = if config.gui.enable then pkgs.ghostscript
         else pkgs.ghostscript_headless;
-      emacs = if config.gui.enable then [ pkgs.emacs ]
+      emacs = if config.gui.enable then pkgs.emacs
         else pkgs.emacs-nox;
     in
     {
