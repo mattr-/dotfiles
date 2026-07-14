@@ -12,7 +12,7 @@
     home.packages = with pkgs; [
       chezmoi
       fzy
-      gitFull
+      git
       gitui
       git-lfs
       gh

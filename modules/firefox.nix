@@ -1,7 +1,9 @@
 { ... }:
 {
-  flake.modules.nixos.firefox = {
-    programs.firefox.enable = true;
+  flake.modules.nixos.firefox = { config, lib, ... }: {
+    config = lib.mkIf config.gui.enable {
+      programs.firefox.enable = true;
+    };
   };
 
   flake.modules.homeManager.firefox = { config, lib, ... }: {
