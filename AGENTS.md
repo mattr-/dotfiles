@@ -193,6 +193,7 @@ Example skeleton for a new module:
 | `boot.nix` | systemd-boot + EFI defaults | nixos |
 | `cli.nix` | vim (system), CLI tools + program enables | nixos, darwin, homeManager |
 | `desktop-apps.nix` | Discord, Obsidian, Spotify; gated behind `gui.enable` | homeManager |
+| `display.nix` | Shared display scale option bridged from NixOS to home-manager | nixos, homeManager |
 | `docker.nix` | Docker daemon + adds primary user to `docker` group | nixos |
 | `developer.nix` | Build tools, GUI apps (ghostty, wezterm), fonts, screenshots, document tools | homeManager |
 | `neovim.nix` | Neovim with vi/vim aliases, set as default editor | homeManager |
@@ -200,6 +201,7 @@ Example skeleton for a new module:
 | `flatpak.nix` | Flatpak via nix-flatpak (Signal) | nixos |
 | `firefox.nix` | Firefox | nixos, homeManager |
 | `fonts.nix` | System fonts (Noto, Nerd Fonts, Inter, Fira Code, Iosevka) + fontconfig defaults | nixos |
+| `fwupd.nix` | fwupd firmware update service | nixos |
 | `gaming.nix` | Steam, gamescope, MangoHud, PrismLauncher, gaming sysctl tuning | nixos |
 | `gnome.nix` | GNOME desktop + GDM + extensions (system) and dconf dark mode (user) | nixos, homeManager |
 | `go.nix` | Go language support | homeManager |
@@ -207,12 +209,15 @@ Example skeleton for a new module:
 | `keyd.nix` | Key remapping (capslock as ctrl/esc), opt-in via `keyd.enable` | nixos |
 | `graphics.nix` | GPU-conditional graphics drivers + video acceleration libs (libva, mesa, VDPAU) | nixos |
 | `gtk.nix` | GTK theming, Bibata cursor, WhiteSur icons and theme | homeManager |
+| `home-manager-integration.nix` | NixOS home-manager integration and `hm` alias | nixos |
 | `locale.nix` | en_US.UTF-8 default locale | nixos |
+| `minecraft.nix` | Shared modded Minecraft defaults and upstream module import | nixos |
 | `moonlight.nix` | Moonlight game streaming client | nixos |
 | `network.nix` | NetworkManager, systemd-resolved with DNS-over-TLS, Avahi/mDNS, TCP hardening and optimization sysctls | nixos |
 | `nix-ld.nix` | nix-ld for running unpatched dynamic binaries | nixos |
 | `nix.nix` | Nix (latest), flakes, trusted users, GC, registry, nh | nixos, darwin, homeManager |
 | `overlays.nix` | Nixpkgs overlay for custom packages (plannotator) | nixos |
+| `sddm.nix` | SDDM display manager with astronaut theme; gated behind `gui.enable` | nixos |
 | `ssh.nix` | OpenSSH server (key-only, no root login) + SSH agent (system); SSH client config with 1Password include (user) | nixos, homeManager |
 | `sudo.nix` | sudo with TERM info preserved and passwordless wheel group | nixos |
 | `sunshine.nix` | Sunshine game streaming server | nixos |
@@ -222,6 +227,12 @@ Example skeleton for a new module:
 | `vm.nix` | VM variant config (8GB RAM, 4 cores) | nixos |
 | `wayland.nix` | Hyprland + hyprlock + hypridle (system) and Wayland user tools (user) | nixos, homeManager |
 
+#### Feature Modules (`minecraft/`)
+
+| File | Description | Tiers |
+|---|---|---|
+| `minecraft/start-theta-1.nix` | Star Technology Theta 1 modded Minecraft instance; opt-in via `dots.minecraft.servers.start-theta-1.enable` | nixos |
+
 #### Host/Profile Definitions (`hosts/`)
 
 | File | Description | Output |
@@ -229,6 +240,14 @@ Example skeleton for a new module:
 | `hosts/knid.nix` | Framework 13 7040 AMD laptop (real machine) | `nixosConfigurations.knid` |
 | `hosts/knid/_hardware-configuration.nix` | Hardware scan: NVMe, Thunderbolt, KVM-AMD (manually imported by knid.nix) | (not auto-imported) |
 | `hosts/knid/_disko.nix` | Disk partitioning: GPT, ESP, btrfs subvolumes (manually imported by knid.nix) | (not auto-imported) |
+| `hosts/teevee.nix` | Intel/NVIDIA NixOS host for server workloads | `nixosConfigurations.teevee` |
+| `hosts/teevee/_hardware-configuration.nix` | Hardware scan: NVMe, Intel KVM (manually imported by teevee.nix) | (not auto-imported) |
+| `hosts/teevee/_disko.nix` | Disk partitioning: GPT, ESP, btrfs subvolumes and Minecraft state subvolumes (manually imported by teevee.nix) | (not auto-imported) |
+| `hosts/prodnose.nix` | Intel/NVIDIA NixOS host | `nixosConfigurations.prodnose` |
+| `hosts/prodnose/_hardware-configuration.nix` | Hardware scan: AHCI, Intel KVM, ext4 root/boot/swap labels (manually imported by prodnose.nix) | (not auto-imported) |
+| `hosts/slugworth.nix` | AMD GPU NixOS host with Niri, Noctalia, and desktop tooling | `nixosConfigurations.slugworth` |
+| `hosts/slugworth/_hardware-configuration.nix` | Hardware scan: NVMe, Intel KVM, kernel params (manually imported by slugworth.nix) | (not auto-imported) |
+| `hosts/slugworth/_disko.nix` | Disk partitioning: GPT, ESP, btrfs subvolumes (manually imported by slugworth.nix) | (not auto-imported) |
 | `hosts/example-nixos.nix` | Template NixOS host with GRUB + ext4 | `nixosConfigurations.example-nixos` |
 | `hosts/example-darwin.nix` | Template nix-darwin host for Apple Silicon | `darwinConfigurations.example-darwin` |
 | `hosts/mattr-home.nix` | Standalone home-manager profile for Linux user mattr- | `homeConfigurations.mattr-` |
