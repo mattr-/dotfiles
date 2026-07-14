@@ -8,6 +8,12 @@ let
     default = "mattr-";
     description = "Primary username for this configuration";
   };
+
+  guiEnableOption = mkOption {
+    type = lib.types.bool;
+    default = true;
+    description = "Whether to include GUI applications and configuration";
+  };
 in
 
 {
@@ -26,6 +32,8 @@ in
         default = false;
         description = "Whether to enable keyd key remapping";
       };
+
+      gui.enable = guiEnableOption;
     };
   };
 
@@ -37,11 +45,7 @@ in
 
   flake.modules.homeManager.options = {
     options = {
-      gui.enable = mkOption {
-        type = lib.types.bool;
-        default = true;
-        description = "Whether to include GUI applications and configuration";
-      };
+      gui.enable = guiEnableOption;
     };
   };
 }
