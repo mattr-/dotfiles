@@ -1,0 +1,104 @@
+cache:
+    path: /Users/mattr-/.local/state/gh-not/cache.json
+    ttl_in_hours: 0.5
+endpoint:
+    all: true
+    max_page: 15
+    max_retry: 200
+    per_page: 100
+keymap:
+    command:
+        command accept:
+            - enter
+        command cancel:
+            - esc
+    filter:
+        filter accept:
+            - enter
+        filter cancel:
+            - esc
+    normal:
+        command mode:
+            - ':'
+        cursor down:
+            - down
+            - j
+        cursor up:
+            - up
+            - k
+        filter mode:
+            - /
+        force quit:
+            - ctrl+c
+        go to end:
+            - end
+            - G
+        go to start:
+            - home
+            - g
+        next page:
+            - right
+            - l
+        open in browser:
+            - o
+        previous page:
+            - left
+            - h
+        quit:
+            - q
+            - esc
+        select all:
+            - a
+        select none:
+            - A
+        toggle help:
+            - '?'
+        toggle selected:
+            - ' '
+x-filters:
+  not_assigned_to_me: &not_assigned_to_me 'any(.assignees[]?; .login == "mattr-") | not'
+rules:
+  - name: Anything that's read gets marked as done
+    action: done
+    filters:
+      - .unread == false
+  # I've only ever seen state change notifications for PRs in a merge queue
+  - name: Mark state changes for merged PRs as done
+    action: done
+    filters:
+      - .reason == "state_change"
+  - name: Mark closed dependabot PRs as done
+    action: done
+    filters:
+      - .author.login == "dependabot[bot]"
+      - .subject.state == "closed"
+  - name: Unassigned closed things are marked as read
+    action: read
+    filters:
+     - *not_assigned_to_me
+     - .subject.state == "closed"
+  - name: Discussion Roundups marked read
+    action: read
+    filters:
+      - .subject.type == "Discussion"
+      - .author.login == "discussion-roundup[bot]"
+  - name: WorkflowRuns requesting approval are marked as done
+    action: done
+    filters:
+      - .subject.type == "WorkflowRun"
+      - .reason == "approval_requested"
+  - name: Mark neovim prereleases as done
+    action: done
+    filters:
+      - .subject.title == "Nvim development (prerelease) build"
+  - name: Mark approved PRs for build-systems-reviewers as Read
+    action: read
+    filters:
+      - *not_assigned_to_me
+      - (.subject.type == "PullRequest") and
+        (.reason == "review_requested") and
+        (.repository.full_name == "github/github") and
+        ((any(.requested_reviewers[]?; .login == "mattr-") or any(.requested_teams[]?; .name == "build-system-reviewers")) | not)
+view:
+    height: 40
+    log_path: /Users/mattr-/.local/state/gh-not/debug.log
