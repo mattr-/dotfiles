@@ -205,6 +205,7 @@ Example skeleton for a new module:
 | `gaming.nix` | Steam, gamescope, MangoHud, PrismLauncher, gaming sysctl tuning | nixos |
 | `gnome.nix` | GNOME desktop + GDM + extensions (system) and dconf dark mode (user) | nixos, homeManager |
 | `go.nix` | Go language support | homeManager |
+| `ai.nix` | LLM agent CLI tools from llm-agents flake (claude-code, copilot-cli, omp, opencode, pi) | homeManager |
 | `gpg.nix` | GPG with mutable keys/trust, gpg-agent with SSH support and pinentry-tty | homeManager |
 | `keyd.nix` | Key remapping (capslock as ctrl/esc), opt-in via `keyd.enable` | nixos |
 | `graphics.nix` | GPU-conditional graphics drivers + video acceleration libs (libva, mesa, VDPAU) | nixos |

@@ -34,9 +34,6 @@ in
           ddcutil
           plannotator
           inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-          inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code
-          inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.pi
-          inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.omp
         ];
 
         hm.imports = hmModules;
