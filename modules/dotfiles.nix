@@ -100,9 +100,6 @@
       ".vimrc".source = ../home/dot_vimrc;
       ".Xdefaults".source = ../home/dot_Xdefaults;
 
-      ".atom/.gitignore".source = ../home/dot_atom/dot_gitignore;
-      ".atom/keymap.cson".source = ../home/dot_atom/keymap.cson;
-
       ".bundle/config".source = ../home/dot_bundle/config;
 
       ".emacs.d/init.el".source = ../home/dot_emacs.d/init.el;
