@@ -227,6 +227,7 @@ Example skeleton for a new module:
 | `utils.nix` | Basic system utilities | nixos, homeManager |
 | `vm.nix` | VM variant config (8GB RAM, 4 cores) | nixos |
 | `wayland.nix` | Hyprland + hyprlock + hypridle (system) and Wayland user tools (user) | nixos, homeManager |
+| `dotfiles.nix` | `home.file` entries deploying chezmoi-sourced configs: ghostty, wezterm, lazygit, ripgrep, waybar, niri, vicinae, nvim (+ nvim-dashvim/nvim-lazyvim), zsh (vcsstub + snippets + functions), p10k, tmux, githelpers | homeManager |
 
 #### Feature Modules (`minecraft/`)
 
