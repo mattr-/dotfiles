@@ -71,47 +71,20 @@
       ".tmux.conf".source = ../home/dot_tmux.conf;
       ".githelpers".source = ../home/dot_githelpers;
 
-      ".ansible.cfg".source = ../home/dot_ansible.cfg;
       ".bash_profile".source = ../home/dot_bash_profile;
       ".bashrc".source = ../home/dot_bashrc;
       ".ctags".source = ../home/dot_ctags;
-      ".cvsignore".source = ../home/dot_cvsignore;
-      ".fonts.conf".source = ../home/dot_fonts.conf;
       ".gemrc".source = ../home/dot_gemrc;
-      ".gtkrc-2.0".source = ../home/dot_gtkrc-2.0;
-      ".i3status.conf".source = ../home/dot_i3status.conf;
       ".macos".source = ../home/dot_macos;
       ".mrconfig".source = ../home/dot_mrconfig;
       ".mrconfig.d/.keep".text = "";
-      ".msmtprc".source = ../home/dot_msmtprc;
-      ".muttrc".source = ../home/dot_muttrc;
       ".my.cnf".source = ../home/dot_my.cnf;
-      ".notmuch-config".source = ../home/dot_notmuch-config;
-      ".offlineimaprc".source = ../home/dot_offlineimaprc;
       ".pryrc".source = ../home/dot_pryrc;
       ".psqlrc".source = ../home/dot_psqlrc;
       ".reek".source = ../home/dot_reek;
-      ".screenrc".source = ../home/dot_screenrc;
-      ".slate".source = ../home/dot_slate;
-      ".spacemacs".source = ../home/dot_spacemacs;
-      ".todo.cfg".source = ../home/dot_todo.cfg;
       ".tool-versions".source = ../home/dot_tool-versions;
-      ".urlview".source = ../home/dot_urlview;
       ".vimrc".source = ../home/dot_vimrc;
-      ".Xdefaults".source = ../home/dot_Xdefaults;
-
       ".bundle/config".source = ../home/dot_bundle/config;
-
-      ".emacs.d/init.el".source = ../home/dot_emacs.d/init.el;
-      ".emacs.d/mattr.el".source = ../home/dot_emacs.d/mattr.el;
-      ".emacs.d/mattr.org".source = ../home/dot_emacs.d/mattr.org;
-      ".emacs.d/lisp".source = ../home/dot_emacs.d/lisp;
-
-      ".i3/config".source = ../home/dot_i3/config;
-
-      ".mutt/view_attachment.sh" = { source = ../home/dot_mutt/executable_view_attachment.sh; executable = true; };
-      ".mutt/mailcap".source = ../home/dot_mutt/mailcap;
-      ".mutt/offlineimap.py".source = ../home/dot_mutt/offlineimap.py;
 
       ".vim/after".source = ../home/dot_vim/after;
       ".vim/autoload".source = ../home/dot_vim/autoload;
