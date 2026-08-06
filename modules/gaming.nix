@@ -19,6 +19,9 @@
       environment.systemPackages = with pkgs; [
         mangohud
         prismlauncher
+        bottles
+        wineWow64Packages.waylandFull
+        winetricks
       ];
 
       boot.kernel.sysctl = {
