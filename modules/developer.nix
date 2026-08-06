@@ -26,7 +26,6 @@
         ghostty.terminfo
       ] ++ lib.optionals config.gui.enable [
         wezterm
-        hyprshot
         brightnessctl
         anki
         quickshell
