@@ -14,6 +14,14 @@
           inter
           fira-code
           iosevka
+          (iosevka.override {
+            set = "IosevkaTerm";
+            privateBuildPlan = {
+              family = "Iosevka Term";
+              spacing = "term";
+              serifs = "sans";
+            };
+          })
         ];
 
         enableDefaultPackages = false;
