@@ -44,7 +44,7 @@
                     mountpoint = "/swap";
                     swap = {
                       swapfile = {
-                        size = "32G";
+                        size = "64G";
                       };
                     };
                   };
