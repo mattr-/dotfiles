@@ -19,6 +19,7 @@ in
         networking.hostName = "prodnose";
         hardware.gpu = "intel";
         gui.enable = false;
+        atticd.enable = true;
         hardware.enableRedistributableFirmware = true;
 
         hm.imports = hmModules;

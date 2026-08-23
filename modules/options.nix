@@ -33,6 +33,12 @@ in
         description = "Whether to enable keyd key remapping";
       };
 
+      atticd.enable = mkOption {
+        type = lib.types.bool;
+        default = false;
+        description = "Whether to enable atticd for a binary cache";
+      };
+
       gui.enable = guiEnableOption;
     };
   };
