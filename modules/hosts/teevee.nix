@@ -26,6 +26,7 @@ in
 
         hm.imports = hmModules;
         hm.gui.enable = config.gui.enable;
+        hm.ai.enable = false;
       })
     ];
   };
