@@ -46,6 +46,12 @@ in
   flake.modules.homeManager.options = {
     options = {
       gui.enable = guiEnableOption;
+
+      ai.enable = mkOption {
+        type = lib.types.bool;
+        default = true;
+        description = "Whether to include LLM applications and agent harnesses";
+      };
     };
   };
 }
