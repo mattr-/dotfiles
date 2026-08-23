@@ -13,15 +13,17 @@ in
       inputs.disko.nixosModules.disko
 
       ./prodnose/_hardware-configuration.nix
-      ./prodnose/_disko.nix
 
       ({ pkgs, ... }: {
         nixpkgs.hostPlatform = "x86_64-linux";
         networking.hostName = "prodnose";
-        hardware.gpu = "nvidia";
+        hardware.gpu = "intel";
+        gui.enable = false;
         hardware.enableRedistributableFirmware = true;
 
         hm.imports = hmModules;
+        hm.gui.enable = false;
+        hm.ai.enable = false;
       })
     ];
   };
