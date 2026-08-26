@@ -96,10 +96,15 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end,
 })
 
+vim.api.nvim_set_hl(0, "TerminalNormal", { fg = "#c0c0c0", bg = "#000000", bold = false })
+
 vim.api.nvim_create_autocmd("TermOpen", {
-  group = augroup("terminal_numbers"),
-  callback = function(_)
+  group = augroup("terminal"),
+  callback = function()
+    local config = vim.api.nvim_win_get_config(0)
+    if config.relative ~= "" then return end  -- skip floating windows
     vim.opt_local.number = false
     vim.opt_local.relativenumber = false
+    vim.opt_local.winhighlight = "Normal:TerminalNormal,NormalFloat:TerminalNormal"
   end,
 })
