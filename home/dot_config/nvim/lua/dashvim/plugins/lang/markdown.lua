@@ -18,6 +18,9 @@ return {
     keys = {
       { "<localleader>p", "<cmd>MarkdownPreviewToggle<cr>", ft = "markdown", desc = "Preview Markdown" },
     },
+    init = function()
+      vim.g.mkdp_markdown_css = vim.fn.stdpath("data") .. "/site/markdown_preview.css"
+    end,
     build = function()
       require("lazy").load({ plugins = { "markdown-preview.nvim" } })
       vim.fn["mkdp#util#install"]()
