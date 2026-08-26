@@ -16,7 +16,6 @@ require("lazy").setup({
     lazy = false, -- Require plugins to be lazy loaded explicitly
     version = false, -- always use the latest git commit.
   },
-  rocks = { enabled = false },
   install = { colorscheme = { "catppuccin", "habamax" } },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
