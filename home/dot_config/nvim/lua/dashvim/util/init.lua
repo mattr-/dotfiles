@@ -5,6 +5,7 @@ local LazyUtil = require("lazy.core.util")
 --- @field mini dashvim.util.mini
 --- @field telescope dashvim.util.telescope
 --- @field tools dashvim.util.tools
+--- @field luasnip dashvim.util.luasnip
 local M = {}
 
 setmetatable(M, {
