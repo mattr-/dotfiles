@@ -2,7 +2,7 @@
 theme = Wez
 
 # Fonts
-font-family = "Iosevka"
+font-family = "Iosevka Term"
 adjust-underline-position = 3
 adjust-underline-thickness = 1
 
