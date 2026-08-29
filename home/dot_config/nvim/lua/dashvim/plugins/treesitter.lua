@@ -1,34 +1,14 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    branch = "master",
     version = false, -- treesitter doesn't do releases
-    -- build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
-    lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
-    init = function(plugin)
-      -- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
-      -- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which
-      -- no longer trigger the **nvim-treesitter** module to be loaded in time.
-      -- Luckily, the only things that those plugins need are the custom queries, which we make available
-      -- during startup.
-      require("lazy.core.loader").add_to_rtp(plugin)
-      require("nvim-treesitter.query_predicates")
-    end,
-    cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-    keys = {
-      { "<C-space>", desc = "Increment selection" },
-      { "<bs>",    desc = "Decrement selection", mode = "x" },
-    },
+    branch = "main",
+    build = ":TSUpdate",
+    lazy = false,
     opts_extend = { "ensure_installed" },
     ---@type TSConfig
     ---@diagnostic disable-next-line: missing-fields
     opts = {
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
-      indent = { enable = true },
       ensure_installed = {
         "bash",
         "c",
@@ -46,38 +26,7 @@ return {
         "vimdoc",
         "yaml",
       },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = false,
-          node_decremental = "<bs>",
-        },
-      },
-      textobjects = {
-        move = {
-          enable = true,
-          goto_next_start = {
-            ["]f"] = "@function.outer",
-            ["]c"] = "@class.outer"
-          },
-          goto_next_end = {
-            ["]F"] = "@function.outer",
-            ["]C"] = "@class.outer"
-          },
-          goto_previous_start = {
-            ["[f"] = "@function.outer",
-            ["[c"] = "@class.outer"
-          },
-          goto_previous_end = {
-            ["[F"] = "@function.outer",
-            ["[C"] = "@class.outer"
-          },
-        },
-      },
     },
-    ---@param opts TSConfig
     config = function(_, opts)
       if type(opts.ensure_installed) == "table" then
         ---@type table<string, boolean>
@@ -90,7 +39,48 @@ return {
           return true
         end, opts.ensure_installed)
       end
-      require("nvim-treesitter.configs").setup(opts)
+
+      require("nvim-treesitter").install(opts.ensure_installed)
+
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function(args)
+          local lang = vim.treesitter.language.get_lang(args.match) or args.match
+          if not vim.treesitter.language.add(lang) then
+            return
+          end
+          vim.treesitter.start(args.buf, lang)
+          vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end,
+      })
+
+      -- Neovim 0.12 built-in: an (parent node), in (child node), ]n/[n (siblings)
+      vim.keymap.set("n", "<C-space>", "van", { remap = true, desc = "Increment selection" })
+      vim.keymap.set("x", "<C-space>", "an", { remap = true, desc = "Increment selection" })
+      vim.keymap.set("x", "<bs>", "in", { remap = true, desc = "Decrement selection" })
+    end,
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    branch = "main",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = function()
+      require("nvim-treesitter-textobjects").setup({
+        move = { set_jumps = true },
+      })
+
+      local move = require("nvim-treesitter-textobjects.move")
+      local map = function(lhs, fn, desc)
+        vim.keymap.set({ "n", "x", "o" }, lhs, fn, { desc = desc })
+      end
+      map("]f", function() move.goto_next_start("@function.outer", "textobjects") end, "Next function start")
+      map("]c", function() move.goto_next_start("@class.outer", "textobjects") end, "Next class start")
+      map("]F", function() move.goto_next_end("@function.outer", "textobjects") end, "Next function end")
+      map("]C", function() move.goto_next_end("@class.outer", "textobjects") end, "Next class end")
+      map("[f", function() move.goto_previous_start("@function.outer", "textobjects") end, "Prev function start")
+      map("[c", function() move.goto_previous_start("@class.outer", "textobjects") end, "Prev class start")
+      map("[F", function() move.goto_previous_end("@function.outer", "textobjects") end, "Prev function end")
+      map("[C", function() move.goto_previous_end("@class.outer", "textobjects") end, "Prev class end")
     end,
   },
 }
