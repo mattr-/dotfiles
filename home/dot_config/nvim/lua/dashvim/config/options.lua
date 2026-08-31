@@ -82,6 +82,7 @@ opt.fillchars = {
     foldclose = "▸",
     foldsep = "│",
 }
+
 -- popup menu even with only one match and force me to make a selection
 opt.completeopt = { "menu", "menuone", "noselect" }
 
@@ -104,6 +105,9 @@ opt.grepformat = "%f:%l:%c:%m"
 
 -- keep text on the same line for horizontal splits
 opt.splitkeep = "screen"
+
+opt.foldlevelstart = 99   -- Always start with open folds
+opt.foldlevel     = 99
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
