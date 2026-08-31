@@ -87,6 +87,10 @@ rules:
     filters:
       - .subject.type == "WorkflowRun"
       - .reason == "approval_requested"
+  - name: CheckSuite notifications are marked as done
+    action: done
+    filters:
+      - .subject.type == "CheckSuite"
   - name: Mark neovim prereleases as done
     action: done
     filters:
@@ -98,7 +102,24 @@ rules:
       - (.subject.type == "PullRequest") and
         (.reason == "review_requested") and
         (.repository.full_name == "github/github") and
-        ((any(.requested_reviewers[]?; .login == "mattr-") or any(.requested_teams[]?; .name == "build-system-reviewers")) | not)
+        ((any(.requested_reviewers[]?; .login == "mattr-") or any(.requested_teams[]?; .name == "build-systems-reviewers")) | not)
+  - name: Mark [deep-clean] PRs in github/github as done if build-systems-reviewers not requested
+    action: done
+    filters:
+      - .subject.type == "PullRequest"
+      - .repository.full_name == "github/github"
+      - .subject.title | startswith("[deep-clean]")
+      - any(.requested_teams[]?; .name == "build-systems-reviewers") | not
+  - name: Anything in vuln-mgmt is marked as done
+    action: done
+    filters:
+     - *not_assigned_to_me
+     - .repository.full_name == "github/vuln-mgmt"
+  - name: Anything from the internal status bot is done
+    action: done
+    filters:
+     - *not_assigned_to_me
+     - .author.login == "github-internal-statuspage-new[bot]"
 view:
     height: 40
     log_path: /Users/mattr-/.local/state/gh-not/debug.log
