@@ -16,7 +16,7 @@ require("lazy").setup({
     lazy = false, -- Require plugins to be lazy loaded explicitly
     version = false, -- always use the latest git commit.
   },
-  install = { colorscheme = { "catppuccin", "habamax" } },
+  install = { colorscheme = { "catppuccin-mocha", "habamax" } },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
     rtp = {

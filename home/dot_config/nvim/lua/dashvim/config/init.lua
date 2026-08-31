@@ -3,7 +3,7 @@ local M = {}
 
 --- @class DashVimOptions
 local defaults = {
-  colorscheme = "catppuccin",
+  colorscheme = "catppuccin-mocha",
   icons = {
     dap = {
       Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
