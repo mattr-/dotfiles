@@ -57,19 +57,24 @@
 ;; `user-lisp-directory' must be set here, in early-init.el, because
 ;; its value is consulted before the regular init file is loaded.
 ;;
-;; On Emacs < 31 neither the variable nor the underlying machinery
-;; exists, so we fall back to adding the same directory to `load-path'
-;; ourselves.  Byte-compilation on <31 happens lazily and naturally via
-;; the normal `load'/`require' machinery instead of being managed for
-;; us; that's an acceptable trade-off for the fallback path.
+;; Emacs 31 processes `user-lisp-directory' before loading `init.el'.
+;; Automatic scraping also byte/native-compiles these modules at that
+;; point.  That is too early for us since we depend on Elpaca
+;; integration enabled later in `init.el'.  Disable automatic
+;; compilation so the forms are expanded when the modules are loaded
+;; after Elpaca has been initialized.
+;;
+;; With auto-scraping disabled, Emacs 31 still activates the directory
+;; and adds it to `load-path'.  On Emacs 29/30, add it manually.
 
 (defvar dash/lisp-directory (expand-file-name "user-lisp/" user-emacs-directory)
   "Directory containing this config's per-concern Lisp files.")
 
 (if (boundp 'user-lisp-directory)
-    ;; Emacs 31+: let the built-in machinery byte-compile, scrape
-    ;; autoloads, and manage `load-path' for us.
-    (setq user-lisp-directory dash/lisp-directory)
+    ;; Emacs 31+: Activate the directory but skip auto compilation
+    ;; and scraping so we can integrate with elpaca
+    (setq user-lisp-directory dash/lisp-directory
+          user-lisp-auto-scrape nil)
   ;; Emacs 29/30 fallback: just get our directory onto `load-path'.
   (add-to-list 'load-path dash/lisp-directory))
 
