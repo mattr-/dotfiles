@@ -2,10 +2,9 @@
 
 ;;; Commentary:
 
-;; Evil and its companion packages.  This is the foundation everything
-;; else in the config assumes is already in place.
+;; Evil and its companion packages. 20 years of thinking in Vim is
+;; hard to break from.
 ;;
-;; Package list (see the Neovim -> Emacs plan for rationale):
 ;;   - evil                     modal editing itself
 ;;   - evil-collection          evil keybindings for built-in & third-party modes
 ;;   - evil-surround            `ys'/`cs'/`ds' surround text objects
@@ -13,10 +12,6 @@
 ;;   - evil-numbers             `C-a'/`C-x' increment/decrement
 ;;   - evil-textobj-tree-sitter tree-sitter-powered `af'/`if' style text objects
 ;;
-;; Leader-key convention is *not* decided yet -- that's deliberately
-;; deferred until we set up which-key/the fuzzy-finding stack, since
-;; that's where leader-triggered commands actually start accumulating.
-;; Nothing here depends on a leader key.
 
 ;;; Code:
 
@@ -28,6 +23,8 @@
         evil-want-C-u-scroll t    ; C-u scrolls instead of acting as a prefix arg
         evil-want-C-i-jump nil    ; avoid C-i/TAB ambiguity (matters once corfu is in the picture)
         evil-respect-visual-line-mode t
+        evil-symbol-word-search t ; Let `#` and `*` search for symbols rather than words
+        shift-select-mode nil     ; Avoid momentarily mark activation
         evil-undo-system 'undo-redo) ; use Emacs 28+'s built-in redo, no extra package needed
   :config
   (evil-mode 1))
