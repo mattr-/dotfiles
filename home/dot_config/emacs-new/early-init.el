@@ -42,6 +42,25 @@
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (when (fboundp 'tooltip-mode) (tooltip-mode -1))
 
+;; UI Customization
+
+;; Give me a nice font
+(add-to-list 'default-frame-alist
+	     '(font . "Iosevka Term-12"))
+
+;; Define colors to use when loading the GUI frame. The flash of white
+;; at the start is awkward and since we're using doom themes for now,
+;; let's set those as the initial starting background values
+(defconst dash/early-frame-colors
+  '((background-color . "#282c34")
+    (foreground-color . "#bbc2cf"))
+  "Frame colors used before the configured theme loads.")
+
+(setq initial-frame-alist
+      (append dash/early-frame-colors initial-frame-alist)
+      default-frame-alist
+      (append dash/early-frame-colors default-frame-alist))
+
 ;; --- package.el -----------------------------------------------------------
 ;; This config uses `elpaca' (see init.el) instead of package.el, so
 ;; disable package.el's own startup activation entirely.
