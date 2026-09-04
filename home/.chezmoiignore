@@ -22,3 +22,6 @@
 .emacs.d/**/.#*
 .emacs.d/**/#*#
 .emacs.d/**/*~
+.emacs.d/backups
+.emacs.d/auto-save
+.emacs.d/user-lisp/.*

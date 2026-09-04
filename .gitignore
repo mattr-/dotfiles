@@ -22,3 +22,6 @@ home/dot_emacs.d/**/*.tmp
 home/dot_emacs.d/**/.#*
 home/dot_emacs.d/**/#*#
 home/dot_emacs.d/**/*~
+home/dot_emacs.d/auto-save
+home/dot_emacs.d/backups
+home/dot_emacs.d/user-lisp/dot_user-lisp-autoloads.el
