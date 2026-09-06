@@ -4,8 +4,8 @@
     let 
       ghostscript = if config.gui.enable then pkgs.ghostscript
         else pkgs.ghostscript_headless;
-      emacs = if config.gui.enable then pkgs.emacs
-        else pkgs.emacs-nox;
+      emacs = if config.gui.enable then pkgs.emacs-unstable-pgtk
+        else pkgs.emacs-unstable-nox;
     in
     {
       home.packages = with pkgs; [
