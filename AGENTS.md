@@ -217,7 +217,7 @@ Example skeleton for a new module:
 | `network.nix` | NetworkManager, systemd-resolved with DNS-over-TLS, Avahi/mDNS, TCP hardening and optimization sysctls | nixos |
 | `nix-ld.nix` | nix-ld for running unpatched dynamic binaries | nixos |
 | `nix.nix` | Nix (latest), flakes, trusted users, GC, registry, nh | nixos, darwin, homeManager |
-| `overlays.nix` | Nixpkgs overlay for custom packages (plannotator) | nixos |
+| `overlays.nix` | Nixpkgs overlays for Emacs and other custom packages | nixos, flake output |
 | `sddm.nix` | SDDM display manager with astronaut theme; gated behind `gui.enable` | nixos |
 | `ssh.nix` | OpenSSH server (key-only, no root login) + SSH agent (system); SSH client config with 1Password include (user) | nixos, homeManager |
 | `sudo.nix` | sudo with TERM info preserved and passwordless wheel group | nixos |

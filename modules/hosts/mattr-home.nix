@@ -1,11 +1,17 @@
 { inputs, config, ... }:
 let
+  system = "x86_64-linux";
   hmModules = builtins.attrValues (config.flake.modules.homeManager or { });
+  pkgs = import inputs.nixpkgs {
+    inherit system;
+    config.allowUnfree = true;
+    overlays = [ config.flake.overlays.default ];
+  };
 in
 {
   flake.homeConfigurations."mattr-" =
     inputs.home-manager.lib.homeManagerConfiguration {
-      pkgs = inputs.nixpkgs.legacyPackages."x86_64-linux";
+      inherit pkgs;
       modules = hmModules ++ [
         {
           home = {
