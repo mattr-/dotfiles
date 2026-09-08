@@ -23,6 +23,7 @@
           ++ lib.optionals (gpu == "intel") [
             intel-media-driver
             intel-compute-runtime
+            vpl-gpu-rt
           ]
           ++ lib.optionals (gpu == "amd") [
             rocmPackages.clr.icd
