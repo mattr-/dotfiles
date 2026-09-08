@@ -1,21 +1,10 @@
 ;;; early-init.el --- Early initialization -*- lexical-binding: t; -*-
-
-;;; Commentary:
-
-;; Emacs loads this file before `package.el' initializes and before
-;; the first frame is created.  Anything that affects frame chrome,
-;; package-manager bootstrapping, or early startup performance belongs
-;; here rather than in `init.el', so it takes effect before Emacs has
-;; already drawn a frame or activated packages.
+;; Minimum emacs version: 29.1. Recommended emacs version: 31.
 ;;
-;; Minimum supported Emacs version: 29.1.
-;; Recommended/target Emacs version: 31.
 ;; Emacs-31-only behavior is guarded with `fboundp'/`boundp' checks and
 ;; falls back to equivalent behavior on 29/30 -- see comments below.
 
-;;; Code:
-
-;; --- Startup performance ----------------------------------------------
+;; Startup performance
 
 ;; Raise the GC threshold during startup so we're not stopping the
 ;; world to collect garbage while loading `init.el' and installing
@@ -31,9 +20,7 @@
 ;; immediately below.
 (setq frame-inhibit-implied-resize t)
 
-;; --- UI decluttering ----------------------------------------------------
-;; Done here, rather than in `init.el', so the frame never shows the
-;; default chrome before it gets disabled a moment later.
+;; UI decluttering
 
 (setq inhibit-startup-screen t)
 
@@ -45,8 +32,7 @@
 ;; UI Customization
 
 ;; Give me a nice font
-(add-to-list 'default-frame-alist
-	     '(font . "Iosevka Term-12"))
+(add-to-list 'default-frame-alist '(font . "Iosevka Term-12"))
 
 ;; Define colors to use when loading the GUI frame. The flash of white
 ;; at the start is awkward and since we're using doom themes for now,
@@ -61,7 +47,6 @@
       default-frame-alist
       (append dash/early-frame-colors default-frame-alist))
 
-;; --- package.el -----------------------------------------------------------
 ;; This config uses `elpaca' (see init.el) instead of package.el, so
 ;; disable package.el's own startup activation entirely.
 (setq package-enable-at-startup nil)

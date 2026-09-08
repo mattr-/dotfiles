@@ -14,8 +14,7 @@
 ;; symbol and is `require'd from the bottom of this file.  See
 ;; `user-lisp/README.md' for the expected shape of those files.
 ;;
-;; Minimum supported Emacs version: 29.1.
-;; Recommended/target Emacs version: 31.
+;; Minimum emacs version: 29.1. Recommended emacs version: 31.
 
 ;;; Code:
 
