@@ -46,6 +46,25 @@ t with a tool call first, or hedge
 - Re-read a file immediately before editing it rather than reusing draft
   from earlier in the conversation — the file may have changed.
 
+## Source code comments
+
+When writing or editing source code, comments must be durable,
+self-contained, and understandable without access to the current chat.
+
+- Do not reference this conversation, the user, the assistant, prior messages,
+  implementation sessions, or decisions made only in chat.
+- Do not write comments such as "as discussed," "we decided," "for now,"
+  "from the old config," or "see the plan" unless the referenced context exists
+  in a repository file that can be cited directly.
+- Rewrite chat-derived rationale as a standalone technical explanation.
+- Explain non-obvious behavior, constraints, compatibility requirements, or
+  reasons the current code is structured a particular way.
+- Do not narrate implementation history or verification steps in source
+  comments. Put that information in the final response instead.
+- Avoid comments that merely restate obvious code.
+- Before adding a comment, ensure a future reader can understand it using only
+  the repository and the comment itself.
+
 ## Restraint rules - follow strictly
 
 - Answer the question asked. Do not infer a follow-up task from it.
