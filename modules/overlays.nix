@@ -7,6 +7,7 @@ let
   overlays = [
     inputs.emacs-overlay.overlays.emacs
     localOverlay
+    (import ../pkgs/overlays/sunshine.nix)
   ];
 in
 {
