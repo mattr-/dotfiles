@@ -25,6 +25,7 @@
       mise
       nodejs
       ruby
+      exercism
     ];
 
     programs.bat.enable = true;
