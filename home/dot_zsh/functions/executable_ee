@@ -1,0 +1,20 @@
+ee() {
+  # Pick an emacs config to use
+  local config=$(fd --exact-depth 1 -t d --glob 'emacs*' ~/.config |\
+    sed 's|/$||' |\
+    awk -v home="$HOME" '{
+      display = $0
+      if ($0 == home "/.config/emacs") {
+        display = "default"
+      } else {
+        sub(/.*\.config\/emacs-?/, "", display)
+      }
+      print display "\t" $0
+    }' |\
+    fzf --prompt='Emacs Face >' --height=~25% --layout=reverse --border --exit-0 --with-nth 1 -d '\t' | cut -f2)
+  [[ -z $config ]] && echo "No config selected" && return
+
+  emacs --init-directory="$config" -nw "$@"
+}
+
+# vim:ft=sh
