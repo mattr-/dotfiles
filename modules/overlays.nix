@@ -5,12 +5,12 @@ let
 
     xwayland-satellite =
       let
-        version = "0.8.1";
+        version = "0.8.2-unstable-2026-09-09";
         src = final.fetchFromGitHub {
           owner = "Supreeeme";
           repo = "xwayland-satellite";
-          tag = "v${version}";
-          hash = "sha256-BUE41HjLIGPjq3U8VXPjf8asH8GaMI7FYdgrIHKFMXA=";
+          rev = "add2795134593faafce60e404a0a75df68e9ee0c";
+          hash = "sha256-0TxfMgqW0/BLD4M942c5DCKYrtPvzsPJwvdcco4LQUM=";
         };
       in
       prev.xwayland-satellite.overrideAttrs (_oldAttrs: {
@@ -19,7 +19,7 @@ let
         cargoDeps = final.rustPlatform.fetchCargoVendor {
           pname = "xwayland-satellite";
           inherit version src;
-          hash = "sha256-16L6gsvze+m7XCJlOA1lsPNELE3D364ef2FTdkh0rVY=";
+          hash = "sha256-s1gl9eR6Mt2QLrhfcowstPFjzwE/lz4PJhJzWYHoIHg=";
         };
       });
   };
