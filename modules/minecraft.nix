@@ -1,6 +1,9 @@
 { inputs, ... }:
 {
-  imports = [ ./minecraft/start-theta-1.nix ];
+  imports = [
+    ./minecraft/atm10.nix
+    ./minecraft/start-theta-1.nix
+  ];
 
   flake.modules.nixos.minecraft = { pkgs, lib, config, ... }:
     let
