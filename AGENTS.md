@@ -232,6 +232,7 @@ Example skeleton for a new module:
 
 | File | Description | Tiers |
 |---|---|---|
+| `minecraft/atm10.nix` | All the Mods 10 Minecraft instance; opt-in via `dots.minecraft.servers.atm10.enable` | nixos |
 | `minecraft/start-theta-1.nix` | Star Technology Theta 1 modded Minecraft instance; opt-in via `dots.minecraft.servers.start-theta-1.enable` | nixos |
 
 #### Host/Profile Definitions (`hosts/`)

@@ -22,6 +22,7 @@ in
         gui.enable = false;
         hardware.enableRedistributableFirmware = true;
 
+        dots.minecraft.servers.atm10.enable = true;
         dots.minecraft.servers.start-theta-1.enable = true;
 
         hm.imports = hmModules;
