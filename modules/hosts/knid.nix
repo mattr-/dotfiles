@@ -8,7 +8,7 @@ in
     system = "x86_64-linux";
     specialArgs = { inherit inputs; };
     modules = nixosModules ++ [
-      inputs.hardware.nixosModules.framework-13-7040-amd
+      # inputs.hardware.nixosModules.framework-13-7040-amd
       inputs.disko.nixosModules.disko
 
       ./knid/_hardware-configuration.nix
@@ -16,7 +16,7 @@ in
 
       ({ pkgs, ... }: {
         nixpkgs.hostPlatform = "x86_64-linux";
-
+        boot.kernelPackages = pkgs.linuxPackages_latest;
         hardware.gpu = "amd";
         keyd.enable = true;
         dots.display.scale = 2;
