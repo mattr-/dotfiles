@@ -58,5 +58,10 @@
         open = lib.mkDefault false;
         nvidiaSettings = lib.mkDefault config.gui.enable;
       };
+
+      hardware.amdgpu = lib.mkIf (gpu == "amd") {
+        initrd.enable = true;
+        opencl.enable = true;
+      };
     };
 }
