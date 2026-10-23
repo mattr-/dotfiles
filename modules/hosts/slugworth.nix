@@ -18,7 +18,7 @@ in
 
       ({ pkgs, ... }: {
         nixpkgs.hostPlatform = "x86_64-linux";
-
+        boot.kernelPackages = pkgs.linuxPackages_latest;
         hardware.gpu = "amd";
         keyd.enable = true;
         dots.display.scale = 2;
