@@ -22,6 +22,7 @@ in
         hardware.gpu = "amd";
         keyd.enable = true;
         dots.display.scale = 2;
+        dots.ollama.enable = true;
 
         networking.hostName = "slugworth";
 
