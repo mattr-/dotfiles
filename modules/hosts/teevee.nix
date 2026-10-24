@@ -24,6 +24,7 @@ in
 
         dots.minecraft.servers.atm10.enable = true;
         dots.minecraft.servers.start-theta-1.enable = true;
+        dots.speaches.enable = true;
 
         hm.imports = hmModules;
         hm.gui.enable = config.gui.enable;
