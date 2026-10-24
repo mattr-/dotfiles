@@ -39,7 +39,7 @@
       services.xserver.videoDrivers = lib.mkIf config.gui.enable (
         lib.mkDefault (
           if gpu == "intel" then [ "intel" ]
-          else if gpu == "nvidia" && config.gui.enable then [ "nvidia" ]
+          else if gpu == "nvidia" then [ "nvidia" ]
           else if gpu == "amd" then [ "amdgpu" ]
           else [ ]
         )
