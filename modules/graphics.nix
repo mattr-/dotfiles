@@ -36,14 +36,13 @@
         );
       };
 
-      services.xserver.videoDrivers = lib.mkIf config.gui.enable (
+      services.xserver.videoDrivers =
         lib.mkDefault (
           if gpu == "intel" then [ "intel" ]
           else if gpu == "nvidia" then [ "nvidia" ]
           else if gpu == "amd" then [ "amdgpu" ]
           else [ ]
-        )
-      );
+        );
 
       boot.kernelParams = lib.mkIf (gpu == "amd") [
         "amd_iommu=off"
