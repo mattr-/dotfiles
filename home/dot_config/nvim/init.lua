@@ -1,37 +1,29 @@
-require("dashvim")
--- The `DashVim` global is now available
--- Make sure lazy.nvim is installed
-DashVim.lazy.ensure_installed()
-
--- Do stuff before loading lazy
-DashVim.lazy.pre_init()
-
--- plugins 🎉
-require("lazy").setup({
-  spec = {
-    { import = "dashvim.plugins" }, -- the base set of plugins
-    { import = "dashvim.plugins.lang" }, -- language plugins
-  },
-  defaults = {
-    lazy = false, -- Require plugins to be lazy loaded explicitly
-    version = false, -- always use the latest git commit.
-  },
-  install = { colorscheme = { "catppuccin-mocha", "habamax" } },
-  checker = { enabled = true }, -- automatically check for plugin updates
-  performance = {
-    rtp = {
-      -- disable some rtp plugins
-      disabled_plugins = {
-        "gzip",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
-        "vimballPlugin",
-        "zipPlugin",
-      },
-    },
-  },
+-- bootstrap lazy.nvim, DashVim and your plugins
+local dash = require("config.dash")
+dash.ensure_lazy_installed()
+dash.load({
+  dev = {
+    path = "~/Code/mattr-",
+    patterns = { "mattr-" },
+  }
 })
 
--- post plugin install initialization
-DashVim.lazy.post_install()
+vim.opt.laststatus = 3
+
+vim.cmd([[colorscheme catppuccin]])
+vim.cmd([[:nnoremap j gj]])
+vim.cmd([[:nnoremap k gk]])
+
+-- vim.opt.statusline = "%#MiniIconsAzure#%-02{v:lua.MiniIcons.get('filetype','lua')}%#NormalFloat#%f"
+
+vim.keymap.set("n", "<Space>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
+
+-- vim.diagnostic.config({
+--   underline = { severity = vim.diagnostic.severity.WARN }, -- underlines for warnings and errors only
+--   virtual_text = {
+--     source = "if_many",
+--     spacing = 4,
+--     prefix = "󰅏 "
+
+
+
