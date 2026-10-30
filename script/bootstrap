@@ -19,13 +19,16 @@ repo_dir="$(cd "$script_dir/.." && pwd)"
 
 if ! command -v nix &>/dev/null; then
   if is_linux; then
-    curl -sSf -L https://install.lix.systems/lix | sh -s -- install linux --no-confirm --no-modify-profile --init none
+    curl -sSf -L https://nixos.org/nix/install | sh -s -- --no-daemon --no-modify-profile
   else
     curl -sSf -L https://install.lix.systems/lix | sh -s -- install --no-confirm --no-modify-profile
   fi
   if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
     # shellcheck source=/dev/null
     . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+  elif [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
+    # shellcheck source=/dev/null
+    . "$HOME/.nix-profile/etc/profile.d/nix.sh"
   fi
 fi
 
