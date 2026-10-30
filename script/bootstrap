@@ -3,13 +3,14 @@
 set -e
 
 is_linux() { [ "$(uname -s)" = "Linux" ]; }
+is_darwin() { [ "$(uname -s)" = "Darwin" ]; }
 is_devcontainer() {
   [ -n "${CODESPACES:-}" ] || [ -n "${REMOTE_CONTAINERS:-}" ] || [ -f /.dockerenv ]
 }
 
-if ! is_linux || ! is_devcontainer; then
-  echo "Error: bootstrap is only supported inside a Linux devcontainer." >&2
-  echo "Supported environments: GitHub Codespaces, VS Code devcontainers, Docker." >&2
+if ! is_darwin && { ! is_linux || ! is_devcontainer; }; then
+  echo "Error: bootstrap is only supported on macOS or inside a Linux devcontainer." >&2
+  echo "Supported environments: macOS, GitHub Codespaces, VS Code devcontainers, Docker." >&2
   exit 1
 fi
 
@@ -17,11 +18,17 @@ script_dir="$(cd "$(dirname "$0")" && pwd)"
 repo_dir="$(cd "$script_dir/.." && pwd)"
 
 if ! command -v nix &>/dev/null; then
-  curl -sSf -L https://nixos.org/nix/install | sh -s -- --no-daemon
+  if is_linux; then
+    curl -sSf -L https://install.lix.systems/lix | sh -s -- install linux --no-confirm --no-modify-profile --init none
+  else
+    curl -sSf -L https://install.lix.systems/lix | sh -s -- install --no-confirm --no-modify-profile
+  fi
   if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
     # shellcheck source=/dev/null
     . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
   fi
 fi
 
-nix run home-manager --extra-experimental-features "nix-command flakes" -- switch --flake "$repo_dir#devcontainer" --impure
+if is_linux; then
+  nix run home-manager --extra-experimental-features "nix-command flakes" -- switch --flake "$repo_dir#devcontainer" --impure
+fi
