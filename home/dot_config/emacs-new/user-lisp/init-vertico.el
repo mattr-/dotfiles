@@ -66,7 +66,7 @@
   (marginalia-mode))
 
 (use-package consult
-  :after vertico
+  :after (vertico general)
   :config
   (dash-leader-def
     "f" '(:ignore t :which-key "find")

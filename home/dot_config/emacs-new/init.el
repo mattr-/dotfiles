@@ -74,6 +74,11 @@
 ;; it everywhere. Built-in features can opt out with `:ensure nil'.
 (setq use-package-always-ensure t)
 
+;; Several completion packages share `compat' as a dependency. Complete its
+;; installation before queuing those dependents so a fresh installation does
+;; not leave the rest of the completion stack in failed or blocked states.
+(elpaca (compat :wait t))
+
 ;; --- Tree-sitter grammar management (Emacs 31+ vs. fallback) ------------
 ;;
 ;; Emacs 31 added built-in `treesit-enabled-modes' and

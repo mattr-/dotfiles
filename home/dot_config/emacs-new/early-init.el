@@ -32,7 +32,7 @@
 ;; UI Customization
 
 ;; Give me a nice font
-(add-to-list 'default-frame-alist '(font . "Iosevka Term-12"))
+(add-to-list 'default-frame-alist '(font . "Iosevka Term-16"))
 
 ;; Define colors to use when loading the GUI frame. The flash of white
 ;; at the start is awkward and since we're using doom themes for now,
