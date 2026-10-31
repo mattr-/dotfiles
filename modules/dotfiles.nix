@@ -1,7 +1,21 @@
 { ... }:
 {
-  flake.modules.homeManager.dotfiles = { lib, pkgs, ... }: {
+  flake.modules.homeManager.dotfiles = { config, lib, pkgs, ... }: {
     home.file = {
+      ".config/emacs-new" = {
+        source = ../home/dot_config/emacs-new;
+        recursive = true;
+      };
+      ".config/doom" = {
+        source = ../home/dot_config/doom;
+        recursive = true;
+      };
+      ".config/gh-not/config.yaml".text = lib.replaceStrings
+        [ "/Users/mattr-/.local/state/gh-not" ]
+        [ "${config.xdg.stateHome}/gh-not" ]
+        (builtins.readFile ../home/dot_config/gh-not/config.yaml);
+      ".pi/agent/APPEND_SYSTEM.md".source = ../home/dot_pi/agent/APPEND_SYSTEM.md;
+
       ".config/ghostty/config".source = ../home/dot_config/ghostty/config;
       ".config/wezterm/wezterm.lua".source = ../home/dot_config/wezterm/wezterm.lua;
       ".config/lazygit/config.yml".source = ../home/dot_config/lazygit/config.yml;
@@ -9,6 +23,8 @@
       ".config/waybar/config".source = ../home/dot_config/waybar/config;
       ".config/waybar/style.css".source = ../home/dot_config/waybar/style.css;
       ".config/niri/config.kdl".source = ../home/dot_config/niri/config.kdl;
+      ".config/niri/input.kdl".source = ../home/dot_config/niri/input.kdl;
+      ".config/niri/binds.kdl".source = ../home/dot_config/niri/binds.kdl;
       ".config/vicinae/vicinae.json".source = ../home/dot_config/vicinae/vicinae.json;
 
       ".config/nvim/init.lua".source = ../home/dot_config/nvim/init.lua;
@@ -52,6 +68,7 @@
       ".zsh/functions/prompt_mattr_setup".source = ../home/dot_zsh/functions/prompt_mattr_setup;
       ".zsh/functions/prompt_mattr2_setup".source = ../home/dot_zsh/functions/prompt_mattr2_setup;
       ".zsh/functions/vim".source = ../home/dot_zsh/functions/vim;
+      ".zsh/functions/ee" = { source = ../home/dot_zsh/functions/executable_ee; executable = true; };
       ".zsh/functions/bounce_rails" = { source = ../home/dot_zsh/functions/executable_bounce_rails; executable = true; };
       ".zsh/functions/clone_starter_repo" = { source = ../home/dot_zsh/functions/executable_clone_starter_repo; executable = true; };
       ".zsh/functions/kdehomerm" = { source = ../home/dot_zsh/functions/executable_kdehomerm; executable = true; };
@@ -109,5 +126,26 @@
       ".hammerspoon/Spoons/ControlEscape.spoon/script/generate-docs" = { source = ../home/dot_hammerspoon/Spoons/ControlEscape.spoon/script/executable_generate-docs; executable = true; };
       ".hammerspoon/Spoons/ControlEscape.spoon/script/setup" = { source = ../home/dot_hammerspoon/Spoons/ControlEscape.spoon/script/executable_setup; executable = true; };
     };
+
+    home.activation.piSettings = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+      run ${pkgs.bash}/bin/bash -euo pipefail <<'SH'
+        export PATH=${lib.makeBinPath [ pkgs.coreutils pkgs.jq ]}:$PATH
+        settings=${lib.escapeShellArg "${config.home.homeDirectory}/.pi/agent/settings.json"}
+        defaults=${../home/dot_pi/agent/settings.json}
+        mkdir -p "$(dirname "$settings")"
+        tmp=$(mktemp "$settings.XXXXXX")
+        trap 'rm -f "$tmp"' EXIT
+
+        if [ -e "$settings" ]; then
+          jq -e -s '.[0] * (.[1] | del(.lastChangelogVersion))' \
+            "$settings" "$defaults" > "$tmp"
+        else
+          jq -e 'del(.lastChangelogVersion)' "$defaults" > "$tmp"
+        fi
+
+        chmod 600 "$tmp"
+        mv "$tmp" "$settings"
+      SH
+    '';
   };
 }
