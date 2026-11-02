@@ -32,7 +32,7 @@ if ! command -v nix &>/dev/null; then
       LIX_INSTALL_PLATFORM="macos"
   fi
 
-  echo "$LIX_INSTALL_TMP" install "$LIX_INSTALL_PLATFORM" "$LIX_INSTALL_OPTIONS"
+  "$LIX_INSTALL_TMP" install "$LIX_INSTALL_PLATFORM" "$LIX_INSTALL_OPTIONS"
 
   # if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
   #   # shellcheck source=/dev/null
