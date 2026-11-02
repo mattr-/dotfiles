@@ -3,12 +3,12 @@
 set -e
 
 is_linux() { [ "$(uname -s)" = "Linux" ]; }
-is_darwin() { [ "$(uname -s)" = "Darwin" ]; }
+is_macos() { [ "$(uname -s)" = "Darwin" ]; }
 is_devcontainer() {
   [ -n "${CODESPACES:-}" ] || [ -n "${REMOTE_CONTAINERS:-}" ] || [ -f /.dockerenv ]
 }
 
-if ! is_darwin && { ! is_linux || ! is_devcontainer; }; then
+if ! is_macos && { ! is_linux || ! is_devcontainer; }; then
   echo "Error: bootstrap is only supported on macOS or inside a Linux devcontainer." >&2
   echo "Supported environments: macOS, GitHub Codespaces, VS Code devcontainers, Docker." >&2
   exit 1
