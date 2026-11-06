@@ -193,6 +193,7 @@ Example skeleton for a new module:
 | `boot.nix` | systemd-boot + EFI defaults | nixos |
 | `cli.nix` | vim (system), CLI tools + program enables | nixos, darwin, homeManager |
 | `desktop-apps.nix` | Discord, Obsidian, Spotify; gated behind `gui.enable` | homeManager |
+| `desktop-integration.nix` | Linux desktop cursor, GTK theming, XDG user directories, and default application associations | homeManager |
 | `display.nix` | Shared display scale option bridged from NixOS to home-manager | nixos, homeManager |
 | `docker.nix` | Docker daemon + adds primary user to `docker` group | nixos |
 | `developer.nix` | Build tools, GUI apps (ghostty, wezterm), fonts, screenshots, document tools | homeManager |
@@ -209,7 +210,6 @@ Example skeleton for a new module:
 | `gpg.nix` | GPG with mutable keys/trust, gpg-agent with SSH support and pinentry-tty | homeManager |
 | `keyd.nix` | Key remapping (capslock as ctrl/esc), opt-in via `keyd.enable` | nixos |
 | `graphics.nix` | GPU-conditional graphics drivers + video acceleration libs (libva, mesa, VDPAU) | nixos |
-| `gtk.nix` | GTK theming, Bibata cursor, WhiteSur icons and theme | homeManager |
 | `home-manager-integration.nix` | NixOS home-manager integration and `hm` alias | nixos |
 | `locale.nix` | en_US.UTF-8 default locale | nixos |
 | `minecraft.nix` | Shared modded Minecraft defaults and upstream module import | nixos |
@@ -223,7 +223,7 @@ Example skeleton for a new module:
 | `sudo.nix` | sudo with TERM info preserved and passwordless wheel group | nixos |
 | `sunshine.nix` | Sunshine game streaming server | nixos |
 | `tailscale.nix` | Tailscale VPN | nixos |
-| `users.nix` | User account and home directory, zsh shell, SSH keys, 1Password (system); home-manager base settings, sd-switch, XDG user dirs (user) | nixos, darwin, homeManager |
+| `users.nix` | User account and home directory, zsh shell, SSH keys, 1Password (system); home-manager base settings and sd-switch (user) | nixos, darwin, homeManager |
 | `utils.nix` | Basic system utilities | nixos, homeManager |
 | `vm.nix` | VM variant config (8GB RAM, 4 cores) | nixos |
 | `wayland.nix` | Hyprland + hyprlock + hypridle (system) and Wayland user tools (user) | nixos, homeManager |
