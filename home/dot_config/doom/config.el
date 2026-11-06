@@ -79,3 +79,4 @@
 (setq evil-vsplit-window-right t)
 (with-eval-after-load 'projectile
                       (setq projectile-project-search-path '(("~/Code" . 2) "~/.local/share/chezmoi")))
+(setq confirm-kill-emacs nil)
