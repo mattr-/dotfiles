@@ -3,10 +3,10 @@
   flake.modules.homeManager.users = { config, ... }: {
 
     home = {
-      username = ${config.user.name};
-      homeDirectory = ${config.user.home};
+      username = config.user.name;
+      homeDirectory = config.user.home;
       stateVersion = "24.11";
-    }
+    };
 
     programs.home-manager.enable = true;
     systemd.user.startServices = "sd-switch";
@@ -78,6 +78,10 @@
         "inode/directory" = "org.gnome.Nautilus.desktop";
       };
     };
+  };
+
+  flake.modules.darwin.users = { config, ... }: {
+    users.users.${config.username}.home = "/Users/${config.username}";
   };
 
   flake.modules.nixos.users = { pkgs, config, ... }: {
