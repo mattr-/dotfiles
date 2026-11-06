@@ -1,4 +1,4 @@
-{ outputs, lib, ... }:
+{ inputs, lib, ... }:
 {
   flake.modules.nixos.stateVersion = {
     system.stateVersion = lib.mkDefault "24.05";
@@ -6,7 +6,7 @@
 
   flake.modules.darwin.stateVersion = {
     system.stateVersion = lib.mkDefault 7;
-    system.configurationRevision = outputs.self.rev or outputs.self.dirtyRev or null;
+    system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
   };
 
   flake.modules.homeManager.stateVersion = {
