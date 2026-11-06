@@ -1,17 +1,18 @@
 { inputs, ... }:
+let
+  commonHomeManagerOptions = {
+    backupFileExtension = "bak";
+    extraSpecialArgs = { inherit inputs; };
+    useGlobalPkgs = true;
+    useUserPackages = true;
+  };
+in
 {
   flake.modules.nixos.home-manager-integration = { lib, ... }: {
     imports = [
       inputs.home-manager.nixosModules.home-manager
 
-      {
-        home-manager = {
-          backupFileExtension = "bak";
-          extraSpecialArgs = { inherit inputs; };
-          useGlobalPkgs = true;
-          useUserPackages = true;
-        };
-      }
+      { home-manager = commonHomeManagerOptions; }
 
       (lib.mkAliasOptionModule [ "hm" ] [ "home-manager" "users" "mattr-" ])
     ];
@@ -21,13 +22,7 @@
     imports = [
       inputs.home-manager.darwinModules.home-manager
 
-      {
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          extraSpecialArgs = { inherit inputs; };
-        };
-      }
+      { home-manager = commonHomeManagerOptions; }
 
       (lib.mkAliasOptionModule [ "hm" ] [ "home-manager" "users" "mattr-" ])
     ];
