@@ -181,7 +181,7 @@ Example skeleton for a new module:
 | `flake-parts.nix` | Imports flake-parts modules flakeModule and home-manager flakeModule | (flake-parts infrastructure) |
 | `options.nix` | Custom options | nixos, darwin, homeManager |
 | `systems.nix` | Supported systems list + per-system formatter (`nixpkgs-fmt`) | (flake-parts infrastructure) |
-| `state-version.nix` | Default `stateVersion` for NixOS (24.05) and home-manager (24.05) | nixos, homeManager |
+| `state-version.nix` | Default state versions for NixOS (24.05), Darwin (7), and home-manager (24.05) | nixos, darwin, homeManager |
 | `nixpkgs.nix` | `allowUnfree = true` for NixOS and Darwin | nixos, darwin |
 
 #### Feature Modules (top-level)
@@ -210,7 +210,7 @@ Example skeleton for a new module:
 | `gpg.nix` | GPG with mutable keys/trust, gpg-agent with SSH support and pinentry-tty | homeManager |
 | `keyd.nix` | Key remapping (capslock as ctrl/esc), opt-in via `keyd.enable` | nixos |
 | `graphics.nix` | GPU-conditional graphics drivers + video acceleration libs (libva, mesa, VDPAU) | nixos |
-| `home-manager-integration.nix` | NixOS home-manager integration and `hm` alias | nixos |
+| `home-manager-integration.nix` | NixOS and Darwin home-manager integration and `hm` alias | nixos, darwin |
 | `locale.nix` | en_US.UTF-8 default locale | nixos |
 | `minecraft.nix` | Shared modded Minecraft defaults and upstream module import | nixos |
 | `moonlight.nix` | Moonlight game streaming client | nixos |
@@ -252,6 +252,7 @@ Example skeleton for a new module:
 | `hosts/slugworth/_disko.nix` | Disk partitioning: GPT, ESP, btrfs subvolumes (manually imported by slugworth.nix) | (not auto-imported) |
 | `hosts/example-nixos.nix` | Template NixOS host with GRUB + ext4 | `nixosConfigurations.example-nixos` |
 | `hosts/example-darwin.nix` | Template nix-darwin host for Apple Silicon | `darwinConfigurations.example-darwin` |
+| `hosts/gloop.nix` | Apple Silicon Darwin host without home-manager integration | `darwinConfigurations.gloop` |
 | `hosts/mattr-home.nix` | Standalone home-manager profile for Linux user mattr- | `homeConfigurations.mattr-` |
 | `hosts/devcontainer-home.nix` | Standalone home-manager profile for devcontainers (uses `--impure`) | `homeConfigurations.devcontainer` |
 

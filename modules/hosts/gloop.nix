@@ -1,7 +1,8 @@
 { inputs, config, ... }:
 let
-  darwinModules = builtins.attrValues (config.flake.modules.darwin or { });
-  hmModules = builtins.attrValues (config.flake.modules.homeManager or { });
+  darwinModules = builtins.attrValues (
+    builtins.removeAttrs (config.flake.modules.darwin or { }) [ "home-manager-integration" ]
+  );
 in
 {
   flake.darwinConfigurations."gloop" = inputs.nix-darwin.lib.darwinSystem {
@@ -11,8 +12,6 @@ in
       ({
         nixpkgs.hostPlatform = "aarch64-darwin";
         networking = { hostName = "gloop"; };
-
-        hm.imports = hmModules;
       })
     ];
   };
