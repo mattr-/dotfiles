@@ -188,14 +188,15 @@ Example skeleton for a new module:
 
 | File | Description | Tiers |
 |---|---|---|
+| `atticd.nix` | Opt-in Attic binary cache with Caddy proxy | nixos |
 | `audio.nix` | PipeWire with ALSA, PulseAudio compat, JACK; WirePlumber Bluetooth config; rtkit | nixos |
 | `bluetooth.nix` | Bluetooth with bluez5-experimental and enhanced settings | nixos |
 | `boot.nix` | systemd-boot + EFI defaults | nixos |
 | `cli.nix` | vim (system), CLI tools + program enables | nixos, darwin, homeManager |
-| `desktop-apps.nix` | Discord, Obsidian, Spotify; gated behind `gui.enable` | homeManager |
+| `containers.nix` | Podman container backend with Docker compatibility and NVIDIA support | nixos |
+| `desktop-apps.nix` | Desktop applications via NixOS packages and Darwin Homebrew casks | nixos, darwin |
 | `desktop-integration.nix` | Linux desktop cursor, GTK theming, XDG user directories, and default application associations | homeManager |
 | `display.nix` | Shared display scale option bridged from NixOS to home-manager | nixos, homeManager |
-| `docker.nix` | Docker daemon + adds primary user to `docker` group | nixos |
 | `developer.nix` | Build tools, GUI apps (ghostty, wezterm), fonts, screenshots, document tools | homeManager |
 | `neovim.nix` | Neovim with vi/vim aliases, set as default editor | homeManager |
 | `firewall.nix` | nftables firewall; default deny input, allow established + SSH (port 22) | nixos |
@@ -217,8 +218,10 @@ Example skeleton for a new module:
 | `network.nix` | NetworkManager, systemd-resolved with DNS-over-TLS, Avahi/mDNS, TCP hardening and optimization sysctls | nixos |
 | `nix-ld.nix` | nix-ld for running unpatched dynamic binaries | nixos |
 | `nix.nix` | Nix (latest), flakes, trusted users, GC, registry, nh | nixos, darwin, homeManager |
+| `ollama.nix` | Opt-in Ollama server with GPU-specific package selection | nixos |
 | `overlays.nix` | Nixpkgs overlays for Emacs and other custom packages | nixos, flake output |
 | `sddm.nix` | SDDM display manager with astronaut theme; gated behind `gui.enable` | nixos |
+| `speaches.nix` | Opt-in CUDA speech-to-text container service | nixos |
 | `ssh.nix` | OpenSSH server (key-only, no root login) + SSH agent (system); SSH client config with 1Password include (user) | nixos, homeManager |
 | `sudo.nix` | sudo with TERM info preserved and passwordless wheel group | nixos |
 | `sunshine.nix` | Sunshine game streaming server | nixos |
