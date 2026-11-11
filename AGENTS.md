@@ -275,11 +275,11 @@ Example skeleton for a new module:
 | `nix-darwin` | macOS system configuration | yes |
 | `disko` | Declarative disk partitioning | yes |
 | `flatpaks` | nix-flatpak for Flatpak management | -- |
-| `hardware` | NixOS hardware quirks (nixos-hardware) | -- |
-| `llm-agents` | LLM tools (claude-code, opencode) | -- |
-| `minecraft-servers` | Modded Minecraft server support | -- |
+| `hardware` | NixOS hardware quirks (nixos-hardware) | yes |
+| `llm-agents` | LLM tools (claude-code, opencode) | yes |
+| `minecraft-servers` | Modded Minecraft server support | yes |
 | `noctalia` | Noctalia shell | yes |
-| `quickshell` | Quickshell compositor widget toolkit | -- |
+| `emacs-overlay` | Emacs package overlay | yes |
 
 ### Nix Code Style
 

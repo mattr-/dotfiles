@@ -28,18 +28,25 @@
 
     flatpaks.url = "github:gmodena/nix-flatpak?ref=latest";
 
-    hardware.url = "github:NixOS/nixos-hardware";
+    hardware = {
+      url = "github:NixOS/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    llm-agents.url = "github:numtide/llm-agents.nix";
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    minecraft-servers.url = "github:mkaito/nixos-modded-minecraft-servers";
+    minecraft-servers = {
+      url = "github:mkaito/nixos-modded-minecraft-servers";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    quickshell.url = "github:quickshell-mirror/quickshell";
 
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
