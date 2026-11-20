@@ -1,12 +1,7 @@
 { inputs, ... }:
 let
-  localOverlay = final: _prev: {
-    plannotator = final.callPackage ../pkgs/plannotator { };
-  };
-
   overlays = [
     inputs.emacs-overlay.overlays.emacs
-    localOverlay
   ];
 in
 {
