@@ -34,7 +34,6 @@ in
           quickshell
           matugen
           ddcutil
-          plannotator
           inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
           bambu-studio
         ];
