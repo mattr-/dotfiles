@@ -27,6 +27,7 @@
         "firefox"
         "ghostty"
         "hammerspoon"
+        "herdr"
         "instant-space-switcher"
         "istat-menus"
         "anomaly-hex"
